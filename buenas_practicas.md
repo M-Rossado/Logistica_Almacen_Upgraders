@@ -32,6 +32,7 @@ Para una mejor coordinación podemos utilizar la siguiente nomenclatura:
         git push -f
 
         *Tengo que hacer un par de pruebas antes de confirmar 100% estos pasos 
+        *He securizado (creo) las ramas main y develop para que no podamos cagarla y subir cambios directamente en ellas sin mergear con otra rama hija
 
     
 
