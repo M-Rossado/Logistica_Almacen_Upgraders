@@ -1,0 +1,214 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Lavavajillas Líquido",
+      "description": "Lavavajillas con alto poder desengrasante.",
+      "price": 3.79,
+      "category": "Cocina",
+      "brand": "DishSpark",
+      "quantity": 150,
+      "imageUrl": "https://via.placeholder.com/150?text=Lavavajillas+Líquido"
+    },
+    {
+      "id": "2",
+      "name": "Paños de Microfibra",
+      "description": "Set de 5 paños de microfibra reutilizables.",
+      "price": 6.99,
+      "category": "Accesorios",
+      "brand": "FiberPro",
+      "quantity": 120,
+      "imageUrl": "https://via.placeholder.com/150?text=Paños+de+Microfibra"
+    },
+    {
+      "id": "3",
+      "name": "Limpia Vidrios",
+      "description": "Solución especializada para ventanas y espejos.",
+      "price": 2.89,
+      "category": "Hogar",
+      "brand": "GlassBright",
+      "quantity": 90,
+      "imageUrl": "https://via.placeholder.com/150?text=Limpia+Vidrios"
+    },
+    {
+      "id": "4",
+      "name": "Aromatizante Ambiental",
+      "description": "Spray aromatizante con fragancia duradera.",
+      "price": 3.59,
+      "category": "Hogar",
+      "brand": "FreshAir",
+      "quantity": 70,
+      "imageUrl": "https://via.placeholder.com/150?text=Aromatizante+Ambiental"
+    },
+    {
+      "id": "5",
+      "name": "Limpiador para Madera",
+      "description": "Cuida y protege superficies de madera.",
+      "price": 4.29,
+      "category": "Hogar",
+      "brand": "WoodCare",
+      "quantity": 60,
+      "imageUrl": "https://via.placeholder.com/150?text=Limpiador+para+Madera"
+    },
+    {
+      "id": "6",
+      "name": "Escoba de Cerdas Suaves",
+      "description": "Escoba duradera para suelos delicados.",
+      "price": 7.49,
+      "category": "Accesorios",
+      "brand": "SweepIt",
+      "quantity": 50,
+      "imageUrl": "https://via.placeholder.com/150?text=Escoba+de+Cerdas+Suaves"
+    },
+    {
+      "id": "7",
+      "name": "Fregona Absorbente",
+      "description": "Fregona de alta absorción con mango ergonómico.",
+      "price": 9.99,
+      "category": "Accesorios",
+      "brand": "MopEase",
+      "quantity": 40,
+      "imageUrl": "https://via.placeholder.com/150?text=Fregona+Absorbente"
+    },
+    {
+      "id": "8",
+      "name": "Limpia Hornos",
+      "description": "Solución potente para eliminar grasa incrustada.",
+      "price": 5.29,
+      "category": "Cocina",
+      "brand": "OvenPro",
+      "quantity": 65,
+      "imageUrl": "https://via.placeholder.com/150?text=Limpia+Hornos"
+    },
+    {
+      "id": "9",
+      "name": "Jabón Líquido para Manos",
+      "description": "Hidratante con fragancia suave.",
+      "price": 3.19,
+      "category": "Higiene",
+      "brand": "HandSoft",
+      "quantity": 180,
+      "imageUrl": "https://via.placeholder.com/150?text=Jabón+Líquido+para+Manos"
+    },
+    {
+      "id": "10",
+      "name": "Desatascador Líquido",
+      "description": "Fórmula profesional para tuberías.",
+      "price": 6.49,
+      "category": "Hogar",
+      "brand": "PipeClear",
+      "quantity": 35,
+      "imageUrl": "https://via.placeholder.com/150?text=Desatascador+Líquido"
+    },
+    {
+      "id": "11",
+      "name": "Limpiador de Alfombras",
+      "description": "Ideal para manchas difíciles en alfombras y tapicerías.",
+      "price": 7.99,
+      "category": "Hogar",
+      "brand": "CarpetBright",
+      "quantity": 45,
+      "imageUrl": "https://via.placeholder.com/150?text=Limpiador+de+Alfombras"
+    },
+    {
+      "id": "12",
+      "name": "Guantes de Látex",
+      "description": "Caja de 50 guantes resistentes.",
+      "price": 8.49,
+      "category": "Accesorios",
+      "brand": "ProtectHand",
+      "quantity": 300,
+      "imageUrl": "https://via.placeholder.com/150?text=Guantes+de+Látex"
+    },
+    {
+      "id": "13",
+      "name": "Detergente en Polvo",
+      "description": "Eficaz para ropa blanca y de color.",
+      "price": 6.19,
+      "category": "Ropa",
+      "brand": "PowderFresh",
+      "quantity": 75,
+      "imageUrl": "https://via.placeholder.com/150?text=Detergente+en+Polvo"
+    },
+    {
+      "id": "14",
+      "name": "Desengrasante Industrial",
+      "description": "Desengrasante concentrado para usos exigentes.",
+      "price": 8.99,
+      "category": "Hogar",
+      "brand": "GreaseAway",
+      "quantity": 25,
+      "imageUrl": "https://via.placeholder.com/150?text=Desengrasante+Industrial"
+    },
+    {
+      "id": "15",
+      "name": "Limpia Inodoros",
+      "description": "Elimina manchas difíciles en inodoros.",
+      "price": 3.89,
+      "category": "Baño",
+      "brand": "ToiletShine",
+      "quantity": 90,
+      "imageUrl": "https://via.placeholder.com/150?text=Limpia+Inodoros"
+    },
+    {
+      "id": "16",
+      "name": "Cepillo para Fregar",
+      "description": "Cepillo robusto con mango ergonómico.",
+      "price": 4.49,
+      "category": "Accesorios",
+      "brand": "ScrubBuddy",
+      "quantity": 70,
+      "imageUrl": "https://via.placeholder.com/150?text=Cepillo+para+Fregar"
+    },
+    {
+      "id": "17",
+      "name": "Esponjas Multiusos",
+      "description": "Pack de 10 esponjas resistentes y reutilizables.",
+      "price": 3.99,
+      "category": "Accesorios",
+      "brand": "SpongeFlex",
+      "quantity": 200,
+      "imageUrl": "https://via.placeholder.com/150?text=Esponjas+Multiusos"
+    },
+    {
+      "id": "18",
+      "name": "Lustra Metales",
+      "description": "Devuelve el brillo a superficies metálicas.",
+      "price": 5.79,
+      "category": "Hogar",
+      "brand": "MetalShine",
+      "quantity": 85,
+      "imageUrl": "https://via.placeholder.com/150?text=Lustra+Metales"
+    },
+    {
+      "id": "19",
+      "name": "Cubos de Basura",
+      "description": "Set de 3 cubos para separación de residuos.",
+      "price": 12.49,
+      "category": "Accesorios",
+      "brand": "EcoSort",
+      "quantity": 30,
+      "imageUrl": "https://via.placeholder.com/150?text=Cubos+de+Basura"
+    },
+    {
+      "id": "20",
+      "name": "Ambientador Eléctrico",
+      "description": "Difusor de fragancia continua para el hogar.",
+      "price": 9.99,
+      "category": "Hogar",
+      "brand": "FreshPlug",
+      "quantity": 60,
+      "imageUrl": "https://via.placeholder.com/150?text=Ambientador+Eléctrico"
+    },
+    {
+      "id": "20e2",
+      "name": "Gel de cuerpo",
+      "description": "Gel de coco",
+      "price": 2,
+      "category": "Productos de limpieza",
+      "brand": "seda",
+      "quantity": 2,
+      "imageUrl": "https://via.placeholder.com/150?text=Nombre+Producto"
+    }
+  ]
+}

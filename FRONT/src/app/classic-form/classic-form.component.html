@@ -1,0 +1,35 @@
+<form (ngSubmit)="handleForm()" class="form">
+    <h2>Formulario Clasico</h2>
+
+    <div class="form-field">
+        <label>Nombre del producto</label>
+        <input placeholder="Nombre del producto" name="productName" [(ngModel)]="productForm.name" />
+    </div>
+
+    <div class="form-field">
+        <label>Descripción</label>
+        <input placeholder="Descripcion" name="description" [(ngModel)]="productForm.description" />
+    </div>
+
+    <div class="form-field">
+        <label>Precio</label>
+        <input type="number" placeholder="Precio" name="price" [(ngModel)]="productForm.price" />
+    </div>
+
+    <div class="form-field">
+        <label>Categoria</label>
+        <input placeholder="Categoria" name="category" [(ngModel)]="productForm.category" />
+    </div>
+
+    <div class="form-field">
+        <label>Marca</label>
+        <input placeholder="Marca" name="brand" [(ngModel)]="productForm.brand" />
+    </div>
+
+    <div class="form-field">
+        <label>Cantidad</label>
+        <input type="number" placeholder="Cantidad" name="quantity" [(ngModel)]="productForm.quantity" />
+    </div>
+
+    <button type="submit">Enviar formulario</button>
+</form>
