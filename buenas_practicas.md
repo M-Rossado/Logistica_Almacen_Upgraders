@@ -37,6 +37,8 @@ Para una mejor coordinación podemos utilizar la siguiente nomenclatura:
         *Tengo que hacer un par de pruebas antes de confirmar 100% estos pasos 
         *He securizado las ramas main y develop para que no podamos cagarla y subir cambios directamente en ellas sin mergear con otra rama hija
 
+       *Las ramas main y develop están securizadas para que no podamos cagarla y realizar un push directamente sobre ellas
+
     
 
 
