@@ -32,6 +32,8 @@ Para una mejor coordinación podemos utilizar la siguiente nomenclatura:
        Ir al repositorio de GitHub y crear una pull request asignando a un compañero como revisor,
        él será el encargado de dar el ok y confimar el merge
 
+       *Las ramas main y develop están securizadas para que no podamos cagarla y realizar un push directamente sobre ellas
+
     
 
 
