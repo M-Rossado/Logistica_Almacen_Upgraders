@@ -1,26 +1,15 @@
-const express = require('express');
-require("dotenv").config();
+const express = require("express");
+require("dotenv").config(); // configuro mi servidor para usar variable de entorno
 
-const connectDB = require('./src/utils/db_sportevent');
-connectDB();
-
-const routes = require('./src/api/routers/routes')
-
-const cloudinary = require('cloudinary').v2
-// Configuration
-cloudinary.config({ 
-    cloud_name: process.env.CLOUD_NAME, 
-    api_key: process.env.API_KEY, 
-    api_secret: process.env.API_SECRET
-});
-
+const router = require("./src/api/routers/api.router");
 
 const server = express();
 server.use(express.json());
 
 const PORT = process.env.PORT;
-server.listen(PORT, () =>{
+
+server.use("/", router);
+server.listen(process.env.PORT, ()=>{
     console.log(`server running port http://localhost:${PORT}`);
 });
-
 server.use('/', routes);
