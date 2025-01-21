@@ -13,26 +13,29 @@ Para una mejor coordinación podemos utilizar la siguiente nomenclatura:
     (explicación: feature/DS-fecha en la que creas la rama, seguido de tus iniciales en mayúsculas, en mi caso MR)
 
 - Al finalizar cada bloque importante (o cuando consideres), realiza: 
-        . add 
+        add . 
         commit -m "descripción de la tarea realizada"
         push
   con la finalidad de asegurar tu trabajo.
 
-- Una vez has concuido tu labor en esa rama deber subirla al repositorio y mergearla con develop de la siguiente forma:
-        . add 
+- Una vez has concluido tu labor en esa rama debes subirla al repositorio y mergearla con develop de la siguiente forma:
+        add . 
         commit -m "descripción de la tarea realizada"
         push
         git fetch --all
-        git rebase origin/develop
-                    En caso de que se generen conflictos:s
+        git merge develop
+                    En caso de que se generen conflictos:
                     Resolverlos, guardar cada modificación y continuar con:
                     git add .
-                    git rebale --continue
-        git merge
-        git push -f
+                    git merge --continue
+        git push
+
+        En github crear una pull request y poner a un compañero como revisor, él será el ecargado de dar el ok y finalizar el merge de la rama con develop
+
+
 
         *Tengo que hacer un par de pruebas antes de confirmar 100% estos pasos 
-        *He securizado (creo) las ramas main y develop para que no podamos cagarla y subir cambios directamente en ellas sin mergear con otra rama hija
+        *He securizado las ramas main y develop para que no podamos cagarla y subir cambios directamente en ellas sin mergear con otra rama hija
 
     
 
