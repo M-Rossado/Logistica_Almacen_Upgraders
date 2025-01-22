@@ -44,7 +44,7 @@
 - POR ÚLTIMO, ve a github, crear una pull request. Puedes temrinar de confirmarla tu o poner a un compañero de revisor para que termine el proceso.
 
         *He securizado la rama main para que no podamos cagarla y subir cambios directamente en ella sin mergear con otra rama hija, así no podemos 
-        pisar el trabajo de los demás.
+        pisar el trabajo de los demás.xxxx
 
     
 
