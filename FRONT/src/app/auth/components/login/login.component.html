@@ -1,0 +1,34 @@
+<div class="container">
+    <form (ngSubmit)="handleLoginForm()" class="form">
+      <h2 class="form-title">Formulario de Login</h2>
+  
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input
+          id="email"
+          type="text"
+          placeholder="Correo electrónico"
+          name="email"
+          [(ngModel)]="userLoginForm.email"
+          class="form-input"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Contraseña</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="Contraseña"
+          name="password"
+          [(ngModel)]="userLoginForm.password"
+          class="form-input"
+          required
+        />
+      </div>
+
+      <button type="submit" class="form-button">Enviar formulario</button>
+    </form>
+  </div>
+  
