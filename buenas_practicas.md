@@ -1,4 +1,4 @@
-# Para trabajar con repositorios
+# Para traerte el proyecto a local
 - Posicionate desde la terminal en el lugar en el que quieras ubicar el proyecto. Por ejemplo:
         cd miCarpeta
 
@@ -7,35 +7,44 @@
 
 - En él enocntrarás una carpeta de BACK y FRONT (a modificar)
 
-- Para trabajar sobre el proyecto, crea siempre una rama nueva (asegúrate primero de estar posicionado en develop, y realiza un git pull para tener las últimas actualizaciones). 
-Para una mejor coordinación podemos utilizar la siguiente nomenclatura:
-        feature/DS-20012025MR
-    (explicación: feature/DS-fecha en la que creas la rama, seguido de tus iniciales en mayúsculas, en mi caso MR)
+# Para trabajar con repositorios y ramas
+- Para trabajar sobre el proyecto, CREA SIEMPRE UNA NUEVA RAMA: 
+        - Primero asegúrate de estar posicionado en main y actualizala, desde la interfaz de visual, o desde la consola con
+                git checkout main
+                git pull
+        - luego crea tu nueva rama, desde visual o con el comando
+                git branch feature/nombre-rama
+
+                Para una mejor coordinación podemos utilizar la siguiente nomenclatura para nombrar las ramas:
+                feature/user_form_v1
+                (explicación: se pone feature/ porque crea una carpeta invisible que organizará todas las ramas que partan de main,
+                seguido nombramos nuestra rama con algo corto que haga referencia al componente que estamos haciendo y su versión)
+        - publica la rama con un git push
 
 - Al finalizar cada bloque importante (o cuando consideres), realiza: 
-        add . 
-        commit -m "descripción de la tarea realizada"
-        push
+        git add . 
+        git commit -m "descripción de la tarea realizada"
+        git push
   con la finalidad de asegurar tu trabajo.
 
-- Una vez has concluido tu labor en esa rama debes subirla al repositorio y mergearla con develop de la siguiente forma:
-        add . 
-        commit -m "descripción de la tarea realizada"
-        push
-        git fetch --all
-        git merge develop
+- Una vez has concluido tu labor en esa rama debes subirla al repositorio y mergearla con main de la siguiente forma:
+        git add . 
+        git commit -m "descripción de la tarea realizada"
+        git push
+        git checkout main
+        git pull
+        git checkout user_form_v1 (el nombre de tu rama)
+        git merge main
                     En caso de que se generen conflictos:
                     Resolverlos, guardar cada modificación y continuar con:
                     git add .
-                    git merge --continue
+                    git commit      (esta vez sin mensaje)
         git push
 
-        En github crear una pull request y poner a un compañero como revisor, él será el ecargado de dar el ok y finalizar el merge de la rama con develop
+- POR ÚLTIMO, ve a github, crear una pull request. Puedes temrinar de confirmarla tu o poner a un compañero de revisor para que termine el proceso.
 
-
-
-        *Tengo que hacer un par de pruebas antes de confirmar 100% estos pasos 
-        *He securizado las ramas main y develop para que no podamos cagarla y subir cambios directamente en ellas sin mergear con otra rama hija
+        *He securizado la rama main para que no podamos cagarla y subir cambios directamente en ella sin mergear con otra rama hija, así no podemos 
+        pisar el trabajo de los demás.
 
     
 
