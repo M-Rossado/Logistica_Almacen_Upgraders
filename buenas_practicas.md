@@ -7,37 +7,37 @@
 
 - En él encontrarás una carpeta de BACK y FRONT (a modificar)
 
-- Para trabajar sobre el proyecto, crea siempre una rama nueva (asegúrate primero de estar posicionado en develop, y realiza un git pull para tener las últimas actualizaciones). 
-Para una mejor coordinación podemos utilizar la siguiente nomenclatura:
+# Para comenzar a trabajar con ramas
+
+- Para trabajar sobre el proyecto, crea siempre una rama nueva (asegúrate primero de estar posicionado en main, y realiza un git pull para tener las últimas actualizaciones). 
+Para una mejor coordinación podemos utilizar la siguiente nomenclatura para nombrar las ramas:
         feature/user-form_v1
-    (explicación: feature/nombre corto del componente o sección que estas realizando seguido de la versión, por si a futuro necesitas abrir más ramas del componente con v2, v3, v4, etc)
+    (explicación: 
+    feature/nombre corto del componente o sección que estas realizando seguido de la versión, por si a futuro necesitas abrir más ramas del componente con v2, v3, v4, etc)
+
 - Al finalizar cada bloque importante (o cuando consideres), realiza: 
-        add . 
-        add . 
-        commit -m "descripción de la tarea realizada"
-        push
+        git add . 
+        git commit -m "descripción de la tarea realizada"
+        git push
   con la finalidad de asegurar tu trabajo.
 
-- Una vez has concluido tu labor en esa rama debes subirla al repositorio y mergearla con develop de la siguiente forma:
-        add . 
-        commit -m "descripción de la tarea realizada"
-        push
+- Una vez has concuido tu labor en esa rama debes subirla al repositorio y mergearla con develop de la siguiente forma:
+        git add . 
+        git commit -m "descripción de la tarea realizada"
+        git push
         git fetch --all
-        git merge develop
-                    En caso de que se generen conflictos:
+        git merge main
+                    En caso de que se generen conflictos
                     Resolverlos, guardar cada modificación y continuar con:
                     git add .
                     git merge --continue
         git push
 
-        En github crear una pull request y poner a un compañero como revisor, él será el ecargado de dar el ok y finalizar el merge de la rama con develop
+       Ir al repositorio de GitHub y crear una pull request, puedes confirmar tu mismo el mergeo, o puedes asignar un compañero revisor para que eche un vistazo a tu código y de él la confirmación.
 
+       Cuando finalices, borra tu rrama desde el repositorio (en tu local la seguirás teniendo, eso no importa)
 
-
-        *Tengo que hacer un par de pruebas antes de confirmar 100% estos pasos 
-        *He securizado las ramas main y develop para que no podamos cagarla y subir cambios directamente en ellas sin mergear con otra rama hija
-
-       *Las ramas main y develop están securizadas para que no podamos cagarla y realizar un push directamente sobre ellas
+       *Las rama main está securizada para que no podamos cagarla y realizar un push directamente sobre ellas
 
     
 
