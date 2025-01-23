@@ -1,12 +1,9 @@
 const pool = require("../../utils/db")
 
-
-
-
-const insertarAlmacenes = async ({localizacion}) => {
-    console.log("Intentando insertar almacen:", {localizacion});
+const insertWarehouse = async ({location}) => {
+    console.log("Intentando insertar almacen:", {location});
     try {
-        const [result] = await pool.query("INSERT INTO almacenes (localizacion) VALUES (?)", [localizacion]);
+        const [result] = await pool.query("INSERT INTO warehouse (location) VALUES (?)", [location]);
         if (result.affectedRows === 0) {
             return -1;  // Si no se insertó, retorna -1
         }
@@ -16,10 +13,10 @@ const insertarAlmacenes = async ({localizacion}) => {
     }
 };
 
-const selectbyLocation = async(localizacion) =>{
-    const result = await pool.query("SELECT * FROM almacenes WHERE localizacion = ?", [localizacion])
-    return result[0]
+const selectbyLocation = async(location) =>{
+    const result = await pool.query("SELECT * FROM warehouse WHERE location = ?", [location])
+    return result[0];
 }
 
 
-module.exports = {insertarAlmacenes, selectbyLocation}
+module.exports = {insertWarehouse, selectbyLocation}
