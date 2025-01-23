@@ -53,6 +53,18 @@
         "rol": "operario",
         "almacenes_localizacion": "Madrid",
         "camiones_matricula": "XYZ781"
+      },
+      {
+        "idTrabajadores": 3,
+        "nombre": "Marta",
+        "apellidos": "Rosado Benito",
+        "direccion": "Calle Lorem Ipsum 3",
+        "dni": "70000000S",
+        "email": "marta@gmail.com",
+        "contraseña": "marta",
+        "rol": "conductor",
+        "almacenes_localizacion": "Madrid",
+        "camiones_matricula": "XYZ781"
       }
     ],
     "pedidos": [
@@ -82,4 +94,3 @@
       }
     ]
   }
-  
