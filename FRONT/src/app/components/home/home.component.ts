@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { HomeServiceService } from '../service/home-service.service';
 import { PedidosComponent } from '../pedidos/pedidos.component';
 import { JefeComponent } from '../jefe/jefe.component';
+import { OperarioComponent } from "../operario/operario.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [PedidosComponent,JefeComponent],
+  imports: [PedidosComponent, JefeComponent, OperarioComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
