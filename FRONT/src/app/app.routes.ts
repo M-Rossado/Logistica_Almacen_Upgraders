@@ -1,24 +1,24 @@
 import { Routes } from '@angular/router';
-import { ClassicFormComponent } from './classic-form/classic-form.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { EventsListComponent } from './events-list/events-list.component';
+import { LoginComponent } from './auth/components/login/login.component';
 
 export const routes: Routes = [
+
+
+
     {
-        path: 'product-list',
-        component: ProductListComponent
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full' 
     },
     {
-        path: 'product-details/:id',
-        component: ProductDetailsComponent
+        path: '',
+        loadChildren: () => import('./auth/auth.routes').then(m => m.AUTH_ROUTES)
     },
     {
-        path: 'add-product',
-        component: ClassicFormComponent
-    },
-    {
-        path: 'events',
-        component: EventsListComponent
-    },
+        path: '',
+        loadChildren: () => import('./components/home.routes').then(m => m.HOME_ROUTES)
+    }
+
+
+
 ];
