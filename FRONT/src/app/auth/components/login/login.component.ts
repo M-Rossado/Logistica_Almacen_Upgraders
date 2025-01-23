@@ -14,8 +14,8 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   private authService: AuthService = inject(AuthService)
   private router: Router = inject(Router)
-  private role: any = 'jefe'
-  private nombre:any = 'diego'
+  private role: any = 'operario'
+  private nombre:any = 'Juan'
   public userLoginForm = {
     
     email: '',
