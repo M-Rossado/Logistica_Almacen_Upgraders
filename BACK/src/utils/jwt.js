@@ -1,17 +1,18 @@
 const jwt = require("jsonwebtoken");
 
 const createToken = (info)=>{
-   
-const data = {
-    idTrabajadores: info.idTrabajadores,
-    email: info.email,
-};
-  return jwt.sign(data, process.env.SECRET_KEY_JWT, {expiresIn: "1h"});
- 
+    
+  const data = {
+      id_woker: info.id_worker,
+      email: info.email,
+  };
+    return jwt.sign(data, process.env.SECRET_KEY_JWT, {expiresIn: "1h"});
+  
 }
 
 
 const checkRolJefe = (role)=>{
+  console.log(role);
   if(role !== "jefe"){
       return res.status(403).json({msg: "Debe ser jefe para acceder a esta ruta"});
   }

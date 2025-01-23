@@ -41,6 +41,18 @@
         "rol": "operario",
         "almacenes_localizacion": "Barcelona",
         "camiones_matricula": "XYZ789"
+      },
+      {
+        "idTrabajadores": 3,
+        "nombre": "Juan Antonio",
+        "apellidos": "Gómez Rodríguez",
+        "direccion": "Calle Cualquiera 456",
+        "dni": "77831099V",
+        "email": "j.antonio1893@gmail.com",
+        "contraseña": "juan",
+        "rol": "operario",
+        "almacenes_localizacion": "Madrid",
+        "camiones_matricula": "XYZ781"
       }
     ],
     "pedidos": [
