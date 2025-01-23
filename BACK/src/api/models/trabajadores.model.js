@@ -9,7 +9,6 @@ const insertWorker = async ({name, surname, address, dni, email, password, role,
         }
         return result.insertId;
     } catch (error) {
-        
     }
 };
 
@@ -19,9 +18,8 @@ const selectById = async (id_worker) => {
 };
 
 const selectByEmail = async (email) => {
-    const result = await pool.query("SELECT * FROM worker where email = ?",[email]);
-    console.log(result);
-    return result[0];
+    const result = await pool.query("SELECT * FROM worker WHERE email = ?",[email]);
+    return result [0];
 };
 
 module.exports = {insertWorker, selectById, selectByEmail}
