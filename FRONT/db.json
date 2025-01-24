@@ -1,203 +1,4 @@
 {
-<<<<<<< HEAD
-  "almacenes": [
-    {
-      "localizacion": "Madrid",
-      "nombre_nave": "Nave Central",
-      "id": "523d"
-    },
-    {
-      "localizacion": "Barcelona",
-      "nombre_nave": "Nave Este",
-      "id": "9b58"
-    }
-  ],
-  "camiones": [
-    {
-      "matricula": "ABC123",
-      "id": "d1e7"
-    },
-    {
-      "matricula": "XYZ789",
-      "id": "4336"
-    }
-  ],
-  "Trabajadores": [
-    {
-      "idTrabajadores": 1,
-      "nombre": "Juan",
-      "apellidos": "Pérez",
-      "direccion": "Calle Principal 123",
-      "dni": "12345678A",
-      "email": "juan.perez@example.com",
-      "contraseña": "1234",
-      "rol": "jefe",
-      "almacenes_localizacion": "Madrid",
-      "camiones_matricula": "ABC123",
-      "id": "e58e"
-    },
-    {
-      "idTrabajadores": 2,
-      "nombre": "Ana",
-      "apellidos": "García",
-      "direccion": "Calle Secundaria 456",
-      "dni": "87654321B",
-      "email": "ana.garcia@example.com",
-      "contraseña": "5678",
-      "rol": "operario",
-      "almacenes_localizacion": "Barcelona",
-      "camiones_matricula": "XYZ789",
-      "id": "b05f"
-    }
-  ],
-  "pedidos": [
-    {
-      "id": "1",
-      "tipo_articulo": "Electrónica",
-      "status": "en_transito",
-      "fecha_entrada": "2025-01-15",
-      "fecha_salida": "2025-01-15",
-      "origen": "Madrid",
-      "destino": "Barcelona",
-      "almacenes_localizacion": "Madrid",
-      "Trabajadores_almacenes_localizacion": "Madrid",
-      "camiones_matricula": "ABC123"
-    },
-    {
-      "id": "2",
-      "tipo_articulo": "Ropa",
-      "status": "en_transito",
-      "fecha_entrada": "2025-01-10",
-      "fecha_salida": "2025-01-15",
-      "origen": "Barcelona",
-      "destino": "Madrid",
-      "almacenes_localizacion": "Barcelona",
-      "Trabajadores_almacenes_localizacion": "Barcelona",
-      "camiones_matricula": "XYZ789"
-    },
-    {
-      "id": "3",
-      "tipo_articulo": "Muebles",
-      "status": "en_transito",
-      "fecha_entrada": "2025-01-12",
-      "fecha_salida": "2025-01-24",
-      "origen": "Valencia",
-      "destino": "Sevilla",
-      "almacenes_localizacion": "Valencia",
-      "Trabajadores_almacenes_localizacion": "Valencia",
-      "camiones_matricula": "DEF456"
-    },
-    {
-      "id": "4",
-      "tipo_articulo": "Electrodomésticos",
-      "status": "en_transito",
-      "fecha_entrada": "2025-01-18",
-      "fecha_salida": "2025-01-24",
-      "origen": "Sevilla",
-      "destino": "Bilbao",
-      "almacenes_localizacion": "Sevilla",
-      "Trabajadores_almacenes_localizacion": "Sevilla",
-      "camiones_matricula": "GHI789"
-    },
-    {
-      "id": "5",
-      "tipo_articulo": "Libros",
-      "status": "Pendiente",
-      "fecha_entrada": "2025-01-01",
-      "fecha_salida": "",
-      "origen": "Bilbao",
-      "destino": "Granada",
-      "almacenes_localizacion": "Bilbao",
-      "Trabajadores_almacenes_localizacion": "Bilbao",
-      "camiones_matricula": "JKL012"
-    },
-    {
-      "id": "6",
-      "tipo_articulo": "Juguetes",
-      "status": "Pendiente",
-      "fecha_entrada": "2025-01-19",
-      "fecha_salida": "",
-      "origen": "Granada",
-      "destino": "Zaragoza",
-      "almacenes_localizacion": "Granada",
-      "Trabajadores_almacenes_localizacion": "Granada",
-      "camiones_matricula": "MNO345"
-    },
-    {
-      "id": "7",
-      "tipo_articulo": "Alimentos",
-      "status": "Pendiente",
-      "fecha_entrada": "2025-01-16",
-      "fecha_salida": "",
-      "origen": "Zaragoza",
-      "destino": "Valladolid",
-      "almacenes_localizacion": "Zaragoza",
-      "Trabajadores_almacenes_localizacion": "Zaragoza",
-      "camiones_matricula": "PQR678"
-    },
-    {
-      "id": "8",
-      "tipo_articulo": "Medicamentos",
-      "status": "Pendiente",
-      "fecha_entrada": "2025-01-20",
-      "fecha_salida": "",
-      "origen": "Valladolid",
-      "destino": "La Coruña",
-      "almacenes_localizacion": "Valladolid",
-      "Trabajadores_almacenes_localizacion": "Valladolid",
-      "camiones_matricula": "STU901"
-    },
-    {
-      "id": "9",
-      "tipo_articulo": "Herramientas",
-      "status": "Pendiente",
-      "fecha_entrada": "2025-01-21",
-      "fecha_salida": "",
-      "origen": "La Coruña",
-      "destino": "Alicante",
-      "almacenes_localizacion": "La Coruña",
-      "Trabajadores_almacenes_localizacion": "La Coruña",
-      "camiones_matricula": "VWX234"
-    },
-    {
-      "id": "10",
-      "tipo_articulo": "Piezas de repuesto",
-      "status": "Pendiente",
-      "fecha_entrada": "2025-01-11",
-      "fecha_salida": "",
-      "origen": "Alicante",
-      "destino": "Malaga",
-      "almacenes_localizacion": "Alicante",
-      "Trabajadores_almacenes_localizacion": "Alicante",
-      "camiones_matricula": "YZA567"
-    },
-    {
-      "id": "11",
-      "tipo_articulo": "Decoración",
-      "status": "Pendiente",
-      "fecha_entrada": "2025-01-23",
-      "fecha_salida": "",
-      "origen": "Malaga",
-      "destino": "Oviedo",
-      "almacenes_localizacion": "Malaga",
-      "Trabajadores_almacenes_localizacion": "Malaga",
-      "camiones_matricula": "BCD890"
-    },
-    {
-      "id": "12",
-      "tipo_articulo": "Instrumentos musicales",
-      "status": "en_transito",
-      "fecha_entrada": "2025-01-24",
-      "fecha_salida": "",
-      "origen": "Oviedo",
-      "destino": "Santander",
-      "almacenes_localizacion": "Oviedo",
-      "Trabajadores_almacenes_localizacion": "Oviedo",
-      "camiones_matricula": "EFG123"
-    }
-  ]
-}
-=======
     "almacenes": [
       {
         "localizacion": "Madrid",
@@ -291,21 +92,137 @@
         "almacenes_localizacion": "Barcelona",
         "Trabajadores_almacenes_localizacion": "Barcelona",
         "camiones_matricula": "XYZ789",
-         "conductor_asignado": "Juan"
+        "conductor_asignado": "Juan"
       },
       {
         "idpedidos": 3,
+        "tipo_articulo": "Muebles",
+        "status": "Completado",
+        "fecha_entrada": "2025-01-05",
+        "fecha_salida": "2025-01-12",
+        "origen": "Sevilla",
+        "destino": "Valencia",
+        "almacenes_localizacion": "Sevilla",
+        "Trabajadores_almacenes_localizacion": "Sevilla",
+        "camiones_matricula": "LMN456",
+        "conductor_asignado": "María"
+      },
+      {
+        "idpedidos": 4,
+        "tipo_articulo": "Electrodomésticos",
+        "status": "Pendiente",
+        "fecha_entrada": "2025-01-20",
+        "fecha_salida": null,
+        "origen": "Bilbao",
+        "destino": "Zaragoza",
+        "almacenes_localizacion": "Bilbao",
+        "Trabajadores_almacenes_localizacion": "Bilbao",
+        "camiones_matricula": "GHJ789",
+        "conductor_asignado": "Luis"
+      },
+      {
+        "idpedidos": 5,
+        "tipo_articulo": "Alimentos",
+        "status": "En tránsito",
+        "fecha_entrada": "2025-01-08",
+        "fecha_salida": "2025-01-18",
+        "origen": "Valencia",
+        "destino": "Alicante",
+        "almacenes_localizacion": "Valencia",
+        "Trabajadores_almacenes_localizacion": "Valencia",
+        "camiones_matricula": "OPQ321",
+        "conductor_asignado": "Carlos"
+      },
+      {
+        "idpedidos": 6,
+        "tipo_articulo": "Material de oficina",
+        "status": "Pendiente",
+        "fecha_entrada": "2025-01-12",
+        "fecha_salida": null,
+        "origen": "Zaragoza",
+        "destino": "Bilbao",
+        "almacenes_localizacion": "Zaragoza",
+        "Trabajadores_almacenes_localizacion": "Zaragoza",
+        "camiones_matricula": "RST654",
+        "conductor_asignado": "Ana"
+      },
+      {
+        "idpedidos": 7,
+        "tipo_articulo": "Electrónica",
+        "status": "Completado",
+        "fecha_entrada": "2025-01-02",
+        "fecha_salida": "2025-01-09",
+        "origen": "Granada",
+        "destino": "Málaga",
+        "almacenes_localizacion": "Granada",
+        "Trabajadores_almacenes_localizacion": "Granada",
+        "camiones_matricula": "UVW987",
+        "conductor_asignado": "Jorge"
+      },
+      {
+        "idpedidos": 8,
         "tipo_articulo": "Ropa",
         "status": "En tránsito",
-        "fecha_entrada": "2025-01-10",
-        "fecha_salida": "2025-01-17",
+        "fecha_entrada": "2025-01-14",
+        "fecha_salida": null,
+        "origen": "Madrid",
+        "destino": "Sevilla",
+        "almacenes_localizacion": "Madrid",
+        "Trabajadores_almacenes_localizacion": "Madrid",
+        "camiones_matricula": "BCD234",
+        "conductor_asignado": "Diego"
+      },
+      {
+        "idpedidos": 9,
+        "tipo_articulo": "Libros",
+        "status": "Pendiente",
+        "fecha_entrada": "2025-01-22",
+        "fecha_salida": null,
+        "origen": "Salamanca",
+        "destino": "León",
+        "almacenes_localizacion": "Salamanca",
+        "Trabajadores_almacenes_localizacion": "Salamanca",
+        "camiones_matricula": "EFG567",
+        "conductor_asignado": "Elena"
+      },
+      {
+        "idpedidos": 10,
+        "tipo_articulo": "Juguetes",
+        "status": "Completado",
+        "fecha_entrada": "2025-01-01",
+        "fecha_salida": "2025-01-07",
         "origen": "Barcelona",
-        "destino": "Madrid",
+        "destino": "Tarragona",
         "almacenes_localizacion": "Barcelona",
         "Trabajadores_almacenes_localizacion": "Barcelona",
-        "camiones_matricula": "XYZ789",
-         "conductor_asignado": "Marta"
+        "camiones_matricula": "HIJ890",
+        "conductor_asignado": "Juan"
+      },
+      {
+        "idpedidos": 11,
+        "tipo_articulo": "Electrodomésticos",
+        "status": "Pendiente",
+        "fecha_entrada": "2025-01-18",
+        "fecha_salida": null,
+        "origen": "Valencia",
+        "destino": "Madrid",
+        "almacenes_localizacion": "Valencia",
+        "Trabajadores_almacenes_localizacion": "Valencia",
+        "camiones_matricula": "KLM123",
+        "conductor_asignado": "Carlos"
+      },
+      {
+        "idpedidos": 12,
+        "tipo_articulo": "Alimentos",
+        "status": "En tránsito",
+        "fecha_entrada": "2025-01-16",
+        "fecha_salida": null,
+        "origen": "Alicante",
+        "destino": "Murcia",
+        "almacenes_localizacion": "Alicante",
+        "Trabajadores_almacenes_localizacion": "Alicante",
+        "camiones_matricula": "NOP456",
+        "conductor_asignado": "Ana"
       }
     ]
   }
->>>>>>> main
