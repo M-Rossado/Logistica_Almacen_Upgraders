@@ -1,14 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { HomeServiceService } from '../service/home-service.service';
-import { AgregarTrabajadorComponent } from './modules/agregar-trabajador/agregar-trabajador.component';
-
-
-import { AgregarcamionComponent } from './modules/agregarcamion/agregarcamion.component';
+import { RouterModule } from '@angular/router';
+import { PedidosComponent } from './pedidos/pedidos.component';
 
 @Component({
   selector: 'app-jefe',
   standalone: true,
-  imports: [AgregarTrabajadorComponent,AgregarcamionComponent ],
+  imports: [RouterModule,PedidosComponent],
   templateUrl: './jefe.component.html',
   styleUrl: './jefe.component.css'
 })
@@ -17,8 +15,8 @@ export class JefeComponent {
   
 private homeservice: HomeServiceService = inject(HomeServiceService)
 public pedidosList: any = []
-public Showmodal:boolean = false;// paso #2
-public modalN2: boolean = false;
+public ShowPedidos:boolean = false;// paso #2
+
 
 
 
@@ -46,25 +44,15 @@ getPedidos(){
 // paso 8: para genrar la comunicacion entre madre he hijo debemos poner en nuestro html el dato ejempo ( <app-agregar-trabajador (closeModal)="closeUsuario()"></app-agregar-trabajador>) donde 
 //(closeModal) es el evento emisor que creamos en el hijo  y closeUsuario() es el evento que lo va a recibir, en el momento de agregarlo este les mostrara y los ayudara a definirlo 
 
-openUsuario(){//paso#1
-this.Showmodal = true
-console.log(this.Showmodal)
+openPedidos(){//paso#1
+this.ShowPedidos = true
+console.log(this.ShowPedidos)
 }
 
-closeUsuario(){
-this.Showmodal = false
+closeUser(){
+this.ShowPedidos = false
 }
 
-// modal 2
-
-modal2(){
-this.modalN2 = true
-console.log(this.modalN2)
-}
-
-cerrarmodal2(){
-  this.modalN2 = false
-}
 
 }
 

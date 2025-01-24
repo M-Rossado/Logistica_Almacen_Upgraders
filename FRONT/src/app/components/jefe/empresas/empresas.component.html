@@ -1,0 +1,26 @@
+
+<div class="general">
+    <div class="new-order">
+    </div>
+    <section class="section">
+        <h1>lista de almacenes :</h1>
+        @for(store of storages; track $index){
+<div class="container">
+        <div class="card">
+              <h2></h2>
+            <p><strong>id empresa :</strong>{{store.id}}</p>
+            <p><strong>localizacion :</strong> {{store.location }}</p>
+            <i class="bi bi-alarm"></i>
+            <i class="bi bi-basket"></i>
+            <button (click)="opendetails(store)" class="edit-btn">ver detalles </button>
+        </div>
+    </div>
+        }
+
+    </section>
+</div>
+
+@if(this.modalDetails === true){
+<app-details-werehouse (closeEdit)="closedetails()"></app-details-werehouse>
+}
+  

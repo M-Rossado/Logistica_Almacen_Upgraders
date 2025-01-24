@@ -9,14 +9,30 @@ export class HomeServiceService {
 
  private http: HttpClient = inject(HttpClient)
 
+
+ // servicios genrales 
  getPedidos() {
-  return this.http.get('http://localhost:3000/pedidos')
+  return this.http.get('http://localhost:3000/order')
  }
 
 
+
+// servcios del encargado 
  updateEvent(id: string, editUpdate: any) {
-  return this.http.put(`http://localhost:3000/pedidos/${id}`, editUpdate);
+  return this.http.put(`http://localhost:3000/order/${id}`, editUpdate);
 }
 
+
+//oservicio de tiendas
+getstorage(){
+  return this.http.get('http://localhost:3000/warehouse')
+ }
+
+
+ //servicio de trabajadores
+
+ getWorkers(){
+  return this.http.get('http://localhost:3000/worker')
+ }
   
 }

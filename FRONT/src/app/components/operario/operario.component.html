@@ -1,7 +1,7 @@
-<<<<<<< HEAD
 
 
-=======
+
+
 <div class="general">
     <div class="new-order">
         <button>Crear pedido</button>
@@ -9,7 +9,7 @@
     <section class="section">
         <h1>Pedidos del Almacen (Numero o nombre):</h1>
         @for(pedido of pedidosList; track $index){
-
+<div class="container">
         <div class="card">
               <h2>{{ pedido.tipo_articulo }}</h2>
             <p><strong>estado</strong><p>{{ pedido.status }}</p>
@@ -19,8 +19,9 @@
             <i class="bi bi-basket"></i>
             <button class="edit-btn">Editar</button>
         </div>
+    </div>
         }
 
     </section>
 </div>
->>>>>>> main
+
