@@ -9,6 +9,7 @@ const insertWorker = async ({name, surname, address, dni, email, password, role,
         }
         return result.insertId;
     } catch (error) {
+        console.log(error)
     }
 };
 

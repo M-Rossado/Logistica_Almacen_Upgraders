@@ -13,7 +13,7 @@ const createNewWorker = async (req, res) => {
             return res.status(400).json({ msg: "No se realizó el insert" });
         }
 
-        // Obtener el evento creado desde la base de datos
+        // Obtener el trabajador creado desde la base de datos
         const workerCreated = await selectById(insertedWorker);
         return res.status(200).json({ success: true, data: workerCreated });
     } else {
@@ -21,7 +21,6 @@ const createNewWorker = async (req, res) => {
         return res.status(403).json({ msg: "Acceso denegado: debe ser jefe" });
     }
     } catch (error) {
-        console.log(error)
         return res.status(500).json({ msg: "Error en el servidor" });
     }
 };
