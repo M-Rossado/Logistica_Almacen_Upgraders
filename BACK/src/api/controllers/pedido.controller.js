@@ -54,9 +54,9 @@ const createNewOrder = async (req, res) => {
         }
 
         // Llamar a la función selectByEmail con el email_manager correcto
-        const email = await selectByEmail(email_manager);
+        const result = await selectByEmail(email_manager);
 
-        if (email.length === 0) {
+        if (result.length === 0) {
             return res.status(404).json({ error: 'Pedidos no encontrados' }); 
         }
 
