@@ -3,19 +3,33 @@
         <button>Crear pedido</button>
     </div>
     <section class="section">
-        <h1>Pedidos del Almacen (Numero o nombre):</h1>
+        <p class="saludo">Hola, {{ name }}</p>
+        <h1>estos son tus pedidos gestionados</h1>
         @for(pedido of pedidosList; track $index){
 
         <div class="card">
-              <h2>{{ pedido.tipo_articulo }}</h2>
-            <p><strong>estado</strong><p>{{ pedido.status }}</p>
-            <p><strong>fecha salida:</strong> {{ pedido.fecha_salida }}</p>
-            <p><strong>destino:</strong> {{ pedido.destino }}</p>
-            <i class="bi bi-alarm"></i>
-            <i class="bi bi-basket"></i>
-            <button class="edit-btn">Editar</button>
+            <div class="card-1">
+                <i [class]="'bi ' + getIconClass(pedido.status)"></i> <!-- Icono dinámico -->
+            </div>
+            <div class="card-2">
+                <div class="card-2-inf">
+                    <h2>Pedido: {{ pedido.id }}</h2>
+                    <p>Destino: {{ pedido.destino }}</p>
+                    <p>{{ pedido.fecha_salida }}</p>
+                </div>
+                <div class="card-2-icon">            
+                    <button (click)="mostrarDetalle(pedido)" class="bi bi-clipboard2-plus-fill"></button>                
+                </div>
+            </div>
         </div>
         }
 
+        @if(this.showDetail === true){
+            <app-detalle-operario 
+            (closeModal)="closeDetail()"
+            *ngIf="selectedPedido"
+            [pedido]="selectedPedido"
+            ></app-detalle-operario>
+        }
     </section>
 </div>
