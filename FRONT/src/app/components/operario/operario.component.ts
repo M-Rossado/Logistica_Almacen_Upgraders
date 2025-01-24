@@ -13,17 +13,17 @@ export class OperarioComponent {
   public pedidosList: any = []
   public userRole = localStorage.getItem('role')
   public name =  localStorage.getItem('nombre')
-  
+
   ngOnInit(){
     this.getPedidos()
   }
-  
-  
+
+
   getPedidos(){
     this.homeservice.getPedidos().subscribe((data) =>
     this.pedidosList = data
   )
-    
+
     console.log(this.getPedidos)
   }
 
