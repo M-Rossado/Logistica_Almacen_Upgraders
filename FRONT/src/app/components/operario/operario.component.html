@@ -1,3 +1,4 @@
+
 <div class="general">
     <div class="new-order">
         <button>Crear pedido</button>
@@ -6,7 +7,7 @@
         <p class="saludo">Hola, {{ name }}</p>
         <h1>estos son tus pedidos gestionados</h1>
         @for(pedido of pedidosList; track $index){
-
+<div class="container">
         <div class="card">
             <div class="card-1">
                 <i [class]="'bi ' + getIconClass(pedido.status)"></i> <!-- Icono dinámico -->
@@ -22,6 +23,7 @@
                 </div>
             </div>
         </div>
+    </div>
         }
 
         @if(this.showDetail === true){
@@ -33,3 +35,4 @@
         }
     </section>
 </div>
+

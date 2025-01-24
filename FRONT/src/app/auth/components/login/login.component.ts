@@ -15,7 +15,9 @@ export class LoginComponent {
   private authService: AuthService = inject(AuthService)
   private router: Router = inject(Router)
   private role: any = ''
+
   private nombre:any = ''
+
   public userLoginForm = {
 
     email: '',

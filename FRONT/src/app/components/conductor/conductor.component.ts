@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { HomeServiceService } from '../service/home-service.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-conductor',
@@ -9,23 +8,5 @@ import { HomeServiceService } from '../service/home-service.service';
   styleUrl: './conductor.component.css'
 })
 export class ConductorComponent {
-  private homeservice: HomeServiceService = inject(HomeServiceService)
-  public pedidosList: any = []
-  public userRole = localStorage.getItem('role')
-  public name =  localStorage.getItem('nombre')
-
-  ngOnInit(){
-    this.getPedidos()
-  }
-
-
-  getPedidos(){
-    this.homeservice.getPedidos().subscribe((data) =>
-    this.pedidosList = data
-  )
-
-    console.log(this.getPedidos)
-  }
-
 
 }

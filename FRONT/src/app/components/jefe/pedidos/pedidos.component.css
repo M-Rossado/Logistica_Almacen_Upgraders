@@ -9,25 +9,12 @@
     margin: auto;
     padding: 30px 0;
 }
-.saludo{
-    text-align: center;
-    font-size: 25px;
-    text-transform: uppercase;
-    font-weight: 700;
-}
 h1{
     text-align: center;
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
 }
-.card-1 .bi{
-    font-size: 50px
-}
-.bi {
-    font-size: 30px; /* Tamaño del icono */
-    color: #ffffff;  /* Azul por defecto */
-  }
 .new-order button{
     background-color: #ee8941;
     color: white;
@@ -52,7 +39,6 @@ h2, p{
 }
 
 .card{
-
   background-color: #494949;
   padding: 10px 10px;
   display: flex;
@@ -61,40 +47,14 @@ h2, p{
   width: 80%;
   margin: auto;
   border-radius: 10px;
+}
 
-    background-color: #494949;
-    padding: 10px 4px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-}
-.card-1{
-    border-right: solid 1px white;
-    width: 15%;
-    display: flex;
-    justify-content: center;
-}
-.card-2{
-    display: flex;
-    align-items: center;
-    width: 85%;
-    justify-content: space-between;
-    max-width: 360px;
-    margin: auto;
-
-}
 .edit-btn{
-  background-color: #303030;
+  background-color: #ee8941;
   color: white;
   border-radius: 20px;
   font-weight: 800;
   height: 40px;
   padding: 2px 15px;
-}
 
-button{
-    background-color: transparent;
-    border: none;
 }

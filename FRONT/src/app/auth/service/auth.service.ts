@@ -28,9 +28,7 @@ export class AuthService {
     return this.http.post('http://localhost:3501/api/users/verify-role', {email: userEmail})
   }
 
-  // verifyRole() {
-  //   const role = localStorage.getItem('role')
-  //   return role
-  // }
-
 }
+
+
+

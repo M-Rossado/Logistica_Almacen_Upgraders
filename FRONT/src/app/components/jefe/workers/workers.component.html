@@ -1,0 +1,25 @@
+
+
+
+<div class="general">
+    <div class="new-order">
+        <button>agregar empleado</button>
+    </div>
+    <section class="section">
+        <h1>lista de empleados :</h1>
+        @for(worker of workersList; track $index){
+<div class="container">
+        <div class="card">
+            <p><strong>nombre:</strong><p>{{worker.name }}</p>
+            <p><strong>apellido:</strong><p>{{ worker.surname }}</p>
+            <p><strong>role:</strong> {{ worker.role }}</p>
+            <p><strong>almacen:</strong> {{ worker.warehouse_location }}</p>
+            <i class="bi bi-alarm"></i>
+            <i class="bi bi-basket"></i>
+            <button class="edit-btn">Editar</button>
+        </div>
+    </div>
+        }
+
+    </section>
+</div>
