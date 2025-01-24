@@ -78,7 +78,8 @@
         "destino": "Barcelona",
         "almacenes_localizacion": "Madrid",
         "Trabajadores_almacenes_localizacion": "Madrid",
-        "camiones_matricula": "ABC123"
+        "camiones_matricula": "ABC123",
+        "conductor_asignado": "Diego"
       },
       {
         "idpedidos": 2,
@@ -90,7 +91,21 @@
         "destino": "Madrid",
         "almacenes_localizacion": "Barcelona",
         "Trabajadores_almacenes_localizacion": "Barcelona",
-        "camiones_matricula": "XYZ789"
+        "camiones_matricula": "XYZ789",
+         "conductor_asignado": "Juan"
+      },
+      {
+        "idpedidos": 3,
+        "tipo_articulo": "Ropa",
+        "status": "En tránsito",
+        "fecha_entrada": "2025-01-10",
+        "fecha_salida": "2025-01-17",
+        "origen": "Barcelona",
+        "destino": "Madrid",
+        "almacenes_localizacion": "Barcelona",
+        "Trabajadores_almacenes_localizacion": "Barcelona",
+        "camiones_matricula": "XYZ789",
+         "conductor_asignado": "Marta"
       }
     ]
   }

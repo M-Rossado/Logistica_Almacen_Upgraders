@@ -3,18 +3,19 @@
         <button>Crear pedido</button>
     </div>
     <section class="section">
-        <h1>Tus pedidos asignados:</h1>
+        <h1>Pedidos del Almacen (Numero o nombre):</h1>
         @for(pedido of pedidosList; track $index){
-          
+
         <div class="card">
               <h2>{{ pedido.tipo_articulo }}</h2>
             <p><strong>estado</strong><p>{{ pedido.status }}</p>
             <p><strong>fecha salida:</strong> {{ pedido.fecha_salida }}</p>
             <p><strong>destino:</strong> {{ pedido.destino }}</p>
             <i class="bi bi-alarm"></i>
-            <i class="bi bi-basket"></i>    
+            <i class="bi bi-basket"></i>
+            <button class="edit-btn">Editar</button>
         </div>
         }
-    
+
     </section>
 </div>
