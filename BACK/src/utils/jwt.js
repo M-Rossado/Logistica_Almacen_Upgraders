@@ -12,32 +12,21 @@ const createToken = (info)=>{
 
 
 const checkRolJefe = (role)=>{
-  console.log(role);
-  if(role !== "jefe"){
-      return res.status(403).json({msg: "Debe ser jefe para acceder a esta ruta"});
-  }
-  return true;
+  return role === "jefe";  // Retorna true si el rol es "jefe", de lo contrario, false
 };
 
-const checkRolOperario = (role)=>{
-  if(role !== "operario"){
-      return res.status(403).json({msg: "Debe ser operario para acceder a esta ruta"});
-  }
-  return true;
+const checkRolOperario = (role) => {
+  return role === "operario";  // Retorna true si el rol es "operario", de lo contrario, false
 };
+
 
 const checkRolCamionero = (role)=>{
-  if(role !== "camionero"){
-      return res.status(403).json({msg: "Debe ser camionero para acceder a esta ruta"});
-  }
-  return true;
+  return role === "camionero";  // Retorna true si el rol es "camionero", de lo contrario, false
 };
 
 const checkRolEncargado = (role)=>{
-  if(role !== "encargado"){
-      return res.status(403).json({msg: "Debe ser encargado para acceder a esta ruta"});
-  }
-  return true;
+  return role === "encargado";  // Retorna true si el rol es "encargado", de lo contrario, false
 };
+
 
 module.exports = {createToken, checkRolEncargado, checkRolJefe, checkRolOperario, checkRolCamionero};
