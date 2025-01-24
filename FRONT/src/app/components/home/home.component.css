@@ -1,0 +1,37 @@
+body{
+  margin: 0;
+  height: 100%;
+  background-color: #303030;
+}
+h1{
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+}
+h1 span{
+  font-weight: 700;
+}
+.header{
+  background: url('../../../assets/image/header-web.png') no-repeat center center/cover;
+  z-index: -9; /* Coloca detrás del contenido */
+  height: 150px;
+  padding: 0px;
+  margin-bottom: -20px;
+}
+.menu-header{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0px 10px;
+  padding-top: 80px;
+  z-index: 9;
+  opacity: 1;
+}
+.logout-btn{
+  background-color: #303030;
+  color: white;
+  border-radius: 20px;
+  font-weight: 800;
+  height: 40px;
+  padding: 2px 15px;
+  }

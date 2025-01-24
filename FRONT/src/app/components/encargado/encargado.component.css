@@ -1,0 +1,51 @@
+.table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 1rem;
+    text-align: left;
+    margin: auto;
+
+  }
+  h1{
+    text-align: center;
+  }
+
+  /* Encabezados */
+  .table th {
+    background-color: #f8f9fa;
+    color: #212529;
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+  }
+
+  /* Filas */
+  .table td {
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+  }
+
+  /* Resaltar al pasar el mouse */
+  .table tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.2s ease;
+  }
+
+  /* Hacer la tabla responsive */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .img{
+    margin:0 0 auto;
+   
+  }
+  
+
+  /* Ajuste para pantallas pequeñas */
+  @media (max-width: 480px) {
+    .table th, .table td {
+      font-size: 0.9rem;
+      padding: 0.5rem;
+    }
+  }

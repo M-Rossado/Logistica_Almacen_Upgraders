@@ -12,5 +12,11 @@ export class HomeServiceService {
  getPedidos() {
   return this.http.get('http://localhost:3000/pedidos')
  }
+
+
+ updateEvent(id: string, editUpdate: any) {
+  return this.http.put(`http://localhost:3000/pedidos/${id}`, editUpdate);
+}
+
   
 }
