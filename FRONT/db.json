@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "almacenes": [
     {
       "localizacion": "Madrid",
@@ -196,3 +197,115 @@
     }
   ]
 }
+=======
+    "almacenes": [
+      {
+        "localizacion": "Madrid",
+        "nombre_nave": "Nave Central"
+      },
+      {
+        "localizacion": "Barcelona",
+        "nombre_nave": "Nave Este"
+      }
+    ],
+    "camiones": [
+      {
+        "matricula": "ABC123"
+      },
+      {
+        "matricula": "XYZ789"
+      }
+    ],
+    "Trabajadores": [
+      {
+        "idTrabajadores": 1,
+        "nombre": "Juan",
+        "apellidos": "Pérez",
+        "direccion": "Calle Principal 123",
+        "dni": "12345678A",
+        "email": "juan.perez@example.com",
+        "contraseña": "1234",
+        "rol": "jefe",
+        "almacenes_localizacion": "Madrid",
+        "camiones_matricula": "ABC123"
+      },
+      {
+        "idTrabajadores": 2,
+        "nombre": "Ana",
+        "apellidos": "García",
+        "direccion": "Calle Secundaria 456",
+        "dni": "87654321B",
+        "email": "ana.garcia@example.com",
+        "contraseña": "5678",
+        "rol": "operario",
+        "almacenes_localizacion": "Barcelona",
+        "camiones_matricula": "XYZ789"
+      },
+      {
+        "idTrabajadores": 3,
+        "nombre": "Juan Antonio",
+        "apellidos": "Gómez Rodríguez",
+        "direccion": "Calle Cualquiera 456",
+        "dni": "77831099V",
+        "email": "j.antonio1893@gmail.com",
+        "contraseña": "juan",
+        "rol": "operario",
+        "almacenes_localizacion": "Madrid",
+        "camiones_matricula": "XYZ781"
+      },
+      {
+        "idTrabajadores": 3,
+        "nombre": "Marta",
+        "apellidos": "Rosado Benito",
+        "direccion": "Calle Lorem Ipsum 3",
+        "dni": "70000000S",
+        "email": "marta@gmail.com",
+        "contraseña": "marta",
+        "rol": "conductor",
+        "almacenes_localizacion": "Madrid",
+        "camiones_matricula": "XYZ781"
+      }
+    ],
+    "pedidos": [
+      {
+        "idpedidos": 1,
+        "tipo_articulo": "Electrónica",
+        "status": "Pendiente",
+        "fecha_entrada": "2025-01-15",
+        "fecha_salida": null,
+        "origen": "Madrid",
+        "destino": "Barcelona",
+        "almacenes_localizacion": "Madrid",
+        "Trabajadores_almacenes_localizacion": "Madrid",
+        "camiones_matricula": "ABC123",
+        "conductor_asignado": "Diego"
+      },
+      {
+        "idpedidos": 2,
+        "tipo_articulo": "Ropa",
+        "status": "En tránsito",
+        "fecha_entrada": "2025-01-10",
+        "fecha_salida": "2025-01-17",
+        "origen": "Barcelona",
+        "destino": "Madrid",
+        "almacenes_localizacion": "Barcelona",
+        "Trabajadores_almacenes_localizacion": "Barcelona",
+        "camiones_matricula": "XYZ789",
+         "conductor_asignado": "Juan"
+      },
+      {
+        "idpedidos": 3,
+        "tipo_articulo": "Ropa",
+        "status": "En tránsito",
+        "fecha_entrada": "2025-01-10",
+        "fecha_salida": "2025-01-17",
+        "origen": "Barcelona",
+        "destino": "Madrid",
+        "almacenes_localizacion": "Barcelona",
+        "Trabajadores_almacenes_localizacion": "Barcelona",
+        "camiones_matricula": "XYZ789",
+         "conductor_asignado": "Marta"
+      }
+    ]
+  }
+>>>>>>> main

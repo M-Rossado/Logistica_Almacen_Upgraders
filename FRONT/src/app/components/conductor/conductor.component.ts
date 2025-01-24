@@ -2,13 +2,13 @@ import { Component, inject } from '@angular/core';
 import { HomeServiceService } from '../service/home-service.service';
 
 @Component({
-  selector: 'app-operario',
+  selector: 'app-conductor',
   standalone: true,
   imports: [],
-  templateUrl: './operario.component.html',
-  styleUrl: './operario.component.css'
+  templateUrl: './conductor.component.html',
+  styleUrl: './conductor.component.css'
 })
-export class OperarioComponent {
+export class ConductorComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
   public pedidosList: any = []
   public userRole = localStorage.getItem('role')
@@ -26,11 +26,6 @@ export class OperarioComponent {
 
     console.log(this.getPedidos)
   }
-
-
-
-
-
 
 
 }

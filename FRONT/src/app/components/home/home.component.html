@@ -1,13 +1,17 @@
 
-
-@if(this.userRole === "jefe"){
-    <app-jefe></app-jefe>
+@if(this.userRole === "conductor"){
+  <app-conductor></app-conductor>
 }
+<!-- @if(this.userRole === "operario"){
+  <app-operario></app-operario>
+} -->
+<!-- @if(this.userRole === "operario"){
+  <app-encargado></app-encargado>
+} -->
+<!-- @if(this.userRole === "operario"){
+  <app-jefe></app-jefe>
+} -->
 
-@if(this.userRole === "pedidos"){
+<!-- @if(this.userRole === "pedidos"){
     <app-pedidos></app-pedidos>
 }
-
-
-
- <app-encargado></app-encargado>

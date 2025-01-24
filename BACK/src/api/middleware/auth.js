@@ -20,12 +20,12 @@ const checkToken = async (req, res, next) => {
     }
 
     //Buscar en la BD el usuario del token
-    const user =  await Users.findById(data.user_id);
-    if (!user){
+    const user =  await Users.selectByEmail(data.email);
+    if (user.length===0){
         return res.json({msg: "El usuario no existe"})
     }
 
-    req.user = user;
+    req.user = user [0];
     next();
     
 };
