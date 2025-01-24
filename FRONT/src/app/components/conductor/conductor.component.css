@@ -1,0 +1,63 @@
+
+
+
+.general{
+  background-color: #303030;
+  color: white;
+}
+.new-order{
+  max-width: 95%;
+  margin: auto;
+  padding: 30px 0;
+}
+h2{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 500;
+  padding-top: 10px;
+}
+.new-order button{
+  background-color: #ee8941;
+  color: white;
+  font-size: 30px;
+  border: none;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 600;
+  height: 70px;
+  border-radius: 35px;
+}
+
+.card{
+  background-color: #494949;
+  padding: 2px;
+  margin: 5px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.campo-list{
+  width: 100px;
+  text-align: left;
+}
+
+.edit-btn{
+  background-color: #ee8941;
+  color: white;
+  border-radius: 20px;
+  font-weight: 800;
+  height: 29px;
+  width: 75px;
+}
+
+.edit-btn:hover{
+  background-color: #ee8941;
+  color: white;
+  border-radius: 20px;
+  font-weight: 800;
+  height: 32px;
+  width: 77px;
+}
+
