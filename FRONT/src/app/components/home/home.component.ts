@@ -4,11 +4,17 @@ import { PedidosComponent } from '../pedidos/pedidos.component';
 import { ConductorComponent } from '../conductor/conductor.component';
 import { OperarioComponent } from '../operario/operario.component';
 import { JefeComponent } from '../jefe/jefe.component';
+import { OperarioComponent } from '../operario/operario.component';
+import { EncargadoComponent } from "../encargado/encargado.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
+<<<<<<< HEAD
+  imports: [PedidosComponent, JefeComponent, OperarioComponent, EncargadoComponent],
+=======
   imports: [PedidosComponent, ConductorComponent, OperarioComponent, JefeComponent],
+>>>>>>> main
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'] // Corregido: "styleUrls" (en plural)
 })

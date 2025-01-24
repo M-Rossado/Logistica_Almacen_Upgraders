@@ -1,0 +1,91 @@
+
+<div class="encabezado">
+  <h1>pedidos pendientes de revision</h1>
+</div>
+<div class="table-responsive">
+    <table class="table">
+      <thead>
+        
+        <tr>
+          <th>Pedido ID</th>
+          <th>Ptipo de articulo</th>
+          <th>Status</th>
+          <th>Fecha de entrada</th>
+          <th>Fecha salida</th>
+          <th>Destino</th>
+          <th>Conductor asignado</th>
+          <th>Matrícula</th>
+          <th>edicion</th>
+        </tr>
+      </thead>
+      @for(pedido of pedidosList;track $index){
+        @if(pedido.status === "Pendiente"){
+          <tbody>
+            <tr>
+              <td>{{pedido.id}}</td>
+              <td>{{pedido.tipo_articulo}}</td>
+              <td>{{pedido.status}}</td>
+              <td>{{pedido.fecha_entrada}}</td>
+              <td>{{pedido.fecha_salida}}</td>
+              <td>{{pedido.destino}}</td>
+              <td>{{pedido.Trabajadores_almacenes_localizacion}}</td>
+              <td>{{pedido.camiones_matricula}}</td>
+              <td><a (click)="openEdiatar(pedido)"><img class="img" src="/assets/image/editar.png" alt=""></a></td>
+            </tr>
+            <tr>
+             
+          </tbody>
+        }
+       
+      }
+      
+    </table>
+  </div>
+
+
+
+  <div class="encabezado">
+    <h1>listos para entrega</h1>
+  </div>
+  
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        
+        <tr>
+          <th>Pedido ID</th>
+          <th>Ptipo de articulo</th>
+          <th>Status</th>
+          <th>Fecha de entrada</th>
+          <th>Fecha salida</th>
+          <th>Destino</th>
+          <th>Conductor asignado</th>
+          <th>Matrícula</th>
+        </tr>
+      </thead>
+      @for(pedido of pedidosList;track $index){
+        @if(pedido.status === "en_transito"){
+          <tbody>
+            <tr>
+              <td>{{pedido.id}}</td>
+              <td>{{pedido.tipo_articulo}}</td>
+              <td>{{pedido.status}}</td>
+              <td>{{pedido.fecha_entrada}}</td>
+              <td>{{pedido.fecha_salida}}</td>
+              <td>{{pedido.destino}}</td>
+              <td>{{pedido.Trabajadores_almacenes_localizacion}}</td>
+              <td>{{pedido.camiones_matricula}}</td>
+            </tr>
+            <tr>
+             
+          </tbody>
+        }
+       
+      }
+      
+    </table>
+  </div>
+
+  @if(this.openEditar === true){
+    <app-editar [selectedEvent]="selectedEvent" (closeEdit)="closeEditar()"></app-editar>
+}

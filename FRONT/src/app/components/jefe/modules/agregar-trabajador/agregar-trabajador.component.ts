@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatStepperModule } from '@angular/material/stepper';
+
 
 @Component({
   selector: 'app-agregar-trabajador',
   standalone: true,
-  imports: [MatStepperModule],
+  imports: [],
   templateUrl: './agregar-trabajador.component.html',
   styleUrl: './agregar-trabajador.component.css'
 })
