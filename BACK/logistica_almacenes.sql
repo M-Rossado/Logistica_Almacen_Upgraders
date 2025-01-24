@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `order`
+-- Table structure for table `orders`
 --
 
-DROP TABLE IF EXISTS `order`;
+DROP TABLE IF EXISTS `orders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `order` (
+CREATE TABLE `orders` (
   `id_order` int NOT NULL AUTO_INCREMENT,
   `item_type` varchar(250) NOT NULL,
   `status` varchar(15) NOT NULL,
@@ -41,17 +41,17 @@ CREATE TABLE `order` (
   CONSTRAINT `fk_order_truck1` FOREIGN KEY (`truck_plate`) REFERENCES `truck` (`plate`),
   CONSTRAINT `fk_order_warehouse1` FOREIGN KEY (`warehouse_location`) REFERENCES `warehouse` (`location`),
   CONSTRAINT `fk_order_worker1` FOREIGN KEY (`worker_email`) REFERENCES `worker` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `order`
+-- Dumping data for table `orders`
 --
 
-LOCK TABLES `order` WRITE;
-/*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (6,'Television','Revision','2025-01-24','2025-01-30','Sevilla','Madrid','Madrid','7890 MND','paulamartinez@gmail.com','maria.perez@gmail.com');
-/*!40000 ALTER TABLE `order` ENABLE KEYS */;
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (6,'Television','Revision','2025-01-24','2025-01-30','Sevilla','Madrid','Madrid','7890 MND','paulamartinez@gmail.com','maria.perez@gmail.com'),(7,'Sarten','Revision','2025-01-24','2025-01-28','Albacete','Barcelona','Barcelona','2347 JTK','paulamartinez@gmail.com','mariaperez@gmail.com');
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `warehouse` (
 
 LOCK TABLES `warehouse` WRITE;
 /*!40000 ALTER TABLE `warehouse` DISABLE KEYS */;
-INSERT INTO `warehouse` VALUES ('Barcelona'),('Madrid');
+INSERT INTO `warehouse` VALUES ('Albacete'),('Almeria'),('Badajoz'),('Barcelona'),('Caceres'),('Cordoba'),('Girona'),('Jaen'),('Madrid'),('Mallorca'),('Sevilla'),('Zaragoza');
 /*!40000 ALTER TABLE `warehouse` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,7 +124,7 @@ CREATE TABLE `worker` (
   KEY `fk_Trabajadores_camiones1_idx` (`truck_plate`),
   CONSTRAINT `fk_Trabajadores_almacenes1` FOREIGN KEY (`warehouse_location`) REFERENCES `warehouse` (`location`),
   CONSTRAINT `fk_Trabajadores_camiones1` FOREIGN KEY (`truck_plate`) REFERENCES `truck` (`plate`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,7 +133,7 @@ CREATE TABLE `worker` (
 
 LOCK TABLES `worker` WRITE;
 /*!40000 ALTER TABLE `worker` DISABLE KEYS */;
-INSERT INTO `worker` VALUES (21,'Maria','Perez Lopez','Madrid','12456789P','mariaperez@gmail.com','$2b$10$WjDyWp4Y2ZHZRrp1n5OHbuLTLuMMUO3vO/7ockdvvijAfpUxsJJna','operario','Madrid',NULL),(23,'Milagros','Sanz Oramas','Madrid','12345678J','milagrossanz@gmail.com','$2b$10$g7RhT1Yd0XJPfZyaqgBH4uph/2pgGbv49OkU/Gef1pB1i/8AdciuS','encargada','Madrid',NULL),(19,'Pablo','Fernandez Gutierrez','Madrid','45678963J','pablofernandez@gmail.com','$2b$10$Fm9QiAOBje5fNrLQ7GrwcuLz06yVwWqOK7LyLg.nbOnEuIKr9sCXC','jefe','Madrid',NULL),(22,'Paula','Martinez Gomez','Madrid','98456321H','paulamartinez@gmail.com','$2b$10$e06XTYDb4ZIXaYlnNHq.FudlSPgSP5PEvAMMEfKnMnbz25DUtft3.','camionero','Madrid','7890 MND'),(20,'Rodrigo','Gonzalez Alvarez','Madrid','45789123L','rodrigogonzalez@gmail.com','$2b$10$4KhkdvIfMrF.iBGSdaFboOUlFQsIShwaz6MGzCAlDvW2U7WchcaK.','encargado','Madrid',NULL);
+INSERT INTO `worker` VALUES (24,'Hector','Martinez Rodriguez','Madrid','45789123H','hectormartinez@gmail.com','$2b$10$.DcSbggh4dOaxJHz7IEcXuw9eJK5t7iZp.Jm4HtGLnul1nK5SfGVu','operador','Madrid',NULL),(21,'Maria','Perez Lopez','Madrid','12456789P','mariaperez@gmail.com','$2b$10$WjDyWp4Y2ZHZRrp1n5OHbuLTLuMMUO3vO/7ockdvvijAfpUxsJJna','operario','Madrid',NULL),(23,'Milagros','Sanz Oramas','Madrid','12345678J','milagrossanz@gmail.com','$2b$10$g7RhT1Yd0XJPfZyaqgBH4uph/2pgGbv49OkU/Gef1pB1i/8AdciuS','encargada','Madrid',NULL),(19,'Pablo','Fernandez Gutierrez','Madrid','45678963J','pablofernandez@gmail.com','$2b$10$Fm9QiAOBje5fNrLQ7GrwcuLz06yVwWqOK7LyLg.nbOnEuIKr9sCXC','jefe','Madrid',NULL),(22,'Paula','Martinez Gomez','Madrid','98456321H','paulamartinez@gmail.com','$2b$10$e06XTYDb4ZIXaYlnNHq.FudlSPgSP5PEvAMMEfKnMnbz25DUtft3.','camionero','Madrid','7890 MND'),(20,'Rodrigo','Gonzalez Alvarez','Madrid','45789123L','rodrigogonzalez@gmail.com','$2b$10$4KhkdvIfMrF.iBGSdaFboOUlFQsIShwaz6MGzCAlDvW2U7WchcaK.','encargado','Madrid',NULL);
 /*!40000 ALTER TABLE `worker` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -146,4 +146,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-01-24 17:17:36
+-- Dump completed on 2025-01-24 19:05:18
