@@ -1,15 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { HomeServiceService } from '../service/home-service.service';
 import { AgregarTrabajadorComponent } from './modules/agregar-trabajador/agregar-trabajador.component';
-import { DialogContentComponent } from './modules/dialog-content/dialog-content.component';
-import { MatDialog } from '@angular/material/dialog';
-import { MatDialogModule } from '@angular/material/dialog';
+
+
 import { AgregarcamionComponent } from './modules/agregarcamion/agregarcamion.component';
 
 @Component({
   selector: 'app-jefe',
   standalone: true,
-  imports: [AgregarTrabajadorComponent,DialogContentComponent,MatDialogModule,AgregarcamionComponent ],
+  imports: [AgregarTrabajadorComponent,AgregarcamionComponent ],
   templateUrl: './jefe.component.html',
   styleUrl: './jefe.component.css'
 })
@@ -22,7 +21,7 @@ public Showmodal:boolean = false;// paso #2
 public modalN2: boolean = false;
 
 
-private dialog: MatDialog = inject(MatDialog);
+
 
 ngOnInit(){
   this.getPedidos()
