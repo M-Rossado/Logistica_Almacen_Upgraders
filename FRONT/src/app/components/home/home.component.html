@@ -1,11 +1,20 @@
 
-@if(this.userRole === "conductor"){
-  <app-conductor></app-conductor>
-}
+<header>
+  <div class="header">
+    <ul class="menu-header">
+      <li><h1><span>E</span>CARRIER</h1></li>
+      <li><button class="logout-btn">LogOut</button></li>
+    </ul>
+  </div>
+</header>
+
+<app-conductor></app-conductor>
+
+
 <!-- @if(this.userRole === "operario"){
   <app-operario></app-operario>
 } -->
-<!-- @if(this.userRole === "operario"){
+<!-- @if(this.userRole === "encargado"){
   <app-encargado></app-encargado>
 } -->
 <!-- @if(this.userRole === "operario"){
@@ -14,4 +23,4 @@
 
 <!-- @if(this.userRole === "pedidos"){
     <app-pedidos></app-pedidos>
-}
+}-->

@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const {createNewWorker, login} = require("../../controllers/trabajadores.controller")
-const {checkRolJefe, checkRolOperario, checkRolEncargado, checkRolCamionero} = require("../../../utils/jwt")
+const {createNewWorker, createNewWarehouse, login} = require("../../controllers/trabajadores.controller")
 const { checkToken} = require("../../../api/middleware/auth")
 
-router.post("/", checkToken, createNewWorker)
+router.post("/newwarehouse", checkToken, createNewWarehouse )// crea un nuevo almacén
+router.post("/newworker", checkToken, createNewWorker)
 router.post("/login", login )
 
 

@@ -1,4 +1,4 @@
-const {insertWorker, selectById, selectByEmail} = require("../models/trabajadores.model")
+const {insertWorker, selectById, selectByEmail, insertWarehouse, selectbyLocation} = require("../models/trabajadores.model")
 const bcrypt = require("bcrypt");
 const {createToken, checkRolJefe, checkRolEncargado, checkRolOperario, checkRolCamionero} = require("../../utils/jwt");
 
@@ -13,7 +13,7 @@ const createNewWorker = async (req, res) => {
             return res.status(400).json({ msg: "No se realizó el insert" });
         }
 
-        // Obtener el evento creado desde la base de datos
+        // Obtener el trabajador creado desde la base de datos
         const workerCreated = await selectById(insertedWorker);
         return res.status(200).json({ success: true, data: workerCreated });
     } else {
@@ -21,7 +21,6 @@ const createNewWorker = async (req, res) => {
         return res.status(403).json({ msg: "Acceso denegado: debe ser jefe" });
     }
     } catch (error) {
-        console.log(error)
         return res.status(500).json({ msg: "Error en el servidor" });
     }
 };
@@ -47,4 +46,25 @@ const login = async (req, res) => {
         return res.status(500).json(error);
     }
 };
-module.exports = {createNewWorker, login }
+
+const createNewWarehouse = async (req, res) => {
+    try {
+        if(checkRolJefe(req.user.role)){
+        const data = req.body;
+        const insertedWarehouse = await insertWarehouse(data);
+        if (insertedWarehouse === -1) {
+            return res.status(400).json({ msg: "No se realizó el insert" });
+        }
+
+        // Obtener el almacen creado desde la base de datos
+        const warehouseCreated = await selectbyLocation(insertedWarehouse);
+        return res.status(200).json({ success: true, data: warehouseCreated});
+    } else {
+        // Si el usuario no es jefe
+        return res.status(403).json({ msg: "Acceso denegado: debe ser jefe" });
+    }
+    } catch (error) {
+        return res.status(500).json({ msg: "Error en el servidor" });
+    }
+};
+module.exports = {createNewWorker, login, createNewWarehouse }
