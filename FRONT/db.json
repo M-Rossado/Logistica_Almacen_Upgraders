@@ -1,351 +1,228 @@
 {
-
-  "order": [
-    {
-      "id": "1",
-      "item_type": "Television",
-      "status": "Revision",
-      "date_of_entry": "2025-01-24",
-      "date_of_departure": "2025-01-30",
-      "origin": "Sevilla",
-      "destination": "Madrid",
-      "warehouse_location": "Madrid",
-      "truck_plate": "7890 MND",
-      "worker_email": "paulamartinez@gmail.com",
-      "email_manager": "maria.perez@gmail.com"
-    },
-    {
-      "id": "2",
-      "item_type": "Laptop",
-      "status": "En tránsito",
-      "date_of_entry": "2025-01-22",
-      "date_of_departure": "2025-01-28",
-      "origin": "Barcelona",
-      "destination": "Valencia",
-      "warehouse_location": "Valencia",
-      "truck_plate": "4567 ABC",
-      "worker_email": "jose.gomez@gmail.com",
-      "email_manager": "ana.lopez@gmail.com"
-    },
-    {
-      "id": "3",
-      "item_type": "Frigorífico",
-      "status": "Entregado",
-      "date_of_entry": "2025-01-15",
-      "date_of_departure": "2025-01-20",
-      "origin": "Madrid",
-      "destination": "Bilbao",
-      "warehouse_location": "Bilbao",
-      "truck_plate": "1234 XYZ",
-      "worker_email": "luis.fernandez@gmail.com",
-      "email_manager": "carlos.martinez@gmail.com"
-    },
-    {
-      "id": "4",
-      "item_type": "Microondas",
-      "status": "In Transit",
-      "date_of_entry": "2025-01-25",
-      "date_of_departure": "2025-01-30",
-      "origin": "Valencia",
-      "destination": "Zaragoza",
-      "warehouse_location": "Zaragoza",
-      "truck_plate": "8901 DEF"
-    },
-    {
-      "id": "5",
-      "item_type": "Sofá",
-      "status": "En almacén",
-      "date_of_entry": "2025-01-20",
-      "date_of_departure": "2025-01-29",
-      "origin": "Sevilla",
-      "destination": "Granada",
-      "warehouse_location": "Granada",
-      "truck_plate": "5678 GHI",
-      "worker_email": "cristina.lopez@gmail.com",
-      "email_manager": "jorge.hernandez@gmail.com"
-    },
-    {
-      "id": "6",
-      "item_type": "Mesa",
-      "status": "Preparación",
-      "date_of_entry": "2025-01-23",
-      "date_of_departure": "2025-01-27",
-      "origin": "Malaga",
-      "destination": "Alicante",
-      "warehouse_location": "Alicante",
-      "truck_plate": "2345 JKL",
-      "worker_email": "manuel.rodriguez@gmail.com",
-      "email_manager": "beatriz.ramirez@gmail.com"
-    },
-    {
-      "id": "7",
-      "item_type": "Lavadora",
-      "status": "En tránsito",
-      "date_of_entry": "2025-01-18",
-      "date_of_departure": "2025-01-24",
-      "origin": "Madrid",
-      "destination": "Malaga",
-      "warehouse_location": "Madrid",
-      "truck_plate": "3456 XBR",
-      "worker_email": "andrea.gomez@gmail.com",
-      "email_manager": "juan.perez@gmail.com"
-    },
-    {
-      "id": "8",
-      "item_type": "Televisión",
-      "status": "Entregado",
-      "date_of_entry": "2025-01-10",
-      "date_of_departure": "2025-01-16",
-      "origin": "Bilbao",
-      "destination": "Sevilla",
-      "warehouse_location": "Bilbao",
-      "truck_plate": "6789 WNR",
-      "worker_email": "sofia.lopez@gmail.com",
-      "email_manager": "fernando.garcia@gmail.com"
-    },
-    {
-      "id": "9",
-      "item_type": "Cama",
-      "status": "En almacén",
-      "date_of_entry": "2025-01-15",
-      "date_of_departure": "2025-01-20",
-      "origin": "Granada",
-      "destination": "Madrid",
-      "warehouse_location": "Granada",
-      "truck_plate": "8765 GTH",
-      "worker_email": "david.sanchez@gmail.com",
-      "email_manager": "lucia.martinez@gmail.com"
-    },
-    {
-      "id": "10",
-      "item_type": "Escritorio",
-      "status": "In Transit",
-      "date_of_entry": "2025-01-25",
-      "date_of_departure": "2025-02-13",
-      "origin": "Valencia",
-      "destination": "Barcelona",
-      "warehouse_location": "Valencia",
-      "truck_plate": "8790 DWB"
-    }
-  ],
-  "truck": [
-    {
-      "plate": "1234 BCF",
-      "id": "91fe"
-      
-    },
-    {
-      "plate": "1239 VYX",
-      "id": "97f8"
-    },
-    {
-      "plate": "2310 ZRW",
-      "id": "823f"
-    },
-    {
-      "plate": "2345 PRS",
-      "id": "3556"
-    },
-    {
-      "plate": "2347 JTK",
-      "id": "d7bd"
-    },
-    {
-      "plate": "3456 XBR",
-      "id": "3f5a"
-    },
-    {
-      "plate": "4567 ABC",
-      "id": "a883"
-    },
-    {
-      "plate": "5678 GHI",
-      "id": "86af"
-    },
-    {
-      "plate": "6789 WNR",
-      "id": "f5a9"
-    },
-    {
-      "plate": "7890 MND",
-      "id": "78ea"
-    }
-  ],
-  "warehouse": [
-    {
-      "location": "Madrid",
-      "id": "2f38"
-      
-    },
-    {
-      "location": "Barcelona",
-      "id": "8e58"
-    },
-    {
-      "location": "Valencia",
-      "id": "263d"
-    },
-    {
-      "location": "Bilbao",
-      "id": "78ac"
-    },
-    {
-      "location": "Sevilla",
-      "id": "4b64"
-    },
-    {
-      "location": "Granada",
-      "id": "6da0"
-    },
-    {
-      "location": "Malaga",
-      "id": "0878"
-    },
-    {
-      "location": "Alicante",
-      "id": "bf23"
-    },
-    {
-      "location": "Zaragoza",
-      "id": "bb82"
-    },
-    {
-      "location": "Santander",
-      "id": "64ca"
-    }
-  ],
-  "worker": [
-    {
-      "id_worker": 1,
-      "name": "Maria",
-      "surname": "Perez",
-      "address": "Calle Madrid 10",
-      "dni": "12345678A",
-      "email": "mariaperez@gmail.com",
-      "password": "hashed_password",
-      "role": "operario",
-      "warehouse_location": "Madrid",
-      "truck_plate": null,
-      "id": "9198"
-    },
-    {
-      "id_worker": 2,
-      "name": "Pablo",
-      "surname": "Garcia",
-      "address": "Avenida Valencia 22",
-      "dni": "23456789B",
-      "email": "pablogarcia@gmail.com",
-      "password": "hashed_password",
-      "role": "jefe",
-      "warehouse_location": "Valencia",
-      "truck_plate": null,
-      "id": "21d6"
-    },
-    {
-      "id_worker": 3,
-      "name": "Andrea",
-      "surname": "Lopez",
-      "address": "Calle Bilbao 5",
-      "dni": "34567890C",
-      "email": "andrealopez@gmail.com",
-      "password": "hashed_password",
-      "role": "encargado",
-      "warehouse_location": "Bilbao",
-      "truck_plate": "4567 ABC",
-      "id": "c62d"
-    },
-    {
-      "id_worker": 4,
-      "name": "Paula",
-      "surname": "Martinez",
-      "address": "Plaza Sevilla 1",
-      "dni": "45678901D",
-      "email": "paulamartinez@gmail.com",
-      "password": "hashed_password",
-      "role": "camionero",
-      "warehouse_location": "Sevilla",
-      "truck_plate": "7890 MND",
-      "id": "52ab"
-    },
-    {
-      "id_worker": 5,
-      "name": "Luis",
-      "surname": "Fernandez",
-      "address": "Calle Malaga 7",
-      "dni": "56789012E",
-      "email": "luisfernandez@gmail.com",
-      "password": "hashed_password",
-      "role": "operario",
-      "warehouse_location": "Malaga",
-      "truck_plate": null,
-      "id": "6e2e"
-    },
-    {
-      "id_worker": 6,
-      "name": "Rafael",
-      "surname": "Gonzalez",
-      "address": "Avenida Alicante 3",
-      "dni": "67890123F",
-      "email": "rafaelgonzalez@gmail.com",
-      "password": "hashed_password",
-      "role": "camionero",
-      "warehouse_location": "Alicante",
-      "truck_plate": "8790 DWB",
-      "id": "c488"
-    },
-    {
-      "id_worker": 7,
-      "name": "Lucia",
-      "surname": "Martinez",
-      "address": "Calle Granada 8",
-      "dni": "78901234G",
-      "email": "luciamartinez@gmail.com",
-      "password": "hashed_password",
-      "role": "encargado",
-      "warehouse_location": "Granada",
-      "truck_plate": null,
-      "id": "68ba"
-    },
-    {
-      "id_worker": 8,
-      "name": "Jorge",
-      "surname": "Sanchez",
-      "address": "Plaza Zaragoza 4",
-      "dni": "89012345H",
-      "email": "jorgesanchez@gmail.com",
-      "password": "hashed_password",
-      "role": "operario",
-      "warehouse_location": "Zaragoza",
-      "truck_plate": null,
-      "id": "5c0a"
-    },
-    {
-      "id_worker": 9,
-      "name": "Sofia",
-      "surname": "Lopez",
-      "address": "Avenida Santander 6",
-      "dni": "90123456I",
-      "email": "sofialopez@gmail.com",
-      "password": "hashed_password",
-      "role": "camionero",
-      "warehouse_location": "Santander",
-      "truck_plate": "6789 WNR",
-      "id": "51c1"
-    },
-    {
-      "id_worker": 10,
-      "name": "David",
-      "surname": "Hernandez",
-      "address": "Calle Santander 9",
-      "dni": "01234567J",
-      "email": "davidhernandez@gmail.com",
-      "password": "hashed_password",
-      "role": "encargado",
-      "warehouse_location": "Santander",
-      "truck_plate": null,
-      "id": "a9f8"
-    }
-  ]
-}
-
-  
+    "almacenes": [
+      {
+        "localizacion": "Madrid",
+        "nombre_nave": "Nave Central"
+      },
+      {
+        "localizacion": "Barcelona",
+        "nombre_nave": "Nave Este"
+      }
+    ],
+    "camiones": [
+      {
+        "matricula": "ABC123"
+      },
+      {
+        "matricula": "XYZ789"
+      }
+    ],
+    "Trabajadores": [
+      {
+        "idTrabajadores": 1,
+        "nombre": "Juan",
+        "apellidos": "Pérez",
+        "direccion": "Calle Principal 123",
+        "dni": "12345678A",
+        "email": "juan.perez@example.com",
+        "contraseña": "1234",
+        "rol": "jefe",
+        "almacenes_localizacion": "Madrid",
+        "camiones_matricula": "ABC123"
+      },
+      {
+        "idTrabajadores": 2,
+        "nombre": "Ana",
+        "apellidos": "García",
+        "direccion": "Calle Secundaria 456",
+        "dni": "87654321B",
+        "email": "ana.garcia@example.com",
+        "contraseña": "5678",
+        "rol": "operario",
+        "almacenes_localizacion": "Barcelona",
+        "camiones_matricula": "XYZ789"
+      },
+      {
+        "idTrabajadores": 3,
+        "nombre": "Juan Antonio",
+        "apellidos": "Gómez Rodríguez",
+        "direccion": "Calle Cualquiera 456",
+        "dni": "77831099V",
+        "email": "j.antonio1893@gmail.com",
+        "contraseña": "juan",
+        "rol": "operario",
+        "almacenes_localizacion": "Madrid",
+        "camiones_matricula": "XYZ781"
+      },
+      {
+        "idTrabajadores": 3,
+        "nombre": "Marta",
+        "apellidos": "Rosado Benito",
+        "direccion": "Calle Lorem Ipsum 3",
+        "dni": "70000000S",
+        "email": "marta@gmail.com",
+        "contraseña": "marta",
+        "rol": "conductor",
+        "almacenes_localizacion": "Madrid",
+        "camiones_matricula": "XYZ781"
+      }
+    ],
+    "pedidos": [
+      {
+        "idpedidos": 1,
+        "tipo_articulo": "Electrónica",
+        "status": "Pendiente",
+        "fecha_entrada": "2025-01-15",
+        "fecha_salida": null,
+        "origen": "Madrid",
+        "destino": "Barcelona",
+        "almacenes_localizacion": "Madrid",
+        "Trabajadores_almacenes_localizacion": "Madrid",
+        "camiones_matricula": "ABC123",
+        "conductor_asignado": "Diego"
+      },
+      {
+        "idpedidos": 2,
+        "tipo_articulo": "Ropa",
+        "status": "En tránsito",
+        "fecha_entrada": "2025-01-10",
+        "fecha_salida": "2025-01-17",
+        "origen": "Barcelona",
+        "destino": "Madrid",
+        "almacenes_localizacion": "Barcelona",
+        "Trabajadores_almacenes_localizacion": "Barcelona",
+        "camiones_matricula": "XYZ789",
+        "conductor_asignado": "Juan"
+      },
+      {
+        "idpedidos": 3,
+        "tipo_articulo": "Muebles",
+        "status": "Completado",
+        "fecha_entrada": "2025-01-05",
+        "fecha_salida": "2025-01-12",
+        "origen": "Sevilla",
+        "destino": "Valencia",
+        "almacenes_localizacion": "Sevilla",
+        "Trabajadores_almacenes_localizacion": "Sevilla",
+        "camiones_matricula": "LMN456",
+        "conductor_asignado": "María"
+      },
+      {
+        "idpedidos": 4,
+        "tipo_articulo": "Electrodomésticos",
+        "status": "Pendiente",
+        "fecha_entrada": "2025-01-20",
+        "fecha_salida": null,
+        "origen": "Bilbao",
+        "destino": "Zaragoza",
+        "almacenes_localizacion": "Bilbao",
+        "Trabajadores_almacenes_localizacion": "Bilbao",
+        "camiones_matricula": "GHJ789",
+        "conductor_asignado": "Luis"
+      },
+      {
+        "idpedidos": 5,
+        "tipo_articulo": "Alimentos",
+        "status": "En tránsito",
+        "fecha_entrada": "2025-01-08",
+        "fecha_salida": "2025-01-18",
+        "origen": "Valencia",
+        "destino": "Alicante",
+        "almacenes_localizacion": "Valencia",
+        "Trabajadores_almacenes_localizacion": "Valencia",
+        "camiones_matricula": "OPQ321",
+        "conductor_asignado": "Carlos"
+      },
+      {
+        "idpedidos": 6,
+        "tipo_articulo": "Material de oficina",
+        "status": "Pendiente",
+        "fecha_entrada": "2025-01-12",
+        "fecha_salida": null,
+        "origen": "Zaragoza",
+        "destino": "Bilbao",
+        "almacenes_localizacion": "Zaragoza",
+        "Trabajadores_almacenes_localizacion": "Zaragoza",
+        "camiones_matricula": "RST654",
+        "conductor_asignado": "Ana"
+      },
+      {
+        "idpedidos": 7,
+        "tipo_articulo": "Electrónica",
+        "status": "Completado",
+        "fecha_entrada": "2025-01-02",
+        "fecha_salida": "2025-01-09",
+        "origen": "Granada",
+        "destino": "Málaga",
+        "almacenes_localizacion": "Granada",
+        "Trabajadores_almacenes_localizacion": "Granada",
+        "camiones_matricula": "UVW987",
+        "conductor_asignado": "Jorge"
+      },
+      {
+        "idpedidos": 8,
+        "tipo_articulo": "Ropa",
+        "status": "En tránsito",
+        "fecha_entrada": "2025-01-14",
+        "fecha_salida": null,
+        "origen": "Madrid",
+        "destino": "Sevilla",
+        "almacenes_localizacion": "Madrid",
+        "Trabajadores_almacenes_localizacion": "Madrid",
+        "camiones_matricula": "BCD234",
+        "conductor_asignado": "Diego"
+      },
+      {
+        "idpedidos": 9,
+        "tipo_articulo": "Libros",
+        "status": "Pendiente",
+        "fecha_entrada": "2025-01-22",
+        "fecha_salida": null,
+        "origen": "Salamanca",
+        "destino": "León",
+        "almacenes_localizacion": "Salamanca",
+        "Trabajadores_almacenes_localizacion": "Salamanca",
+        "camiones_matricula": "EFG567",
+        "conductor_asignado": "Elena"
+      },
+      {
+        "idpedidos": 10,
+        "tipo_articulo": "Juguetes",
+        "status": "Completado",
+        "fecha_entrada": "2025-01-01",
+        "fecha_salida": "2025-01-07",
+        "origen": "Barcelona",
+        "destino": "Tarragona",
+        "almacenes_localizacion": "Barcelona",
+        "Trabajadores_almacenes_localizacion": "Barcelona",
+        "camiones_matricula": "HIJ890",
+        "conductor_asignado": "Juan"
+      },
+      {
+        "idpedidos": 11,
+        "tipo_articulo": "Electrodomésticos",
+        "status": "Pendiente",
+        "fecha_entrada": "2025-01-18",
+        "fecha_salida": null,
+        "origen": "Valencia",
+        "destino": "Madrid",
+        "almacenes_localizacion": "Valencia",
+        "Trabajadores_almacenes_localizacion": "Valencia",
+        "camiones_matricula": "KLM123",
+        "conductor_asignado": "Carlos"
+      },
+      {
+        "idpedidos": 12,
+        "tipo_articulo": "Alimentos",
+        "status": "En tránsito",
+        "fecha_entrada": "2025-01-16",
+        "fecha_salida": null,
+        "origen": "Alicante",
+        "destino": "Murcia",
+        "almacenes_localizacion": "Alicante",
+        "Trabajadores_almacenes_localizacion": "Alicante",
+        "camiones_matricula": "NOP456",
+        "conductor_asignado": "Ana"
+      }
+    ]
+  }

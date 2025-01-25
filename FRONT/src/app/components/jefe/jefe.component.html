@@ -1,53 +1,21 @@
 
+<section class="section">   
+   <button (click)="openUsuario()">agregar usuario</button> 
+    
 
 
 
 
-    <!-- paso #4 debemos importar el componente -->
+<BUTTON>MODAL CON ANGUAR MATIRIALS</BUTTON>
+
+<button (click)="modal2()">brir modal 2 </button>
+
+
+        <!-- paso #4 debemos importar el componente -->
+    @if(this.Showmodal === true){
+        <app-agregar-trabajador (closeModal)="closeUsuario()"></app-agregar-trabajador>
+    }
+
+
    
-
-<header>
-    <div>
-        <h1>bienvenido jefe</h1>
-    </div>
-
-</header>
-
-
-<section>
-
-    <div class="grid">
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">listado de pedidos </h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <button  [routerLink]="['/orders']" class="edit-btn"> ver detalles </button>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">listado de empleados</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <button  [routerLink]="['/workers']" class="edit-btn"> ver detalles </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">listado de almacenes</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <button [routerLink]="['/warehouse']"  class="edit-btn"> ver detalles </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
+    </section>

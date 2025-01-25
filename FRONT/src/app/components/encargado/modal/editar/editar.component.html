@@ -7,22 +7,22 @@
           
 
           <div class="form-group">
-            <label for="name"> tipo de articulo: <strong>{{editOrder.item_type}}</strong></label>
+            <label for="name"> tipo de articulo: <strong>{{editPedido.tipo_articulo}}</strong></label>
           </div>
 
           <div class="form-group">
             <label for="location">status:</label>
-            <select [(ngModel)]="editOrder.status" name="location" id="location" required>
+            <select [(ngModel)]="editPedido.status" name="location" id="location" required>
                 <option value="" disabled selected>Seleccionar location</option>
-                <option value="In Transit">aceptado</option>
-                <option value="nule">anulado</option>
+                <option value="en_transito">aceptado</option>
+                <option value="anulado">anulado</option>
               </select>
           </div>
          
 
           <div class="form-group">
             <label for="fecha salida">  <strong>fecha de salida</strong></label>
-            <input type="date" [(ngModel)]="editOrder.date_of_departure" name="fecha_salida" id="fecha_salida" required>
+            <input type="date" [(ngModel)]="editPedido.fecha_salida" name="fecha_salida" id="fecha_salida" required>>
           </div>
           
      
