@@ -24,12 +24,7 @@
     height: 70px;
     border-radius: 35px;
 }
-.close{
-  background-color: transparent;
-  color: #ee8941;
-  border:  none;
-  font-size: 80px;
-}
+
 .buttons{
   display: flex;
   align-items: center;
@@ -37,11 +32,20 @@
 }
 .inf{
   width: 90%;
-  margin: auto;
+  margin: 60px auto 0;
+  
 }
-.inf h1{
+.modal h1{
   font-size: 25px;
   text-align: center;
+  color: white;
+  background-color: #ee8941;
+  width: 100%;
+  position: fixed;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bi{
@@ -53,4 +57,19 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+strong{
+  margin-right: 10px;
+}
+
+.close{
+  background-color: transparent;
+  color: #ee8941;
+  border:  none;
+  font-size: 65px;
+}
+.inf > *{
+  border-bottom: solid 1px white;
+  padding: 20px 0
 }

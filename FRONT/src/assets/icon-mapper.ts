@@ -1,6 +1,6 @@
-// Este archivo mapea los status a las clases de Bootstrap Icons
+// Mapeo del campo "status" a clases de íconos
 export const ICON_MAPPER: { [key: string]: string } = {
-    Pendiente: 'bi-check-circle-fill text-success',
-    'En tránsito': 'bi-x-circle-fill text-danger',
-    Completado: 'bi-exclamation-triangle-fill text-warning',
-  };
+  Pendiente: 'bi-clock-fill',           // Ícono para "Pendiente"
+  'En tránsito': 'bi-truck',   // Ícono para "En tránsito"
+  Completado: 'bi-bookmark-check-fill', // Ícono para "Completado"
+};
