@@ -21,11 +21,16 @@ h1{
     font-size: 18px;
     font-weight: 500;
 }
+
+h2{
+    font-size: 20px;
+}
+
 .card-1 .bi{
     font-size: 50px
 }
 .bi {
-    font-size: 30px; /* Tamaño del icono */
+    font-size: 50px; /* Tamaño del icono */
     color: #ffffff;  /* Azul por defecto */
   }
 .new-order button{
@@ -48,8 +53,11 @@ h2, p{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    width: 100%;
+    width: 95%;
     align-items: center;
+    color: white;
+    margin: 5px auto;
+    border-radius: 0;
 }
 .card-1{
     border-right: solid 1px white;

@@ -34,10 +34,10 @@ public selectedPedido: any = null;
     this.pedidosList = data)
   }
 
-  // Nueva función para obtener la clase del icono
-  getIconClass(status: string): string {
-    return ICON_MAPPER[status] || 'bi-question-circle'; // Icono por defecto si no coincide
-  }
+// Función para obtener la clase del ícono dinámicamente
+getIconClass(status: string): string {
+  return ICON_MAPPER[status] || 'bi-question-circle-fill text-muted'; // Icono por defecto si no coincide
+}
 
   // modal 2  
   mostrarDetalle(pedido: any){
