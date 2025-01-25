@@ -1,0 +1,35 @@
+
+
+<div class="modal">
+
+
+    <button class="close" (click)="Close()">×</button>
+  
+    <div class="form-container">
+        <h2>nuevo almacen </h2>
+        <form action="/submit" (ngSubmit)="handleRegister()">
+          
+          <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input
+              id="name"
+              type="text"
+              [(ngModel)]="newOne.location"
+              name="name"
+              placeholder="locacion de la empresa"
+              required
+            />
+          </div>
+      
+     
+        
+          <div class="form-actions">
+            <button type="submit">Guardar </button>
+            <button type="button" (click)="Close()">Cancelar</button>
+          </div>
+    
+        </form>
+      </div>
+    </div>
+
+  
