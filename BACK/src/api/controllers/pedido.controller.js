@@ -1,4 +1,4 @@
-const {insertOrder, selectById, selectByEmail} = require("../models/pedido.model")
+const {insertOrder, selectById, selectByEmail, selectbyLocation} = require("../models/pedido.model")
 const bcrypt = require("bcrypt");
 const {createToken, checkRolJefe, checkRolEncargado, checkRolOperario, checkRolCamionero} = require("../../utils/jwt");
 
@@ -45,6 +45,26 @@ const createNewOrder = async (req, res) => {
     }
 };
 
+const getAllOrders = async (req,res) => {
+    const {warehouse_location} = req.params; // Extraer el almacén desde los parámetros de la URL
+    try {
+        // Verificación del rol
+        if (!checkRolEncargado(req.user.role)) {
+            return res.status(403).json({ error: 'Acceso denegado. Debe ser encargado.' }); // Si el rol no es adecuado
+        }
 
+        // Llamar a la función selectbyLocation con la localización del almacen
+        const result = await selectbyLocation(warehouse_location);
 
-module.exports = {createNewOrder, searchOperatorOrder}
+        if (result.length === 0) {
+            return res.status(404).json({ error: 'Pedidos no encontrados' }); 
+        }
+        return res.json(result); // Devolver los pedidos en formato JSON
+
+    } catch (error) {
+        console.error('Error al buscar pedidos:', error); 
+        return res.status(500).json({ error: 'Hubo un error al obtener los pedidos' }); 
+    }
+};
+
+module.exports = {createNewOrder, searchOperatorOrder, getAllOrders}
