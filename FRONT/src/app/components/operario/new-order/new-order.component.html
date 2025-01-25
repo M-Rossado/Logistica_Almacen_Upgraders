@@ -1,0 +1,87 @@
+<div class="modal">
+    <h2>Nuevo pedido</h2>
+    <div class="form-container">
+        <form (ngSubmit)="onSubmit()" #orderForm="ngForm">
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input id="id" name="id" [(ngModel)]="newOrder.id" type="text" required />
+            </div>
+        
+            <div class="form-group">
+                <label for="item_type">Tipo de artículo</label>
+                <input id="item_type" name="item_type" [(ngModel)]="newOrder.item_type" type="text" required />
+            </div>
+        
+            <div class="form-group">
+                <label for="status">Estado</label>
+                <select id="status" name="status" [(ngModel)]="newOrder.status" type="text" required>
+                    <option value="" disabled selected>Selecciona un estado</option>
+                    <option value="En almacén">En almacén</option>
+                    <option value="En tránsito">En tránsito</option>
+                    <option value="Entregado">Entregado</option>
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <label for="date_of_entry">Fecha de entrada</label>
+                <input id="date_of_entry" name="date_of_entry" [(ngModel)]="newOrder.date_of_entry" type="date" required />    
+            </div>
+
+            <div class="form-group">
+                <label for="date_of_departure">Fecha de salida</label>
+                <input id="date_of_departure" name="date_of_departure" [(ngModel)]="newOrder.date_of_departure" type="date" required />    
+            </div>
+
+            <div class="form-group">
+                <label for="origin">Origen</label>
+                <input id="origin" name="origin" [(ngModel)]="newOrder.origin" type="text" required />    
+            </div>
+
+            <div class="form-group">
+                <label for="destination">Destino</label>
+                <input id="destination" name="destination" [(ngModel)]="newOrder.destination" type="text" required />    
+            </div>
+
+            <div class="form-group">
+                <label for="warehouse_location">Ubicación del almacén</label>
+                <select id="warehouse_location" name="warehouse_location" [(ngModel)]="newOrder.warehouse_location" type="text" required>
+                    <option value="" disabled selected>Selecciona un almacén</option>
+                    <option value="En almacén">Madrid</option>
+                    <option value="En tránsito">Barcelona</option>
+                    <option value="Entregado">Tenerife</option>
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <label for="truck_plate">Matrícula del camión</label>
+                <input id="truck_plate" name="truck_plate" [(ngModel)]="newOrder.truck_plate" type="text" required />    
+            </div>
+
+            <div class="form-group">
+                <label for="worker_email">Correo del operario</label>
+                <input
+                type="email"
+                id="worker_email"
+                name="worker_email"
+                [(ngModel)]="newOrder.worker_email"
+                #workerEmail="ngModel"
+                required
+            />        
+            <div *ngIf="workerEmail.invalid && workerEmail.touched" class="error">
+                Por favor, introduce un correo válido.
+            </div>            
+            </div>
+
+            <div class="form-group">
+                <label for="email_manager">Correo del encargado</label>
+                <input id="email_manager" name="email_manager" [(ngModel)]="newOrder.email_manager" type="email" required />    
+            </div>
+
+            <div class="buttons">
+                <button class="bi bi-arrow-left-square-fill close" (click)="Close()"></button>
+                <button type="submit" [disabled]="orderForm.invalid" class="create">Crear Pedido</button>
+            </div>
+        </form>
+    </div>
+
+</div>
