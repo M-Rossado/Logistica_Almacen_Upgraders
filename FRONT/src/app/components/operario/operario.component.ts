@@ -3,24 +3,26 @@ import { HomeServiceService } from '../service/home-service.service';
 import { DetalleOperarioComponent } from "./detalle-operario/detalle-operario.component";
 import { CommonModule } from '@angular/common';
 import { ICON_MAPPER } from '../../../assets/icon-mapper'; // Importa el mapeo
+import { NewOrderComponent } from './new-order/new-order.component';
 
 
 @Component({
   selector: 'app-operario',
   standalone: true,
-  imports: [DetalleOperarioComponent, CommonModule],
+  imports: [DetalleOperarioComponent, CommonModule, NewOrderComponent],
   templateUrl: './operario.component.html',
   styleUrl: './operario.component.css'
 })
 export class OperarioComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
-  public pedidosList: any = []
+  public orderList: any = []
   public userRole = localStorage.getItem('role')
   public name =  localStorage.getItem('nombre')
   public detalle: boolean = false
   public Showmodal:boolean = false;// paso #2
-public showDetail: boolean = false;
-public selectedPedido: any = null;
+  public showDetail: boolean = false;
+  public selectedOrder: any = null;
+  public showCreateOrder: boolean = false; // 
 
   
 
@@ -31,7 +33,7 @@ public selectedPedido: any = null;
 
   getPedidos(){
     this.homeservice.getPedidos().subscribe((data) =>
-    this.pedidosList = data)
+    this.orderList = data)
   }
 
 // Función para obtener la clase del ícono dinámicamente
@@ -40,13 +42,22 @@ getIconClass(status: string): string {
 }
 
   // modal 2  
-  mostrarDetalle(pedido: any){
-    this.selectedPedido = pedido; // Asigna el pedido seleccionado
+  mostrarDetalle(order: any){
+    this.selectedOrder = order; // Asigna el pedido seleccionado
     this. showDetail = true
     console.log(this.showDetail)
   }
     
   closeDetail(){
     this.showDetail = false
+  }
+
+  showFormCreateOrder(){
+    this.showCreateOrder = true;
+    console.log(this.showCreateOrder)
+  }
+
+  closeCreateOrder(){
+    this.showCreateOrder = false
   }
 }

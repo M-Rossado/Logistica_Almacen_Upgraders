@@ -5,7 +5,7 @@
       "item_type": "Television",
       "status": "Revision",
       "date_of_entry": "2025-01-24",
-      "date_of_departure": "",
+      "date_of_departure": "2025-01-30",
       "origin": "Sevilla",
       "destination": "Madrid",
       "warehouse_location": "Madrid",
@@ -42,7 +42,7 @@
     {
       "id": "4",
       "item_type": "Microondas",
-      "status": "In Transit",
+      "status": "En tránsito",
       "date_of_entry": "2025-01-25",
       "date_of_departure": "2025-01-30",
       "origin": "Valencia",
@@ -105,24 +105,52 @@
     {
       "id": "9",
       "item_type": "Cama",
-      "status": "In Transit",
+      "status": "En almacén",
       "date_of_entry": "2025-01-15",
       "date_of_departure": "2025-01-20",
       "origin": "Granada",
       "destination": "Madrid",
       "warehouse_location": "Granada",
-      "truck_plate": "8765 GTH"
+      "truck_plate": "8765 GTH",
+      "worker_email": "david.sanchez@gmail.com",
+      "email_manager": "lucia.martinez@gmail.com"
     },
     {
       "id": "10",
       "item_type": "Escritorio",
-      "status": "In Transit",
+      "status": "En tránsito",
       "date_of_entry": "2025-01-25",
       "date_of_departure": "2025-02-13",
       "origin": "Valencia",
       "destination": "Barcelona",
       "warehouse_location": "Valencia",
       "truck_plate": "8790 DWB"
+    },
+    {
+      "id": "11",
+      "item_type": "Prueba JA",
+      "status": "En almacén",
+      "date_of_entry": "2025-01-16",
+      "date_of_departure": "2025-01-27",
+      "origin": "Madrid",
+      "destination": "Murcia",
+      "warehouse_location": "En almacén",
+      "truck_plate": "33444B",
+      "worker_email": "das",
+      "email_manager": "dffg"
+    },
+    {
+      "id": "12",
+      "item_type": "Segunda prueba JA",
+      "status": "En almacén",
+      "date_of_entry": "2025-01-02",
+      "date_of_departure": "2025-01-30",
+      "origin": "Madrid",
+      "destination": "Murcia",
+      "warehouse_location": "En tránsito",
+      "truck_plate": "33444B",
+      "worker_email": "asd",
+      "email_manager": "as"
     }
   ],
   "truck": [
@@ -169,8 +197,12 @@
   ],
   "warehouse": [
     {
-      "location": "Valencia",
-      "id": "263d"
+      "location": "Madrid",
+      "id": "2f38"
+    },
+    {
+      "location": "Barcelona",
+      "id": "8e58"
     },
     {
       "location": "Sevilla",
@@ -181,8 +213,16 @@
       "id": "6da0"
     },
     {
-      "id": "3253",
-      "location": "agual dulce"
+      "location": "Malaga",
+      "id": "0878"
+    },
+    {
+      "location": "Alicante",
+      "id": "bf23"
+    },
+    {
+      "location": "Zaragoza",
+      "id": "bb82"
     }
   ],
   "worker": [
