@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { HomeServiceService } from '../../service/home-service.service';
+import { AddWorkerComponent } from '../modales/workers/add-worker/add-worker.component';
 
 @Component({
   selector: 'app-workers',
   standalone: true,
-  imports: [],
+  imports: [AddWorkerComponent],
   templateUrl: './workers.component.html',
   styleUrl: './workers.component.css'
 })
@@ -12,7 +13,7 @@ export class WorkersComponent {
 
   private homeservice: HomeServiceService = inject(HomeServiceService)
   public workersList: any[] = [];
-
+  public addModal: boolean = false
 
 
 
@@ -30,14 +31,19 @@ export class WorkersComponent {
          console.log(error);
        }
      });
-
-
    }
 
 
 
 
+   openaddWorker(){
+      this.addModal = true;
+      console.log(this.addModal)
+   }
 
+   closeAddworker(){
+    this.addModal = false; 
+   }
 
 
 
