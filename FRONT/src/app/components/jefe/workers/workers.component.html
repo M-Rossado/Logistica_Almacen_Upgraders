@@ -3,7 +3,7 @@
 
 <div class="general">
     <div class="new-order">
-        <button>agregar empleado</button>
+       <button (click)="openaddWorker()" >add nuevo</button>
     </div>
     <section class="section">
         <h1>lista de empleados :</h1>
@@ -16,10 +16,14 @@
             <p><strong>almacen:</strong> {{ worker.warehouse_location }}</p>
             <i class="bi bi-alarm"></i>
             <i class="bi bi-basket"></i>
-            <button class="edit-btn">Editar</button>
+            <button (click)="openaddWorker()" class="edit-btn">Editar</button>
         </div>
     </div>
         }
 
     </section>
 </div>
+@if(this.addModal === true){
+    <app-add-worker (closeadd)="closeAddworker()"></app-add-worker>
+}
+

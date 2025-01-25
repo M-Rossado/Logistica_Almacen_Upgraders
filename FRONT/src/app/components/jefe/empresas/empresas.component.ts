@@ -42,18 +42,20 @@ export class EmpresasComponent {
   deleteStorage(storeId:any){
     if(confirm("estas seguro que deseas eliminar esta tienda?")){
       this.homeservice.deleteStorage(storeId).subscribe({
-        next:(data:any) => {
-          alert('evento eliminado correctamente')
+        next:() => {
+          
           this.storages = this.storages.filter((store:any )=> store.id !== storeId.id)
+          alert('evento eliminado correctamente')
         },
         error: (error) => {
           console.log(error)
          }
 
       })
+     
     }
+   
     
-    this.router.navigate(['/warehouse']);
   }
 
 

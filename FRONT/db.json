@@ -205,14 +205,6 @@
       "id": "8e58"
     },
     {
-      "location": "Valencia",
-      "id": "263d"
-    },
-    {
-      "location": "Bilbao",
-      "id": "78ac"
-    },
-    {
       "location": "Sevilla",
       "id": "4b64"
     },
@@ -231,10 +223,6 @@
     {
       "location": "Zaragoza",
       "id": "bb82"
-    },
-    {
-      "location": "Santander",
-      "id": "64ca"
     }
   ],
   "worker": [
@@ -367,6 +355,17 @@
       "warehouse_location": "Santander",
       "truck_plate": null,
       "id": "a9f8"
+    },
+    {
+      "id": "b481",
+      "name": "deigo",
+      "surname": "arevalo",
+      "addres": "calle siempre viva 43",
+      "dni": "xm54678el",
+      "email": "diegoarevaloc17@gmail.com",
+      "role": "nule",
+      "warehouse_location": "",
+      "truck_plate": ""
     }
   ]
 }
