@@ -18,17 +18,17 @@ export class EditarComponent {
   private router: Router = new Router
 
 
-  public editPedido = {
+  public editOrder = {
     id:'',
-    tipo_articulo: '',
+    item_type: '',
     status: '',
-    fecha_entrada: '',
-    fecha_salida: null,
-    origen: '',
-    destino: '',
-    almacenes_localizacion: '',
-    Trabajadores_almacenes_localizacion: '',
-    camiones_matricula: ''
+    date_of_entry: '',
+    date_of_departure: null,
+    origin: '',
+    destination: '',
+    worker_id_worker: '',
+    warehouse_location: '',
+    truck_plate: ''
   };
 
 
@@ -38,21 +38,22 @@ export class EditarComponent {
   }
 
   getEdit() {
-    this.editPedido.id = this.selectedEvent?.id;
-    this.editPedido.tipo_articulo = this.selectedEvent?.tipo_articulo;
-    this.editPedido.fecha_entrada = this.selectedEvent?.fecha_entrada;
-    this.editPedido.fecha_salida = this.selectedEvent?.fecha_salida;
-    this.editPedido.origen = this.selectedEvent?.origen;
-    this.editPedido.destino = this.selectedEvent?.destino;
-    this.editPedido.almacenes_localizacion = this.selectedEvent?.almacenes_localizacion;
-    this.editPedido.Trabajadores_almacenes_localizacion = this.selectedEvent?.Trabajadores_almacenes_localizacion;
-    this.editPedido.camiones_matricula = this.selectedEvent?.camiones_matricula;
+    this.editOrder.id = this.selectedEvent?.id;
+    this.editOrder.item_type = this.selectedEvent?.item_type;
+    this.editOrder.status = this.selectedEvent?.status;
+    this.editOrder.date_of_entry = this.selectedEvent?.date_of_entry;
+    this.editOrder.date_of_departure = this.selectedEvent?.date_of_departure;
+    this.editOrder.origin = this.selectedEvent?.origin;
+    this.editOrder.destination = this.selectedEvent?.destination;
+    this.editOrder.warehouse_location = this.selectedEvent?.warehouse_location;
+    this.editOrder.worker_id_worker = this.selectedEvent?.worker_id_worker;
+    this.editOrder.truck_plate = this.selectedEvent?.truck_plate;
 
 
   }
 
   handleEdit() {
-this.homeservice.updateEvent(this.selectedEvent.id, this.editPedido).subscribe({
+this.homeservice.updateEvent(this.selectedEvent.id, this.editOrder).subscribe({
   next:(data: any) =>{
     alert('pedido actualizado correctamente')
     this.router.navigate(['/home'])

@@ -18,19 +18,19 @@
           <th>edicion</th>
         </tr>
       </thead>
-      @for(pedido of pedidosList;track $index){
-        @if(pedido.status === "Pendiente"){
+      @for(order of orderList ;track $index){
+        @if(order.status === "Pendiente"){
           <tbody>
             <tr>
-              <td>{{pedido.id}}</td>
-              <td>{{pedido.tipo_articulo}}</td>
-              <td>{{pedido.status}}</td>
-              <td>{{pedido.fecha_entrada}}</td>
-              <td>{{pedido.fecha_salida}}</td>
-              <td>{{pedido.destino}}</td>
-              <td>{{pedido.Trabajadores_almacenes_localizacion}}</td>
-              <td>{{pedido.camiones_matricula}}</td>
-              <td><a (click)="openEdiatar(pedido)"><img class="img" src="/assets/image/editar.png" alt=""></a></td>
+              <td>{{order.id}}</td>
+              <td>{{order.item_type}}</td>
+              <td>{{order.status}}</td>
+              <td>{{order.date_of_entry}}</td>
+              <td>{{order.date_of_departure}}</td>
+              <td>{{order.destination}}</td>
+              <td>{{order.worker_id_worker}}</td>
+              <td>{{order.truck_plate}}</td>
+              <td><a (click)="openEdiatar(order)"><img class="img" src="/assets/image/editar.png" alt=""></a></td>
             </tr>
             <tr>
              
@@ -63,18 +63,18 @@
           <th>Matrícula</th>
         </tr>
       </thead>
-      @for(pedido of pedidosList;track $index){
-        @if(pedido.status === "en_transito"){
+      @for(order of orderList ;track $index){
+        @if(order.status !== "Pendiente"){
           <tbody>
             <tr>
-              <td>{{pedido.id}}</td>
-              <td>{{pedido.tipo_articulo}}</td>
-              <td>{{pedido.status}}</td>
-              <td>{{pedido.fecha_entrada}}</td>
-              <td>{{pedido.fecha_salida}}</td>
-              <td>{{pedido.destino}}</td>
-              <td>{{pedido.Trabajadores_almacenes_localizacion}}</td>
-              <td>{{pedido.camiones_matricula}}</td>
+              <td>{{order.id}}</td>
+              <td>{{order.item_type}}</td>
+              <td>{{order.status}}</td>
+              <td>{{order.date_of_entry}}</td>
+              <td>{{order.date_of_departure}}</td>
+              <td>{{order.destination}}</td>
+              <td>{{order.worker_id_worker}}</td>
+              <td>{{order.truck_plate}}</td>
             </tr>
             <tr>
              

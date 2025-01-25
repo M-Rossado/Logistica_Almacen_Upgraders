@@ -1,0 +1,34 @@
+<div class="general">
+    <div class="new-order">
+        <button (click)="openadd()">nuevo almacen</button>
+    </div>
+    <div class="new-order">
+    </div>
+    <section class="section">
+        <h1>lista de almacenes :</h1>
+        @for(store of storages; track $index){
+        <div class="container">
+            <div  class="card">
+                <h2></h2>
+                <p><strong>id empresa :</strong>{{store.id}}</p>
+                <p><strong>localizacion :</strong> {{store.location }}</p>
+                <i class="bi bi-alarm"></i>
+                <div>
+                    <i class="bi bi-basket"></i>
+                    <button (click)="opendetails(store)" class="edit-btn">ver detalle</button>
+                    <button (click)="deleteStorage(store.id)" class="edit-btn">eliminar </button>
+                </div>
+            </div>
+        </div>
+        }
+
+    </section>
+</div>
+
+@if(this.modalDetails === true){
+<app-details-werehouse (closeEdit)="closedetails()"></app-details-werehouse>
+}
+
+@if(this.modalAdd === true){
+<app-add-werer-house (closeadd)="closeADD()"></app-add-werer-house>
+}
