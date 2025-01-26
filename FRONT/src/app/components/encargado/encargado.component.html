@@ -5,7 +5,7 @@
 <div class="table-responsive">
     <table class="table">
       <thead>
-        
+
         <tr>
           <th>Pedido ID</th>
           <th>Ptipo de articulo</th>
@@ -18,7 +18,7 @@
           <th>edicion</th>
         </tr>
       </thead>
-      @for(order of orderList ;track $index){
+      @for(order of ordersList ;track $index){
         @if(order.status === "Pendiente"){
           <tbody>
             <tr>
@@ -33,12 +33,12 @@
               <td><a (click)="openEdiatar(order)"><img class="img" src="/assets/image/editar.png" alt=""></a></td>
             </tr>
             <tr>
-             
+
           </tbody>
         }
-       
+
       }
-      
+
     </table>
   </div>
 
@@ -47,11 +47,11 @@
   <div class="encabezado">
     <h1>listos para entrega</h1>
   </div>
-  
+
   <div class="table-responsive">
     <table class="table">
       <thead>
-        
+
         <tr>
           <th>Pedido ID</th>
           <th>Ptipo de articulo</th>
@@ -63,7 +63,7 @@
           <th>Matrícula</th>
         </tr>
       </thead>
-      @for(order of orderList ;track $index){
+      @for(order of ordersList ;track $index){
         @if(order.status !== "Pendiente"){
           <tbody>
             <tr>
@@ -77,12 +77,12 @@
               <td>{{order.truck_plate}}</td>
             </tr>
             <tr>
-             
+
           </tbody>
         }
-       
+
       }
-      
+
     </table>
   </div>
 

@@ -19,7 +19,7 @@ export class HomeComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
   public ordersList: any = []
   public userRole = localStorage.getItem('role')
-  public name =  localStorage.getItem('nombre')
+  public name =  localStorage.getItem('name')
 
 
 

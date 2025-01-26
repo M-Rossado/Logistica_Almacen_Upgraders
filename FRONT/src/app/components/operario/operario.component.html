@@ -5,7 +5,7 @@
     <section class="section">
         <p class="saludo">Hola, {{ name }}</p>
         <h2>estos son tus pedidos gestionados</h2>
-        @for(order of orderList; track $index){
+        @for(order of ordersList; track $index){
 
         <div class="card">
             <div class="card-1">
@@ -17,15 +17,15 @@
                     <p>Destino: {{ order.destination }}</p>
                     <p>{{ order.date_of_departure }}</p>
                 </div>
-                <div class="card-2-icon">            
-                    <button (click)="mostrarDetalle(order)" class="bi bi-clipboard2-plus-fill"></button>                
+                <div class="card-2-icon">
+                    <button (click)="mostrarDetalle(order)" class="bi bi-clipboard2-plus-fill"></button>
                 </div>
             </div>
         </div>
         }
 
         @if(this.showDetail === true){
-            <app-detalle-operario 
+            <app-detalle-operario
             (closeModal)="closeDetail()"
             *ngIf="selectedOrder"
             [order]="selectedOrder"

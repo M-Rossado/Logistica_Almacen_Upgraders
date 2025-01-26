@@ -15,7 +15,7 @@ export class LoginComponent {
   private authService: AuthService = inject(AuthService)
   private router: Router = inject(Router)
   private role: any = ''
-  private nombre:any = ''
+  private name:any = ''
   public userLoginForm = {
 
     email: '',
@@ -55,7 +55,7 @@ export class LoginComponent {
     // });
     // localStorage.setItem('token', )
       localStorage.setItem('role', this.role)
-      localStorage.setItem('nombre', this.nombre)
+      localStorage.setItem('name', this.name)
  this.router.navigate(['/home'])
   }
 }
