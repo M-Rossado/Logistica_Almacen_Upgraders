@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { HomeServiceService } from '../service/home-service.service';
 import { RouterModule } from '@angular/router';
-import { PedidosComponent } from './pedidos/pedidos.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @Component({
   selector: 'app-jefe',
   standalone: true,
-  imports: [RouterModule,PedidosComponent],
+  imports: [RouterModule,OrdersComponent],
   templateUrl: './jefe.component.html',
   styleUrl: './jefe.component.css'
 })
@@ -14,24 +14,24 @@ export class JefeComponent {
 
 
 private homeservice: HomeServiceService = inject(HomeServiceService)
-public pedidosList: any = []
-public ShowPedidos:boolean = false;// paso #2
+public ordersList: any = []
+public ShowOrders:boolean = false;// paso #2
 
 
 
 
 
 ngOnInit(){
-  this.getPedidos()
+  this.getOrders()
 }
 
 
-getPedidos(){
-  this.homeservice.getPedidos().subscribe((data) =>
-  this.pedidosList = data
+getOrders(){
+  this.homeservice.getOrders().subscribe((data) =>
+  this.ordersList= data
 )
 
-  console.log(this.getPedidos)
+  console.log(this.getOrders)
 }
 //PASO A PASO FORMA TRADICIONAL
 //paso 1 creamos el evento con el cual vamos a abrir la ventana modal-- anteriormente creamos los respectimos modales y sus componentes dentro de la carpeta como hijos
@@ -44,13 +44,13 @@ getPedidos(){
 // paso 8: para genrar la comunicacion entre madre he hijo debemos poner en nuestro html el dato ejempo ( <app-agregar-trabajador (closeModal)="closeUsuario()"></app-agregar-trabajador>) donde
 //(closeModal) es el evento emisor que creamos en el hijo  y closeUsuario() es el evento que lo va a recibir, en el momento de agregarlo este les mostrara y los ayudara a definirlo
 
-openPedidos(){//paso#1
-this.ShowPedidos = true
-console.log(this.ShowPedidos)
+openOrders(){//paso#1
+this.ShowOrders = true
+console.log(this.ShowOrders)
 }
 
 closeUser(){
-this.ShowPedidos = false
+this.ShowOrders = false
 }
 
 

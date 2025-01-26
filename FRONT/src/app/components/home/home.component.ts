@@ -5,7 +5,7 @@ import { JefeComponent } from '../jefe/jefe.component';
 import { OperarioComponent } from '../operario/operario.component';
 import { ConductorComponent } from '../conductor/conductor.component';
 import { EncargadoComponent } from '../encargado/encargado.component';
-import { PedidosComponent } from '../jefe/pedidos/pedidos.component';
+import { OrdersComponent } from '../jefe/orders/orders.component';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +17,7 @@ import { PedidosComponent } from '../jefe/pedidos/pedidos.component';
 export class HomeComponent {
 
   private homeservice: HomeServiceService = inject(HomeServiceService)
-  public pedidosList: any = []
+  public ordersList: any = []
   public userRole = localStorage.getItem('role')
   public name =  localStorage.getItem('nombre')
 

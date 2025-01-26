@@ -4,13 +4,13 @@
     </div>
     <section class="section">
         <h1>lista de pedidos :</h1>
-        @for(pedido of pedidosList; track $index){
+        @for(order of ordersList; track $index){
 <div class="container">
         <div class="card">
               <h2></h2>
-              <p><strong>id pedido :</strong>{{pedido.id}}</p>
-            <p><strong>origen:</strong> {{ pedido.warehouse_location }}</p>
-            <p><strong>estado :</strong> {{ pedido.status }}</p>
+              <p><strong>id pedido :</strong>{{order.id}}</p>
+            <p><strong>origen:</strong> {{ order.warehouse_location }}</p>
+            <p><strong>estado :</strong> {{ order.status }}</p>
             <i class="bi bi-alarm"></i>
             <i class="bi bi-basket"></i>
             <button class="edit-btn">ver detalles </button>

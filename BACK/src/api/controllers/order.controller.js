@@ -1,4 +1,4 @@
-const {insertOrder, selectById, selectByEmail, selectbyLocation} = require("../models/pedido.model")
+const {insertOrder, selectById, selectByEmail, selectbyLocation} = require("../models/order.model")
 const bcrypt = require("bcrypt");
 const {createToken, checkRolJefe, checkRolEncargado, checkRolOperario, checkRolCamionero} = require("../../utils/jwt");
 

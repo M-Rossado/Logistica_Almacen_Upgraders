@@ -23,21 +23,21 @@ export class DetalleOperarioComponent {
   @Output() closeModal = new EventEmitter<void>(); // Evento para cerrar el modal
 
   ngOnInit(){
-    this.getPedidos()
+    this.getOrders()
   }
 
 
-  getPedidos(){
-    this.homeservice.getPedidos().subscribe((data) =>
+  getOrders(){
+    this.homeservice.getOrders().subscribe((data) =>
     this.ordersList = data
   )
 
-    console.log(this.getPedidos)
+    console.log(this.getOrders)
   }
 
   //@Output() closeModal = new EventEmitter<boolean>();// cremaos el evento output paso 6
 
-    // modal 2  
+    // modal 2
     editOrder(order: any){
       this.selectedOrder = order; // Asigna el pedido seleccionado
       this. showEdit = true;
@@ -50,7 +50,7 @@ export class DetalleOperarioComponent {
     }
 
   Close(){
-    this.closeModal.emit();// enviamos un booleano hacia nuestro padre lo podemos dejar abierto y despues lo volveremos falso en nuestro compoennte padre 
+    this.closeModal.emit();// enviamos un booleano hacia nuestro padre lo podemos dejar abierto y despues lo volveremos falso en nuestro compoennte padre
   }
-  
+
 }
