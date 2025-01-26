@@ -6,17 +6,17 @@
     </div>
     <section class="section">
         <h1>lista de almacenes :</h1>
-        @for(store of storages; track $index){
+        @for(warehouse of warehouses; track $index){
         <div class="container">
             <div  class="card">
                 <h2></h2>
-                <p><strong>id empresa :</strong>{{store.id}}</p>
-                <p><strong>localizacion :</strong> {{store.location }}</p>
+                <p><strong>id almacén :</strong>{{warehouse.id}}</p>
+                <p><strong>localizacion :</strong> {{warehouse.location }}</p>
                 <i class="bi bi-alarm"></i>
                 <div>
                     <i class="bi bi-basket"></i>
-                    <button (click)="opendetails(store)" class="edit-btn">ver detalle</button>
-                    <button (click)="deleteStorage(store.id)" class="edit-btn">eliminar </button>
+                    <button (click)="opendetails(warehouse)" class="edit-btn">ver detalle</button>
+                    <button (click)="deleteWarehouse(warehouse.id)" class="edit-btn">eliminar </button>
                 </div>
             </div>
         </div>
@@ -26,9 +26,9 @@
 </div>
 
 @if(this.modalDetails === true){
-<app-details-werehouse (closeEdit)="closedetails()"></app-details-werehouse>
+<app-details-warehouse (closeEdit)="closedetails()"></app-details-warehouse>
 }
 
 @if(this.modalAdd === true){
-<app-add-werer-house (closeadd)="closeADD()"></app-add-werer-house>
+<app-add-warehouse (closeadd)="closeADD()"></app-add-warehouse>
 }
