@@ -4,13 +4,13 @@ import { HomeServiceService } from '../../../../service/home-service.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-werer-house',
+  selector: 'app-add-warehouse',
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './add-werer-house.component.html',
-  styleUrl: './add-werer-house.component.css'
+  templateUrl: './add-warehouse.component.html',
+  styleUrl: './add-warehouse.component.css'
 })
-export class AddWererHouseComponent {
+export class AddWarehouseComponent {
 
 private homeservice: HomeServiceService = inject(HomeServiceService);
 private router: Router = new Router;
@@ -23,7 +23,7 @@ private router: Router = new Router;
     location:""
   }
 
-  
+
 
   handleRegister(){
 
@@ -32,7 +32,7 @@ private router: Router = new Router;
       return;
     }
 
-this.homeservice.addNewStorage(this.newOne).subscribe({
+this.homeservice.addNewWarehouse(this.newOne).subscribe({
   next: (data:any) =>{
     alert('alacen creado con exito')
     this.router.navigate(['/warehouse']);

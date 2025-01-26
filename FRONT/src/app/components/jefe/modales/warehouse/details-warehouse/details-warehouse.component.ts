@@ -1,13 +1,13 @@
 import { Component, EventEmitter, input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-details-werehouse',
+  selector: 'app-details-warehouse',
   standalone: true,
   imports: [],
-  templateUrl: './details-werehouse.component.html',
-  styleUrl: './details-werehouse.component.css'
+  templateUrl: './details-warehouse.component.html',
+  styleUrl: './details-warehouse.component.css'
 })
-export class DetailsWerehouseComponent {
+export class DetailsWarehouseComponent {
 
   public selectedEvent: any ;
 @Output() closeEdit = new EventEmitter<boolean>()

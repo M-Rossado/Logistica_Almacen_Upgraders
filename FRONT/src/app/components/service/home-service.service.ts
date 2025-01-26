@@ -23,15 +23,15 @@ export class HomeServiceService {
 
 
 //oservicio de tiendas
-getstorage(){
+getWarehouse(){
   return this.http.get('http://localhost:3000/warehouse')
  }
 
- addNewStorage(newOne:any){
+ addNewWarehouse(newOne:any){
   return this.http.post('http://localhost:3000/warehouse',newOne)
  }
 
- deleteStorage(id:string){
+ deleteWarehouse(id:string){
   return this.http.delete('http://localhost:3000/warehouse/'+ id)
   }
 
