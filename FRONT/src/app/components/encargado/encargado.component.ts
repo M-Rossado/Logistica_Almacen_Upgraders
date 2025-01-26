@@ -12,7 +12,7 @@ import { EditarComponent } from './modal/editar/editar.component';
 export class EncargadoComponent implements OnInit {
 
   private homeservice: HomeServiceService = inject(HomeServiceService)
-  public orderList: any[] = [];
+  public ordersList: any[] = [];
   public openEditar: boolean = false;
   public selectedEvent: any ;
 
@@ -26,8 +26,8 @@ export class EncargadoComponent implements OnInit {
   getEventos(): void {
     this.homeservice.getOrders().subscribe({
       next: (data: any) => {
-       this.orderList = data
-       console.log(this.orderList)
+       this.ordersList = data
+       console.log(this.ordersList)
       },
       error: (error) => {
         console.log(error);

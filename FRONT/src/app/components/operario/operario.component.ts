@@ -15,9 +15,9 @@ import { NewOrderComponent } from './new-order/new-order.component';
 })
 export class OperarioComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
-  public orderList: any = []
+  public ordersList: any = []
   public userRole = localStorage.getItem('role')
-  public name =  localStorage.getItem('nombre')
+  public name =  localStorage.getItem('name')
   public detalle: boolean = false
   public Showmodal:boolean = false;// paso #2
   public showDetail: boolean = false;
@@ -33,7 +33,7 @@ export class OperarioComponent {
 
   getOrders(){
     this.homeservice.getOrders().subscribe((data) =>
-    this.orderList = data)
+    this.ordersList = data)
   }
 
 // Función para obtener la clase del ícono dinámicamente
