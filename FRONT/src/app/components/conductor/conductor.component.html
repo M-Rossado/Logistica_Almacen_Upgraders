@@ -11,9 +11,12 @@
             <p class="campo-list">destino:<br><strong>{{ order.destination }}</strong> </p>
             <i class="bi bi-alarm"></i>
             <i class="bi bi-basket"></i>
-            <button class="edit-btn">Editar</button>
+            <button (click)="openEditStatus()" class="edit-btn">Editar</button>
         </div>
         }
 
     </section>
 </div>
+@if(this.addModal === true){
+  <app-edit-status (closeadd)="closeEditStatus()"></app-edit-status>
+}
