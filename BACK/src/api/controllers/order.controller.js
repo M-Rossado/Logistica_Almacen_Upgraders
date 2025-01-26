@@ -66,6 +66,73 @@ const getAllOrders = async (req,res) => {
         return res.status(500).json({ error: 'Hubo un error al obtener los pedidos' }); 
     }
 };
+const getOperator = async(req,res) => {
+    const { email_manager } = req.params; // Extraer el email desde los parámetros de la URL
+    try {
+        // Verificación del rol
+        if (!checkRolJefe(req.user.role)) {
+            return res.status(403).json({ error: 'Acceso denegado. Debe ser jefe de equipo.' }); // Si el rol no es adecuado
+        }
+
+        // Llamar a la función selectByEmail con el email_manager correcto
+        const result = await selectByEmail(email_manager);
+
+        if (result.length === 0) {
+            return res.status(404).json({ error: 'Pedidos no encontrados' }); 
+        }
+        return res.json(result); // Devolver los pedidos en formato JSON
+
+    } catch (error) {
+        console.error('Error al buscar pedidos:', error); 
+        return res.status(500).json({ error: 'Hubo un error al obtener los pedidos' }); 
+    }
+};
+
+const getWarehourse = async(req,res) => {
+    const {warehouse_location} = req.params; // Extraer el almacén desde los parámetros de la URL
+    try {
+        // Verificación del rol
+        if (!checkRolJefe(req.user.role)) {
+            return res.status(403).json({ error: 'Acceso denegado. Debe ser jefe de equipo.' }); // Si el rol no es adecuado
+        }
+
+        // Llamar a la función selectbyLocation con la localización del almacen
+        const result = await selectbyLocation(warehouse_location);
+
+        if (result.length === 0) {
+            return res.status(404).json({ error: 'Pedidos no encontrados' }); 
+        }
+        return res.json(result); // Devolver los pedidos en formato JSON
+
+    } catch (error) {
+        console.error('Error al buscar pedidos:', error); 
+        return res.status(500).json({ error: 'Hubo un error al obtener los pedidos' }); 
+    }
+};
+    
+
+const getOrder = async(req,res) => {
+    const { id_order} = req.params; // Extraer el email desde los parámetros de la URL
+    try {
+        // Verificación del rol
+        if (!checkRolJefe(req.user.role)) {
+            return res.status(403).json({ error: 'Acceso denegado. Debe ser jefe de equipo.' }); // Si el rol no es adecuado
+        }
+
+        // Llamar a la función selectByEmail con el email_manager correcto
+        const result = await selectById(id_order);
+
+        if (result.length === 0) {
+            return res.status(404).json({ error: 'Pedidos no encontrados' }); 
+        }
+        return res.json(result); // Devolver los pedidos en formato JSON
+
+    } catch (error) {
+        console.error('Error al buscar pedidos:', error); 
+        return res.status(500).json({ error: 'Hubo un error al obtener los pedidos' }); 
+    }
+};
+    
 
 const acceptOrder = async (req, res) => {
     const { id_order } = req.params;
@@ -118,4 +185,4 @@ const updateOrder = async (req, res) => {
 };
 
 
-module.exports = {createNewOrder, searchOperatorOrder, getAllOrders, acceptOrder, deliverOrder, updateOrder}
+module.exports = {createNewOrder, searchOperatorOrder, getAllOrders, getOperator, getWarehourse, getOrder, acceptOrder, deliverOrder, updateOrder}
