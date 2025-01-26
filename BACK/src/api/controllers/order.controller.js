@@ -67,4 +67,55 @@ const getAllOrders = async (req,res) => {
     }
 };
 
-module.exports = {createNewOrder, searchOperatorOrder, getAllOrders}
+const acceptOrder = async (req, res) => {
+    const { id_order } = req.params;
+    const { status, comment } = req.body; // status debe ser "en curso" o "denegado"
+
+    try {
+        // Llamar a la función para actualizar el estado del pedido
+        const result = await updateOrderStatus(id_order, status, comment);
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ msg: "Pedido no encontrado" });
+        }
+        return res.status(200).json({ msg: "Estado del pedido actualizado", data: result });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ msg: "Error en el servidor" });
+    }
+};
+
+const deliverOrder = async (req, res) => {
+    const { id_order } = req.params;
+
+    try {
+        // Cambiar el estado del pedido a "entregado"
+        const result = await updateOrderStatus(id_order, "entregado", null);
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ msg: "Pedido no encontrado" });
+        }
+        return res.status(200).json({ msg: "Pedido entregado", data: result });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ msg: "Error en el servidor" });
+    }
+};
+
+const updateOrder = async (req, res) => {
+    const { id_order } = req.params;
+    const data = req.body; // Aquí se espera que se envíen todos los parámetros del pedido
+
+    try {
+        // Actualizar todos los parámetros del pedido
+        const result = await updateOrderDetails(id_order, data);
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ msg: "Pedido no encontrado" });
+        }
+        return res.status(200).json({ msg: "Pedido actualizado", data: result });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ msg: "Error en el servidor" });
+    }
+};
+
+
+module.exports = {createNewOrder, searchOperatorOrder, getAllOrders, acceptOrder, deliverOrder, updateOrder}

@@ -28,4 +28,14 @@ const selectByEmail = async (email_manager) => {
     return rows;
 };
 
-module.exports = {selectbyLocation, insertOrder, selectById, selectByEmail}
+const updateOrderStatus = async (id_order, status, comment) => {
+    return await pool.query("UPDATE orders SET status = ?, comment = ? WHERE id_order = ?", [status, comment, id_order]);
+};
+
+const updateOrderDetails = async (id_order, data) => {
+    const { item_type, status, date_of_entry, date_of_departure, origin, destination, warehouse_location, truck_plate, worker_email, email_manager } = data;
+    return await pool.query("UPDATE orders SET item_type = ?, status = ?, date_of_entry = ?, date_of_departure = ?, origin = ?, destination = ?, warehouse_location = ?, truck_plate = ?, worker_email = ?, email_manager = ? WHERE id_order = ?", 
+    [item_type, status, date_of_entry, date_of_departure, origin, destination, warehouse_location, truck_plate, worker_email, email_manager, id_order]);
+};
+
+module.exports = {selectbyLocation, insertOrder, selectById, selectByEmail, updateOrderStatus, updateOrderDetails}
