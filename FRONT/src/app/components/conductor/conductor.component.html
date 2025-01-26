@@ -2,13 +2,13 @@
 <div class="general">
     <section class="section">
         <h2>Tus pedidos asignados:</h2>
-        @for(pedido of pedidosList; track $index){
+        @for(order of ordersList; track $index){
 
         <div class="card">
-            <p class="campo-list"><strong>{{ pedido.id }}</strong></p>
-            <p class="campo-list"><strong>{{ pedido.status }}</strong></p>
-            <p class="campo-list">F. salida:<br><strong>{{ pedido.fecha_salida }}</strong> </p>
-            <p class="campo-list">destino:<br><strong>{{ pedido.destino }}</strong> </p>
+            <p class="campo-list"><strong>{{ order.id }}</strong></p>
+            <p class="campo-list"><strong>{{ order.status }}</strong></p>
+            <p class="campo-list">F. salida:<br><strong>{{ order.fecha_salida }}</strong> </p>
+            <p class="campo-list">destino:<br><strong>{{ order.destino }}</strong> </p>
             <i class="bi bi-alarm"></i>
             <i class="bi bi-basket"></i>
             <button class="edit-btn">Editar</button>

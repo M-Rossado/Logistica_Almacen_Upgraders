@@ -22,17 +22,17 @@ export class OperarioComponent {
   public Showmodal:boolean = false;// paso #2
   public showDetail: boolean = false;
   public selectedOrder: any = null;
-  public showCreateOrder: boolean = false; // 
+  public showCreateOrder: boolean = false; //
 
-  
+
 
   ngOnInit(){
-    this.getPedidos()
+    this.getOrders()
   }
 
 
-  getPedidos(){
-    this.homeservice.getPedidos().subscribe((data) =>
+  getOrders(){
+    this.homeservice.getOrders().subscribe((data) =>
     this.orderList = data)
   }
 
@@ -41,13 +41,13 @@ getIconClass(status: string): string {
   return ICON_MAPPER[status] || 'bi-question-circle-fill text-muted'; // Icono por defecto si no coincide
 }
 
-  // modal 2  
+  // modal 2
   mostrarDetalle(order: any){
     this.selectedOrder = order; // Asigna el pedido seleccionado
     this. showDetail = true
     console.log(this.showDetail)
   }
-    
+
   closeDetail(){
     this.showDetail = false
   }

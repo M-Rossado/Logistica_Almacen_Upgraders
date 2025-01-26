@@ -10,21 +10,21 @@ import { HomeServiceService } from '../service/home-service.service';
 })
 export class ConductorComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
-  public pedidosList: any = []
+  public ordersList: any = []
   public userRole = localStorage.getItem('role')
   public name =  localStorage.getItem('nombre')
 
   ngOnInit(){
-    this.getPedidos()
+    this.getOrders()
   }
 
 
-  getPedidos(){
-    this.homeservice.getPedidos().subscribe((data) =>
-    this.pedidosList = data
+  getOrders(){
+    this.homeservice.getOrders().subscribe((data) =>
+    this.ordersList= data
   )
 
-    console.log(this.getPedidos)
+    console.log(this.getOrders)
   }
 
 

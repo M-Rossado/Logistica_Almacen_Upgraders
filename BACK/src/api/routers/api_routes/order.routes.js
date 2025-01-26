@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const {createNewOrder, searchOperatorOrder, getAllOrders} = require("../../controllers/pedido.controller")
+const {createNewOrder, searchOperatorOrder, getAllOrders} = require("../../controllers/order.controller")
 const {checkToken} = require("../../middleware/auth")
 
 router.post("/neworder", checkToken, createNewOrder) //crea un nuevo pedido
