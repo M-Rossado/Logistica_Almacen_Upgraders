@@ -2,17 +2,17 @@ import { Component, inject } from '@angular/core';
 import { AuthService } from '../../../auth/service/auth.service';
 import { HomeServiceService } from '../../service/home-service.service';
 import { DetailsWarehouseComponent } from '../modales/warehouse/details-warehouse/details-warehouse.component';
-import { AddWarehousesComponent } from '../modales/warehouse/add-warehouse/add-warehouse.component';
+import { AddWarehouseComponent } from '../modales/warehouse/add-warehouse/add-warehouse.component';
 import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-warehouses',
   standalone: true,
-  imports: [DetailsWarehouseComponent, AddWarehousesComponent],
+  imports: [DetailsWarehouseComponent, AddWarehouseComponent],
   templateUrl: './warehouses.component.html',
   styleUrl: './warehouses.component.css'
 })
-export class WarehousesComponent {
+export class WarehouseComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
   public warehouses: any = []
   public modalDetails: boolean = false

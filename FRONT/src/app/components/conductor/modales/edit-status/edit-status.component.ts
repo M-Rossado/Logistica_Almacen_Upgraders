@@ -21,7 +21,7 @@ export class EditStatusComponent {
       surname:"",
       addres:"",
       dni:"",
-      mail:"",
+      email:"",
       role:"",
       warehouse_location:"",
       truck_plate:"",
