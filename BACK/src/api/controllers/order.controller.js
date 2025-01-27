@@ -138,8 +138,8 @@ const acceptOrder = async (req, res) => {
 
     try {
         // Verificación del rol
-        if (!checkRolJefe(req.user.role)) {
-            return res.status(403).json({ msg: "Acceso denegado. Debe ser jefe de equipo." }); // Si el rol no es adecuado
+        if (!checkRolEncargado(req.user.role)) {
+            return res.status(403).json({ msg: "Acceso denegado. Debe ser encargado de equipo." }); // Si el rol no es adecuado
         }
 
         // Llamar a la función para actualizar el estado del pedido
