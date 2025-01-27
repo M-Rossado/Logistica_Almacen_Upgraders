@@ -1,0 +1,24 @@
+
+
+
+
+<div class="modal">
+  <div class="modal-content">
+    <button (click)="closeEDetails()" class="close">×</button>
+    <div class="modal-head">
+      <h2>Detalles del Pedido</h2>
+    </div>
+    <div class="modal-body">
+      <h3>ID: {{selectedEvent?.id}}</h3>
+      <h3>Tipo: {{selectedEvent?.item_type}}</h3>
+      <h3>Status: {{selectedEvent?.status}}</h3>
+      <h3>Fecha de Entrada: {{selectedEvent?.date_of_entry }}</h3>
+      <h3>Fecha de Salida: {{ selectedEvent?.date_of_departure }}</h3>
+      <h3>Origen: {{selectedEvent?.origin}}</h3>
+      <h3>Destino: {{selectedEvent?.destination}}</h3>
+      <h3>Trabajador ID: {{selectedEvent?.worker_email}}</h3>
+      <h3>Ubicación del Almacén: {{selectedEvent?.warehouse_location}}</h3>
+      <h3>Placa del Camión: {{selectedEvent?.truck_plate}}</h3>
+    </div>
+  </div>
+</div>
