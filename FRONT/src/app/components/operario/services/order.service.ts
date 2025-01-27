@@ -14,4 +14,15 @@ export class OrderService {
     addOrder(order: any): Observable<any> {
       return this.http.post(this.apiUrl, order);
     }
+
+      // Método para obtener un pedido por su ID
+    getOrderById(id: string): Observable<any> {
+      return this.http.get(`${this.apiUrl}/${id}`);
+    }
+
+
+    // Método para actualizar un pedido
+    updateOrder(order: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${order.id}`, order);
+  }
 }

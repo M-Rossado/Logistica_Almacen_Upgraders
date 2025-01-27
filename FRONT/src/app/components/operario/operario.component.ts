@@ -4,25 +4,27 @@ import { DetalleOperarioComponent } from "./detalle-operario/detalle-operario.co
 import { CommonModule } from '@angular/common';
 import { ICON_MAPPER } from '../../../assets/icon-mapper'; // Importa el mapeo
 import { NewOrderComponent } from './new-order/new-order.component';
+import { EditOrderComponent } from './edit-order/edit-order.component';
 
 
 @Component({
   selector: 'app-operario',
   standalone: true,
-  imports: [DetalleOperarioComponent, CommonModule, NewOrderComponent],
+  imports: [DetalleOperarioComponent, CommonModule, NewOrderComponent, EditOrderComponent],
   templateUrl: './operario.component.html',
   styleUrl: './operario.component.css'
 })
 export class OperarioComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
-  public ordersList: any = []
+  public orderList: any = []
   public userRole = localStorage.getItem('role')
-  public name =  localStorage.getItem('name')
+  public name =  localStorage.getItem('nombre')
   public detalle: boolean = false
   public Showmodal:boolean = false;// paso #2
   public showDetail: boolean = false;
   public selectedOrder: any = null;
   public showCreateOrder: boolean = false; //
+  public showEditOrder: boolean = false;
 
 
 
@@ -33,7 +35,7 @@ export class OperarioComponent {
 
   getOrders(){
     this.homeservice.getOrders().subscribe((data) =>
-    this.ordersList = data)
+    this.orderList = data)
   }
 
 // Función para obtener la clase del ícono dinámicamente
@@ -45,19 +47,31 @@ getIconClass(status: string): string {
   mostrarDetalle(order: any){
     this.selectedOrder = order; // Asigna el pedido seleccionado
     this. showDetail = true
-    console.log(this.showDetail)
   }
 
   closeDetail(){
-    this.showDetail = false
+    this.showDetail = false;
   }
 
   showFormCreateOrder(){
     this.showCreateOrder = true;
-    console.log(this.showCreateOrder)
   }
 
   closeCreateOrder(){
     this.showCreateOrder = false
+  }
+
+  // cambios
+
+  // Abrir modal de edición desde detalles
+  openEditModal(order: any) {
+    this.closeDetail();
+    this.selectedOrder = order; // Asigna el pedido seleccionado
+    //this.showDetail = false; // Cierra el modal de detalles
+    this.showEditOrder = true; // Abre el modal de edición
+  }
+
+  closeEditOrder() {
+    this.showEditOrder = false; // Cierra el modal de edición
   }
 }
