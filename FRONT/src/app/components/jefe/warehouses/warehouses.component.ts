@@ -25,6 +25,7 @@ export class WarehouseComponent {
 
   ngOnInit(): void {
     this.getWarehouses()
+    this.getWorkers()
   }
 
   getWarehouses(): void {
@@ -59,6 +60,13 @@ export class WarehouseComponent {
   }
 
 
+  getWorkers(){
+    this.homeservice.getWorkers().subscribe({
+      next(data:any){
+        console.log(data)
+      }
+    })
+  }
 
   opendetails(warehouse: any) {
     this.modalDetails = true

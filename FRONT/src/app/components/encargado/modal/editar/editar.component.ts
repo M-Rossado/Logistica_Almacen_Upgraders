@@ -58,6 +58,8 @@ this.homeservice.updateEvent(this.selectedEvent.id, this.editOrder).subscribe({
     alert('pedido actualizado correctamente')
     this.router.navigate(['/home'])
     this.closeEditar()
+  },error:(error)=>{
+    console.log(error)
   }
 })
   }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-details-warehouse',
@@ -11,8 +11,13 @@ export class DetailsWarehouseComponent {
 
   public selectedEvent: any ;
 @Output() closeEdit = new EventEmitter<boolean>()
+@Input() seletEvent: any;
 
 
+
+ngOnInit(){
+console.log(this.selectedEvent)
+}
 
 
   closeEditar(){

@@ -3,7 +3,7 @@
     {
       "id": "1",
       "item_type": "Television",
-      "status": "Revision",
+      "status": "Pendiente",
       "date_of_entry": "2025-01-24",
       "date_of_departure": "2025-01-30",
       "origin": "Sevilla",
@@ -16,7 +16,7 @@
     {
       "id": "2",
       "item_type": "Laptop",
-      "status": "En tránsito",
+      "status": "Pendiente",
       "date_of_entry": "2025-01-22",
       "date_of_departure": "2025-01-28",
       "origin": "Barcelona",
@@ -29,7 +29,7 @@
     {
       "id": "3",
       "item_type": "Frigorífico",
-      "status": "Entregado",
+      "status": "Pendiente",
       "date_of_entry": "2025-01-15",
       "date_of_departure": "2025-01-20",
       "origin": "Madrid",
@@ -223,20 +223,22 @@
     {
       "location": "Zaragoza",
       "id": "bb82"
+    },
+    {
+      "id": "9a64",
+      "location": "cartagena"
     }
   ],
   "worker": [
     {
-      "id_worker": 1,
-      "name": "Maria",
+      "name": "ana",
       "surname": "Perez",
       "address": "Calle Madrid 10",
       "dni": "12345678A",
       "email": "mariaperez@gmail.com",
-      "password": "hashed_password",
       "role": "operario",
       "warehouse_location": "Madrid",
-      "truck_plate": null,
+      "truck_plate": "",
       "id": "9198"
     },
     {

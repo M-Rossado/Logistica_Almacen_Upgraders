@@ -1,81 +1,94 @@
-<p>add-worker works!</p>  <h2>nuevo almacen </h2>
+
 <div class="modal">
 
 
     <button (click)="Close()" class="close">×</button>
 
     <div class="form-container">
-        <h2>nuevo almacen </h2>
+        <h2>nuevo empleado </h2>
     <form action="/submit" (ngSubmit)="handleRegister()">
-        <div class="form-group">
-            <label for="name">Nombre:</label>
-            <input
-              id="name"
-              type="text"
-              [(ngModel)]="newWorker.name"
-              name="name"
-              placeholder="locacion del almacén"
-              required
-            />
-          </div>
+      <div class="form-group">
+
+
+        <label for="surname">nombre:</label>
+        <input
+          id="name"
+          type="text"
+          [(ngModel)]="newWorker.name"
+          name="surname"
+          placeholder="nombre"
+          required
+        />
+      </div>
           <div class="form-group">
-            <label for="name">apellido:</label>
+           
             <input
-              id="name"
+              id="surname"
               type="text"
               [(ngModel)]="newWorker.surname"
-              name="name"
-              placeholder="locacion del almacén"
+              name="surname"
+              placeholder="apellido"
               required
             />
           </div>
           <div class="form-group">
-            <label for="name">direccion:</label>
+            
             <input
-              id="name"
+              id="address"
               type="text"
-              [(ngModel)]="newWorker.addres"
-              name="name"
-              placeholder="locacion del almacén"
+              [(ngModel)]="newWorker.address"
+              name="address"
+              placeholder="direccion"
               required
             />
           </div>
           <div class="form-group">
-            <label for="name">dni:</label>
+           
             <input
-              id="name"
+              id="dni"
               type="text"
               [(ngModel)]="newWorker.dni"
-              name="name"
-              placeholder="locacion del almacén"
+              name="dni"
+              placeholder="dNi del empleado"
               required
             />
           </div>
           <div class="form-group">
-            <label for="name">email:</label>
+           
             <input
-              id="name"
+              id="email"
               type="text"
               [(ngModel)]="newWorker.email"
-              name="name"
-              placeholder="locacion del almacén"
+              name="email"
+              placeholder="email del usuario"
+              required
+            />
+          </div>
+          <div class="form-group">
+           
+            <input
+              id="truck_plate"
+              type="text"
+              [(ngModel)]="newWorker.truck_plate"
+              name="truck_plate"
+              placeholder="matricula del camion"
               required
             />
           </div>
 
 
         <div class="form-group">
-            <label for="location">status:</label>
-            <select [(ngModel)]="newWorker.role" name="location" id="location" required>
+            <label for="role">status:</label>
+            <select [(ngModel)]="newWorker.role" name="role" id="role" required>
                 <option value="" disabled selected>definir rol </option>
-                <option value="In Transit">encargado </option>
-                <option value="nule">conductor</option>
-                <option value="nule">operario</option>
+                <option value="encargado">encargado </option>
+                <option value="conductor">conductor</option>
+                <option value="oeprario">operario</option>
               </select>
           </div>
           <div class="form-group">
-            <label for="location">ubicacion :</label>
-            <select [(ngModel)]="newWorker.warehouse_location" name="location" id="location" required>
+            <label for="warehouse_location">ubicacion :</label>
+            <select [(ngModel)]="newWorker.warehouse_location" name="location" id="warehouse_location" required>
                 <option value="" disabled selected>ubicacion </option>
                 <option value="madrid">madid</option>
                 <option value="valencia">valencia</option>
