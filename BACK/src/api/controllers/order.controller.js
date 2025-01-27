@@ -23,7 +23,6 @@ const createNewOrder = async (req, res) => {
  };
 
  const searchOperatorOrder = async (req, res) => {
-    const { email_operator } = req.params; // Extraer el email desde los parámetros de la URL
     try {
         // Verificación del rol
         if (!checkRolOperario(req.user.role)) {
@@ -31,7 +30,7 @@ const createNewOrder = async (req, res) => {
         }
 
         // Llamar a la función selectByEmail con el email_manager correcto
-        const result = await selectByEmail(email_operator);
+        const result = await selectByEmail(req.user.email);
 
         if (result.length === 0) {
             return res.status(404).json({ error: 'Pedidos no encontrados' }); 
@@ -45,7 +44,7 @@ const createNewOrder = async (req, res) => {
 };
 
 const getAllOrders = async (req,res) => {
-    const {warehouse_location} = req.params; // Extraer el almacén desde los parámetros de la URL
+    
     try {
         // Verificación del rol
         if (!checkRolEncargado(req.user.role)) {
@@ -53,7 +52,7 @@ const getAllOrders = async (req,res) => {
         }
 
         // Llamar a la función selectbyLocation con la localización del almacen
-        const result = await selectbyLocation(warehouse_location);
+        const result = await selectbyLocation(req.user.warehouse_location);
 
         if (result.length === 0) {
             return res.status(404).json({ error: 'Pedidos no encontrados' }); 
@@ -87,7 +86,7 @@ const getOperator = async(req,res) => {
     }
 };
 
-const getWarehourse = async(req,res) => {
+const getWarehouse = async(req,res) => {
     const {warehouse_location} = req.params; // Extraer el almacén desde los parámetros de la URL
     try {
         // Verificación del rol
@@ -97,6 +96,7 @@ const getWarehourse = async(req,res) => {
 
         // Llamar a la función selectbyLocation con la localización del almacen
         const result = await selectbyLocation(warehouse_location);
+       
 
         if (result.length === 0) {
             return res.status(404).json({ error: 'Pedidos no encontrados' }); 
@@ -198,4 +198,4 @@ const updateOrder = async (req, res) => {
 };
 
 
-module.exports = {createNewOrder, searchOperatorOrder, getAllOrders, getOperator, getWarehourse, getOrder, acceptOrder, deliverOrder, updateOrder}
+module.exports = {createNewOrder, searchOperatorOrder, getAllOrders, getOperator, getWarehouse, getOrder, acceptOrder, deliverOrder, updateOrder}

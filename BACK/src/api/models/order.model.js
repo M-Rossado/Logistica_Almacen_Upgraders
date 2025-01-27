@@ -8,7 +8,7 @@ const selectbyLocation = async(warehouse_location) =>{
 const insertOrder = async ({item_type, status, date_of_entry, date_of_departure, destination, warehouse_location, worker_email, email_operator}) => {
     console.log("Intentando insertar perdido:", {item_type, status, date_of_entry, date_of_departure, destination, warehouse_location, worker_email, email_operator});
     try {
-        const [result] = await pool.query("INSERT INTO orders (item_type, status, date_of_entry, date_of_departure, destination, warehouse_location, worker_email, email_operator) VALUES (?,?,?,?,?,?,?,?,?)", [item_type, status, date_of_entry, date_of_departure, destination, warehouse_location, worker_email, email_operator]);
+        const [result] = await pool.query("INSERT INTO orders (item_type, status, date_of_entry, date_of_departure, destination, warehouse_location, worker_email, email_operator) VALUES (?,?,?,?,?,?,?,?)", [item_type, status, date_of_entry, date_of_departure, destination, warehouse_location, worker_email, email_operator]);
         if (result.affectedRows === 0) {
             return -1;  // Si no se insertó, retorna -1
         }
