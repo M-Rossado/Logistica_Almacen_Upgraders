@@ -15,11 +15,5 @@
       <button class="bi bi-arrow-left-square-fill close" (click)="Close()"></button>
       <button class="create" (click)="editOrder(order)">Modificar pedido</button>
     </div>
-    @if(this.showEdit === true){
-      <app-edit-order 
-      (closeModal)="closeEdit()"
-      *ngIf="selectedOrder"
-      [order]="selectedOrder"
-      ></app-edit-order>
-  }
+    
   </div>

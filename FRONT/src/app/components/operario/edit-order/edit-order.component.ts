@@ -1,7 +1,7 @@
 // edit-order.component.ts
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';  // Para obtener parámetros de la URL
-import { OrderService } from './order.service';  // Servicio para obtener y actualizar pedidos
+import { OrderService } from '../services/order.service';  // Servicio para obtener y actualizar pedidos
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -37,13 +37,17 @@ export class EditOrderComponent implements OnInit {
   onSubmit(): void {
     // Actualizar el pedido con los nuevos datos
     this.orderService.updateOrder(this.order).subscribe(
-      () => {
+      (response) => {
         // Redirigir a la lista de pedidos después de guardar los cambios
-        this.router.navigate(['/orders']);
+        alert('Pedido actualizado')
+        this.router.navigate(['/order']);
       },
       (error) => {
         console.error('Error al actualizar el pedido:', error);
       }
     );
+  }
+  closeEditOrder(): void {
+    this.closeModal.emit(); // Emite el evento para cerrar el componente
   }
 }
