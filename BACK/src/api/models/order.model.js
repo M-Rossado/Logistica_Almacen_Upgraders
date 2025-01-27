@@ -5,10 +5,10 @@ const selectbyLocation = async(warehouse_location) =>{
     return result[0];
 }
 
-const insertOrder = async ({item_type, status, date_of_entry, date_of_departure, origin, destination, warehouse_location, truck_plate, worker_email, email_manager}) => {
-    console.log("Intentando insertar perdido:", {item_type, status, date_of_entry, date_of_departure, origin, destination, warehouse_location, truck_plate, worker_email, email_manager});
+const insertOrder = async ({item_type, status, date_of_entry, date_of_departure, destination, warehouse_location, worker_email, email_operator}) => {
+    console.log("Intentando insertar perdido:", {item_type, status, date_of_entry, date_of_departure, destination, warehouse_location, worker_email, email_operator});
     try {
-        const [result] = await pool.query("INSERT INTO orders (item_type, status, date_of_entry, date_of_departure, origin, destination, warehouse_location, truck_plate, worker_email, email_manager) VALUES (?,?,?,?,?,?,?,?,?,?)", [item_type, status, date_of_entry, date_of_departure, origin, destination, warehouse_location, truck_plate, worker_email, email_manager]);
+        const [result] = await pool.query("INSERT INTO orders (item_type, status, date_of_entry, date_of_departure, destination, warehouse_location, worker_email, email_operator) VALUES (?,?,?,?,?,?,?,?,?)", [item_type, status, date_of_entry, date_of_departure, destination, warehouse_location, worker_email, email_operator]);
         if (result.affectedRows === 0) {
             return -1;  // Si no se insertó, retorna -1
         }
@@ -19,7 +19,7 @@ const insertOrder = async ({item_type, status, date_of_entry, date_of_departure,
 };
 
 const selectById = async (id_order) => {
-    const result = await pool.query("SELECT * FROM orders WHERE id_order IS NULL", [id_order]);
+    const result = await pool.query("SELECT * FROM orders WHERE id_order = ?", [id_order]);
     return result[0];
 };
 
@@ -33,9 +33,9 @@ const updateOrderStatus = async (id_order, status, comment) => {
 };
 
 const updateOrderDetails = async (id_order, data) => {
-    const { item_type, status, date_of_entry, date_of_departure, origin, destination, warehouse_location, truck_plate, worker_email, email_manager } = data;
-    return await pool.query("UPDATE orders SET item_type = ?, status = ?, date_of_entry = ?, date_of_departure = ?, origin = ?, destination = ?, warehouse_location = ?, truck_plate = ?, worker_email = ?, email_manager = ? WHERE id_order = ?", 
-    [item_type, status, date_of_entry, date_of_departure, origin, destination, warehouse_location, truck_plate, worker_email, email_manager, id_order]);
+    const { item_type, status, date_of_entry, date_of_departure, destination, warehouse_location, worker_email, email_manager } = data;
+    return await pool.query("UPDATE orders SET item_type = ?, status = ?, date_of_entry = ?, date_of_departure = ?, destination = ?, warehouse_location = ?, worker_email = ?, email_manager = ? WHERE id_order = ?", 
+    [item_type, status, date_of_entry, date_of_departure, destination, warehouse_location, worker_email, email_manager, id_order]);
 };
 
 module.exports = {selectbyLocation, insertOrder, selectById, selectByEmail, updateOrderStatus, updateOrderDetails}
