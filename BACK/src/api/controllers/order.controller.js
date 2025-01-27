@@ -1,6 +1,5 @@
 const {insertOrder, selectById, selectByEmail, selectbyLocation} = require("../models/order.model")
-const bcrypt = require("bcrypt");
-const {createToken, checkRolJefe, checkRolEncargado, checkRolOperario, checkRolCamionero} = require("../../utils/jwt");
+const {checkRolJefe, checkRolEncargado, checkRolOperario, checkRolCamionero} = require("../../utils/jwt");
 
 const createNewOrder = async (req, res) => {
     try {
@@ -24,7 +23,7 @@ const createNewOrder = async (req, res) => {
  };
 
  const searchOperatorOrder = async (req, res) => {
-    const { email_manager } = req.params; // Extraer el email desde los parámetros de la URL
+    const { email_operator } = req.params; // Extraer el email desde los parámetros de la URL
     try {
         // Verificación del rol
         if (!checkRolOperario(req.user.role)) {
@@ -32,7 +31,7 @@ const createNewOrder = async (req, res) => {
         }
 
         // Llamar a la función selectByEmail con el email_manager correcto
-        const result = await selectByEmail(email_manager);
+        const result = await selectByEmail(email_operator);
 
         if (result.length === 0) {
             return res.status(404).json({ error: 'Pedidos no encontrados' }); 
@@ -67,7 +66,7 @@ const getAllOrders = async (req,res) => {
     }
 };
 const getOperator = async(req,res) => {
-    const { email_manager } = req.params; // Extraer el email desde los parámetros de la URL
+    const { email_operator } = req.params; // Extraer el email desde los parámetros de la URL
     try {
         // Verificación del rol
         if (!checkRolJefe(req.user.role)) {
@@ -75,7 +74,7 @@ const getOperator = async(req,res) => {
         }
 
         // Llamar a la función selectByEmail con el email_manager correcto
-        const result = await selectByEmail(email_manager);
+        const result = await selectByEmail(email_operator);
 
         if (result.length === 0) {
             return res.status(404).json({ error: 'Pedidos no encontrados' }); 

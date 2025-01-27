@@ -1,6 +1,6 @@
-const {insertWorker, selectById, selectByEmail, insertWarehouse, selectbyLocation} = require("../models/trabajadores.model")
+const {insertWorker, selectById, selectByEmail, insertWarehouse, selectbyLocation} = require("../models/worker.model")
 const bcrypt = require("bcrypt");
-const {createToken, checkRolJefe, checkRolEncargado, checkRolOperario, checkRolCamionero} = require("../../utils/jwt");
+const {createToken, checkRolJefe} = require("../../utils/jwt");
 
 const createNewWorker = async (req, res) => {
     try {
