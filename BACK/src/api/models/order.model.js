@@ -23,8 +23,8 @@ const selectById = async (id_order) => {
     return result[0];
 };
 
-const selectByEmail = async (email_manager) => {
-    const [rows] = await pool.query("SELECT * FROM orders WHERE email_manager = ?", [email_manager]);
+const selectByEmail = async (email_operator) => {
+    const [rows] = await pool.query("SELECT * FROM orders WHERE email_operator = ?", [email_operator]);
     return rows;
 };
 

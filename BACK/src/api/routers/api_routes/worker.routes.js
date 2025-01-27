@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const {createNewWorker, createNewWarehouse, login} = require("../../controllers/trabajadores.controller")
+const {createNewWorker, createNewWarehouse, login} = require("../../controllers/worker.controller")
 const { checkToken} = require("../../../api/middleware/auth")
 
 router.post("/newwarehouse", checkToken, createNewWarehouse )// crea un nuevo almacén
