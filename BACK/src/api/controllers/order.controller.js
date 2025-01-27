@@ -132,12 +132,16 @@ const getOrder = async(req,res) => {
     }
 };
     
-
 const acceptOrder = async (req, res) => {
     const { id_order } = req.params;
     const { status, comment } = req.body; // status debe ser "en curso" o "denegado"
 
     try {
+        // Verificación del rol
+        if (!checkRolJefe(req.user.role)) {
+            return res.status(403).json({ msg: "Acceso denegado. Debe ser jefe de equipo." }); // Si el rol no es adecuado
+        }
+
         // Llamar a la función para actualizar el estado del pedido
         const result = await updateOrderStatus(id_order, status, comment);
         if (result.affectedRows === 0) {
@@ -154,6 +158,11 @@ const deliverOrder = async (req, res) => {
     const { id_order } = req.params;
 
     try {
+        // Verificación del rol
+        if (!checkRolCamionero(req.user.role)) {
+            return res.status(403).json({ msg: "Acceso denegado. Debe ser camionero." }); // Si el rol no es adecuado
+        }
+
         // Cambiar el estado del pedido a "entregado"
         const result = await updateOrderStatus(id_order, "entregado", null);
         if (result.affectedRows === 0) {
@@ -171,6 +180,11 @@ const updateOrder = async (req, res) => {
     const data = req.body; // Aquí se espera que se envíen todos los parámetros del pedido
 
     try {
+        // Verificación del rol
+        if (!checkRolOperario(req.user.role)) {
+            return res.status(403).json({ msg: "Acceso denegado. Debe ser operario." }); // Si el rol no es adecuado
+        }
+
         // Actualizar todos los parámetros del pedido
         const result = await updateOrderDetails(id_order, data);
         if (result.affectedRows === 0) {
