@@ -21,52 +21,32 @@ export class EditStatusComponent {
       surname:"",
       addres:"",
       dni:"",
-      email:"",
+       email:"",
       role:"",
       warehouse_location:"",
       truck_plate:"",
+
+
     }
 
 
-    handleEdit(){
-    if(!this.editStatus.name ||this.editStatus.name.trim() === "" ){
-      alert('el nombre es obligarotio ')
-      return
-    }
-    if(!this.editStatus.surname ||this.editStatus.surname.trim() === "" ){
-      alert('el nombre es obligarotio ')
-      return
-    }
-    if(!this.editStatus.addres ||this.editStatus.addres.trim() === "" ){
-      alert('el nombre es obligarotio ')
-      return
-    }
-    if(!this.editStatus.dni ||this.editStatus.dni.trim() === "" ){
-      alert('el nombre es obligarotio ')
-      return
-    }
+ handleEditStatus(){
+  if(!this.editStatus.name ||this.editStatus.name.trim() === "" ){
+    alert('el nombre es obligarotio ')
+    return
+}
 
-    if(!this.editStatus.email ||this.editStatus.email.trim() === "" ){
-      alert('el nombre es obligarotio ')
-      return
-    }
-    if(!this.editStatus.role ||this.editStatus.role.trim() === "" ){
-      alert('el nombre es obligarotio ')
-      return
-    }
-
-    this.homeservice.addworkers(this.editStatus).subscribe({
-      next: (data)=>{
-        alert('empleado registrado con exito')
-        this.router.navigate(['workers'])
-      }
-    })
+this.homeservice.addworkers(this.editStatus).subscribe({
+  next: (data)=>{
+    alert('empleado registrado con exito')
+    this.router.navigate(['workers'])
+  }
+})
 
 
-      }
+  }
 
-    Close(){
-    this.closeadd.emit()
-    }
-
+Close(){
+this.closeadd.emit()
+}
 }

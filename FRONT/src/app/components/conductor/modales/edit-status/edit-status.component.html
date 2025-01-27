@@ -1,19 +1,18 @@
-<p>Cambiar estado funciona!!!!!</p>
+
+<h2>Modal para cambiar STATUS</h2>
 <div class="modal">
-
-
     <button (click)="Close()" class="close">×</button>
 
     <div class="form-container">
-        <h2>Editar Estado</h2>
-    <form action="/submit" (ngSubmit)="handleEdit()">
+        <h2>Cambio de Estado</h2>
+    <form action="/submit" (ngSubmit)="handleEditStatus()">
         <div class="form-group">
-            <label for="location">status:</label>
+            <label for="location">Estado del pedido:</label>
             <select [(ngModel)]="editStatus.role" name="location" id="location" required>
-                <option value="" disabled selected>definir rol </option>
-                <option value="In Transit">encargado </option>
-                <option value="nule">conductor</option>
-                <option value="nule">operario</option>
+                <option value="" disabled selected>En transito</option>
+                <option value="">En Revisión</option>
+                <option value="nule">Anulado</option>
+                <option value="nule">Cancelado</option>
               </select>
           </div>
 
@@ -22,6 +21,8 @@
             <button type="button" (click)="Close()">Cancelar</button>
           </div>
 
-        </form>
-      </div>
-    </div>
+
+
+    </form>
+  </div>
+</div>

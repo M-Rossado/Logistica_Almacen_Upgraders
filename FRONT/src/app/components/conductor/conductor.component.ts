@@ -1,44 +1,46 @@
 import { Component, inject } from '@angular/core';
 import { HomeServiceService } from '../service/home-service.service';
-import { EditStatusComponent } from './modales/edit-status/edit-status.component';
+import { EditStatusComponent } from './modales/edit-status/edit-status.component'; //importación del componente modal de edicion
 
 @Component({
   selector: 'app-conductor',
   standalone: true,
-  imports: [EditStatusComponent],
+  imports: [EditStatusComponent], //importación del componente modal de edicion
   templateUrl: './conductor.component.html',
   styleUrl: './conductor.component.css'
 })
+
 export class ConductorComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
-  public ordersList: any = []
-  public userRole = localStorage.getItem('role')
-  public name =  localStorage.getItem('name')
-
-  public addModal: boolean = false;
-
-  ngOnInit(){
-    this.getOrders()
-  }
+  public ordersList: any[] = [];
+  public addModal: boolean = false //variable de la apertura del modal
 
 
-  getOrders(){
-    this.homeservice.getOrders().subscribe((data) =>
-    this.ordersList= data
-  )
-    console.log(this.getOrders)
-  }
+  ngOnInit(): void {
+    this.getEventos()
+   }
 
+   getEventos(): void {
+     this.homeservice.getOrders().subscribe({
+       next: (data: any) => {
+        this.ordersList= data
+       },
+       error: (error) => {
+         console.log(error);
+       }
+     });
+   }
 
-  // Modal de Edición de Estado
-  openEditStatus(){
-    this.addModal = true;
-    console.log(this.addModal)
-  }
+   openEditStatus(){
+      this.addModal = true;
+      console.log(this.addModal)
+   }
 
-  closeEditStatus(){
+   closeEditStatus(){
     this.addModal = false;
-  }
+   }
+
+
 
 
 }
