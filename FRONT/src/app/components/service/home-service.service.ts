@@ -44,5 +44,8 @@ getWarehouse(){
  addworkers(newWorker:any ){
   return this.http.post('http://localhost:3000/worker', newWorker)
  }
+ updateWorker(id: string, editUpdate: any) {
+  return this.http.put(`http://localhost:3000/worker/${id}`, editUpdate);
+}
 
 }

@@ -13,11 +13,15 @@
             <p><strong>estado :</strong> {{ order.status }}</p>
             <i class="bi bi-alarm"></i>
             <i class="bi bi-basket"></i>
-            <button class="edit-btn">ver detalles </button>
+            <button (click)="openDetails(order)" class="edit-btn">ver detalles </button>
         </div>
     </div>
         }
 
     </section>
 </div>
+
+@if(this.ShowDetails === true){
+    <app-order-details [selectedEvent]="selectEvent" (closeModal)="CloseDEtails()" ></app-order-details>
+}
 

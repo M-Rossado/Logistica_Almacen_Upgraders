@@ -19,7 +19,7 @@ export class AddWorkerComponent {
     public newWorker = {
       name:"",
       surname:"",
-      addres:"",
+      address:"",
       dni:"",
        email:"",
       role:"",
@@ -39,7 +39,7 @@ if(!this.newWorker.surname ||this.newWorker.surname.trim() === "" ){
   alert('el nombre es obligarotio ')
   return
 }
-if(!this.newWorker.addres ||this.newWorker.addres.trim() === "" ){
+if(!this.newWorker.address ||this.newWorker.address.trim() === "" ){
   alert('el nombre es obligarotio ')
   return
 }
