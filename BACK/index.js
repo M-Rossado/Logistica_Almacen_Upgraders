@@ -1,4 +1,8 @@
+const cors = require('cors');
 const express = require("express");
+server.use(cors({
+    origin: '*'
+  }))
 require("dotenv").config(); // configuro mi servidor para usar variable de entorno
 
 const router = require("./src/api/routers/routes");

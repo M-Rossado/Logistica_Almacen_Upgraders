@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
-const Users = require("../models/worker.model")
+const Users = require("../models/worker.model");
+const { createToken } = require("../../utils/jwt");
 
 const checkToken = async (req, res, next) => {
     //Validar que el token es correcto
@@ -29,5 +30,6 @@ const checkToken = async (req, res, next) => {
     next();
     
 };
+
 
 module.exports = {checkToken}
