@@ -3,6 +3,8 @@ import { HomeComponent } from './home/home.component';
 import { WorkersComponent } from './jefe/workers/workers.component';
 import { WarehouseComponent } from './jefe/warehouses/warehouses.component';
 import { OrdersComponent } from './jefe/orders/orders.component';
+import { authGuard } from '../auth/guards/auth.guard';
+import { jefeRoleGuard } from '../auth/guards/jefe-role.guard';
 
 
 
@@ -10,7 +12,7 @@ import { OrdersComponent } from './jefe/orders/orders.component';
 export const HOME_ROUTES: Routes = [
 
     {
-        path: 'home',
+        path: 'home', 
         component: HomeComponent
     },
     {

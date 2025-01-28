@@ -10,18 +10,18 @@ export const authGuard: CanActivateFn = (route, state) => {
   const $authService = authService.verifyToken();
   const router: Router = inject(Router)
 
-  return $authService.pipe(
-    map((data) => {
-     return data.verified
-    }),
-    catchError((err) => {
-      if(err.error.message === 'Token expired') {
-          alert('Tienes el token expirado, debes volver a iniciar sesión para renovarlo')
-      }
+  
+    if (typeof window !== 'undefined' && localStorage) {
+      const tokenValue = localStorage.getItem('token');
+      const roleValue = localStorage.getItem('role');
 
-      router.navigate(['auth/login'])
-      return of(false)
-    })
-  )
- 
-};
+      
+      if (tokenValue && roleValue === 'jefe') {
+        return true; // Usuario autenticado
+      }
+    }
+  
+    // Redirigir al usuario al login si no está autenticado
+    router.navigate(['/home']);
+    return false;
+  };
