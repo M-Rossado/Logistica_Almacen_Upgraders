@@ -10,14 +10,11 @@ import { Component, EventEmitter, Input, input, Output } from '@angular/core';
 export class OrderDetailsComponent {
 
 
-@Output() closeModal = new EventEmitter<boolean>()
+  @Output() closeModal = new EventEmitter<boolean>()
   @Input() selectedEvent: any;
 
-
-
-  
-closeEDetails(){
-this.closeModal.emit()
-}
+  closeEDetails(){
+    this.closeModal.emit()
+  }
 
 }

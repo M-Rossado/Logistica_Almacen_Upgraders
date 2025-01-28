@@ -14,9 +14,9 @@ import { OrderDetailsComponent } from './modales/order-details/order-details.com
 export class ConductorComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
   public ordersList: any[] = [];
-  public ShowDetails:boolean = false
-  public addModal: boolean = false //variable de la apertura del modal: copiar a modal de detalle
-  public selectEvent: any;
+  public selectEvent: any ;
+  public detailsModal :boolean = false
+  public editModal: boolean = false //variable de la apertura del modal: copiar a modal de detalle
 
 
 
@@ -35,26 +35,30 @@ export class ConductorComponent {
      });
    }
 
+  //Modal de Detalle de Pedido
    openOrderDetails(event:any){
-    this.ShowDetails = true
-    this.selectEvent = event
+    this.detailsModal  = true
+    this.selectEvent = event;
     console.log(this.selectEvent)
   }
 
-  closeOrderDetails(){
-    this.ShowDetails =false
+  closeOrderModal(){
+    this.detailsModal  =false
   }
 
 
-  //Esto habrá que moverlo dentro del modal de detalle
-   openEditStatus(){
-      this.addModal = true;
-      console.log(this.addModal)
-   }
 
-   closeEditStatus(){
-    this.addModal = false;
-   }
+
+
+  //Esto habrá que moverlo dentro del modal de detalle
+  //  openEditStatus(){
+  //     this.editModal = true;
+  //     console.log(this.editModal)
+  //  }
+
+  //  closeEditStatus(){
+  //   this.editModal = false;
+  //  }
 
 
 

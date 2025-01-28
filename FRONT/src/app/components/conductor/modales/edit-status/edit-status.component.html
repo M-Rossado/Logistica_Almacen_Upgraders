@@ -1,7 +1,7 @@
 
 <h2>Modal para cambiar STATUS</h2>
 <div class="modal">
-    <button (click)="Close()" class="close">×</button>
+  <button (click)="closeOrderModal()" class="close">×</button>
 
     <div class="form-container">
         <h2>Cambio de Estado</h2>
@@ -18,7 +18,7 @@
 
           <div class="form-actions">
             <button type="submit">Guardar</button>
-            <button type="button" (click)="Close()">Cancelar</button>
+            <button type="button" (click)="closeOrderModal()">Cancelar</button>
           </div>
 
     </form>

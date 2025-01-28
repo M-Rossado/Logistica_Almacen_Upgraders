@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HomeServiceService } from '../../../service/home-service.service';
 import { Router } from '@angular/router';
@@ -28,23 +28,25 @@ export class EditStatusComponent {
     }
 
 
- handleEditStatus(){
-  if(!this.editStatus.name ||this.editStatus.name.trim() === "" ){
-    alert('el nombre es obligarotio ')
-    return
-}
+  handleEditStatus(){
+    if(!this.editStatus.name ||this.editStatus.name.trim() === "" ){
+      alert('el nombre es obligarotio ')
+      return
+    }
 
-this.homeservice.addworkers(this.editStatus).subscribe({
-  next: (data)=>{
-    alert('empleado registrado con exito')
-    this.router.navigate(['workers'])
-  }
-})
-
-
+    this.homeservice.addworkers(this.editStatus).subscribe({
+      next: (data)=>{
+        alert('empleado registrado con exito')
+        this.router.navigate(['workers'])
+      }
+    })
   }
 
-Close(){
-this.closeadd.emit()
-}
+@Output() closeModal = new EventEmitter<boolean>()
+  @Input() selectedEvent: any;
+
+
+  closeOrderModal(){
+  this.closeModal.emit()
+  }
 }
