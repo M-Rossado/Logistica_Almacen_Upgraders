@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { HomeServiceService } from '../service/home-service.service';
 import { EditStatusComponent } from './modales/edit-status/edit-status.component'; //importación del componente modal de edicion
+import { OrderDetailsComponent } from './modales/order-details/order-details.component';
 
 @Component({
   selector: 'app-conductor',
   standalone: true,
-  imports: [EditStatusComponent], //importación del componente modal de edicion
+  imports: [EditStatusComponent, OrderDetailsComponent], //importación del componente modal de edicion
   templateUrl: './conductor.component.html',
   styleUrl: './conductor.component.css'
 })
@@ -13,7 +14,10 @@ import { EditStatusComponent } from './modales/edit-status/edit-status.component
 export class ConductorComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
   public ordersList: any[] = [];
-  public addModal: boolean = false //variable de la apertura del modal
+  public selectEvent: any ;
+  public detailsModal :boolean = false
+  public editModal: boolean = false //variable de la apertura del modal: copiar a modal de detalle
+
 
 
   ngOnInit(): void {
@@ -31,14 +35,29 @@ export class ConductorComponent {
      });
    }
 
-   openEditStatus(){
-      this.addModal = true;
-      console.log(this.addModal)
-   }
+  //Modal de Detalle de Pedido
+   openOrderDetails(event:any){
+    this.detailsModal  = true
+    this.selectEvent = event;
+    console.log(this.selectEvent)
+  }
 
-   closeEditStatus(){
-    this.addModal = false;
-   }
+  closeOrderModal(){
+    this.detailsModal  =false
+  }
+
+
+
+
+
+  // //Esto habrá que moverlo dentro del modal de detalle
+    openEditStatus(){
+       this.editModal = true;
+       console.log(this.editModal)
+
+    // closeEditStatus(){
+    //  this.editModal = false;
+    }
 
 
 

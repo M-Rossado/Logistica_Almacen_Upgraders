@@ -15,8 +15,10 @@ private homeservises: HomeServiceService = inject(HomeServiceService)
   public ordersList: any = []
   public ShowDetails:boolean = false
  public selectEvent: any;
+
  public modalAdd: boolean = false
   
+
 
   ngOnInit(): void {
     this.getEventos()
@@ -26,7 +28,7 @@ private homeservises: HomeServiceService = inject(HomeServiceService)
      this.homeservises.getOrders().subscribe({
        next: (data: any) => {
          this.ordersList= data;
-      
+
        },
        error: (error) => {
          console.log(error);
