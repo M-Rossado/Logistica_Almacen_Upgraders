@@ -14,8 +14,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   private authService: AuthService = inject(AuthService)
   private router: Router = inject(Router)
-  private role: any = ''
-  private name:any = ''
+ 
   public userLoginForm = {
 
     email: '',
@@ -24,12 +23,12 @@ export class LoginComponent {
 
 
   handleLoginForm() {
-    // const userFormValues = Object.values(this.userLoginForm);
+     const userFormValues = Object.values(this.userLoginForm);
 
-    // if(userFormValues.includes('')){
-    //   alert('Debes de rellenar todos los campos')
-    //   return
-    // }
+    if(userFormValues.includes('')){
+       alert('Debes de rellenar todos los campos')
+       return
+     }
 
     // const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
     // if (!emailRegex.test(this.userLoginForm.email)) {
@@ -42,20 +41,19 @@ export class LoginComponent {
     //   return;
     // }
 
-    // this.authService.login(this.userLoginForm).subscribe({
-    //   next: (data: any) => {
-    //     alert(data.message)
-    //     localStorage.setItem('token', data.token)
-    //     localStorage.setItem('role', data.user.role)
-    //     this.router.navigate([''])
-    //   },
-    //   error: (error) => {
-    //     alert('Hubo un error');
-    //   }
-    // });
-    // localStorage.setItem('token', )
-      localStorage.setItem('role', this.role)
-      localStorage.setItem('name', this.name)
- this.router.navigate(['/home'])
+     this.authService.login(this.userLoginForm).subscribe({
+       next: (data: any) => {
+         alert(data.msg)
+         localStorage.setItem('token', data.token);
+          localStorage.setItem('role', data.role);
+          localStorage.setItem('name',data.name);
+         this.router.navigate(['/home'])
+       },
+       error: (error) => {
+         alert('usuario o conrasena no encontrados ');
+       }
+     });
+   
+
   }
 }

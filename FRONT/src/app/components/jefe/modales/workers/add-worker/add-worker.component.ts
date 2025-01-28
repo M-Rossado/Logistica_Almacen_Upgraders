@@ -60,7 +60,7 @@ if(!this.newWorker.role ||this.newWorker.role.trim() === "" ){
 this.homeservice.addworkers(this.newWorker).subscribe({
   next: (data)=>{
     alert('empleado registrado con exito')
-    this.router.navigate(['workers'])
+    this.router.navigate(['/workers'])
   }
 })
 

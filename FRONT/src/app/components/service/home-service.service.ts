@@ -42,7 +42,7 @@ getWarehouse(){
   return this.http.get('http://localhost:3000/worker')
  }
  addworkers(newWorker:any ){
-  return this.http.post('http://localhost:3000/worker', newWorker)
+  return this.http.post('http://localhost:3500/worker/newworker', newWorker)
  }
  updateWorker(id: string, editUpdate: any) {
   return this.http.put(`http://localhost:3000/worker/${id}`, editUpdate);
