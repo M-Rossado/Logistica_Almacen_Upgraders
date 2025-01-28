@@ -4,6 +4,7 @@
     </div>
     <section class="section">
         <h1>lista de pedidos :</h1>
+        <button (click)="openadd()">nuevo almacen</button>
         @for(order of ordersList; track $index){
 <div class="container">
         <div class="card">
@@ -25,3 +26,6 @@
     <app-order-details [selectedEvent]="selectEvent" (closeModal)="CloseDEtails()" ></app-order-details>
 }
 
+@if(this.modalAdd === true){
+    <app-add-warehouse (closeadd)="closeADD()"></app-add-warehouse>
+    }
