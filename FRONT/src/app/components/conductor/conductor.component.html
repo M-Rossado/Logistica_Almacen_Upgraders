@@ -9,17 +9,20 @@
             <p class="campo-list">F. salida:<br><strong>{{ order.date_of_departure }}</strong> </p>
             <p class="campo-list">destino:<br><strong>{{ order.destination }}</strong> </p>
             <button (click)="openOrderDetails(order)" class="edit-btn">Detalle</button>
-            <!-- <button (click)="openEditStatus()" class="edit-btn">Editar</button> -->
+            <!-- <button class="edit-btn">Editar</button> -->
+            <button (click)="openEditStatus()" class="edit-btn">Editar</button>
         </div>
         }
 
     </section>
 </div>
-<!--
-<!-- @if(this.editModal === true){
-  <app-edit-status [selectEvent]="selectEvent" (closeModal)="closeOrderModal()" ></app-edit-status>
-} -->
+
 
 @if(this.detailsModal === true){
   <app-order-details [selectedEvent]="selectEvent" (closeModal)="closeOrderModal()"></app-order-details>
+}
+
+
+@if(this.editModal === true){
+  <app-edit-status [selectedEvent]="selectEvent" (closeModal)="closeOrderModal()"></app-edit-status>
 }

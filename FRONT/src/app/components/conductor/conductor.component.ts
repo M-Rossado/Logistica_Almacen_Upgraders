@@ -50,15 +50,14 @@ export class ConductorComponent {
 
 
 
-  //Esto habrá que moverlo dentro del modal de detalle
-  //  openEditStatus(){
-  //     this.editModal = true;
-  //     console.log(this.editModal)
-  //  }
+  // //Esto habrá que moverlo dentro del modal de detalle
+    openEditStatus(){
+       this.editModal = true;
+       console.log(this.editModal)
 
-  //  closeEditStatus(){
-  //   this.editModal = false;
-  //  }
+    // closeEditStatus(){
+    //  this.editModal = false;
+    }
 
 
 
