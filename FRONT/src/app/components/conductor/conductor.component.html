@@ -1,4 +1,4 @@
-<h2>Hola conductor prueba</h2>
+
 <div class="general">
     <section class="section">
         <h2>Tus pedidos asignados:</h2>
@@ -6,19 +6,18 @@
 
         @for(order of ordersList; track $index){
 
-        <div class="card">
+        <div class="card-content">
             <p class="campo-list"><strong>{{ order.id }}</strong></p>
             <p class="campo-list"><strong>{{ order.status }}</strong></p>
             <p class="campo-list">F. salida:<br><strong>{{ order.date_of_departure }}</strong> </p>
             <p class="campo-list">destino:<br><strong>{{ order.destination }}</strong> </p>
-            <i class="bi bi-alarm"></i>
-            <i class="bi bi-basket"></i>
-            <button (click)="openEditStatus()" class="edit-btn">Editar</button>
+            <button (click)="openOrderDetails(order)" class="edit-btn">Detalle</button>
         </div>
         }
 
     </section>
 </div>
-@if(this.addModal === true){
-  <app-edit-status (closeadd)="closeEditStatus()"></app-edit-status>
+
+@if(this.ShowDetails === true){
+  <app-order-details [selectedEvent]="selectEvent" (closeModal)="closeOrderDetails()" ></app-order-details>
 }
