@@ -1,4 +1,4 @@
-const {insertOrder, selectById, selectByEmail, selectbyLocation} = require("../models/order.model")
+const {insertOrder, selectById, selectByEmail, selectbyLocation, updateOrderStatus, updateStatusTruckDriver, updateOrderDetails} = require("../models/order.model")
 const {checkRolJefe, checkRolEncargado, checkRolOperario, checkRolCamionero} = require("../../utils/jwt");
 
 const createNewOrder = async (req, res) => {
@@ -134,7 +134,7 @@ const getOrder = async(req,res) => {
     
 const acceptOrder = async (req, res) => {
     const { id_order } = req.params;
-    const { status, comment } = req.body; // status debe ser "en curso" o "denegado"
+    const { status, comment } = req.body; // status debe ser "en revision" o "denegado"
 
     try {
         // Verificación del rol
@@ -147,7 +147,7 @@ const acceptOrder = async (req, res) => {
         if (result.affectedRows === 0) {
             return res.status(404).json({ msg: "Pedido no encontrado" });
         }
-        return res.status(200).json({ msg: "Estado del pedido actualizado", data: result });
+        return res.status(200).json({ msg: "Estado del pedido actualizado"});
     } catch (error) {
         console.error(error);
         return res.status(500).json({ msg: "Error en el servidor" });
@@ -156,6 +156,7 @@ const acceptOrder = async (req, res) => {
 
 const deliverOrder = async (req, res) => {
     const { id_order } = req.params;
+    const { status } = req.body; // status debe ser "entregado"
 
     try {
         // Verificación del rol
@@ -164,11 +165,11 @@ const deliverOrder = async (req, res) => {
         }
 
         // Cambiar el estado del pedido a "entregado"
-        const result = await updateOrderStatus(id_order, "entregado", null);
+        const result = await updateStatusTruckDriver(status, id_order);
         if (result.affectedRows === 0) {
             return res.status(404).json({ msg: "Pedido no encontrado" });
         }
-        return res.status(200).json({ msg: "Pedido entregado", data: result });
+        return res.status(200).json({ msg: "Pedido entregado"});
     } catch (error) {
         console.error(error);
         return res.status(500).json({ msg: "Error en el servidor" });

@@ -32,10 +32,20 @@ const updateOrderStatus = async (id_order, status, comment) => {
     return await pool.query("UPDATE orders SET status = ?, comment = ? WHERE id_order = ?", [status, comment, id_order]);
 };
 
-const updateOrderDetails = async (id_order, data) => {
-    const { item_type, status, date_of_entry, date_of_departure, destination, warehouse_location, worker_email, email_manager } = data;
-    return await pool.query("UPDATE orders SET item_type = ?, status = ?, date_of_entry = ?, date_of_departure = ?, destination = ?, warehouse_location = ?, worker_email = ?, email_manager = ? WHERE id_order = ?", 
-    [item_type, status, date_of_entry, date_of_departure, destination, warehouse_location, worker_email, email_manager, id_order]);
+const updateStatusTruckDriver = async (status, id_order) => {
+    return await pool.query("UPDATE orders SET status = ? WHERE id_order = ?", [status, id_order]);
 };
 
-module.exports = {selectbyLocation, insertOrder, selectById, selectByEmail, updateOrderStatus, updateOrderDetails}
+const updateOrderDetails = async (id_order, data) => {
+    const {status, date_of_departure, destination, worker_email} = data;
+    try {
+    const [result] = await pool.query(
+   `UPDATE orders SET status = IFNULL(?,status), date_of_departure = IFNULL(?,date_of_departure),
+   destination = IFNULL(?,destination), worker_email = IFNULL(?,worker_email) WHERE id_order = ?`, 
+    [status, date_of_departure, destination, worker_email, id_order]);
+    return result 
+} catch (error) {
+}
+};
+
+module.exports = {selectbyLocation, insertOrder, selectById, selectByEmail, updateOrderStatus, updateStatusTruckDriver, updateOrderDetails}

@@ -32,6 +32,7 @@ CREATE TABLE `orders` (
   `warehouse_location` varchar(250) NOT NULL,
   `worker_email` varchar(255) NOT NULL,
   `email_operator` varchar(45) NOT NULL,
+  `comment` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id_order`),
   KEY `fk_order_warehouse1_idx` (`warehouse_location`),
   KEY `fk_order_worker1_idx` (`worker_email`),
@@ -46,7 +47,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (7,'Sarten','Revision','2025-01-24','2025-01-28','Barcelona','Barcelona','paulamartinez@gmail.com','mariaperez@gmail.com'),(8,'Auriculares','Revision','2025-01-24','2025-01-31','Madrid','Madrid','paulamartinez@gmail.com','mariaperez@gmail.com'),(9,'Ordenador','Revision','2025-01-23','2025-02-04','Madrid','Madrid','paulamartinez@gmail.com','mariaperez@gmail.com'),(11,'Gafas de sol','Revision','2025-01-20','2025-02-17','Barcelona','Barcelona','paulamartinez@gmail.com','mariomartin@gmail.com');
+INSERT INTO `orders` VALUES (7,'Sarten','Revision','2025-01-24','2025-01-28','Barcelona','Barcelona','paulamartinez@gmail.com','mariaperez@gmail.com',NULL),(8,'Auriculares','Revision','2025-01-24','2025-01-31','Madrid','Madrid','paulamartinez@gmail.com','mariaperez@gmail.com',NULL),(9,'Ordenador','Revision','2025-01-23','2025-02-04','Madrid','Madrid','paulamartinez@gmail.com','mariaperez@gmail.com',NULL),(11,'Gafas de sol','Revision','2025-01-20','2025-02-17','Barcelona','Barcelona','paulamartinez@gmail.com','mariomartin@gmail.com',NULL);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,7 +93,7 @@ CREATE TABLE `warehouse` (
 
 LOCK TABLES `warehouse` WRITE;
 /*!40000 ALTER TABLE `warehouse` DISABLE KEYS */;
-INSERT INTO `warehouse` VALUES ('Albacete'),('Almeria'),('Badajoz'),('Barcelona'),('Caceres'),('Cordoba'),('Girona'),('Jaen'),('Madrid'),('Mallorca'),('Oviedo'),('Sevilla'),('Zaragoza');
+INSERT INTO `warehouse` VALUES ('Albacete'),('Almeria'),('Badajoz'),('Barcelona'),('Caceres'),('Cordoba'),('Girona'),('Jaen'),('Madrid'),('Mallorca'),('Oviedo'),('Pontevedra'),('Sevilla'),('Zaragoza');
 /*!40000 ALTER TABLE `warehouse` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,7 +121,7 @@ CREATE TABLE `worker` (
   KEY `fk_Trabajadores_camiones1_idx` (`truck_plate`),
   CONSTRAINT `fk_Trabajadores_almacenes1` FOREIGN KEY (`warehouse_location`) REFERENCES `warehouse` (`location`),
   CONSTRAINT `fk_Trabajadores_camiones1` FOREIGN KEY (`truck_plate`) REFERENCES `truck` (`plate`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,7 +130,7 @@ CREATE TABLE `worker` (
 
 LOCK TABLES `worker` WRITE;
 /*!40000 ALTER TABLE `worker` DISABLE KEYS */;
-INSERT INTO `worker` VALUES (21,'Maria','Perez Lopez','Madrid','12456789P','mariaperez@gmail.com','$2b$10$WjDyWp4Y2ZHZRrp1n5OHbuLTLuMMUO3vO/7ockdvvijAfpUxsJJna','operario','Madrid',NULL),(25,'Mario','Martin Baeza','Barcelona','78945612F','mariomartin@gmail.com','$2b$10$YTQjYdIwSZQRGgOepoNyB.0vLQug/zqPx/fxl7KZbI8ZDGSGhz75G','operario','Barcelona',NULL),(19,'Pablo','Fernandez Gutierrez','Madrid','45678963J','pablofernandez@gmail.com','$2b$10$Fm9QiAOBje5fNrLQ7GrwcuLz06yVwWqOK7LyLg.nbOnEuIKr9sCXC','jefe','Madrid',NULL),(22,'Paula','Martinez Gomez','Madrid','98456321H','paulamartinez@gmail.com','$2b$10$e06XTYDb4ZIXaYlnNHq.FudlSPgSP5PEvAMMEfKnMnbz25DUtft3.','camionero','Madrid','7890 MND'),(26,'Rocio','Hernandez Jaen','Oviedo','45678963H','rociohernandez@gmail.com','$2b$10$KMeSs3XLjqKcslW1Zizlb.zDbYq5ezh6YYApQdWAdHoDeoA8o3cRm','Camionero','Oviedo',NULL),(20,'Rodrigo','Gonzalez Alvarez','Madrid','45789123L','rodrigogonzalez@gmail.com','$2b$10$4KhkdvIfMrF.iBGSdaFboOUlFQsIShwaz6MGzCAlDvW2U7WchcaK.','encargado','Madrid',NULL);
+INSERT INTO `worker` VALUES (21,'Maria','Perez Lopez','Madrid','12456789P','mariaperez@gmail.com','$2b$10$WjDyWp4Y2ZHZRrp1n5OHbuLTLuMMUO3vO/7ockdvvijAfpUxsJJna','operario','Madrid',NULL),(25,'Mario','Martin Baeza','Barcelona','78945612F','mariomartin@gmail.com','$2b$10$YTQjYdIwSZQRGgOepoNyB.0vLQug/zqPx/fxl7KZbI8ZDGSGhz75G','operario','Barcelona',NULL),(19,'Pablo','Fernandez Gutierrez','Madrid','45678963J','pablofernandez@gmail.com','$2b$10$Fm9QiAOBje5fNrLQ7GrwcuLz06yVwWqOK7LyLg.nbOnEuIKr9sCXC','jefe','Madrid',NULL),(22,'Paula','Martinez Gomez','Madrid','98456321H','paulamartinez@gmail.com','$2b$10$e06XTYDb4ZIXaYlnNHq.FudlSPgSP5PEvAMMEfKnMnbz25DUtft3.','camionero','Madrid','7890 MND'),(20,'Rodrigo','Gonzalez Alvarez','Madrid','45789123L','rodrigogonzalez@gmail.com','$2b$10$4KhkdvIfMrF.iBGSdaFboOUlFQsIShwaz6MGzCAlDvW2U7WchcaK.','encargado','Madrid',NULL);
 /*!40000 ALTER TABLE `worker` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -142,4 +143,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-01-27 19:43:49
+-- Dump completed on 2025-01-28 18:52:55
