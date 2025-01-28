@@ -15,7 +15,7 @@
     width: 30%;
     margin: 20px auto;
     padding: 20px;
-    background-color: #1e293b;
+    background-color: #494949;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     color: whitesmoke;
@@ -28,10 +28,12 @@
   }
 
   .form-group {
+    background-color: #494949;
+    color: #ffffff;
     margin-bottom: 15px;
-   display:flex;
-   flex-direction: column;
-   justify-content: space-between;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .form-group label {
@@ -43,19 +45,17 @@
   .form-group textarea,
   .form-group select {
     width: 80%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #2d3748;
-    color: whitesmoke;
-    margin: auto;
-  }
+    padding: 0.8rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    background-color: #5b5b5b;
+    color: #ffffff;
 
   input:focus,
   textarea:focus,
   select:focus {
     outline: none;
-    border-color: #2563eb;
+    border-color: #494949;
   }
 
   .form-actions {
@@ -111,3 +111,4 @@
     height: 32px;
     width: 77px;
   }
+
