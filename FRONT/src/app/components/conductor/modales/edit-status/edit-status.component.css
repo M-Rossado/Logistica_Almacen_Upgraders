@@ -93,3 +93,21 @@
     color: #e74c3c;
     transform: scale(1.1);
   }
+
+  .edit-btn{
+    background-color: #ee8941;
+    color: white;
+    border-radius: 20px;
+    font-weight: 800;
+    height: 29px;
+    width: 75px;
+  }
+
+  .edit-btn:hover{
+    background-color: #ee8941;
+    color: white;
+    border-radius: 20px;
+    font-weight: 800;
+    height: 32px;
+    width: 77px;
+  }

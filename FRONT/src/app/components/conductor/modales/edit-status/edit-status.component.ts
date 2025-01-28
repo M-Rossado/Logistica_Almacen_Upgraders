@@ -21,12 +21,10 @@ export class EditStatusComponent {
       surname:"",
       addres:"",
       dni:"",
-       email:"",
+      email:"",
       role:"",
       warehouse_location:"",
       truck_plate:"",
-
-
     }
 
 
