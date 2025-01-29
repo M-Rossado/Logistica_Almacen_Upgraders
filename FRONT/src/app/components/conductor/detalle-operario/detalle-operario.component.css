@@ -1,0 +1,76 @@
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  z-index: 1000; 
+  background-color: #292929;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.create{
+  background-color: #ee8941;
+  color: white;
+  font-size: 20px;
+  border: none;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 600;
+  height: 70px;
+  border-radius: 35px;
+}
+
+.buttons{
+display: flex;
+align-items: center;
+width: 100%;
+}
+
+.inf{
+width: 90%;
+margin: 60px auto 0;
+}
+
+.modal h2{
+font-size: 25px;
+text-align: center;
+color: white;
+background-color: #ee8941;
+width: 100%;
+position: fixed;
+height: 60px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.bi{
+margin-right: 10px;
+font-size: 30px;
+}
+
+.inf p{
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+strong{
+margin-right: 10px;
+}
+
+.close{
+background-color: transparent;
+color: #ee8941;
+border:  none;
+font-size: 65px;
+}
+.inf > *{
+border-bottom: solid 1px white;
+padding: 20px 0
+}
