@@ -57,6 +57,16 @@
   width: 80%;
   display: inline-block;
 }
+.campo-list{
+  width: max-content;
+  text-align: left;
+  flex-direction: row;
+  display: flex;
+}
+.campo-list span {
+  width: 170px;
+  text-align: left;
+}
 .edit-btn{
   background-color: #ee8941;
   color: white;

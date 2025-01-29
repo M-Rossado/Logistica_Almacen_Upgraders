@@ -10,12 +10,7 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-    // Método para agregar un nuevo pedido
-    addOrder(order: any): Observable<any> {
-      return this.http.post(this.apiUrl, order);
-    }
-
-      // Método para obtener un pedido por su ID
+    // Método para obtener un pedido por su ID
     getOrderById(id: string): Observable<any> {
       return this.http.get(`${this.apiUrl}/${id}`);
     }
