@@ -2,8 +2,8 @@
   "order": [
     {
       "id": "1",
-      "item_type": "Television",
-      "status": "In Transit",
+      "item_type": "Televisiones",
+      "status": "Pendiente",
       "date_of_entry": "2025-01-24",
       "date_of_departure": "2025-01-30",
       "origin": "Sevilla",
@@ -239,7 +239,7 @@
   ],
   "worker": [
     {
-      "name": "ana",
+      "name": "analisa",
       "surname": "Perez",
       "address": "Calle Madrid 10",
       "dni": "12345678A",
