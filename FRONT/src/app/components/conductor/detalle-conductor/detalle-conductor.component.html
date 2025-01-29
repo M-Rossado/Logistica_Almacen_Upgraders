@@ -1,0 +1,19 @@
+<div class="modal">
+  <h2>Detalle del Pedido</h2>
+    <div class="inf">
+      <h3>{{ order?.item_type }}</h3>
+      <p><i class="bi bi-info-circle-fill"></i> <strong>Referencia: </strong> {{ order?.id }}</p>
+      <p><i class="bi bi-battery-half"></i> <strong>Estado: </strong> {{ order?.status }}</p>
+      <p><i class="bi bi-arrow-return-right"></i> <strong>Fecha de salida: </strong> {{ order?.date_of_departure }}</p>
+      <p><i class="bi bi-arrow-return-left"></i> <strong>Fecha de entrada: </strong> {{ order?.date_of_entry }}</p>
+      <p><i class="bi bi-journal-arrow-up"></i> <strong>Destino: </strong> {{ order?.destination }}</p>
+      <p><i class="bi bi-journal-arrow-down"></i> <strong>Origen: </strong> {{ order?.origin }}</p>
+      <p><i class="bi bi-building-fill"></i> <strong>Almacen: </strong> {{ order?.warehouse_location }}</p>
+      <p><i class="bi bi-truck"></i> <strong>Camión asignado: </strong> {{ order?.truck_plate }}</p>
+    </div>
+    <div class="buttons">
+      <button class="bi bi-arrow-left-square-fill close" (click)="Close()"></button>
+      <button class="create" (click)="editOrder(order)">Modificar pedido</button>
+    </div>
+
+  </div>
