@@ -24,33 +24,33 @@ export class DetalleOperarioComponent {
   @Output() openEditModal = new EventEmitter<any>(); // Para abrir el modal de edición
 
   ngOnInit(){
-    this.getOrders()
+    this.getPedidos()
   }
 
 
-  getOrders(){
+  getPedidos(){
     this.homeservice.getOrders().subscribe((data) =>
     this.ordersList = data
   )
 
-    console.log(this.getOrders)
+    console.log(this.getPedidos)
   }
 
   //@Output() closeModal = new EventEmitter<boolean>();// cremaos el evento output paso 6
   Close(){
-    this.closeModal.emit();// enviamos un booleano hacia nuestro padre lo podemos dejar abierto y despues lo volveremos falso en nuestro compoennte padre
+    this.closeModal.emit();// enviamos un booleano hacia nuestro padre lo podemos dejar abierto y despues lo volveremos falso en nuestro compoennte padre 
   }
 /*
   closeEdit(){
     this.showEdit = false;
   }
 */
-    // modal 2
+    // modal 2  
     editOrder(order: any){
       this.openEditModal.emit(order);
       //this.selectedOrder = order; // Asigna el pedido seleccionado
       //this. showEdit = true;
       //this.closeModal.emit();
       //console.log(this.showEdit)
-    }
+    }  
 }
