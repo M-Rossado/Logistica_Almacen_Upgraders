@@ -54,4 +54,9 @@ const updateOrderDetails = async (id_order, data) => {
     }
 };
 
-module.exports = { selectbyLocation, insertOrder, selectById, selectByEmail, updateOrderStatus, updateStatusTruckDriver, updateOrderDetails, selectByEmailTruckDriver }
+const selectAllOrders = async () => {
+    const result = await pool.query("SELECT * FROM orders");
+    return result[0];
+};
+
+module.exports = { selectbyLocation, insertOrder, selectById, selectByEmail, updateOrderStatus, updateStatusTruckDriver, updateOrderDetails, selectByEmailTruckDriver, selectAllOrders }

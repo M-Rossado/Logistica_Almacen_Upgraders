@@ -1,4 +1,4 @@
-const { insertOrder, selectById, selectByEmail, selectByEmailTruckDriver, selectbyLocation, updateOrderStatus, updateStatusTruckDriver, updateOrderDetails } = require("../models/order.model")
+const { insertOrder, selectById, selectByEmail, selectByEmailTruckDriver, selectbyLocation, updateOrderStatus, updateStatusTruckDriver, updateOrderDetails, selectAllOrders } = require("../models/order.model")
 const { checkRolJefe, checkRolEncargado, checkRolOperario, checkRolCamionero } = require("../../utils/jwt");
 
 const createNewOrder = async (req, res) => {
@@ -64,7 +64,7 @@ const searchTruckDriverOrder = async (req, res) => {
     }
 };
 
-const getAllOrders = async (req, res) => {
+const getOrdersByLocation = async (req, res) => {
 
     try {
         // Verificación del rol
@@ -219,5 +219,25 @@ const updateOrder = async (req, res) => {
     }
 };
 
+const getAllOrders = async (req, res) => {
 
-module.exports = { createNewOrder, searchOperatorOrder, getAllOrders, getOperator, getWarehouse, getOrder, acceptOrder, deliverOrder, updateOrder, searchTruckDriverOrder }
+    try {
+        // Verificación del rol
+        if (!checkRolJefe(req.user.role)) {
+            return res.status(403).json({ error: 'Acceso denegado. Debe ser jefe.' }); // Si el rol no es adecuado
+        }
+
+        const result = await selectAllOrders(req.user);
+
+        if (result.length === 0) {
+            return res.status(404).json({ error: 'Pedidos no encontrados' });
+        }
+        return res.json(result); // Devolver los trabajadores en formato JSON
+
+    } catch (error) {
+        console.error('Error al buscar trabajadores:', error);
+        return res.status(500).json({ error: 'Hubo un error al obtener los trabajadores' });
+    }
+};
+
+module.exports = { createNewOrder, searchOperatorOrder, getAllOrders, getOrdersByLocation, getOperator, getWarehouse, getOrder, acceptOrder, deliverOrder, updateOrder, searchTruckDriverOrder }
