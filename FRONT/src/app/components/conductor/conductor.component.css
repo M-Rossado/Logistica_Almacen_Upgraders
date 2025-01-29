@@ -9,23 +9,27 @@
   margin: auto;
   padding: 30px 0;
 }
+.saludo{
+  text-align: center;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
 h2{
   text-align: center;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
-  padding-top: 10px;
 }
-.new-order button{
-  background-color: #ee8941;
-  color: white;
-  font-size: 30px;
-  border: none;
-  width: 100%;
-  text-transform: uppercase;
-  font-weight: 600;
-  height: 70px;
-  border-radius: 35px;
+
+h3{
+  font-size: 16px;
+  margin: 0;
+}
+
+
+h2, p{
+  margin: 0;
 }
 
 .card-content{
@@ -33,18 +37,13 @@ h2{
   padding: 10px;
   margin: 10px;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: row;
-}
-.card-content:hover{
-  padding: 18px;
+  justify-content:space-around;
 }
 
-.campo-list{
-  width: 100px;
-  text-align: left;
-  margin: auto 10px;
+
+button{
+  background-color: transparent;
+  border: none;
 }
 
 .edit-btn{
@@ -64,3 +63,4 @@ h2{
   height: 32px;
   width: 77px;
 }
+

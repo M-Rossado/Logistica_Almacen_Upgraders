@@ -1,65 +1,69 @@
 import { Component, inject } from '@angular/core';
 import { HomeServiceService } from '../service/home-service.service';
-import { EditStatusComponent } from './modales/edit-status/edit-status.component'; //importación del componente modal de edicion
-import { OrderDetailsComponent } from './modales/order-details/order-details.component';
+import { CommonModule } from '@angular/common';
+import { ICON_MAPPER } from '../../../assets/icon-mapper'; // Importa el mapeo
+import { EditOrderComponent } from './edit-order/edit-order.component';
+import { DetalleConductorComponent } from './detalle-conductor/detalle-conductor.component';
+
 
 @Component({
   selector: 'app-conductor',
   standalone: true,
-  imports: [EditStatusComponent, OrderDetailsComponent], //importación del componente modal de edicion
+  imports: [DetalleConductorComponent, CommonModule, EditOrderComponent],
   templateUrl: './conductor.component.html',
   styleUrl: './conductor.component.css'
 })
-
 export class ConductorComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
-  public ordersList: any[] = [];
-  public selectEvent: any ;
-  public detailsModal :boolean = false
-  public editModal: boolean = false //variable de la apertura del modal: copiar a modal de detalle
+  public orderList: any = []
+  public userRole = localStorage.getItem('role')
+  public name =  localStorage.getItem('nombre')
+  public detalle: boolean = false
+  public Showmodal:boolean = false;// paso #2
+  public showDetail: boolean = false;
+  public selectedOrder: any = null;
+  public showCreateOrder: boolean = false; //
+  public showEditOrder: boolean = false;
 
 
 
-  ngOnInit(): void {
-    this.getEventos()
-   }
-
-   getEventos(): void {
-     this.homeservice.getOrders().subscribe({
-       next: (data: any) => {
-        this.ordersList= data
-       },
-       error: (error) => {
-         console.log(error);
-       }
-     });
-   }
-
-  //Modal de Detalle de Pedido
-   openOrderDetails(event:any){
-    this.detailsModal  = true
-    this.selectEvent = event;
-    console.log(this.selectEvent)
-  }
-
-  closeOrderModal(){
-    this.detailsModal  =false
+  ngOnInit(){
+    this.getOrders()
   }
 
 
+  getOrders(){
+    this.homeservice.getOrders().subscribe((data) =>
+    this.orderList = data)
+  }
+
+// Función para obtener la clase del ícono dinámicamente
+getIconClass(status: string): string {
+  return ICON_MAPPER[status] || 'bi-question-circle-fill text-muted'; // Icono por defecto si no coincide
+}
+
+  // modal 2
+  mostrarDetalle(order: any){
+    this.selectedOrder = order; // Asigna el pedido seleccionado
+    this. showDetail = true
+  }
+
+  closeDetail(){
+    this.showDetail = false;
+  }
 
 
+  // cambios
 
-  // //Esto habrá que moverlo dentro del modal de detalle
-    openEditStatus(){
-       this.editModal = true;
-       console.log(this.editModal)
+  // Abrir modal de edición desde detalles
+  openEditModal(order: any) {
+    this.closeDetail();
+    this.selectedOrder = order; // Asigna el pedido seleccionado
+    //this.showDetail = false; // Cierra el modal de detalles
+    this.showEditOrder = true; // Abre el modal de edición
+  }
 
-    // closeEditStatus(){
-    //  this.editModal = false;
-    }
-
-
-
-
+  closeEditOrder() {
+    this.showEditOrder = false; // Cierra el modal de edición
+  }
 }

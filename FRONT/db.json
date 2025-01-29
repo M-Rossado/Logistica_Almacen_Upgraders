@@ -3,10 +3,10 @@
     {
       "id": "1",
       "item_type": "Televisiones",
-      "status": "Pendiente",
+      "status": "Entregado",
       "date_of_entry": "2025-01-24",
       "date_of_departure": "2025-01-30",
-      "origin": "Sevilla",
+      "origin": "Murcia",
       "destination": "Madrid",
       "warehouse_location": "Madrid",
       "truck_plate": "7890 MND"

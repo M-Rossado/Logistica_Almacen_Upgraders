@@ -4,13 +4,13 @@ import { CommonModule } from '@angular/common';
 import { EditOrderComponent } from "../edit-order/edit-order.component";
 
 @Component({
-  selector: 'app-detalle-operario',
+  selector: 'app-detalle-conductor',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './detalle-operario.component.html',
-  styleUrl: './detalle-operario.component.css'
+  templateUrl: './detalle-conductor.component.html',
+  styleUrl: './detalle-conductor.component.css'
 })
-export class DetalleOperarioComponent {
+export class DetalleConductorComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
   public ordersList: any = []
   public Showmodal:boolean = false;// paso #2
@@ -38,19 +38,19 @@ export class DetalleOperarioComponent {
 
   //@Output() closeModal = new EventEmitter<boolean>();// cremaos el evento output paso 6
   Close(){
-    this.closeModal.emit();// enviamos un booleano hacia nuestro padre lo podemos dejar abierto y despues lo volveremos falso en nuestro compoennte padre 
+    this.closeModal.emit();// enviamos un booleano hacia nuestro padre lo podemos dejar abierto y despues lo volveremos falso en nuestro compoennte padre
   }
 /*
   closeEdit(){
     this.showEdit = false;
   }
 */
-    // modal 2  
+    // modal 2
     editOrder(order: any){
       this.openEditModal.emit(order);
       //this.selectedOrder = order; // Asigna el pedido seleccionado
       //this. showEdit = true;
       //this.closeModal.emit();
       //console.log(this.showEdit)
-    }  
+    }
 }
