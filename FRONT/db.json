@@ -9,9 +9,7 @@
       "origin": "Sevilla",
       "destination": "Madrid",
       "warehouse_location": "Madrid",
-      "truck_plate": "7890 MND",
-      "worker_email": "paulamartinez@gmail.com",
-      "email_manager": "maria.perez@gmail.com"
+      "truck_plate": "7890 MND"
     },
     {
       "id": "2",
@@ -151,6 +149,16 @@
       "truck_plate": "33444B",
       "worker_email": "asd",
       "email_manager": "as"
+    },
+    {
+      "id": "d4a5",
+      "email": "zXZX",
+      "password": "zXzXzX"
+    },
+    {
+      "id": "05b9",
+      "email": "pablofernandez@gmail.com",
+      "password": "Pablo.Fernandez"
     }
   ],
   "truck": [

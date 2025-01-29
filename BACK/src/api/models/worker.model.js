@@ -19,7 +19,7 @@ const insertWarehouse = async ({location}) => {
         if (result.affectedRows === 0) {
             return -1;  // Si no se insertó, retorna -1
         }
-        return result.insertId;
+        return result.insertLocation;
    
 };
 

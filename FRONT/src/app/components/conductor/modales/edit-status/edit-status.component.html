@@ -1,14 +1,14 @@
 
 <h2>Modal para cambiar STATUS</h2>
 <div class="modal">
-    <button (click)="Close()" class="close">×</button>
+  <button (click)="closeOrderModal()" class="close">×</button>
 
     <div class="form-container">
         <h2>Cambio de Estado</h2>
     <form action="/submit" (ngSubmit)="handleEditStatus()">
         <div class="form-group">
             <label for="location">Estado del pedido:</label>
-            <select [(ngModel)]="editStatus.role" name="location" id="location" required>
+            <select [(ngModel)]="editStatus.role" name="location" id="location" required class="card-content">
                 <option value="" disabled selected>En transito</option>
                 <option value="">En Revisión</option>
                 <option value="nule">Anulado</option>
@@ -17,11 +17,9 @@
           </div>
 
           <div class="form-actions">
-            <button type="submit">Guardar</button>
-            <button type="button" (click)="Close()">Cancelar</button>
+            <button type="submit" class="edit-btn">Guardar</button>
+            <button type="button" (click)="closeOrderModal()" class="edit-btn">Cancelar</button>
           </div>
-
-
 
     </form>
   </div>

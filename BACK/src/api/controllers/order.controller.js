@@ -1,4 +1,4 @@
-const {insertOrder, selectById, selectByEmail, selectbyLocation} = require("../models/order.model")
+const {insertOrder, selectById, selectByEmail, selectbyLocation, updateOrderStatus, updateStatusTruckDriver, updateOrderDetails} = require("../models/order.model")
 const {checkRolJefe, checkRolEncargado, checkRolOperario, checkRolCamionero} = require("../../utils/jwt");
 
 const createNewOrder = async (req, res) => {
@@ -23,7 +23,6 @@ const createNewOrder = async (req, res) => {
  };
 
  const searchOperatorOrder = async (req, res) => {
-    const { email_operator } = req.params; // Extraer el email desde los parámetros de la URL
     try {
         // Verificación del rol
         if (!checkRolOperario(req.user.role)) {
@@ -31,7 +30,7 @@ const createNewOrder = async (req, res) => {
         }
 
         // Llamar a la función selectByEmail con el email_manager correcto
-        const result = await selectByEmail(email_operator);
+        const result = await selectByEmail(req.user.email);
 
         if (result.length === 0) {
             return res.status(404).json({ error: 'Pedidos no encontrados' }); 
@@ -45,7 +44,7 @@ const createNewOrder = async (req, res) => {
 };
 
 const getAllOrders = async (req,res) => {
-    const {warehouse_location} = req.params; // Extraer el almacén desde los parámetros de la URL
+    
     try {
         // Verificación del rol
         if (!checkRolEncargado(req.user.role)) {
@@ -53,7 +52,7 @@ const getAllOrders = async (req,res) => {
         }
 
         // Llamar a la función selectbyLocation con la localización del almacen
-        const result = await selectbyLocation(warehouse_location);
+        const result = await selectbyLocation(req.user.warehouse_location);
 
         if (result.length === 0) {
             return res.status(404).json({ error: 'Pedidos no encontrados' }); 
@@ -87,7 +86,7 @@ const getOperator = async(req,res) => {
     }
 };
 
-const getWarehourse = async(req,res) => {
+const getWarehouse = async(req,res) => {
     const {warehouse_location} = req.params; // Extraer el almacén desde los parámetros de la URL
     try {
         // Verificación del rol
@@ -97,6 +96,7 @@ const getWarehourse = async(req,res) => {
 
         // Llamar a la función selectbyLocation con la localización del almacen
         const result = await selectbyLocation(warehouse_location);
+       
 
         if (result.length === 0) {
             return res.status(404).json({ error: 'Pedidos no encontrados' }); 
@@ -132,18 +132,22 @@ const getOrder = async(req,res) => {
     }
 };
     
-
 const acceptOrder = async (req, res) => {
     const { id_order } = req.params;
-    const { status, comment } = req.body; // status debe ser "en curso" o "denegado"
+    const { status, comment } = req.body; // status debe ser "en revision" o "denegado"
 
     try {
+        // Verificación del rol
+        if (!checkRolEncargado(req.user.role)) {
+            return res.status(403).json({ msg: "Acceso denegado. Debe ser encargado de equipo." }); // Si el rol no es adecuado
+        }
+
         // Llamar a la función para actualizar el estado del pedido
         const result = await updateOrderStatus(id_order, status, comment);
         if (result.affectedRows === 0) {
             return res.status(404).json({ msg: "Pedido no encontrado" });
         }
-        return res.status(200).json({ msg: "Estado del pedido actualizado", data: result });
+        return res.status(200).json({ msg: "Estado del pedido actualizado"});
     } catch (error) {
         console.error(error);
         return res.status(500).json({ msg: "Error en el servidor" });
@@ -152,14 +156,20 @@ const acceptOrder = async (req, res) => {
 
 const deliverOrder = async (req, res) => {
     const { id_order } = req.params;
+    const { status } = req.body; // status debe ser "entregado"
 
     try {
+        // Verificación del rol
+        if (!checkRolCamionero(req.user.role)) {
+            return res.status(403).json({ msg: "Acceso denegado. Debe ser camionero." }); // Si el rol no es adecuado
+        }
+
         // Cambiar el estado del pedido a "entregado"
-        const result = await updateOrderStatus(id_order, "entregado", null);
+        const result = await updateStatusTruckDriver(status, id_order);
         if (result.affectedRows === 0) {
             return res.status(404).json({ msg: "Pedido no encontrado" });
         }
-        return res.status(200).json({ msg: "Pedido entregado", data: result });
+        return res.status(200).json({ msg: "Pedido entregado"});
     } catch (error) {
         console.error(error);
         return res.status(500).json({ msg: "Error en el servidor" });
@@ -171,6 +181,11 @@ const updateOrder = async (req, res) => {
     const data = req.body; // Aquí se espera que se envíen todos los parámetros del pedido
 
     try {
+        // Verificación del rol
+        if (!checkRolOperario(req.user.role)) {
+            return res.status(403).json({ msg: "Acceso denegado. Debe ser operario." }); // Si el rol no es adecuado
+        }
+
         // Actualizar todos los parámetros del pedido
         const result = await updateOrderDetails(id_order, data);
         if (result.affectedRows === 0) {
@@ -184,4 +199,4 @@ const updateOrder = async (req, res) => {
 };
 
 
-module.exports = {createNewOrder, searchOperatorOrder, getAllOrders, getOperator, getWarehourse, getOrder, acceptOrder, deliverOrder, updateOrder}
+module.exports = {createNewOrder, searchOperatorOrder, getAllOrders, getOperator, getWarehouse, getOrder, acceptOrder, deliverOrder, updateOrder}

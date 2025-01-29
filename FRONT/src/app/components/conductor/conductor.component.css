@@ -28,19 +28,23 @@ h2{
   border-radius: 35px;
 }
 
-.card{
+.card-content{
   background-color: #494949;
-  padding: 2px;
-  margin: 5px 0px;
+  padding: 10px;
+  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
 }
+.card-content:hover{
+  padding: 18px;
+}
 
 .campo-list{
   width: 100px;
   text-align: left;
+  margin: auto 10px;
 }
 
 .edit-btn{
