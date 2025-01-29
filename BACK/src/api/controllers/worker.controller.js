@@ -38,9 +38,16 @@ const login = async (req, res) => {
         if (!same) {
             return res.status(400).json({ msg: "La contraseña es incorrecta" });
         }
+        const token = createToken(selectedEmail[0]);
+        const name = selectedEmail[0].name;
+        const role = selectedEmail[0].role;
 
-        return res.status(200).json({ token: createToken(selectedEmail[0]) });
-
+        return res.status(200).json({
+            msg: "inicio de sesion exitoso",
+            token,
+            role,
+            name
+        });
 
     } catch (error) {
         console.log(error)
