@@ -58,11 +58,13 @@
           <label for="email_manager">Correo del responsable</label>
           <input id="email_manager" name="email_manager" [(ngModel)]="order.email_manager" type="email" class="form-control" required />
         </div>
+
+        <div class="buttons">
+          <button type="button" class="bi bi-arrow-left-square-fill close" (click)="closeEditOrder()"></button>
+          <button type="submit" class="create">Guardar</button>
+        </div>
       </form>
     </div>
-    <div class="buttons">
-      <button type="button" class="bi bi-arrow-left-square-fill close" (click)="closeEditOrder()"></button>
-      <button type="submit" class="create">Guardar</button>
-    </div>
+
   </div>
 </div>
