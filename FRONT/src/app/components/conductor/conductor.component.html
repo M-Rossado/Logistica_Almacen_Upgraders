@@ -4,8 +4,8 @@
       <h2>estos son tus pedidos asignados</h2>
       @for(order of orderList; track $index){
       <div class="card-content">
-          <p class="campo-list">Pedido<strong>{{ order.id }}</strong></p>
-          <p class="campo-list">Estado<strong>{{ order.status }}</strong></p>
+          <p class="campo-list">Pedido<strong><br>{{ order.id }}</strong></p>
+          <p class="campo-list">Estado<strong><br>{{ order.status }}</strong></p>
           <p class="campo-list">F. salida:<br><strong>{{ order.date_of_departure }}</strong> </p>
           <p class="campo-list">destino:<br><strong>{{ order.destination }}</strong> </p>
           <button (click)="mostrarDetalle(order)" class="edit-btn">Detalle</button>
