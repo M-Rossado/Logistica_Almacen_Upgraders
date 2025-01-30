@@ -13,7 +13,7 @@ export const jefeRoleGuard: CanActivateFn = (route, state) => {
         const roleValue = localStorage.getItem('role');
   
         
-        if (tokenValue && roleValue === 'jefe') {
+        if (tokenValue && roleValue === 'jefe' ||'conductor' || 'encargado' ||'operador') {
           return true; // Usuario autenticado
         }
       }

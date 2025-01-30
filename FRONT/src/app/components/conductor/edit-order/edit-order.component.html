@@ -1,0 +1,26 @@
+<div class="modal">
+  <div class="modal-content">
+    <button  (click)="closeEditOrder()"class="close">×</button>
+    <div class="modal-head">
+      <h2>Editar Estado del Pedido</h2>
+    </div>
+
+    <div class="modal-body">
+      <form (ngSubmit)="onSubmit()" #editOrderForm="ngForm">
+        <div class="form-group">
+          <label for="status">Estado</label>
+          <select id="status" name="status" [(ngModel)]="order.status" type="text" required>
+              <option value="" disabled selected>Selecciona un estado</option>
+              <option value="En almacén">En almacén</option>
+              <option value="En tránsito">En tránsito</option>
+              <option value="Entregado">Entregado</option>
+          </select>
+        </div>
+        <div class="buttons">
+          <button type="submit" class="edit-btn">Guardar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="modal">
+  <div class="modal-content">
+    <button (click)="Close()"class="close">×</button>
+    <div class="modal-head">
+      <h2>Detalles del Pedido</h2>
+    </div>
+
+    <div class="modal-body">
+      <div class="card-component">
+        <p class="campo-list">
+          <span><strong>Nº Pedido:</strong></span>
+          <span>{{ order?.id_order }}</span>
+        </p>
+        <p class="campo-list">
+          <span><strong>Tipo:</strong></span>
+          <span>{{ order?.item_type}}</span>
+        </p>
+        <p class="campo-list">
+          <span><strong>Estado:</strong></span>
+          <span>{{ order?.status }}</span></p>
+        <p class="campo-list">
+          <span><strong>F. Salida:</strong></span>
+          <span>{{ order?.date_of_departure }}</span>
+        </p>
+        <p class="campo-list">
+          <span><strong>F. Entrada:</strong></span>
+          <span>{{ order?.date_of_entry }}</span>
+        </p>
+        <p class="campo-list">
+          <span><strong>Destino:</strong></span>
+          <span>{{ order?.destination }}</span>
+        </p>
+        <p class="campo-list">
+          <span><strong>Almacen:</strong></span>
+          <span>{{ order?.warehouse_location }}</span>
+        </p>
+        <p class="campo-list">
+          <span><strong>Camión:</strong></span>
+          <span>{{ order?.truck_plate }}</span>
+        </p>
+      </div>
+    </div>
+    <div class="buttons">
+      <!-- <button class="bi bi-arrow-left-square-fill close" (click)="Close()"></button> -->
+      <button class="edit-btn" (click)="editOrder(order)">Editar</button>
+    </div>
+  </div>
+</div>
+
+
+

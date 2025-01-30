@@ -8,20 +8,29 @@
   </div>
 </header>
 
+
 <!--<app-conductor></app-conductor> -->
 
 <app-operario></app-operario>
 
-<!--
+
+
+@if(this.userRole === "camionero"){
+<app-conductor></app-conductor>
+}
+@if(this.userRole === "operario"){
+ <app-operario></app-operario>
+}
+
  @if(this.userRole === "encargado"){
   <app-encargado></app-encargado>
 }
--->
 
 
-<!-- <app-jefe></app-jefe> -->
+@if(this.userRole === "jefe"){
+ <app-jefe></app-jefe> 
+}
 
-
-<!-- @if(this.userRole === "orders"){
+ <!-- @if(this.userRole === "orders"){
     <app-orders></app-orders>
-}-->
+} -->
