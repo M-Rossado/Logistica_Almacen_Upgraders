@@ -6,6 +6,7 @@ import { OperarioComponent } from '../operario/operario.component';
 import { ConductorComponent } from '../conductor/conductor.component';
 import { EncargadoComponent } from '../encargado/encargado.component';
 import { OrdersComponent } from '../jefe/orders/orders.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,13 +17,30 @@ import { OrdersComponent } from '../jefe/orders/orders.component';
 })
 export class HomeComponent {
 
-  private homeservice: HomeServiceService = inject(HomeServiceService)
+ 
   public ordersList: any = []
-  public userRole = localStorage.getItem('role')
-  public name =  localStorage.getItem('name')
+ 
+  public  userRole = localStorage.getItem('role');
+  public name = localStorage.getItem('role')
 
+  constructor(private router: Router) {}// use el constructor por que no me dejo usar el inject...
 
+  ngOnInit(){
+    if (typeof window !== 'undefined') {
+      this.userRole
+      this.name
+    }
+  }
 
+ 
+  logout() {
+    
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("name");
 
+    
+    this.router.navigate(['/login']);
+  }
 
 }
