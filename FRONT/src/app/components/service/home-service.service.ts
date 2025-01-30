@@ -11,7 +11,7 @@ export class HomeServiceService {
 
  // servicios genrales
  getOrders() {
-  return this.http.get('http://localhost:3000/order')
+  return this.http.get('http://localhost:3500/order/searchorderby/location')
  }
 
 

@@ -10,6 +10,12 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
+
+
+  getAll(){
+    return this.http.get('http://localhost:3500/order/searchbytruckdriveremail')
+  }
+
     // Método para obtener un pedido por su ID
     getOrderById(id: string): Observable<any> {
       return this.http.get(`${this.apiUrl}/${id}`);

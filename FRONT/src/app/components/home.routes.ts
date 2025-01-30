@@ -5,6 +5,7 @@ import { WarehouseComponent } from './jefe/warehouses/warehouses.component';
 import { OrdersComponent } from './jefe/orders/orders.component';
 import { authGuard } from '../auth/guards/auth.guard';
 import { jefeRoleGuard } from '../auth/guards/jefe-role.guard';
+import { adminGuard } from '../auth/guards/admin.guard';
 
 
 
@@ -12,11 +13,13 @@ import { jefeRoleGuard } from '../auth/guards/jefe-role.guard';
 export const HOME_ROUTES: Routes = [
 
     {
-        path: 'home', 
+        path: 'home',
+        canActivate: [jefeRoleGuard],
         component: HomeComponent
     },
     {
         path: 'orders',
+        canActivate: [adminGuard],
         component: OrdersComponent
     },
     {
