@@ -25,6 +25,7 @@ export class DetalleConductorComponent {
 
   ngOnInit(){
     this.getPedidos()
+    console.log(this.order)
   }
 
 

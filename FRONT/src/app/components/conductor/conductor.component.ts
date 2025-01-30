@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ICON_MAPPER } from '../../../assets/icon-mapper'; // Importa el mapeo
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { DetalleConductorComponent } from './detalle-conductor/detalle-conductor.component';
+import { OrderService } from './services/order.service';
 
 
 @Component({
@@ -15,6 +16,7 @@ import { DetalleConductorComponent } from './detalle-conductor/detalle-conductor
 })
 export class ConductorComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
+  private Orderservice: OrderService = inject(OrderService)
   public orderList: any = []
   public userRole = localStorage.getItem('role')
   public name =  localStorage.getItem('nombre')
@@ -33,9 +35,9 @@ export class ConductorComponent {
 
 
   getOrders(){
-    this.homeservice.getOrders().subscribe((data) =>
-    this.orderList = data)
-  }
+    this.Orderservice.getAll().subscribe((data) =>
+   this.orderList = data  
+  )}
 
 // Función para obtener la clase del ícono dinámicamente
 getIconClass(status: string): string {
