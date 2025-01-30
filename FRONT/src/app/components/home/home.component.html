@@ -3,30 +3,36 @@
   <div class="header">
     <ul class="menu-header">
       <li><h1><span>E</span>CARRIER</h1></li>
-      <li><button class="logout-btn">LogOut</button></li>
+      <li><button (click)="logout()" class="logout-btn">LogOut</button></li>
     </ul>
   </div>
 </header>
 
 
 
+<div>
+  @if(this.userRole === "camionero"){
+    <app-conductor></app-conductor>
+    }
+</div>
 
-@if(this.userRole === "camionero"){
-<app-conductor></app-conductor>
-}
-@if(this.userRole === "operario"){
- <app-operario></app-operario>
-}
+<div>
+  @if(this.userRole === "operario"){
+    <app-operario></app-operario>
+   }
+</div>
 
- @if(this.userRole === "encargado"){
-  <app-encargado></app-encargado>
-}
+<div>
+  @if(this.userRole === "encargado"){
+    <app-encargado></app-encargado>
+  }
+</div>
 
 
-@if(this.userRole === "jefe"){
- <app-jefe></app-jefe> 
-}
+<div>
+  @if(this.userRole === "jefe"){
+    <app-jefe></app-jefe> 
+   }
+</div>
 
- <!-- @if(this.userRole === "orders"){
-    <app-orders></app-orders>
-} -->
+

@@ -47,7 +47,7 @@ export class LoginComponent {
          localStorage.setItem('token', data.token);
           localStorage.setItem('role', data.role);
           localStorage.setItem('name',data.name);
-         this.router.navigate(['/home'])
+         this.router.navigate(['/home/home'])
        },
        error: (error) => {
          alert('usuario o conrasena no encontrados ');
