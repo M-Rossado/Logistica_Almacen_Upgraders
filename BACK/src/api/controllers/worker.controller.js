@@ -89,7 +89,10 @@ const getAllWorkers = async (req, res) => {
         if (result.length === 0) {
             return res.status(404).json({ error: 'Trabajadores no encontrados' });
         }
-        return res.json(result); // Devolver los trabajadores en formato JSON
+
+        const filteredWorkers = result.filter(worker => worker.role !== 'jefe');
+
+        return res.json(filteredWorkers)// Devolver los trabajadores en formato JSON menos el jefe
 
     } catch (error) {
         console.error('Error al buscar trabajadores:', error);
