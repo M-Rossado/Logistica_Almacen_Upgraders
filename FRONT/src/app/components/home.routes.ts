@@ -3,7 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { WorkersComponent } from './jefe/workers/workers.component';
 import { WarehouseComponent } from './jefe/warehouses/warehouses.component';
 import { OrdersComponent } from './jefe/orders/orders.component';
-import { adminGuard } from '../auth/guards/admin.guard';
+
 
 
 
@@ -17,7 +17,6 @@ export const HOME_ROUTES: Routes = [
     },
     {
         path: 'orders',
-        
         component: OrdersComponent
     },
     {

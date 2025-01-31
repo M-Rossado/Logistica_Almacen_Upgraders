@@ -2,10 +2,19 @@ const router = require("express").Router();
 const { createNewOrder, searchOperatorOrder, getOrdersByLocation, getAllOrders, getOperator, getWarehouse, getOrder, acceptOrder, deliverOrder, updateOrder, searchTruckDriverOrder } = require("../../controllers/order.controller")
 const { checkToken } = require("../../middleware/auth")
 
+
+// funciones de operarios 
 router.post("/neworder", checkToken, createNewOrder) //crea un nuevo pedido
-router.get("/searchbyemail", checkToken, searchOperatorOrder) // buscar por el email de un operario    
+router.get("/searchbyemail", checkToken, searchOperatorOrder) // buscar por el email de un operario   (lo hacen los operarios ) 
+
+//lo hacen los camioneros 
 router.get("/searchbytruckdriveremail", checkToken, searchTruckDriverOrder) //buscar por el email de un camionero
+
+
+//lo hacen los jefes
 router.get("/managerseachorders", checkToken, getAllOrders) // buscar por localización de almacén (encargado)// debe ser jefe 
+
+
 router.get("/searchorderby/location", checkToken, getOrdersByLocation) // buscar por localización de almacén (encargado)
 router.get("/managersearchby/:email_operator", checkToken, getOperator) // jefe de equipo busca a los operarios camión
 router.get("/managersearchbylocation/:warehouse_location", checkToken, getWarehouse) //jefe de equipo busca almacenes
