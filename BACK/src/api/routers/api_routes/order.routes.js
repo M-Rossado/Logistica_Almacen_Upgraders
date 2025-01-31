@@ -3,24 +3,24 @@ const { createNewOrder, searchOperatorOrder, getOrdersByLocation, getAllOrders, 
 const { checkToken } = require("../../middleware/auth")
 
 
-// funciones de operarios 
-router.post("/neworder", checkToken, createNewOrder) //crea un nuevo pedido
-router.get("/searchbyemail", checkToken, searchOperatorOrder) // buscar por el email de un operario   (lo hacen los operarios ) 
+// funciones de los operarios 
+router.post("/neworder", checkToken, createNewOrder) // crea un nuevo pedido
+router.get("/searchbyemail", checkToken, searchOperatorOrder) // buscar por el email sus pedidos
+router.put("/update/:id_order", checkToken, updateOrder); // puede actualizar todos los parámetros del pedido
 
-//lo hacen los camioneros 
-router.get("/searchbytruckdriveremail", checkToken, searchTruckDriverOrder) //buscar por el email de un camionero
+//funciones de los camioneros 
+router.get("/searchbytruckdriveremail", checkToken, searchTruckDriverOrder) //buscar por el email los pedidos que tienen asignados
+router.put("/deliver/:id_order", checkToken, deliverOrder); // cambia el estado a "entregado"
 
+//funciones de los encargados
+router.get("/searchorderby/location", checkToken, getOrdersByLocation) // buscar por localización de su almacén 
+router.put("/accept/:id_order", checkToken, acceptOrder); // acepta o deniega un pedido pudiendo poner un comentario 
 
-//lo hacen los jefes
-router.get("/managerseachorders", checkToken, getAllOrders) // buscar por localización de almacén (encargado)// debe ser jefe 
+//funciones del jefe
+router.get("/managerseachorders", checkToken, getAllOrders) // buscar todos los pedidos
+router.get("/managersearchby/:email_operator", checkToken, getOperator) // busca el listado de pedidos con el email del operario que los creo
+router.get("/managersearchbylocation/:warehouse_location", checkToken, getWarehouse) // busca por almacen
+router.get("/managersearchbyid/:id_order", checkToken, getOrder) // busca un pedido concreto por su id
 
-
-router.get("/searchorderby/location", checkToken, getOrdersByLocation) // buscar por localización de almacén (encargado)
-router.get("/managersearchby/:email_operator", checkToken, getOperator) // jefe de equipo busca a los operarios camión
-router.get("/managersearchbylocation/:warehouse_location", checkToken, getWarehouse) //jefe de equipo busca almacenes
-router.get("/managersearchbyid/:id_order", checkToken, getOrder) // jefe de equipo busca pedidos
-router.put("/accept/:id_order", checkToken, acceptOrder); // Aceptar o denegar un pedido (encargado)
-router.put("/deliver/:id_order", checkToken, deliverOrder); // Cambiar estado a "entregado"
-router.put("/update/:id_order", checkToken, updateOrder); // Actualizar todos los parámetros del pedido
 
 module.exports = router
