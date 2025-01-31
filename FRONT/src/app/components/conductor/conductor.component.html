@@ -2,7 +2,7 @@
   <section class="section">
       <p class="saludo">Hola, {{ name }}</p>
       <h2>estos son tus pedidos asignados</h2>
-      @for(order of orderList; track $index){
+      @for(order of ordersList; track $index){
       <div class="card-content">
         <div class="campo-list ico-status">
           <i [class]="'bi ' + getIconClass(order.status)">
@@ -11,7 +11,7 @@
       </div>
           <p class="campo-list none-mb"><span><strong><br>{{ order.id }}</strong></span></p>
           <!-- <p class="campo-list">Estado<strong><br>{{ order.status }}</strong></span></p> -->
-          <p class="campo-list">F. salida:<br><span><strong>{{ order.date_of_departure }}</strong></span> </p>
+          <p class="campo-list">F. salida:<br><span><strong>{{ order.date_of_departure | date: 'dd/MM/yy' }}</strong></span> </p>
           <p class="campo-list">destino:<br><span><strong>{{ order.destination }}</strong></span></p>
           <button (click)="mostrarDetalle(order)" class="edit-btn">Detalle</button>
       </div>

@@ -10,6 +10,9 @@ import { EditarComponent } from './modal/editar/editar.component';
   styleUrls: ['./encargado.component.css'] // Fixed typo
 })
 export class EncargadoComponent implements OnInit {
+getIconClass(arg0: any) {
+throw new Error('Method not implemented.');
+}
 
   private homeservice: HomeServiceService = inject(HomeServiceService)
   public ordersList: any[] = [];
