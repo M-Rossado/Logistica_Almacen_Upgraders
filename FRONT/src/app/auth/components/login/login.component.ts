@@ -3,27 +3,25 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule], // Asegurar que FormsModule esté aquí
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css'] // Corrección: era styleUrls, no styleUrl
 })
 export class LoginComponent {
-  private authService: AuthService = inject(AuthService)
-  private router: Router = inject(Router)
- 
-  public userLoginForm = {
+  private authService: AuthService = inject(AuthService);
+  private router: Router = inject(Router);
 
+  public userLoginForm = {
     email: '',
     password: ''
-  }
-
+  };
 
   handleLoginForm() {
-     const userFormValues = Object.values(this.userLoginForm);
+    console.log('Formulario enviado:', this.userLoginForm);
+    const userFormValues = Object.values(this.userLoginForm);
 
     if(userFormValues.includes('')){
        alert('Debes de rellenar todos los campos')
@@ -48,13 +46,13 @@ export class LoginComponent {
           localStorage.setItem('role', data.role);
           localStorage.setItem('name',data.name);
           localStorage.setItem('lugar',data.lugar);
+          localStorage.setItem('email', data.email);
+          localStorage.setItem('warehouse_location', data.warehouse_location);
          this.router.navigate(['/home/home'])
        },
        error: (error) => {
          alert('usuario o conrasena no encontrados ');
        }
      });
-   
-
   }
 }
