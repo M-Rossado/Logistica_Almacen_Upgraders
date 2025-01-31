@@ -5,43 +5,48 @@
     <section class="section">
         <p class="saludo">Hola, {{ name }}</p>
         <h2>estos son tus pedidos gestionados</h2>
-        @for(order of orderList; track $index){
-
-        <div class="card">
-            <div class="card-1">
-                <i [class]="'bi ' + getIconClass(order.status)"></i> <!-- Icono dinámico -->
-            </div>
-            <div class="card-2">
-                <div class="card-2-inf">
-                    <h3>Pedido: {{ order.id }}</h3>
-                    <p>Destino: {{ order.destination }}</p>
-                    <p>{{ order.date_of_departure }}</p>
+        
+        <!-- Iteración sobre la lista de pedidos con *ngFor -->
+         <div class="list-element-group">
+            <div *ngFor="let order of orderList; trackBy: trackOrderById" class="list-element">
+                <div class="card">
+                    <div class="card-1">
+                        <i [class]="'bi ' + getIconClass(order.status)"></i> <!-- Icono dinámico -->
+                    </div>
+                    <div class="card-2">
+                        <div class="card-2-inf">
+                            <h3>Pedido: {{ order.id_order }}</h3>
+                            <p class="direccion">{{ order.destination }}</p>
+                            <p>Salida: {{ order.date_of_departure | date: 'dd/MM/yy' }}</p> <!-- Aplicar el pipe aquí -->
+                        </div>
+                        <div class="card-2-icon">            
+                            <button (click)="mostrarDetalle(order)" class="bi bi-clipboard2-plus-fill">Ver detalle</button>                
+                        </div>
+                    </div>
                 </div>
-                <div class="card-2-icon">            
-                    <button (click)="mostrarDetalle(order)" class="bi bi-clipboard2-plus-fill"></button>                
-                </div>
             </div>
-        </div>
-        }
+         </div>
 
-        @if(this.showDetail === true){
-            <app-detalle-operario 
+        <!-- Modal de detalle -->
+        <app-detalle-operario 
             (closeModal)="closeDetail()"
             (openEditModal)="openEditModal($event)"
-            *ngIf="selectedOrder"
-            [order]="selectedOrder"
-            ></app-detalle-operario>
-        }
-        @if(this.showCreateOrder === true){
-            <app-new-order
+            *ngIf="showDetail"
+            [order]="selectedOrder">
+        </app-detalle-operario>
+
+        <!-- Modal para crear pedido -->
+        <app-new-order
+        (orderCreated)="refreshOrdersList()" 
             (closeCreateOrder)="closeCreateOrder()"
-            ></app-new-order>
-        }
-        @if(this.showEditOrder === true) {
-            <app-edit-order 
-                (closeModal)="closeEditOrder()" 
-                [order]="selectedOrder">
-            </app-edit-order>
-        }
+            *ngIf="showCreateOrder">
+        </app-new-order>
+
+        <!-- Modal para editar pedido -->
+        <app-edit-order 
+            (closeModal)="closeEditOrder()" 
+            [order]="selectedOrder"
+            *ngIf="showEditOrder">
+        </app-edit-order>
     </section>
 </div>

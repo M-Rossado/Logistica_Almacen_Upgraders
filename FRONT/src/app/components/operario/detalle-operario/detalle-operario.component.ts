@@ -1,56 +1,43 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { HomeServiceService } from '../../service/home-service.service';
 import { CommonModule } from '@angular/common';
-import { EditOrderComponent } from "../edit-order/edit-order.component";
+import { FormsModule } from '@angular/forms';
+import { OrderService } from '../services/order.service'; // Asegúrate de tener el servicio correcto
 
 @Component({
   selector: 'app-detalle-operario',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './detalle-operario.component.html',
-  styleUrl: './detalle-operario.component.css'
+  styleUrls: ['./detalle-operario.component.css']
 })
 export class DetalleOperarioComponent {
-  private homeservice: HomeServiceService = inject(HomeServiceService)
-  public ordersList: any = []
-  public Showmodal:boolean = false;// paso #2
-  public showEdit: boolean = false;
-  public selectedOrder: any = null;
+  private orderService: OrderService = inject(OrderService); // Asegúrate de usar el servicio adecuado
+  @Input() order: any; // Recibe el pedido desde el componente padre
+  @Output() closeModal = new EventEmitter<void>(); // Para cerrar el modal
+  @Output() orderUpdated = new EventEmitter<any>(); // Para notificar al componente padre que el pedido fue actualizado
 
+  // Método que se ejecuta cuando el formulario se envía
+  onSubmit() {
+    console.log('Datos del pedido actualizados:', this.order);
 
-  @Input() order: any; // Recibe el pedido desde el padre
-  //@Input() mostrarDetalle = new EventEmitter<void>();
-  @Output() closeModal = new EventEmitter<void>(); // Evento para cerrar el modal
-  @Output() openEditModal = new EventEmitter<any>(); // Para abrir el modal de edición
-
-  ngOnInit(){
-    this.getPedidos()
+    // Actualizar el pedido con el servicio
+    this.orderService.updateOrder(this.order).subscribe(
+      (response) => {
+        console.log('Pedido actualizado correctamente:', response);
+        this.orderUpdated.emit(this.order); // Notificar al componente padre que el pedido ha sido actualizado
+        alert('Pedido modificado correctamente');
+        this.closeModal.emit(); // Cerrar el modal
+      },
+      (error) => {
+        console.error('Error al actualizar el pedido:', error);
+        alert('Error al modificar el pedido');
+      }
+    );
   }
 
-
-  getPedidos(){
-    this.homeservice.getOrders().subscribe((data) =>
-    this.ordersList = data
-  )
-
-    console.log(this.getPedidos)
+  // Método para cerrar el modal
+  Close() {
+    this.closeModal.emit();
   }
-
-  //@Output() closeModal = new EventEmitter<boolean>();// cremaos el evento output paso 6
-  Close(){
-    this.closeModal.emit();// enviamos un booleano hacia nuestro padre lo podemos dejar abierto y despues lo volveremos falso en nuestro compoennte padre 
-  }
-/*
-  closeEdit(){
-    this.showEdit = false;
-  }
-*/
-    // modal 2  
-    editOrder(order: any){
-      this.openEditModal.emit(order);
-      //this.selectedOrder = order; // Asigna el pedido seleccionado
-      //this. showEdit = true;
-      //this.closeModal.emit();
-      //console.log(this.showEdit)
-    }  
 }

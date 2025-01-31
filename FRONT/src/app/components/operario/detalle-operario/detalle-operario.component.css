@@ -13,6 +13,9 @@
   flex-direction: column;
   justify-content: space-between;
 }
+.form-container{
+  margin-top: 70px;
+}
 .create{
   background-color: #ee8941;
   color: white;

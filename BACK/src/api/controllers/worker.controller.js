@@ -41,12 +41,16 @@ const login = async (req, res) => {
         const token = createToken(selectedEmail[0]);
         const name = selectedEmail[0].name;
         const role = selectedEmail[0].role;
+        const emailLS = selectedEmail[0].email;
+        const warehouse_location = selectedEmail[0].warehouse_location;
 
         return res.status(200).json({
             msg: "inicio de sesion exitoso",
             token,
             role,
-            name
+            name,
+            email: emailLS,
+            warehouse_location
         });
 
     } catch (error) {

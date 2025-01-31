@@ -23,6 +23,11 @@ export class AuthService {
     return this.http.get('http://localhost:3500/api/home/verify-token')
   }
 
+
+  getAuthenticatedUser() {
+    const userData = localStorage.getItem('user');
+    return userData ? JSON.parse(userData) : null;
+  }
   // verifyRole(): Observable<any> {
   //   const userEmail = localStorage.getItem('email')
   //   return this.http.post('http://localhost:3501/api/users/verify-role', {email: userEmail})
