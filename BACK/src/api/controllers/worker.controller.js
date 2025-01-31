@@ -51,7 +51,6 @@ const login = async (req, res) => {
             name,
             email: emailLS,
             warehouse_location
-           
         });
 
     } catch (error) {
