@@ -7,15 +7,18 @@
         <button (click)="openadd()">nuevo almacen</button>
         @for(order of ordersList; track $index){
 <div class="container">
+    
         <div class="card">
-              <h2></h2>
-              <p><strong>id pedido :</strong>{{order.id}}</p>
-            <p><strong>origen:</strong> {{ order.warehouse_location }}</p>
-            <p><strong>estado :</strong> {{ order.status }}</p>
-            <i class="bi bi-alarm"></i>
-            <i class="bi bi-basket"></i>
-            <button (click)="openDetails(order)" class="edit-btn">ver detalles </button>
-        </div>
+            <h2></h2>
+            <p><strong>id pedido :</strong>{{order.id}}</p>
+          <p><strong>origen:</strong> {{ order.warehouse_location }}</p>
+          <p><strong>estado :</strong> {{ order.status }}</p>
+          <i class="bi bi-alarm"></i>
+          <i class="bi bi-basket"></i>
+          <button (click)="openDetails(order)" class="edit-btn">ver detalles </button>
+      </div>
+    
+       
     </div>
         }
 

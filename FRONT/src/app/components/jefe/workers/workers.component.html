@@ -9,6 +9,7 @@
         <h1>lista de empleados :</h1>
         @for(worker of workersList; track $index){
 <div class="container">
+   
         <div class="card">
             <p><strong>nombre:</strong><p>{{worker.name }}</p>
             <p><strong>apellido:</strong><p>{{ worker.surname }}</p>
@@ -20,6 +21,8 @@
             <button (click)="openEditWorker(worker)" class="edit-btn">Editar</button>
             <button (click)="openDEtails(worker)" class="edit-btn">ver detalles</button>
         </div>
+   
+       
     </div>
         }
 

@@ -11,7 +11,7 @@ export class HomeServiceService {
 
  // servicios genrales
  getOrders() {
-  return this.http.get('http://localhost:3500/order/searchorderby/location')
+  return this.http.get('http://localhost:3500/order//managerseachorders')
  }
 
 
@@ -39,7 +39,7 @@ getWarehouse(){
  //servicio de trabajadores
 
  getWorkers(){
-  return this.http.get('http://localhost:3000/worker')
+  return this.http.get('http://localhost:3500/worker/allworkers')
  }
  addworkers(newWorker:any ){
   return this.http.post('http://localhost:3500/worker/newworker', newWorker)
