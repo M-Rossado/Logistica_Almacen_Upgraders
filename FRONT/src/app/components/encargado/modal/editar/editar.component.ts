@@ -31,6 +31,11 @@ export class EditarComponent {
     truck_plate: ''
   };
 
+  minDate: string;
+
+  constructor() {
+    this.minDate = new Date().toISOString().split("T")[0]; //intento que no deje elegir la fecha anterior a hoy
+  }
 
 
   ngOnInit() {

@@ -17,7 +17,7 @@ import { OrderService } from './services/order.service';
 export class ConductorComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
   private Orderservice: OrderService = inject(OrderService)
-  public orderList: any = []
+  public ordersList: any = []
   public userRole = localStorage.getItem('role')
   public name =  localStorage.getItem('nombre')
   public detalle: boolean = false
@@ -36,7 +36,7 @@ export class ConductorComponent {
 
   getOrders(){
     this.Orderservice.getAll().subscribe((data) =>
-    this.orderList = data
+    this.ordersList = data
   )}
 
 // Función para obtener la clase del ícono dinámicamente
