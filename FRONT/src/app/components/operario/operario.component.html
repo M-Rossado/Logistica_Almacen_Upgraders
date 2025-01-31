@@ -17,20 +17,19 @@
                     <p>Destino: {{ order.destination }}</p>
                     <p>{{ order.date_of_departure }}</p>
                 </div>
-                <div class="card-2-icon">            
-                    <button (click)="mostrarDetalle(order)" class="bi bi-clipboard2-plus-fill"></button>                
+                <div class="card-2-icon">
+                    <button (click)="mostrarDetalle(order)" class="bi bi-clipboard2-plus-fill"></button>
                 </div>
             </div>
         </div>
         }
 
         @if(this.showDetail === true){
-            <app-detalle-operario 
+            <app-detalle-operario
             (closeModal)="closeDetail()"
             (openEditModal)="openEditModal($event)"
             *ngIf="selectedOrder"
-            [order]="selectedOrder"
-            ></app-detalle-operario>
+            [order]="selectedOrder"></app-detalle-operario>
         }
         @if(this.showCreateOrder === true){
             <app-new-order
@@ -38,8 +37,8 @@
             ></app-new-order>
         }
         @if(this.showEditOrder === true) {
-            <app-edit-order 
-                (closeModal)="closeEditOrder()" 
+            <app-edit-order
+                (closeModal)="closeEditOrder()"
                 [order]="selectedOrder">
             </app-edit-order>
         }

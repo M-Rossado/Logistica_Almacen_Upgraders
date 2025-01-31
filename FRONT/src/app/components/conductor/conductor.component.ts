@@ -36,7 +36,7 @@ export class ConductorComponent {
 
   getOrders(){
     this.Orderservice.getAll().subscribe((data) =>
-   this.orderList = data  
+    this.orderList = data
   )}
 
 // Función para obtener la clase del ícono dinámicamente

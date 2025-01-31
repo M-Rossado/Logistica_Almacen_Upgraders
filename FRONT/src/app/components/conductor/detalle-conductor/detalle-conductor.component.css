@@ -14,11 +14,11 @@
 
 .modal-content {
   display: flex;
-  background-color: #494949;
-  color: #ffffff;
-  padding: 25px;
-  width: 80%;
-  align-items: center;
+    background-color: #494949;
+    color: #ffffff;
+    padding: 35px 40px;
+    width: max-content;
+    align-items: center;
 }
 .modal-head{
   margin-top: 10px;
@@ -58,13 +58,13 @@
   display: inline-block;
 }
 .campo-list{
-  width: max-content;
+  width: min-content;
   text-align: left;
   flex-direction: row;
   display: flex;
 }
 .campo-list span {
-  width: 170px;
+  width: 120px;
   text-align: left;
 }
 .edit-btn{
@@ -72,15 +72,26 @@
   color: white;
   border-radius: 20px;
   font-weight: 800;
-  height: 29px;
-  width: 75px;
+  padding: 5px 8px;
+  width: fit-content;
 }
 
-.edit-btn:hover{
-  background-color: #ee8941;
-  color: white;
-  border-radius: 20px;
-  font-weight: 800;
-  height: 32px;
-  width: 77px;
+@media (min-width: 992px) {
+  .card-content{
+    justify-content: space-around;
+  }
+}
+@media (min-width: 1200px) {
+  .campo-list span {
+    width: 170px;
+  }
+
+  .edit-btn:hover{
+    background-color: #c06627;
+    color: white;
+    border-radius: 20px;
+    font-weight: 800;
+    padding: 8px 11px;
+    width: fit-content;
+  }
 }
