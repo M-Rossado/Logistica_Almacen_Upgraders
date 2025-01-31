@@ -29,7 +29,6 @@ const searchOperatorOrder = async (req, res) => {
             return res.status(403).json({ error: 'Acceso denegado. Debe ser operario.' }); // Si el rol no es adecuado
         }
 
-        // Llamar a la función selectByEmail con el email_manager correcto
         const result = await selectByEmail(req.user.email);
 
         if (result.length === 0) {
@@ -50,7 +49,6 @@ const searchTruckDriverOrder = async (req, res) => {
             return res.status(403).json({ error: 'Acceso denegado. Debe ser camionero.' }); // Si el rol no es adecuado
         }
 
-        // Llamar a la función selectByEmail con el email_manager correcto
         const result = await selectByEmailTruckDriver(req.user.email);
 
         if (result.length === 0) {
@@ -85,6 +83,7 @@ const getOrdersByLocation = async (req, res) => {
         return res.status(500).json({ error: 'Hubo un error al obtener los pedidos' });
     }
 };
+
 const getOperator = async (req, res) => {
     const { email_operator } = req.params; // Extraer el email desde los parámetros de la URL
     try {
@@ -93,7 +92,7 @@ const getOperator = async (req, res) => {
             return res.status(403).json({ error: 'Acceso denegado. Debe ser jefe de equipo.' }); // Si el rol no es adecuado
         }
 
-        // Llamar a la función selectByEmail con el email_manager correcto
+        // Llamar a la función selectByEmail con el email_operator correcto
         const result = await selectByEmail(email_operator);
 
         if (result.length === 0) {
@@ -132,20 +131,20 @@ const getWarehouse = async (req, res) => {
 
 
 const getOrder = async (req, res) => {
-    const { id_order } = req.params; // Extraer el email desde los parámetros de la URL
+    const { id_order } = req.params; // Extraer el id desde los parámetros de la URL
     try {
         // Verificación del rol
         if (!checkRolJefe(req.user.role)) {
             return res.status(403).json({ error: 'Acceso denegado. Debe ser jefe de equipo.' }); // Si el rol no es adecuado
         }
 
-        // Llamar a la función selectByEmail con el email_manager correcto
+
         const result = await selectById(id_order);
 
         if (result.length === 0) {
             return res.status(404).json({ error: 'Pedidos no encontrados' });
         }
-        return res.json(result); // Devolver los pedidos en formato JSON
+        return res.json(result); // Devolver un pedido concreto en formato JSON
 
     } catch (error) {
         console.error('Error al buscar pedidos:', error);
@@ -232,7 +231,7 @@ const getAllOrders = async (req, res) => {
         if (result.length === 0) {
             return res.status(404).json({ error: 'Pedidos no encontrados' });
         }
-        return res.json(result); // Devolver los trabajadores en formato JSON
+        return res.json(result); // Devolver los pedidos en formato JSON
 
     } catch (error) {
         console.error('Error al buscar trabajadores:', error);

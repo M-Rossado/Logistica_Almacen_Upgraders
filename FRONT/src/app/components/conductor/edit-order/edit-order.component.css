@@ -16,8 +16,8 @@
   display: flex;
   background-color: #494949;
   color: #ffffff;
-  padding: 25px;
-  width: 80%;
+  padding: 35px 40px;
+  width: max-content;
   align-items: center;
 }
 .modal-head{
@@ -57,6 +57,8 @@
   width: 80%;
   display: inline-block;
 }
+
+/* Estilos para formularios de modales */
 .form-container {
   width: 30%;
   margin: 20px auto;
@@ -110,13 +112,36 @@ select:focus {
   justify-content: space-between;
 }
 
+
+/* Estilos de botones */
 .edit-btn{
   background-color: #ee8941;
   color: white;
   border-radius: 20px;
   font-weight: 800;
-  height: 29px;
-  width: max-content;
+  padding: 5px 8px;
+  width: fit-content;
 }
+
+@media (min-width: 992px) {
+  .card-content{
+    justify-content: space-around;
+  }
+}
+@media (min-width: 1200px) {
+  .campo-list span {
+    width: 170px;
+  }
+
+  .edit-btn:hover{
+    background-color: #c06627;
+    color: white;
+    border-radius: 20px;
+    font-weight: 800;
+    padding: 8px 11px;
+    width: fit-content;
+  }
+}
+
 
 

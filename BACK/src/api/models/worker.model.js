@@ -5,7 +5,7 @@ const insertWorker = async ({ name, surname, address, dni, email, password, role
     try {
         const [result] = await pool.query("INSERT INTO worker (name, surname, address, dni, email, password, role, warehouse_location, truck_plate) VALUES (?,?,?,?,?,?,?,?,?)", [name, surname, address, dni, email, password, role, warehouse_location, truck_plate]);
         if (result.affectedRows === 0) {
-            return -1;  // Si no se insertó, retorna -1
+            return -1;
         }
         return result.insertId;
     } catch (error) {
@@ -17,7 +17,7 @@ const insertWarehouse = async ({ location }) => {
     console.log("Intentando insertar almacen:", { location });
     const [result] = await pool.query("INSERT INTO warehouse (location) VALUES (?)", [location]);
     if (result.affectedRows === 0) {
-        return -1;  // Si no se insertó, retorna -1
+        return -1;
     }
     return result.insertLocation;
 

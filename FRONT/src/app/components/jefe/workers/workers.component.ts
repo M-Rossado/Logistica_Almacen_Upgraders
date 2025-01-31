@@ -19,24 +19,44 @@ export class WorkersComponent {
   public editModal:boolean = false;
   public addModal: boolean = false;
   public detailsModal:boolean = false;
-
+  public lugar = localStorage.getItem("lugar")
 
 
 
   ngOnInit(): void {
-    this.getEventos()
+    this.getWorkers()
+    this.getWareHouse()
    }
  
-   getEventos(): void {
+   getWorkers(): void {
      this.homeservice.getWorkers().subscribe({
        next: (data: any) => {
         this.workersList = data 
+       
        },
+
        error: (error) => {
          console.log(error);
        }
      });
+    
    }
+
+   
+    getWareHouse() {
+      
+      this.homeservice.getWorkers().subscribe({
+        next: (data: any) => {
+         this.workersList = data 
+    
+      const warehouseLocations = this.workersList.map(worker => worker.warehouse_location);
+      const uniqueWarehouseLocations = [...new Set(warehouseLocations)];
+      console.log("Ubicaciones únicas:", uniqueWarehouseLocations);
+        }
+        })
+    }
+    
+   
 
 
 

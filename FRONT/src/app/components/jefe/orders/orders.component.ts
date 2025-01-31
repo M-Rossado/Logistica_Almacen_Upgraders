@@ -15,20 +15,21 @@ private homeservises: HomeServiceService = inject(HomeServiceService)
   public ordersList: any = []
   public ShowDetails:boolean = false
  public selectEvent: any;
-
  public modalAdd: boolean = false
+ public lugar = localStorage.getItem("lugar")
   
 
 
   ngOnInit(): void {
     this.getEventos()
+   
    }
 
    getEventos(): void {
      this.homeservises.getOrders().subscribe({
        next: (data: any) => {
          this.ordersList= data;
-
+         console.log(data)
        },
        error: (error) => {
          console.log(error);
