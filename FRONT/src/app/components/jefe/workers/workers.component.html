@@ -11,14 +11,13 @@
         @for(worker of workersList; track $index){
           <div class="content">
             <div class="card-content">
-              <p><strong>Nombre</strong>{{ worker.name }}</p>
-              <p><strong>Apellidos</strong>{{ worker.surname }}</p>
-              <p><strong>Puesto</strong>{{ worker.role }}</p>
-              <p><strong>Almacén</strong>{{ worker.warehouse_location }}</p>
-
+              <p class="campo-list">Nombre<span><strong><br>{{ worker.name }}</strong></span></p>
+              <p class="campo-list">Apellidos<span><strong><br>{{ worker.surname }}</strong></span></p>
+              <p class="campo-list">Puesto<span><strong><br>{{ worker.role }}</strong></span></p>
+              <p class="campo-list">Almacén<span><strong><br>{{ worker.warehouse_location }}</strong></span></p>
               <!-- Acciones del empleado -->
               <button [routerLink]="['/home/orderByWorker', worker.email]" class="edit-btn">Sus Pedidos</button>
-              <button (click)="openDEtails(worker)" class="edit-btn">ver detalles</button>
+              <button (click)="openDEtails(worker)" class="edit-btn">Detalle</button>
             </div>
           </div>
         }

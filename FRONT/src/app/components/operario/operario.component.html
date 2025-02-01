@@ -16,7 +16,7 @@
                     </div>
                     <div class="card-2">
                         <div class="card-2-inf">
-                            <h3>Pedido: {{ order.id_order }}</h3>
+                            <h3>Nº Pedido: {{ order.id_order }}</h3>
                             <p>Salida: {{ order.date_of_departure | date: 'dd/MM/yy' }}</p>
                             <!-- Aplicar el pipe aquí -->
                             <p class="direccion">{{ order.destination }}</p>
@@ -32,10 +32,10 @@
 
         <!-- Modal de detalle -->
         <!-- Modal de detalle -->
-<app-detalle-operario 
-*ngIf="showDetail" 
+<app-detalle-operario
+*ngIf="showDetail"
 [order]="selectedOrder"
-(closeModal)="closeDetail()" 
+(closeModal)="closeDetail()"
 (openEditModal)="openEditOrder($event)">
 </app-detalle-operario>
 
@@ -44,7 +44,7 @@
             (closeEditOrder)="closeEditOrder()"></app-edit-order>
 
         <!-- Modal de creación -->
-        <app-new-order 
+        <app-new-order
             *ngIf="showCreateOrder"
             (closeCreateOrder)="closeCreateOrder()">
         </app-new-order>
