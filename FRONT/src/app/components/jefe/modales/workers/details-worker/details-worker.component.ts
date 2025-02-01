@@ -18,7 +18,9 @@ export class DetailsWorkerComponent {
     private router:Router = new Router
 
 
-
+ngOnInit(){
+  console.log(this.selecEvent)
+}
 
 
 

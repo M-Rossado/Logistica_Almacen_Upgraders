@@ -20,16 +20,16 @@ export class WorkersComponent {
   public editModal:boolean = false;
   public addModal: boolean = false;
   public detailsModal:boolean = false;
-  private activatedRoute = inject(ActivatedRoute);
+  public warehouses:any[] =[]
   public lugar = localStorage.getItem("lugar")
   event: any ={}
-private email: string =""
+
 
 
   ngOnInit(): void {
   
     this.getWorkers()
-    
+    this.getWarehouses()
    }
  
    getWorkers(): void {
@@ -46,14 +46,20 @@ private email: string =""
     
    }
 
-   
 
-    
-   
+   getWarehouses(): void {
+    this.homeservice.getWarehouse().subscribe({
+      next: (data: any) => {
+        this.warehouses = data;
+        console.log(data)
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
 
-
-
-
+  }
+  
    openaddWorker(){
       this.addModal = true;
    
