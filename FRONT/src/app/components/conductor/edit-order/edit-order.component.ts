@@ -40,7 +40,7 @@ export class EditOrderComponent implements OnInit {
       (response) => {
         // Redirigir a la lista de pedidos después de guardar los cambios
         alert('Pedido actualizado')
-        this.router.navigate(['/order']);
+        this.router.navigate(['/home/order']);
       },
       (error) => {
         console.error('Error al actualizar el pedido:', error);
