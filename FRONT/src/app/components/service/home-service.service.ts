@@ -42,9 +42,7 @@ getWarehouse(){
   return this.http.post('http://localhost:3000/warehouse',newOne)
  }
 
- deleteWarehouse(id:string){
-  return this.http.delete('http://localhost:3000/warehouse/'+ id)
-  }
+
 
 
  //servicio de trabajadores
