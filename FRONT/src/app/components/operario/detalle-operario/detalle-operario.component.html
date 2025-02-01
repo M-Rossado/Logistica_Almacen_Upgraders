@@ -1,39 +1,49 @@
 <div class="modal">
-  <h2>Editar Pedido</h2>
-  <div class="form-container">
-    <form (ngSubmit)="onSubmit()" #orderForm="ngForm">
-      <div class="form-group">
-        <label for="item_type">Tipo de artículo</label>
-        <input id="item_type" name="item_type" [(ngModel)]="order.item_type" type="text" required />
+  <div class="modal-content">
+    <div class="form-container">
+      <div class="form-group" id="title">
+        <h2>Detalle del Pedido</h2>
+        <button type="button" (click)="Close()" class="close">x</button>
       </div>
-    
-      <div class="form-group">
-        <label for="status">Estado</label>
-        <input id="status" name="status" [(ngModel)]="order.status" type="text" required />
+      <div class="elements">    
+        <div class="form-group">
+          <p for="item_type">Tipo de artículo: <span>{{ order.item_type }}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p for="status">Estado: <span>{{ order.status }}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p for="status">Fecha de entrada: <span>{{ order.date_of_entry | date: 'dd/MM/yy' }}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p for="date_of_departure">Fecha de salida: <span>{{ order.date_of_departure | date: 'dd/MM/yy' }}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p for="destination">Destino: <span>{{ order.destination }}</span></p>
+          <p></p>
+
+        </div>
+
+        <div class="form-group">
+          <p for="warehouse_location">Ubicación del almacén: <span>{{ order.warehouse_location }}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p for="warehouse_location">Camionero asignado: <span class="email">{{ order.worker_email }}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p for="warehouse_location">Operario: <span class="email">{{ order.email_operator }}</span></p>
+        </div>
       </div>
-    
-      <div class="form-group">
-        <label for="date_of_entry">Fecha de entrada</label>
-        <input id="date_of_entry" name="date_of_entry" [(ngModel)]="order.date_of_entry" type="date" required />
-      </div>
-    
-      <div class="form-group">
-        <label for="date_of_departure">Fecha de salida</label>
-        <input id="date_of_departure" name="date_of_departure" [(ngModel)]="order.date_of_departure" type="date" required />
-      </div>
-    
-      <div class="form-group">
-        <label for="destination">Destino</label>
-        <input id="destination" name="destination" [(ngModel)]="order.destination" type="text" required />
-      </div>
-    
-      <div class="form-group">
-        <label for="warehouse_location">Ubicación del almacén</label>
-        <input id="warehouse_location" name="warehouse_location" [(ngModel)]="order.warehouse_location" type="text" readonly required />
-      </div>
-    
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Guardar cambios</button>
-      </div>
-    </form>
+
+
+      <div class="button-group">
+        <button type="button" class="btn-action" (click)="openEdit()">Editar</button>      </div>
     </div>
+  </div>
+</div>

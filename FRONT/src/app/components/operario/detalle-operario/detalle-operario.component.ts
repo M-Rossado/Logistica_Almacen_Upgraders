@@ -2,42 +2,51 @@ import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { HomeServiceService } from '../../service/home-service.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { OrderService } from '../services/order.service'; // Asegúrate de tener el servicio correcto
+import { OrderService } from '../../operario/services/order.service';
 
 @Component({
   selector: 'app-detalle-operario',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './detalle-operario.component.html',
-  styleUrls: ['./detalle-operario.component.css']
+  styleUrl: './detalle-operario.component.css'
 })
 export class DetalleOperarioComponent {
-  private orderService: OrderService = inject(OrderService); // Asegúrate de usar el servicio adecuado
-  @Input() order: any; // Recibe el pedido desde el componente padre
-  @Output() closeModal = new EventEmitter<void>(); // Para cerrar el modal
-  @Output() orderUpdated = new EventEmitter<any>(); // Para notificar al componente padre que el pedido fue actualizado
+  private homeService: HomeServiceService = inject(HomeServiceService);
+  public ordersList: any = [];
+  public Showmodal: boolean = false;
+  public showEdit: boolean = false;
+  public selectedOrder: any = null;
+  private orderService: OrderService = inject(OrderService);
 
-  // Método que se ejecuta cuando el formulario se envía
-  onSubmit() {
-    console.log('Datos del pedido actualizados:', this.order);
+  @Input() order: any; // Recibe el pedido desde el padre
+  @Output() closeModal = new EventEmitter<void>(); // Evento para cerrar el modal
+  @Output() openEditModal = new EventEmitter<any>(); // Evento para abrir el modal de edición
 
-    // Actualizar el pedido con el servicio
-    this.orderService.updateOrder(this.order).subscribe(
-      (response) => {
-        console.log('Pedido actualizado correctamente:', response);
-        this.orderUpdated.emit(this.order); // Notificar al componente padre que el pedido ha sido actualizado
-        alert('Pedido modificado correctamente');
-        this.closeModal.emit(); // Cerrar el modal
-      },
-      (error) => {
-        console.error('Error al actualizar el pedido:', error);
-        alert('Error al modificar el pedido');
-      }
-    );
+  ngOnInit() {
+    // Recuperar el email del usuario desde el localStorage
+    const email = localStorage.getItem('email'); // Asegúrate de que el email esté guardado en 'userEmail'
+    
+    if (email) {
+      this.getPedidos(email);  // Llamas al método con el email recuperado
+    } else {
+      console.error('No se encontró el email del usuario en localStorage');
+    }
   }
 
-  // Método para cerrar el modal
+  getPedidos(email: string) {
+    this.orderService.getOrdersByEmail(email).subscribe((data) => {
+      this.ordersList = data;
+    }, error => {
+      console.error('Error al obtener los pedidos:', error);
+    });
+  }
+
   Close() {
     this.closeModal.emit();
+  }
+
+  openEdit() {
+    this.openEditModal.emit(this.order); // Envía el pedido seleccionado al padre
   }
 }

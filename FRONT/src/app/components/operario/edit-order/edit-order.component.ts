@@ -1,53 +1,73 @@
-// edit-order.component.ts
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';  // Para obtener parámetros de la URL
-import { OrderService } from '../services/order.service';  // Servicio para obtener y actualizar pedidos
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { OrderService } from '../services/order.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-order',
-    standalone: true,
-    imports: [FormsModule],
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './edit-order.component.html',
-  styleUrls: ['./edit-order.component.css']
+  styleUrl: './edit-order.component.css',
 })
-export class EditOrderComponent implements OnInit {
+export class EditOrderComponent {
+  private orderService: OrderService = inject(OrderService);
+  private router: Router = inject(Router);
 
-  constructor(
-    private route: ActivatedRoute,  // Para obtener el id del pedido desde la URL
-    private orderService: OrderService,  // El servicio para manejar los pedidos
-    private router: Router  // Para redirigir después de guardar los cambios
-  ) {}
+  @Input() selectedEvent: any;
+  @Input() selectedOrder: any;
+  @Output() closeEditOrder = new EventEmitter<void>();
 
-    @Input() order: any; // Recibe el pedido desde el padre
-    @Output() closeModal = new EventEmitter<void>(); // Evento para cerrar el modal
-  
-  ngOnInit(): void {
-    // Obtén el id del pedido desde la URL (suponiendo que la URL tiene el formato "/edit-order/:id")
-    const orderId = this.route.snapshot.paramMap.get('id');
 
-    if (orderId) {
-      // Cargar el pedido desde el servicio usando el id
-      this.orderService.getOrderById(orderId).subscribe((data) => {
-        this.order = data;  // Rellenar el formulario con los datos del pedido
-      });
+
+  public editOrder = {
+    item_type: '',
+    status: 'Revisión',  // Valor por defecto
+    date_of_entry: '',
+    date_of_departure: '',
+    destination: '',
+    warehouse_location: '', // Este campo se rellenará automáticamente
+    worker_email: '',
+    email_operator: '',
+    comment: '',
+  };
+
+  ngOnInit() {
+    console.log('selectedEvent:', this.selectedEvent); // Verifica si selectedEvent tiene un valor
+    this.getEdit();
+  }
+
+  getEdit() {
+    if (this.selectedOrder) {
+      this.editOrder.item_type = this.selectedOrder.item_type;
+      this.editOrder.status = this.selectedOrder.status;
+      this.editOrder.date_of_entry = this.editOrder.date_of_entry.split('T')[0];
+      this.editOrder.date_of_departure = this.editOrder.date_of_departure.split('T')[0];
+      this.editOrder.destination = this.selectedOrder.destination;
+      this.editOrder.warehouse_location = this.selectedOrder.warehouse_location;
+    } else {
+      console.error('No se ha seleccionado ningún pedido para editar.');
     }
   }
 
-  onSubmit(): void {
-    // Actualizar el pedido con los nuevos datos
-    this.orderService.updateOrder(this.order).subscribe(
-      (response) => {
-        // Redirigir a la lista de pedidos después de guardar los cambios
-        alert('Pedido actualizado')
-        this.router.navigate(['/order']);
+  handleEdit() {
+    if (!this.selectedOrder || !this.selectedOrder.id_order) {
+      console.error('No se ha seleccionado ningún pedido válido para editar.');
+      return;
+    }
+  
+    // Verifica los datos que se están enviando
+    console.log('Datos enviados al servidor:', this.editOrder);
+  
+    this.orderService.updateOrder(this.selectedOrder.id_order, this.editOrder).subscribe({
+      next: (data: any) => {
+        alert('Pedido actualizado correctamente');
+        this.closeEditOrder.emit(); // Cierra el modal de edición
+        this.router.navigate(['/home']); // Redirige a la página de inicio
       },
-      (error) => {
+      error: (error) => {
         console.error('Error al actualizar el pedido:', error);
-      }
-    );
-  }
-  closeEditOrder(): void {
-    this.closeModal.emit(); // Emite el evento para cerrar el componente
+      },
+    });
   }
 }

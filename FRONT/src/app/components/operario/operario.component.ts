@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { DetalleOperarioComponent } from "./detalle-operario/detalle-operario.component";
+import { DetalleOperarioComponent } from './detalle-operario/detalle-operario.component';
 import { CommonModule } from '@angular/common';
 import { ICON_MAPPER } from '../../../assets/icon-mapper'; // Importa el mapeo
 import { NewOrderComponent } from './new-order/new-order.component';
@@ -10,9 +10,14 @@ import { Order } from '../operario/models/order.model'; // Asegúrate de que la 
 @Component({
   selector: 'app-operario',
   standalone: true,
-  imports: [DetalleOperarioComponent, CommonModule, NewOrderComponent, EditOrderComponent],
+  imports: [
+    DetalleOperarioComponent,
+    CommonModule,
+    NewOrderComponent,
+    EditOrderComponent,
+  ],
   templateUrl: './operario.component.html',
-  styleUrl: './operario.component.css'
+  styleUrl: './operario.component.css',
 })
 export class OperarioComponent {
   private orderService: OrderService = inject(OrderService);
@@ -36,37 +41,22 @@ export class OperarioComponent {
     destination: '',
     warehouse_location: '',
     worker_email: '',
-    email_operator: ''
+    email_operator: '',
+    comment: ''
   };
-
-  // Método que se llama cuando se hace clic en "Modificar pedido"
-  editOrder(order: any) {
-    this.orderToEdit = { ...order }; // Copiar los valores del pedido a editar
-    this.showEditOrder = true;        // Mostrar el modal de edición
-  }
 
   // Método que se llama al enviar el formulario de edición
   onSubmit() {
-    console.log('Datos actualizados:', this.orderToEdit);
-    this.orderService.updateOrder(this.orderToEdit).subscribe(
-      (response) => {
-        console.log('Pedido actualizado con éxito:', response);
-        alert('Pedido modificado correctamente');
-        this.refreshOrdersList(); // Actualizar la lista de pedidos
-        this.closeEditOrder();    // Cerrar el modal de edición
-      },
-      (error) => {
-        console.error('Error al actualizar el pedido:', error);
-      }
-    );
   }
 
   ngOnInit() {
     const userEmail = localStorage.getItem('email'); // Recupera el email almacenado
     if (userEmail) {
-      this.getOrdersByEmail(userEmail);  // Llama al servicio para obtener los pedidos
+      this.getOrdersByEmail(userEmail); // Llama al servicio para obtener los pedidos
     } else {
-      console.warn('No hay email en localStorage, el usuario no está autenticado.');
+      console.warn(
+        'No hay email en localStorage, el usuario no está autenticado.'
+      );
     }
   }
 
@@ -75,7 +65,7 @@ export class OperarioComponent {
     console.log(`Obteniendo pedidos para el email: ${email}`);
     this.orderService.getOrdersByEmail(email).subscribe(
       (data) => {
-        console.log('Pedidos recibidos:', data);  // Verifica los datos obtenidos
+        console.log('Pedidos recibidos:', data); // Verifica los datos obtenidos
         this.orderList = data;
       },
       (error) => {
@@ -89,11 +79,13 @@ export class OperarioComponent {
     return ICON_MAPPER[status] || 'bi-question-circle-fill text-muted'; // Icono por defecto si no coincide
   }
 
-  // Modal 2
+  // Método para abrir el modal de detalle y pasar los datos
   mostrarDetalle(order: any) {
-    this.selectedOrder = order; // Asigna el pedido seleccionado
+    this.selectedOrder = order;
+    console.log(`El ID es: ${order.id_order}`)
     this.showDetail = true;
   }
+
 
   closeDetail() {
     this.showDetail = false;
@@ -107,28 +99,37 @@ export class OperarioComponent {
     this.showCreateOrder = false;
   }
 
-  // Abrir modal de edición desde detalles
-  openEditModal(order: any) {
-    this.closeDetail();
-    this.selectedOrder = order; // Asigna el pedido seleccionado
-    this.showEditOrder = true; // Abre el modal de edición
-  }
-
-  closeEditOrder() {
-    this.showEditOrder = false; // Cierra el modal de edición
-  }
-
   trackOrderById(index: number, order: any): string {
     return order.id; // Devuelve un valor único, en este caso el ID del pedido
   }
+
+
 
   // Método que se llama cuando un nuevo pedido se crea
   refreshOrdersList() {
     const userEmail = localStorage.getItem('email');
     if (userEmail) {
-      this.getOrdersByEmail(userEmail);  // Llama al servicio para obtener los pedidos
+      this.getOrdersByEmail(userEmail); // Llama al servicio para obtener los pedidos
     } else {
-      console.warn('No hay email en localStorage, el usuario no está autenticado.');
+      console.warn(
+        'No hay email en localStorage, el usuario no está autenticado.'
+      );
     }
+  }
+
+  // Método que se llama cuando se selecciona un pedido para editar
+  openEditOrder(order: any) {
+    console.log('Pedido seleccionado para editar:', order); // Verifica si order tiene un valor
+    if (order) {
+      this.selectedOrder = order;
+      this.showEditOrder = true;
+    } else {
+      console.error('No se ha seleccionado ningún pedido para editar.');
+    }
+  }
+
+  // Método que cierra el formulario de edición
+  closeEditOrder() {
+    this.showEditOrder = false;
   }
 }

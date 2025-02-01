@@ -1,70 +1,90 @@
 <div class="modal">
-  <h2>Editar Pedido</h2>
-  <div class="form-group">
-  
-    <div class="inf">
-      <form (ngSubmit)="onSubmit()" #editOrderForm="ngForm">
-        <div class="form-group">
-          <label for="item_type">Tipo de artículo</label>
-          <input id="item_type" name="item_type" [(ngModel)]="order.item_type" class="form-control" required />
+  <button class="close" (click)="closeEditOrder.emit()">×</button>
+    <div class="form-container">
+        <h2>editar status</h2>
+        <form action="/submit" (ngSubmit)="handleEdit()">
+
+
+          <div class="form-group">
+            <label for="name"> tipo de articulo: <strong>{{editOrder.item_type}}</strong></label>
+          </div>
+
+          <div class="form-group">
+            <label for="item_type">Tipo de artículo:</label>
+            <input id="item_type" name="item_type" [(ngModel)]="editOrder.item_type" type="text" readonly />
+          </div>
+
+          <div class="form-group">
+            <label for="status">Estado:</label>
+            <input id="status" name="status" [(ngModel)]="editOrder.status" type="text" readonly />
+          </div>
+
+          <div class="form-group">
+            <label for="status">Estado:</label>
+            <input id="status" name="status" [(ngModel)]="editOrder.status" type="text" readonly />
+          </div>
+
+          <div class="form-group">
+            <label for="date_of_entry">Fecha de entrada</label>
+            <input id="date_of_entry" name="date_of_entry" [(ngModel)]="editOrder.date_of_entry" type="date" required />    
         </div>
-    
-        <div class="form-group">
-          <label for="status">Estado</label>
-          <select id="status" name="status" [(ngModel)]="order.status" type="text" required>
-              <option value="" disabled selected>Selecciona un estado</option>
-              <option value="En almacén">En almacén</option>
-              <option value="En tránsito">En tránsito</option>
-              <option value="Entregado">Entregado</option>
-          </select>
-      </div>
-    
-        <div class="form-group">
-          <label for="date_of_entry">Fecha de entrada</label>
-          <input id="date_of_entry" name="date_of_entry" [(ngModel)]="order.date_of_entry" type="date" class="form-control" required />
-        </div>
-    
+
         <div class="form-group">
           <label for="date_of_departure">Fecha de salida</label>
-          <input id="date_of_departure" name="date_of_departure" [(ngModel)]="order.date_of_departure" type="date" class="form-control" required />
-        </div>
-    
-        <div class="form-group">
-          <label for="origin">Origen</label>
-          <input id="origin" name="origin" [(ngModel)]="order.origin" class="form-control" required />
-        </div>
-    
-        <div class="form-group">
+          <input id="date_of_departure" name="date_of_departure" [(ngModel)]="editOrder.date_of_departure" type="date" required />    
+      </div>
+
+      <div class="form-group">
           <label for="destination">Destino</label>
-          <input id="destination" name="destination" [(ngModel)]="order.destination" class="form-control" required />
-        </div>
-    
-        <div class="form-group">
-          <label for="warehouse_location">Ubicación en almacén</label>
-          <input id="warehouse_location" name="warehouse_location" [(ngModel)]="order.warehouse_location" class="form-control" required />
-        </div>
-    
-        <div class="form-group">
-          <label for="truck_plate">Matrícula del camión</label>
-          <input id="truck_plate" name="truck_plate" [(ngModel)]="order.truck_plate" class="form-control" required />
-        </div>
-    
-        <div class="form-group">
-          <label for="worker_email">Correo del trabajador</label>
-          <input id="worker_email" name="worker_email" [(ngModel)]="order.worker_email" type="email" class="form-control" required />
-        </div>
-    
-        <div class="form-group">
-          <label for="email_manager">Correo del responsable</label>
-          <input id="email_manager" name="email_manager" [(ngModel)]="order.email_manager" type="email" class="form-control" required />
+          <input id="destination" name="destination" [(ngModel)]="editOrder.destination" type="text" required />    
+      </div>
+
+      <div class="form-group">
+          <label for="warehouse_location">Ubicación del almacén</label>
+          <input 
+            id="warehouse_location" 
+            name="warehouse_location" 
+            [(ngModel)]="editOrder.warehouse_location"
+            type="text" 
+            readonly 
+            required 
+          />
         </div>
 
-        <div class="buttons">
-          <button type="button" class="bi bi-arrow-left-square-fill close" (click)="closeEditOrder()"></button>
-          <button type="submit" class="create">Guardar</button>
+      <div class="form-group">
+          <label for="worker_email">Correo del conductor</label>
+          <input id="worker_email" name="worker_email" [(ngModel)]="editOrder.worker_email" type="email" required />    
+      </div>
+
+      <div class="form-group">
+          <label for="email_operator">Correo del operario</label>
+          <input 
+            id="email_operator" 
+            name="email_operator" 
+            [(ngModel)]="editOrder.email_operator" 
+            type="email" 
+            required 
+          />
         </div>
-      </form>
+
+<!--
+          <div class="form-group">
+            <label for="fecha salida">  <strong>fecha de salida</strong></label>
+            <input type="date" [(ngModel)]="editOrder.date_of_departure" name="date_of_departure" id="date_of_departure" required>
+          </div>
+        -->
+
+
+
+
+          <div class="form-actions">
+            <button type="submit">Guardar Cambios</button>
+            <button type="button">Cancelar</button>
+          </div>
+
+        </form>
+      </div>
     </div>
 
-  </div>
-</div>
+
+

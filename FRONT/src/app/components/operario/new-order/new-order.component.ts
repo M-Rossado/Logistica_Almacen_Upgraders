@@ -20,7 +20,7 @@ export class NewOrderComponent {
 
   newOrder = {
     item_type: '',
-    status: 'Pendiente',  // Valor por defecto
+    status: 'Revisión',  // Valor por defecto
     date_of_entry: '',
     date_of_departure: '',
     destination: '',
