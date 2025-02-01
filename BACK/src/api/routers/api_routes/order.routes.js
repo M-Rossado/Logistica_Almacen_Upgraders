@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { createNewOrder, searchOperatorOrder, getOrdersByLocation, getAllOrders, getOperator, getWarehouse, getOrder, acceptOrder, deliverOrder, updateOrder, searchTruckDriverOrder } = require("../../controllers/order.controller")
+const { createNewOrder, searchOperatorOrder, getOrdersByLocation, getAllOrders, getAllWarehouse, getOperator, getWarehouse, getOrder, acceptOrder, deliverOrder, updateOrder, searchTruckDriverOrder } = require("../../controllers/order.controller")
 const { checkToken } = require("../../middleware/auth")
 
 
@@ -18,6 +18,7 @@ router.put("/accept/:id_order", checkToken, acceptOrder); // acepta o deniega un
 
 //funciones del jefe
 router.get("/managerseachorders", checkToken, getAllOrders) // buscar todos los pedidos
+router.get("/managersearchwarehouse", checkToken, getAllWarehouse) // buscar el listado de todos los almacenes
 router.get("/managersearchby/:email_operator", checkToken, getOperator) // busca el listado de pedidos con el email del operario que los creo
 router.get("/managersearchbylocation/:warehouse_location", checkToken, getWarehouse) // busca por almacen
 router.get("/managersearchbyid/:id_order", checkToken, getOrder) // busca un pedido concreto por su id

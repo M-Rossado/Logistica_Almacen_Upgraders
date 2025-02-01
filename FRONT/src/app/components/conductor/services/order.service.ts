@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OrderService {
-  private apiUrl = 'http://localhost:3000/order'; // URL de tu API
+  private apiUrl = 'http://localhost:3500/order'; // URL de tu API
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +23,7 @@ export class OrderService {
 
 
     // Método para actualizar un pedido
-    updateOrder(order: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${order.id}`, order);
+    updateOrder(order: any ): Observable<any> {
+    return this.http.put(`${this.apiUrl}/deliver/${order.id_order}`, order);
   }
 }

@@ -5,7 +5,11 @@
     <section class="section">
         <p class="saludo">Hola, {{ name }}</p>
         <h2>estos son tus pedidos gestionados</h2>
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> main
         <!-- Iteración sobre la lista de pedidos con *ngFor -->
         <div class="list-element-group">
             <div *ngFor="let order of orderList; trackBy: trackOrderById" class="list-element">
@@ -40,13 +44,20 @@
 </app-detalle-operario>
 
         <!-- Modal de edición -->
-        <app-edit-order *ngIf="showEditOrder" [selectedOrder]="selectedOrder"
-            (closeEditOrder)="closeEditOrder()"></app-edit-order>
+        <!--<app-edit-order *ngIf="showEditOrder" [selectedOrder]="selectedOrder"
+            (closeEditOrder)="closeEditOrder()"></app-edit-order>-->
 
         <!-- Modal de creación -->
         <app-new-order 
             *ngIf="showCreateOrder"
             (closeCreateOrder)="closeCreateOrder()">
         </app-new-order>
+
+        <!-- Modal para editar pedido -->
+        <app-edit-order 
+            (closeModal)="closeEditOrder()" 
+            [order]="selectedOrder"
+            *ngIf="showEditOrder">
+        </app-edit-order>
     </section>
 </div>

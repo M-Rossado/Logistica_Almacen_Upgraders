@@ -9,7 +9,7 @@
       <div class="card-component">
         <p class="campo-list">
           <span><strong>Nº Pedido:</strong></span>
-          <span>{{ order?.id_order }}</span>
+          <span>{{order?.id_order}}</span>
         </p>
         <p class="campo-list">
           <span><strong>Tipo:</strong></span>
@@ -20,11 +20,11 @@
           <span>{{ order?.status }}</span></p>
         <p class="campo-list">
           <span><strong>F. Salida:</strong></span>
-          <span>{{ order?.date_of_departure }}</span>
+          <span>{{ order?.date_of_departure | date: 'dd/MM/yy' }}</span>
         </p>
         <p class="campo-list">
           <span><strong>F. Entrada:</strong></span>
-          <span>{{ order?.date_of_entry }}</span>
+          <span>{{ order?.date_of_entry | date: 'dd/MM/yy' }}</span>
         </p>
         <p class="campo-list">
           <span><strong>Destino:</strong></span>
@@ -34,10 +34,10 @@
           <span><strong>Almacen:</strong></span>
           <span>{{ order?.warehouse_location }}</span>
         </p>
-        <p class="campo-list">
+        <!-- <p class="campo-list">
           <span><strong>Camión:</strong></span>
           <span>{{ order?.truck_plate }}</span>
-        </p>
+        </p> -->
       </div>
     </div>
     <div class="buttons">

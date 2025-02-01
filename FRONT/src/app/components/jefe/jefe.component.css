@@ -1,89 +1,61 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
+.general{
+  background-color: #303030;
+  color: white;
 }
-
-header {
-    text-align: center;
-    margin: 20px 0;
+.saludo{
+  text-align: center;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
-
-h1 {
-    font-size: 2rem;
-    color: #333;
+h2{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 500;
 }
-secction{
-    margin-top: 25px;
+.content-jefe{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.grid{
-    width: 80%;
-    margin: auto;
+.card-module{
+  background-color: #494949;
+  padding: 10px 10px 25px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 510px;
+  margin: 25px;
+  flex-direction: column;
+  border-radius: 10px;
 }
-
-/* Card container */
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px; 
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  
+.card-module:hover{
+  transform: scale(1.05);
+  cursor: pointer;
 }
-
-
-.card {
-    
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.card-body {
-    padding: 20px;
-}
-
-.card-title {
-    font-size: 1.5rem;
-    color: #333;
-    margin: 0 0 10px;
-}
-
-.card-text {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.card a {
-    text-decoration: none;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 4px;
-    font-size: 1rem;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-}
-
-.card a:hover {
-    background-color: #0056b3;
+.card-title{
+  margin: 15px auto;
 }
 .edit-btn{
-    background-color: #ee8941;
-    color: white;
-    border-radius: 20px;
-    font-weight: 800;
-    height: 40px;
-    padding: 2px 15px;
-  
+  background-color: #ee8941;
+  color: white;
+  border-radius: 20px;
+  font-weight: 800;
+  padding: 5px 8px;
+  width: fit-content;
+}
+.edit-btn:hover{
+  background-color: #c06627;
+  cursor: pointer;
+  transform: scale(1.05)
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+  .content-jefe{
+    flex-direction: row;
   }
-  
+
+}

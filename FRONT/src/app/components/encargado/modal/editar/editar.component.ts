@@ -28,9 +28,15 @@ export class EditarComponent {
     destination: '',
     worker_id_worker: '',
     warehouse_location: '',
-    truck_plate: ''
+    truck_plate: '',
+    comment:''
   };
 
+  minDate: string;
+
+  constructor() {
+    this.minDate = new Date().toISOString().split("T")[0]; //intento que no deje elegir la fecha anterior a hoy
+  }
 
 
   ngOnInit() {
@@ -48,15 +54,16 @@ export class EditarComponent {
     this.editOrder.warehouse_location = this.selectedEvent?.warehouse_location;
     this.editOrder.worker_id_worker = this.selectedEvent?.worker_id_worker;
     this.editOrder.truck_plate = this.selectedEvent?.truck_plate;
+    this.editOrder.comment = this.selectedEvent?.comment;
 
 
   }
 
   handleEdit() {
-this.homeservice.updateEvent(this.selectedEvent.id, this.editOrder).subscribe({
+this.homeservice.updateEvent(this.selectedEvent.id_order, this.editOrder).subscribe({
   next:(data: any) =>{
     alert('pedido actualizado correctamente')
-    this.router.navigate(['/home'])
+    this.router.navigate(['/home/home'])
     this.closeEditar()
   },error:(error)=>{
     console.log(error)

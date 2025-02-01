@@ -4,50 +4,29 @@
 
 
     <!-- paso #4 debemos importar el componente -->
-   
+<div class="general">
+  <section class="section">
+    <p class="saludo">Hola,</p>
+        <h2>¿Qué quieres consultar?</h2>
 
-<header>
-    <div>
-        <h1>bienvenido jefe</h1>
-    </div>
-
-</header>
-
-
-<section>
-
-    <div class="grid">
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">listado de pedidos </h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <button  routerLink="/home/orders"  class="edit-btn"> ver detalles </button>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">listado de empleados</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <button  routerLink="/home/workers" class="edit-btn"> ver detalles </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">listado de almacenes</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <button [routerLink]="['/warehouse']"  class="edit-btn"> ver detalles </button>
-                </div>
-            </div>
-        </div> -->
-    </div>
-</section>
+      <div class="content-jefe">
+          <div class="card-module">
+            <!-- TODO: Un iconito de pedidos aquí -->
+            <h3 class="card-title">PEDIDOS</h3>
+            <button  routerLink="/home/orders" class="edit-btn">Consultar</button>
+          </div>
+          <div class="card-module">
+            <!-- TODO: Un iconito de empleados aquí -->
+            <h3 class="card-title">EMPLEADOS</h3>
+            <button  routerLink="/home/workers" class="edit-btn">Consultar</button>
+          </div>
+          <div class="card-module">
+            <!-- TODO: Un iconito de almacén aquí -->
+            <h3 class="card-title">ALMACENES</h3>
+                <button routerLink="/home/warehouse" class="edit-btn">Consultar</button>
+          </div>
+      </div>
+  </section>
+</div>
 
 

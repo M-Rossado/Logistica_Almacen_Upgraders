@@ -2,39 +2,33 @@
 
 
 <div class="general">
-    <div class="new-order">
-       <button (click)="openaddWorker()" >add nuevo</button>
-    </div>
     <section class="section">
-        <h1>lista de empleados :</h1>
+      <p class="saludo">Hola,</p>
+      <h2>Estos son todos los empreados:</h2>
+      <div class="content-alta">
+        <button (click)="openaddWorker()" class="edit-btn">Nuevo Empleado</button>
+      </div>
         @for(worker of workersList; track $index){
-<div class="container">
-   
-        <div class="card">
-            <p><strong>nombre:</strong><p>{{worker.name }}</p>
-            <p><strong>apellido:</strong><p>{{ worker.surname }}</p>
-            <p><strong>role:</strong> {{ worker.role }}</p>
-            <p><strong>almacen:</strong> {{ worker.warehouse_location }}</p>
-            <i class="bi bi-alarm"></i>
-            <i class="bi bi-basket"></i>
-           
-            <button (click)="openEditWorker(worker)" class="edit-btn">Editar</button>
-            <button (click)="openDEtails(worker)" class="edit-btn">ver detalles</button>
-        </div>
-   
-       
-    </div>
-        }
+          <div class="content">
+            <div class="card-content">
+              <p><strong>Nombre</strong>{{ worker.name }}</p>
+              <p><strong>Apellidos</strong>{{ worker.surname }}</p>
+              <p><strong>Puesto</strong>{{ worker.role }}</p>
+              <p><strong>Almacén</strong>{{ worker.warehouse_location }}</p>
 
+              <!-- Acciones del empleado -->
+              <button [routerLink]="['/home/orderByWorker', worker.email]" class="edit-btn">Sus Pedidos</button>
+              <button (click)="openDEtails(worker)" class="edit-btn">ver detalles</button>
+            </div>
+          </div>
+        }
     </section>
 </div>
+
 @if(this.addModal === true){
     <app-add-worker (closeadd)="closeAddworker()"></app-add-worker>
-    
 }
-@if(this.editModal === true){
-    <app-edit-worker [selecEvent]="selectEvent" (editModal)="closeEditWorker()" ></app-edit-worker>
-}
+
 @if(this.detailsModal === true){
     <app-details-worker [selecEvent]="selectEvent" (closedetails)="closeDEtails()"></app-details-worker>
 }

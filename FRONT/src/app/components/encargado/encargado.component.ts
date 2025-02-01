@@ -1,15 +1,19 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { HomeServiceService } from '../service/home-service.service';
 import { EditarComponent } from './modal/editar/editar.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-encargado',
   standalone: true,
-  imports: [EditarComponent], // Add necessary Angular modules if needed
+  imports: [EditarComponent,CommonModule], // Add necessary Angular modules if needed
   templateUrl: './encargado.component.html',
   styleUrls: ['./encargado.component.css'] // Fixed typo
 })
 export class EncargadoComponent implements OnInit {
+getIconClass(arg0: any) {
+throw new Error('Method not implemented.');
+}
 
   private homeservice: HomeServiceService = inject(HomeServiceService)
   public ordersList: any[] = [];
@@ -24,7 +28,7 @@ export class EncargadoComponent implements OnInit {
   }
 
   getEventos(): void {
-    this.homeservice.getOrders().subscribe({
+    this.homeservice.getOrdersEncargado().subscribe({
       next: (data: any) => {
        this.ordersList = data
        console.log(this.ordersList)
