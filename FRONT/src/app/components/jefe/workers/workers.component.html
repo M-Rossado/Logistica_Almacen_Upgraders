@@ -18,7 +18,7 @@
             <i class="bi bi-alarm"></i>
             <i class="bi bi-basket"></i>
            
-            <button (click)="openEditWorker(worker)" class="edit-btn">Editar</button>
+            <button [routerLink]="['/home/orderByWorker', worker.email]" class="edit-btn">ver pedidos </button>
             <button (click)="openDEtails(worker)" class="edit-btn">ver detalles</button>
         </div>
    
@@ -32,9 +32,7 @@
     <app-add-worker (closeadd)="closeAddworker()"></app-add-worker>
     
 }
-@if(this.editModal === true){
-    <app-edit-worker [selecEvent]="selectEvent" (editModal)="closeEditWorker()" ></app-edit-worker>
-}
+
 @if(this.detailsModal === true){
     <app-details-worker [selecEvent]="selectEvent" (closedetails)="closeDEtails()"></app-details-worker>
 }

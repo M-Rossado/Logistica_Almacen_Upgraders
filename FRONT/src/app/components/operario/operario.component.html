@@ -5,7 +5,6 @@
     <section class="section">
         <p class="saludo">Hola, {{ name }}</p>
         <h2>estos son tus pedidos gestionados</h2>
-<<<<<<< HEAD
         
         <!-- Iteración sobre la lista de pedidos con *ngFor -->
          <div class="list-element-group">
@@ -24,27 +23,10 @@
                             <button (click)="mostrarDetalle(order)" class="bi bi-clipboard2-plus-fill">Ver detalle</button>                
                         </div>
                     </div>
-=======
-        @for(order of orderList; track $index){
-
-        <div class="card">
-            <div class="card-1">
-                <i [class]="'bi ' + getIconClass(order.status)"></i> <!-- Icono dinámico -->
-            </div>
-            <div class="card-2">
-                <div class="card-2-inf">
-                    <h3>Pedido: {{ order.id }}</h3>
-                    <p>Destino: {{ order.destination }}</p>
-                    <p>{{ order.date_of_departure }}</p>
-                </div>
-                <div class="card-2-icon">
-                    <button (click)="mostrarDetalle(order)" class="bi bi-clipboard2-plus-fill"></button>
->>>>>>> main
                 </div>
             </div>
          </div>
 
-<<<<<<< HEAD
         <!-- Modal de detalle -->
         <app-detalle-operario 
             (closeModal)="closeDetail()"
@@ -66,25 +48,5 @@
             [order]="selectedOrder"
             *ngIf="showEditOrder">
         </app-edit-order>
-=======
-        @if(this.showDetail === true){
-            <app-detalle-operario
-            (closeModal)="closeDetail()"
-            (openEditModal)="openEditModal($event)"
-            *ngIf="selectedOrder"
-            [order]="selectedOrder"></app-detalle-operario>
-        }
-        @if(this.showCreateOrder === true){
-            <app-new-order
-            (closeCreateOrder)="closeCreateOrder()"
-            ></app-new-order>
-        }
-        @if(this.showEditOrder === true) {
-            <app-edit-order
-                (closeModal)="closeEditOrder()"
-                [order]="selectedOrder">
-            </app-edit-order>
-        }
->>>>>>> main
     </section>
 </div>

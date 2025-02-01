@@ -3,12 +3,12 @@ import { AuthService } from '../../../auth/service/auth.service';
 import { HomeServiceService } from '../../service/home-service.service';
 
 import { AddWarehouseComponent } from '../modales/warehouse/add-warehouse/add-warehouse.component';
-import { Route, Router } from '@angular/router';
+import { Route, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-warehouses',
   standalone: true,
-  imports: [ AddWarehouseComponent],
+  imports: [ AddWarehouseComponent,RouterModule],
   templateUrl: './warehouses.component.html',
   styleUrl: './warehouses.component.css'
 })

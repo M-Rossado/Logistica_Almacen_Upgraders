@@ -22,32 +22,49 @@ export class EditOrderComponent implements OnInit {
     @Input() order: any; // Recibe el pedido desde el padre
     @Output() closeModal = new EventEmitter<void>(); // Evento para cerrar el modal
   
-  ngOnInit(): void {
-    // Obtén el id del pedido desde la URL (suponiendo que la URL tiene el formato "/edit-order/:id")
-    const orderId = this.route.snapshot.paramMap.get('id');
-
-    if (orderId) {
-      // Cargar el pedido desde el servicio usando el id
-      this.orderService.getOrderById(orderId).subscribe((data) => {
-        this.order = data;  // Rellenar el formulario con los datos del pedido
-      });
+    public orderToEdit: any = {
+      item_type: '',
+      status: '',
+      date_of_entry: '',
+      date_of_departure: '',
+      destination: '',
+      warehouse_location: '',
+      worker_email: '',
+      email_operator: '',
+      comment: ''
+    };
+  
+    ngOnInit(){
+      this.orderToEdit.item_type = this.order.item_type
+      this.orderToEdit.status = this.order.status
+      this.orderToEdit.date_of_entry = this.order.date_of_entry
+      this.orderToEdit.date_of_departure = this.order.date_of_departure
+      this.orderToEdit.destination = this.order.destination
+      this.orderToEdit.warehouse_location = this.order.warehouse_location
+      this.orderToEdit.worker_email = this.order.worker_email
+      this.orderToEdit.email_operator = this.order.email_operator
+      this.orderToEdit.comment = this.order.comment
+    }
+  
+  
+  
+    // Método para cerrar el modal
+    Close(event: Event) {
+      event.preventDefault();
+      this.closeModal.emit(); // Emite el evento para cerrar el modal
+    }
+  
+    // Método para enviar los cambios al backend
+    // Método para enviar los cambios al backend
+    onSubmit() {
+     
+      console.log(this.orderToEdit); // Verifica que los datos estén correctos
+  
+      this.orderService.updateOrder(this.order.id_order, this.orderToEdit).subscribe({ 
+        next:(data: any) => {
+          alert("Pedido cambiado exitosamente")
+        }
+      })
     }
   }
-
-  onSubmit(): void {
-    // Actualizar el pedido con los nuevos datos
-    this.orderService.updateOrder(this.order).subscribe(
-      (response) => {
-        // Redirigir a la lista de pedidos después de guardar los cambios
-        alert('Pedido actualizado')
-        this.router.navigate(['/order']);
-      },
-      (error) => {
-        console.error('Error al actualizar el pedido:', error);
-      }
-    );
-  }
-  closeEditOrder(): void {
-    this.closeModal.emit(); // Emite el evento para cerrar el componente
-  }
-}
+  

@@ -11,20 +11,31 @@ export class HomeServiceService {
 
  // servicios genrales
  getOrders() {
-  return this.http.get('http://localhost:3500/order//managerseachorders')
+  // return this.http.get('http://localhost:3500/order/managerseachorders')
+ 
+  return this.http.get('http://localhost:3000/order')
+ 
  }
-
+getOrderByid(email:string){
+  return this.http.get("http://localhost:3500/order/managersearchby/" + email)
+}
 
 
 // servcios del encargado
+
+getOrdersEncargado() {
+  // return this.http.get('http://localhost:3500/order/searchorderby/location')
+  return this.http.get('http://localhost:3000/order')
+ }
+
  updateEvent(id: string, editUpdate: any) {
-  return this.http.put(`http://localhost:3000/order/${id}`, editUpdate);
+  return this.http.put(`http://localhost:3500/order/accept/${id}`, editUpdate);
 }
 
 
 //oservicio de tiendas
 getWarehouse(){
-  return this.http.get('http://localhost:3000/warehouse')
+  return this.http.get('http://localhost:3500/order/managersearchwarehouse')
  }
 
  addNewWarehouse(newOne:any){
@@ -44,8 +55,6 @@ getWarehouse(){
  addworkers(newWorker:any ){
   return this.http.post('http://localhost:3500/worker/newworker', newWorker)
  }
- updateWorker(id: string, editUpdate: any) {
-  return this.http.put(`http://localhost:3000/worker/${id}`, editUpdate);
-}
+
 
 }
