@@ -1,69 +1,61 @@
-
-
 .general{
-    background-color: #303030;
-    color: white;
-    
+  background-color: #303030;
+  color: white;
 }
-.new-order{
-    max-width: 95%;
-    margin: auto;
-    padding: 30px 0;
+.saludo{
+  text-align: center;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
-h1{
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 500;
+h2{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 500;
 }
-.new-order button{
-    background-color: #ee8941;
-    color: white;
-    font-size: 30px;
-    border: none;
-    width: 100%;
-    text-transform: uppercase;
-    font-weight: 600;
-    height: 70px;
-    border-radius: 35px;
+.content-jefe{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-h2, p{
-    margin: 0;
-}
-.container{
-    margin: 5px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.container:hover{
-    transform: scale(1.05)
-}
-
-.card{
+.card-module{
   background-color: #494949;
-  padding: 10px 10px;
+  padding: 10px 10px 25px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 80%;
-  margin: auto;
+  max-width: 510px;
+  margin: 25px;
+  flex-direction: column;
   border-radius: 10px;
 }
-
+.card-module:hover{
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.card-title{
+  margin: 15px auto;
+}
 .edit-btn{
   background-color: #ee8941;
   color: white;
   border-radius: 20px;
   font-weight: 800;
-  height: 40px;
-  padding: 2px 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 5px 8px;
+  width: fit-content;
 }
 .edit-btn:hover{
-cursor: pointer;
-transform: scale(1.05)
-
+  background-color: #c06627;
+  cursor: pointer;
+  transform: scale(1.05)
 }
-.bi {
-   display: flex; 
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+  .content-jefe{
+    flex-direction: row;
+  }
+
 }

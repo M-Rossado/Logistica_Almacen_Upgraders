@@ -9,7 +9,7 @@ export class OrderService {
   private baseUrl = 'http://localhost:3500/order';
 
   constructor(private http: HttpClient) { }
-  
+
     // Método para agregar un nuevo pedido
     addOrder(order: any): Observable<any> {
       return this.http.post(`${this.baseUrl}/neworder`, order);  // Usa baseUrl
@@ -23,13 +23,13 @@ export class OrderService {
   }
 
       // Método para obtener un pedido por su ID
-    getOrderById(id: string): Observable<any> {
-      return this.http.get(`${this.baseUrl}/${id}`);  // Modificado para obtener un pedido por ID
-    }
+    // getOrderById(id: string): Observable<any> {
+    //   return this.http.get(`${this.baseUrl}/${id}`);  // Modificado para obtener un pedido por ID
+    // }
 
-   
-    updateOrder(id: any, orderToUpdate:any ) {
-      return this.http.put(`http://localhost:3500/order/update/${id}`, orderToUpdate);
-    }
-    
+
+    // updateOrder(id: any, orderToUpdate:any ) {
+    //   return this.http.put(`http://localhost:3500/order/update/${id}`, orderToUpdate);
+    // }
+
 }
