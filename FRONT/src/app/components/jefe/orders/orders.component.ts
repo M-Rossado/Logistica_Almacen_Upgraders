@@ -11,18 +11,21 @@ import { AddWarehouseComponent } from "../modales/warehouse/add-warehouse/add-wa
   styleUrl: './orders.component.css'
 })
 export class OrdersComponent {
+getIconClass(arg0: any) {
+throw new Error('Method not implemented.');
+}
 private homeservises: HomeServiceService = inject(HomeServiceService)
   public ordersList: any = []
   public ShowDetails:boolean = false
  public selectEvent: any;
  public modalAdd: boolean = false
  public lugar = localStorage.getItem("lugar")
-  
+
 
 
   ngOnInit(): void {
     this.getEventos()
-   
+
    }
 
    getEventos(): void {
