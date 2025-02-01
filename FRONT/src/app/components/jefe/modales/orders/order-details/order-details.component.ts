@@ -1,9 +1,10 @@
+import { DatePipe } from '@angular/common';
 import { Component, EventEmitter, Input, input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-order-details',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './order-details.component.html',
   styleUrl: './order-details.component.css'
 })
