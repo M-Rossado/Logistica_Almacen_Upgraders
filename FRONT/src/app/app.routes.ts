@@ -20,7 +20,7 @@ export const routes: Routes = [
         loadChildren: () => import('./auth/auth.routes').then(m => m.AUTH_ROUTES)
     },
     {
-        path: 'home',
+        path: '',
         canActivate: [authRoleGuard],
         loadChildren: () => import('./components/home.routes').then(m => m.HOME_ROUTES)
     },

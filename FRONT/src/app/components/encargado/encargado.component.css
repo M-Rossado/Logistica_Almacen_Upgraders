@@ -77,4 +77,8 @@
       width: fit-content;
     }
   }
+
+  .hidden{
+    visibility: hidden;
+  }
 /* CLASES DEL CONDUCTOR */

@@ -3,54 +3,60 @@
 <div class="general">
   <section class="section">
       <p class="saludo">Hola</p>
-      <h2>Pedidos Pendientes de Revisión</h2>
 
-      @for(order of ordersList; track $index){
-        @if(order.status === "Pendiente"){
-          <div class="card-content">
-            <div class="campo-list ico-status">
-              <!-- <i [class]="'bi ' + getIconClass(order.status)">
-                <br>{{ order.status }} 
-              </i>  -->
-             </div>
-              <p class="campo-list none-mb"><span><strong><br>{{ order.id }}</strong></span></p>
-              <!-- <p class="campo-list">Estado<strong><br>{{ order.status }}</strong></span></p> -->
-              <p class="campo-list">Tipo de paquete:<br><span><strong>{{ order.item_type }}</strong></span></p>
-              <p class="campo-list">F. entrada:<br><span><strong>{{ order.date_of_entry }}</strong></span></p>
-              <p class="campo-list">F. salida:<br><span><strong>{{ order.date_of_departure }}</strong></span></p>
-              <p class="campo-list">destino:<br><span><strong>{{ order.destination }}</strong></span></p>
-              <p class="campo-list">???:<br><span><strong>{{ order.worker_id_worker }}</strong></span></p>
-              <p class="campo-list">Matrícula Camión:<br><span><strong>{{ order.truck_plate }}</strong></span></p>
+      <div>
+        <h2>Pedidos Pendientes de Revisión</h2>
 
-              <button (click)="openEdiatar(order)" class="edit-btn">Editar</button>
-          </div>
-        }
-      } 
+        @for(order of ordersList; track $index){
+          @if(order.status === "REVISION"){
+            <div class="card-content">
+              <div class="campo-list ico-status">
+                <!-- <i [class]="'bi ' + getIconClass(order.status)">
+                  <br>{{ order.status }} 
+                </i>  -->
+               </div>
+               <p class="campo-list none-mb"><span><strong><br>{{ order.id_order }}</strong></span></p>
+             <p class="campo-list">Estado<span><strong><br>{{ order.status }}</strong></span></p>
+                <p class="campo-list">Tipo de paquete:<br><span><strong>{{ order.item_type }}</strong></span></p>
+                <p class="campo-list">F. entrada:<br><span><strong>{{ order.date_of_entry }}</strong></span></p>
+                <p class="campo-list">F. salida:<br><span><strong>{{ order.date_of_departure }}</strong></span></p>
+                <p class="campo-list">destino:<br><span><strong>{{ order.destination }}</strong></span></p>
+               
+  
+                <button (click)="openEdiatar(order)" class="edit-btn">Editar</button>
+            </div>
+          }
+        } 
+       <!-- TODO   como hacer que salga si no hay pedidos poendientes para revision -->
+      </div>
       
-      <h2>Pedidos Listos para Entregar</h2>
+      <div>
 
-      @for(order of ordersList; track $index){
-        @if(order.status !== "Pendiente"){  
-          <div class="card-content">
-            <div class="campo-list ico-status">
-              <!-- <i [class]="'bi ' + getIconClass(order.status)">
-                 <br>{{ order.status }}
-              </i>  Icono dinámico  -->
-             </div>
-             <p class="campo-list none-mb"><span><strong><br>{{ order.id_order }}</strong></span></p>
-             <p class="campo-list">Estado<strong><br>{{ order.status }}</strong></p> 
-             <p class="campo-list">Tipo de paquete:<br><span><strong>{{ order.item_type }}</strong></span></p>
-             <p class="campo-list">F. entrada:<br><span><strong>{{ order.date_of_entry | date: 'dd/MM/yyyy' }}</strong></span></p>
-             <p class="campo-list">F. salida:<br><span><strong>{{ order.date_of_departure | date: 'dd/MM/yyyy' }}</strong></span></p>
-             <p class="campo-list">Destino:<br><span><strong>{{ order.destination }}</strong></span></p>
-             <p class="campo-list">???:<br><span><strong>{{ order.worker_id_worker }}</strong></span></p>
-             <p class="campo-list">Matrícula Camión:<br><span><strong>{{ order.truck_plate }}</strong></span></p>
-             
+        <h2>Pedidos Listos para Entregar</h2>
 
-              <button (click)="openEdiatar(order)" class="edit-btn">Editar</button>
-          </div>
-        }
-       } 
+        @for(order of ordersList; track $index){
+          @if(order.status !== "REVISION"){  
+            <div class="card-content">
+              <div class="campo-list ico-status">
+                <!-- <i [class]="'bi ' + getIconClass(order.status)">
+                   <br>{{ order.status }}
+                </i>  Icono dinámico  -->
+               </div>
+               <p class="campo-list none-mb"><span><strong><br>{{ order.id_order }}</strong></span></p>
+               <p class="campo-list">Estado<strong><br>{{ order.status }}</strong></p> 
+               <p class="campo-list">Tipo de paquete:<br><span><strong>{{ order.item_type }}</strong></span></p>
+               <p class="campo-list">F. entrada:<br><span><strong>{{ order.date_of_entry | date: 'dd/MM/yyyy' }}</strong></span></p>
+               <p class="campo-list">F. salida:<br><span><strong>{{ order.date_of_departure | date: 'dd/MM/yyyy' }}</strong></span></p>
+               <p class="campo-list">Destino:<br><span><strong>{{ order.destination }}</strong></span></p>
+               <button (click)="openEdiatar(order)" class="edit-btn hidden">Editar</button>
+               
+  
+               
+            </div>
+          }
+        } 
+      </div>
+      
   </section>
 </div>
 
