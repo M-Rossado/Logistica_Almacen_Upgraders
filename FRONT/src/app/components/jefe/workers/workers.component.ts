@@ -1,13 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { HomeServiceService } from '../../service/home-service.service';
 import { AddWorkerComponent } from '../modales/workers/add-worker/add-worker.component';
-import { EditWorkerComponent } from '../modales/workers/edit-worker/edit-worker.component';
+
 import { DetailsWorkerComponent } from '../modales/workers/details-worker/details-worker.component';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-workers',
   standalone: true,
-  imports: [AddWorkerComponent,EditWorkerComponent,DetailsWorkerComponent],
+  imports: [AddWorkerComponent,DetailsWorkerComponent,RouterModule],
   templateUrl: './workers.component.html',
   styleUrl: './workers.component.css'
 })
@@ -19,13 +20,16 @@ export class WorkersComponent {
   public editModal:boolean = false;
   public addModal: boolean = false;
   public detailsModal:boolean = false;
+  private activatedRoute = inject(ActivatedRoute);
   public lugar = localStorage.getItem("lugar")
-
+  event: any ={}
+private email: string =""
 
 
   ngOnInit(): void {
+  
     this.getWorkers()
-    this.getWareHouse()
+    
    }
  
    getWorkers(): void {
@@ -43,18 +47,7 @@ export class WorkersComponent {
    }
 
    
-    getWareHouse() {
-      
-      this.homeservice.getWorkers().subscribe({
-        next: (data: any) => {
-         this.workersList = data 
-    
-      const warehouseLocations = this.workersList.map(worker => worker.warehouse_location);
-      const uniqueWarehouseLocations = [...new Set(warehouseLocations)];
-      console.log("Ubicaciones únicas:", uniqueWarehouseLocations);
-        }
-        })
-    }
+
     
    
 
