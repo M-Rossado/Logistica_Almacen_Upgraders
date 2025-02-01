@@ -1,20 +1,35 @@
+
 <div class="modal">
-    <div class="modal-content">
-      <button (click)=" CloseDEtails()" class="close">×</button>
-      <div class="modal-head">
-        <h2>Detalles del Pedido</h2>
-      </div>
-      <div class="modal-body">
-        <h3>ID: {{selecEvent?.id_worker}}</h3>
-        <h3>Tipo: {{selecEvent?.name}}</h3>
-        <h3>Status: {{selecEvent?.surname}}</h3>
-        <h3>Fecha de Entrada: {{selecEvent?.address }}</h3>
-        <h3>Fecha de Salida: {{ selecEvent?.dni }}</h3>
-        <h3>Origen: {{selecEvent?.email}}</h3>
-        <h3>Destino: {{selecEvent?.role}}</h3>
-        <h3>Trabajador ID: {{selecEvent?.warehouse_location}}</h3>
-        <h3>Placa del Camión: {{selecEvent?.truck_plate}}</h3>
+  <div class="modal-content">
+    <button CloseDEtails()" class="close">×</button>
+    <div class="modal-head">
+      <h2>Detalles del Empleado</h2>
+    </div>
+
+    <div class="modal-body">
+      <div class="card-component">
+        <p class="campo-list">
+          <span><strong>Nº Empleado:</strong></span>
+          <span>{{ selecEvent?.id_worker }}</span>
+        </p>
+        <p class="campo-list">
+          <span><strong>Nombre:</strong></span>
+          <span>{{ selecEvent?.name }}</span>
+        </p>
+        <p class="campo-list">
+          <span><strong>Apellidos:</strong></span>
+          <span>{{ selecEvent?.surname }}</span>
+        </p>
+        <p class="campo-list">
+          <span><strong>Cargo:</strong></span>
+          <span>{{ selecEvent?.status}}</span>
+        </p>
       </div>
     </div>
   </div>
-  
+</div>
+
+
+
+
+

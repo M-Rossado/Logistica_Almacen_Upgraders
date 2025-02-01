@@ -1,15 +1,13 @@
 
 <div class="modal">
-
-
-    <button (click)="Close()" class="close">×</button>
-
-    <div class="form-container">
-        <h2>nuevo empleado </h2>
-    <form action="/submit" (ngSubmit)="handleRegister()">
+  <div class="modal-content">
+    <button class="close" (click)="Close()">×</button>
+    <div class="modal-head">
+      <h2>Nuevo Empleado</h2>
+    </div>
+    <div class="modal-body">
+      <form action="/submit" (ngSubmit)="handleRegister()">
       <div class="form-group">
-
-
         <label for="surname">nombre:</label>
         <input
           id="name"
@@ -21,7 +19,6 @@
         />
       </div>
           <div class="form-group">
-           
             <input
               id="surname"
               type="text"
@@ -32,7 +29,6 @@
             />
           </div>
           <div class="form-group">
-            
             <input
               id="address"
               type="text"
@@ -43,7 +39,6 @@
             />
           </div>
           <div class="form-group">
-           
             <input
               id="dni"
               type="text"
@@ -54,7 +49,6 @@
             />
           </div>
           <div class="form-group">
-           
             <input
               id="email"
               type="text"
@@ -65,7 +59,6 @@
             />
           </div>
           <div class="form-group">
-           
             <input
               id="truck_plate"
               type="text"
@@ -75,9 +68,7 @@
               required
             />
           </div>
-
-
-        <div class="form-group">
+          <div class="form-group">
             <label for="role">status:</label>
             <select [(ngModel)]="newWorker.role" name="role" id="role" required>
                 <option value="" disabled selected>definir rol </option>
@@ -98,11 +89,11 @@
               </select>
           </div>
 
-          <div class="form-actions">
-            <button type="submit">Guardar </button>
-            <button type="button" (click)="Close()">Cancelar</button>
+          <div class="buttons">
+            <button type="submit" class="edit-btn">Guardar</button>
+            <button type="button" (click)="Close()" class="edit-btn">Cancelar</button>
           </div>
-
         </form>
-      </div>
     </div>
+  </div>
+</div>

@@ -1,7 +1,3 @@
-
-
-
-
 <div class="modal">
   <div class="modal-content">
     <button (click)="closeEDetails()" class="close">×</button>
@@ -9,16 +5,51 @@
       <h2>Detalles del Pedido</h2>
     </div>
     <div class="modal-body">
-      <h3>ID: {{selectedEvent?.id_worker}}</h3>
-      <h3>Tipo: {{selectedEvent?.item_type}}</h3>
-      <h3>Status: {{selectedEvent?.status}}</h3>
-      <h3>Fecha de Entrada: {{selectedEvent?.date_of_entry }}</h3>
-      <h3>Fecha de Salida: {{ selectedEvent?.date_of_departure }}</h3>
-      <h3>Origen: {{selectedEvent?.origin}}</h3>
-      <h3>Destino: {{selectedEvent?.destination}}</h3>
-      <h3>Trabajador ID: {{selectedEvent?.worker_email}}</h3>
-      <h3>Ubicación del Almacén: {{selectedEvent?.warehouse_location}}</h3>
-      <h3>Placa del Camión: {{selectedEvent?.truck_plate}}</h3>
+      <div class="card-component">
+        <p class="campo-list">
+          <span><strong>Nº Pedido:</strong></span>
+          <span>{{ selectedEvent?.id_worker }}</span>
+        </p>
+        <p class="campo-list">
+          <span><strong>Tipo Artículo:</strong></span>
+          <span>{{ selectedEvent?.item_type }}</span>
+        </p>
+        <p class="campo-list">
+          <!-- TODO: icono? -->
+          <span><strong>Estado:</strong></span>
+          <span>{{ selectedEvent?.status }}</span>
+        </p>
+        <p class="campo-list">
+          <span><strong>F. Entrada:</strong></span>
+          <span>{{ selectedEvent?.date_of_entry | date: 'dd/MM/yy' }}</span>
+        </p>
+        <p class="campo-list">
+          <span><strong>F. Salida:</strong></span>
+          <span>{{ selectedEvent?.date_of_departure | date: 'dd/MM/yy' }}</span>
+        </p>
+
+        <p class="campo-list">
+          <span><strong>Origen:</strong></span>
+          <span>{{ selectedEvent?.origin }}</span>
+        </p>
+
+        <p class="campo-list">
+          <span><strong>Destino:</strong></span>
+          <span>{{ selectedEvent?.destination }}</span>
+        </p>
+
+        <p class="campo-list">
+          <span><strong>Conductor Asignado:</strong></span>
+          <span>{{ selectedEvent?.worker_email }}</span>
+        </p>
+        <p class="campo-list">
+          <span><strong>Ubicación del Almacén:</strong></span>
+          <span>{{ selectedEvent?.warehouse_location }}</span>
+        </p>
+        <p class="campo-list">
+          <span><strong>Matrícula Camión:</strong></span>
+          <span>{{ selectedEvent?.truck_plate }}</span>
+        </p>
     </div>
   </div>
 </div>

@@ -8,12 +8,12 @@
           <i [class]="'bi ' + getIconClass(order.status)">
             <!-- <br>{{ order.status }} -->
           </i> <!-- Icono dinámico -->
-      </div>
-          <p class="campo-list none-mb"><span><strong><br>{{ order.id }}</strong></span></p>
-          <!-- <p class="campo-list">Estado<strong><br>{{ order.status }}</strong></span></p> -->
-          <p class="campo-list">F. salida:<br><span><strong>{{ order.date_of_departure | date: 'dd/MM/yy' }}</strong></span> </p>
-          <p class="campo-list">destino:<br><span><strong>{{ order.destination }}</strong></span></p>
-          <button (click)="mostrarDetalle(order)" class="edit-btn">Detalle</button>
+        </div>
+        <p class="campo-list none-mb"><span><strong><br>{{ order.id }}</strong></span></p>
+        <!-- <p class="campo-list">Estado<strong><br>{{ order.status }}</strong></span></p> -->
+        <p class="campo-list">F. salida:<br><span><strong>{{ order.date_of_departure | date: 'dd/MM/yy' }}</strong></span> </p>
+        <p class="campo-list">destino:<br><span><strong>{{ order.destination }}</strong></span></p>
+        <button (click)="mostrarDetalle(order)" class="edit-btn">Detalle</button>
       </div>
       }
       @if(this.showDetail === true){
