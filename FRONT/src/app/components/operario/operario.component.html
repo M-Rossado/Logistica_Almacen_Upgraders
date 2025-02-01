@@ -5,41 +5,52 @@
     <section class="section">
         <p class="saludo">Hola, {{ name }}</p>
         <h2>estos son tus pedidos gestionados</h2>
+<<<<<<< HEAD
+
+=======
         
+>>>>>>> main
         <!-- Iteración sobre la lista de pedidos con *ngFor -->
-         <div class="list-element-group">
+        <div class="list-element-group">
             <div *ngFor="let order of orderList; trackBy: trackOrderById" class="list-element">
                 <div class="card">
                     <div class="card-1">
                         <i [class]="'bi ' + getIconClass(order.status)"></i> <!-- Icono dinámico -->
+                        <p class="card-1-text">{{ order.status }}</p>
                     </div>
                     <div class="card-2">
                         <div class="card-2-inf">
                             <h3>Pedido: {{ order.id_order }}</h3>
+                            <p>Salida: {{ order.date_of_departure | date: 'dd/MM/yy' }}</p>
+                            <!-- Aplicar el pipe aquí -->
                             <p class="direccion">{{ order.destination }}</p>
-                            <p>Salida: {{ order.date_of_departure | date: 'dd/MM/yy' }}</p> <!-- Aplicar el pipe aquí -->
                         </div>
-                        <div class="card-2-icon">            
-                            <button (click)="mostrarDetalle(order)" class="bi bi-clipboard2-plus-fill">Ver detalle</button>                
+                        <div class="card-2-icon">
+                            <button (click)="mostrarDetalle(order)" class="bi bi-clipboard2-plus-fill">Ver
+                                detalle</button>
                         </div>
                     </div>
                 </div>
             </div>
-         </div>
+        </div>
 
         <!-- Modal de detalle -->
-        <app-detalle-operario 
-            (closeModal)="closeDetail()"
-            (openEditModal)="openEditModal($event)"
-            *ngIf="showDetail"
-            [order]="selectedOrder">
-        </app-detalle-operario>
+        <!-- Modal de detalle -->
+<app-detalle-operario 
+*ngIf="showDetail" 
+[order]="selectedOrder"
+(closeModal)="closeDetail()" 
+(openEditModal)="openEditOrder($event)">
+</app-detalle-operario>
 
-        <!-- Modal para crear pedido -->
-        <app-new-order
-        (orderCreated)="refreshOrdersList()" 
-            (closeCreateOrder)="closeCreateOrder()"
-            *ngIf="showCreateOrder">
+        <!-- Modal de edición -->
+        <!--<app-edit-order *ngIf="showEditOrder" [selectedOrder]="selectedOrder"
+            (closeEditOrder)="closeEditOrder()"></app-edit-order>-->
+
+        <!-- Modal de creación -->
+        <app-new-order 
+            *ngIf="showCreateOrder"
+            (closeCreateOrder)="closeCreateOrder()">
         </app-new-order>
 
         <!-- Modal para editar pedido -->
