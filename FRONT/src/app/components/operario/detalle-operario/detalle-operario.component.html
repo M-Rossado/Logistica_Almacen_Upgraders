@@ -1,7 +1,7 @@
 <div class="modal">
   <h2>Editar Pedido</h2>
   <div class="form-container">
-    <form (ngSubmit)="onSubmit()" #orderForm="ngForm">
+    
       <div class="form-group">
         <label for="item_type">Tipo de artículo</label>
         <input id="item_type" name="item_type" [(ngModel)]="order.item_type" type="text" required />
@@ -35,5 +35,5 @@
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Guardar cambios</button>
       </div>
-    </form>
+ 
     </div>

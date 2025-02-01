@@ -18,23 +18,7 @@ export class DetalleOperarioComponent {
   @Output() orderUpdated = new EventEmitter<any>(); // Para notificar al componente padre que el pedido fue actualizado
 
   // Método que se ejecuta cuando el formulario se envía
-  onSubmit() {
-    console.log('Datos del pedido actualizados:', this.order);
-
-    // Actualizar el pedido con el servicio
-    this.orderService.updateOrder(this.order).subscribe(
-      (response) => {
-        console.log('Pedido actualizado correctamente:', response);
-        this.orderUpdated.emit(this.order); // Notificar al componente padre que el pedido ha sido actualizado
-        alert('Pedido modificado correctamente');
-        this.closeModal.emit(); // Cerrar el modal
-      },
-      (error) => {
-        console.error('Error al actualizar el pedido:', error);
-        alert('Error al modificar el pedido');
-      }
-    );
-  }
+  
 
   // Método para cerrar el modal
   Close() {

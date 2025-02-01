@@ -27,9 +27,8 @@ export class OrderService {
       return this.http.get(`${this.baseUrl}/${id}`);  // Modificado para obtener un pedido por ID
     }
 
-   
-    updateOrder(id: any, orderToUpdate:any ) {
-      return this.http.put(`http://localhost:3500/order/update/${id}`, orderToUpdate);
-    }
-    
+    // Método para actualizar un pedido
+  updateOrder(order: any) {
+    return this.http.put(`/api/orders/${order.id_order}`, order);
+  }
 }
