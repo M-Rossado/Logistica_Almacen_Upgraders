@@ -1,51 +1,93 @@
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding-top: 60px;
+}
+
+.modal-content {
+  display: flex;
+    background-color: #494949;
+    color: #ffffff;
+    padding: 35px 40px;
+    width: max-content;
     align-items: center;
-    z-index: 1000;
+}
+.modal-head{
+  margin-top: 10px;
+  text-align: center;
+  color: #ee8941;
+}
+
+.modal-body {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.close:hover {
+  color: #ee8941;
+  transform: scale(1.1);
+}
+
+.card-content{
+  background-color: #494949;
+  color: #ffffff;
+  padding: 20px;
+  position: relative;
+  width: 80%;
+  display: inline-block;
+}
+.campo-list{
+  width: min-content;
+  text-align: left;
+  flex-direction: row;
+  display: flex;
+}
+.campo-list span {
+  width: 120px;
+  text-align: left;
+}
+.edit-btn{
+  background-color: #ee8941;
+  color: white;
+  border-radius: 20px;
+  font-weight: 800;
+  padding: 5px 8px;
+  width: fit-content;
+}
+
+@media (min-width: 992px) {
+  .card-content{
+    justify-content: space-around;
   }
-  
-  .modal-content {
-    background-color: #ffffff; 
-    color: #000000; 
-    padding: 20px; 
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    position: relative; 
-    max-width: 500px; 
-    width: 90%; 
+}
+@media (min-width: 1200px) {
+  .campo-list span {
+    width: 170px;
   }
-  .modal-head{
-    margin-top: 10px;
-    text-align: center;
-  }
-  
-  .modal-body {
-    margin-top: 10px;
-    text-align: center;
-  }
-  
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
+  .edit-btn:hover{
+    background-color: #c06627;
     cursor: pointer;
-    transition: transform 0.2s ease, color 0.2s ease;
+    transform: scale(1.05)
   }
-  
-  .close:hover {
-    color: #e74c3c;
-    transform: scale(1.1);
-  }
-  
+}

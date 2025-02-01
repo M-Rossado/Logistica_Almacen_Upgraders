@@ -135,11 +135,8 @@ select:focus {
 
   .edit-btn:hover{
     background-color: #c06627;
-    color: white;
-    border-radius: 20px;
-    font-weight: 800;
-    padding: 8px 11px;
-    width: fit-content;
+    cursor: pointer;
+    transform: scale(1.05)
   }
 }
 

@@ -9,21 +9,21 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding-top: 60px;
 }
 
 .modal-content {
-  background-color: #ffffff; 
-  color: #000000; 
-  padding: 20px; 
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  position: relative; 
-  max-width: 500px; 
-  width: 90%; 
+  display: flex;
+    background-color: #494949;
+    color: #ffffff;
+    padding: 35px 40px;
+    width: max-content;
+    align-items: center;
 }
 .modal-head{
   margin-top: 10px;
   text-align: center;
+  color: #ee8941;
 }
 
 .modal-body {
@@ -45,6 +45,50 @@
 }
 
 .close:hover {
-  color: #e74c3c;
+  color: #ee8941;
   transform: scale(1.1);
+}
+
+.card-content{
+  background-color: #494949;
+  color: #ffffff;
+  padding: 20px;
+  position: relative;
+  width: 80%;
+  display: inline-block;
+}
+.campo-list{
+  width: min-content;
+  text-align: left;
+  flex-direction: row;
+  display: flex;
+}
+.campo-list span {
+  width: 120px;
+  text-align: left;
+}
+.edit-btn{
+  background-color: #ee8941;
+  color: white;
+  border-radius: 20px;
+  font-weight: 800;
+  padding: 5px 8px;
+  width: fit-content;
+}
+
+@media (min-width: 992px) {
+  .card-content{
+    justify-content: space-around;
+  }
+}
+@media (min-width: 1200px) {
+  .campo-list span {
+    width: 170px;
+  }
+
+  .edit-btn:hover{
+    background-color: #c06627;
+    cursor: pointer;
+    transform: scale(1.05)
+  }
 }

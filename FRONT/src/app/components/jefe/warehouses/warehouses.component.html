@@ -1,31 +1,20 @@
 <div class="general">
-    <div class="new-order">
-        
-    </div>
-    <div class="new-order">
-    </div>
     <section class="section">
-        <h1>lista de almacenes :</h1>
+      <p class="saludo">Hola,</p>
+      <h2>Estos son todos los almacenes:</h2>
+      <div class="content-alta">
+        <button class="edit-btn">Nuevo Almacén</button>
+      </div>
         @for(warehouse of warehouses; track $index){
-        <div class="container">
-            <div  class="card">
-                <h2></h2>
-                <p><strong>id almacén :</strong>{{warehouse.id}}</p>
-                <p><strong>localizacion :</strong> {{warehouse.location }}</p>
-                <i class="bi bi-alarm"></i>
-                <div>
-                    <i class="bi bi-basket"></i>
-           
-                   
-                </div>
+        <div class="content">
+            <div class="card-content">
+                <p><strong>Nº Almacén:</strong>{{warehouse.id}}</p>
+                <p><strong>Localizacion:</strong> {{warehouse.location }}</p>
             </div>
         </div>
         }
-
     </section>
 </div>
-
-
 
 <!-- @if(this.modalAdd === true){
 <app-add-warehouse (closeadd)="closeADD()"></app-add-warehouse>

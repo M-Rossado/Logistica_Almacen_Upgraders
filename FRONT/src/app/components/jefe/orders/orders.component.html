@@ -1,29 +1,22 @@
 
 <div class="general">
-    <div class="new-order">
-    </div>
     <section class="section">
-        <h1>lista de pedidos :</h1>
-        
+      <p class="saludo">Hola,</p>
+      <h2>Estos son todos los pedidos:</h2>
         @for(order of ordersList; track $index){
-<div class="container">
-    
-        <div class="card">
-            <h2></h2>
-            <p><strong>id pedido :</strong>{{order.id}}</p>
-          <p><strong>origen:</strong> {{ order.warehouse_location }}</p>
-          <p><strong>estado :</strong> {{ order.status }}</p>
-          <i class="bi bi-alarm"></i>
-          <i class="bi bi-basket"></i>
-          <button (click)="openDetails(order)" class="edit-btn">ver detalles </button>
-      </div>
-    
-       
-    </div>
-        }
+          <div class="card-content">
+            <!-- TODO: ver si los estados al final se pasan a icono o no -->
+            <p class="campo-list">Estado<span><strong><br>{{ order.status }}</strong></span></p>
+            <p class="campo-list none-mb"><span><strong><br>{{ order.id }}</strong></span></p>
+            <p class="campo-list">Origen<span><strong><br>{{ order.warehouse_location }}</strong></span></p>
 
+            <button (click)="openDetails(order)" class="edit-btn">Detalle</button>
+          </div>
+        }
+        <button class="edit-btn">Nuevo Almacén</button>
     </section>
 </div>
+
 
 @if(this.ShowDetails === true){
     <app-order-details [selectedEvent]="selectEvent" (closeModal)="CloseDEtails()" ></app-order-details>
