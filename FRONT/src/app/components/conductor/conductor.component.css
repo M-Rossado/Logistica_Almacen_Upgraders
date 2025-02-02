@@ -71,4 +71,11 @@ h2{
     cursor: pointer;
     transform: scale(1.05)
   }
+  .pedidos{
+    margin-top: 15px;
+    border-bottom: 2px solid white;
+  }
+  .pedidosDone{
+    margin-top: 15px;
+  }
 }
