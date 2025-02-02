@@ -14,7 +14,9 @@ h2{
   font-size: 16px;
   font-weight: 500;
 }
-
+.bi::before{
+  margin-right: 5px;
+}
 .card-content{
   background-color: #494949;
   padding: 10px;
