@@ -36,6 +36,7 @@ export class WorkersComponent {
      this.homeservice.getWorkers().subscribe({
        next: (data: any) => {
         this.workersList = data 
+        console.log(this.workersList)
        
        },
 

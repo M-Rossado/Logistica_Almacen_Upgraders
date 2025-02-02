@@ -12,7 +12,7 @@
 @for(ware of warehouses; track $index){
   <p> almacen de {{ware.location}}</p>
         @for(worker of workersList; track $index){
-          @if(ware.location === worker.warehouse_location){
+          @if(worker.warehouse_location === ware.location ){
             <div class="content">
               <div class="card-content">
                 <p><strong>Nombre</strong>{{ worker.name }}</p>
@@ -21,7 +21,11 @@
                 <p><strong>Almacén</strong>{{ worker.warehouse_location }}</p>
   
                 <!-- Acciones del empleado -->
-                <button [routerLink]="['/orderByWorker', worker.email]" class="edit-btn">Sus Pedidos</button>
+                 @if(worker.role === "operario"){
+                  <button [routerLink]="['/orderByWorker', worker.email]" class="edit-btn">Sus Pedidos</button>
+                 }
+                
+
                 <button (click)="openDEtails(worker)" class="edit-btn">ver detalles</button>
               </div>
             </div>

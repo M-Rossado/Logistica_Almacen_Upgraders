@@ -54,5 +54,10 @@ getWarehouse(){
   return this.http.post('http://localhost:3500/worker/newworker', newWorker)
  }
 
+ 
+ //servicio de truck place
+ getTruckPlace() {
+  return this.http.get('http://localhost:3500/worker/alltruckplates')
 
+}
 }
