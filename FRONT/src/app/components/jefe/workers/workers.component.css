@@ -49,10 +49,15 @@ h2{
 .edit-btn{
   background-color: #ee8941;
   color: white;
-  border-radius: 20px;
-  font-weight: 800;
-  padding: 5px 8px;
-  width: fit-content;
+  font-size: 20px;
+  border: none;
+  padding: 5px 50px;
+  font-weight: 600;
+  height: 50px;
+  border-radius: 35px;
+  margin: auto;
+  border: solid 1px #ee8941;
+  text-transform: uppercase;
 }
 
 @media (min-width: 992px) {

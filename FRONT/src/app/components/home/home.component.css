@@ -12,12 +12,32 @@ h1 span{
   font-weight: 700;
 }
 .header{
-  background: url('../../../assets/image/header-web.png') no-repeat center center/cover;
+  background: url('../../../assets/image/TSA6JK2HYBETRIGJYDHXWSENVQ.jpg') no-repeat center center/cover;
   z-index: -9; /* Coloca detrás del contenido */
   height: 150px;
   padding: 0px;
   margin-bottom: -20px;
 }
+.logo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+.logo img{
+  width: 270px;
+}
+
+.logout{
+  position: absolute;
+  width: 240px;
+  top: 95px;
+  right: 10px;
+  text-align: right;
+}
+
 .menu-header{
   display: flex;
   justify-content: space-between;
@@ -28,10 +48,15 @@ h1 span{
   opacity: 1;
 }
 .logout-btn{
-  background-color: #303030;
+  background-color: transparent;
   color: white;
   border-radius: 20px;
-  font-weight: 800;
   height: 40px;
-  padding: 2px 15px;
+  font-weight: 500;
+  transition: 150ms;
+  border: none;
+  }
+
+  .logout-btn:hover{
+    color: #ee8941;
   }

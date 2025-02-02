@@ -103,8 +103,6 @@ export class OperarioComponent {
     return order.id; // Devuelve un valor único, en este caso el ID del pedido
   }
 
-
-
   // Método que se llama cuando un nuevo pedido se crea
   refreshOrdersList() {
     const userEmail = localStorage.getItem('email');
@@ -130,6 +128,6 @@ export class OperarioComponent {
 
   // Método que cierra el formulario de edición
   closeEditOrder() {
-    this.showEditOrder = false;
+    this.showEditOrder = false; // Oculta el modal
   }
 }

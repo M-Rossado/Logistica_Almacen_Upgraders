@@ -1,6 +1,6 @@
 <div class="general">
     <div class="new-order">
-        <button (click)="showFormCreateOrder()">Crear pedido</button>
+        <button (click)="showFormCreateOrder()" class="btn-2">Crear pedido</button>
     </div>
     <section class="section">
         <p class="saludo">Hola, {{ name }}</p>
@@ -22,7 +22,7 @@
                             <p class="direccion">{{ order.destination }}</p>
                         </div>
                         <div class="card-2-icon">
-                            <button (click)="mostrarDetalle(order)" class="bi bi-clipboard2-plus-fill">Ver
+                            <button (click)="mostrarDetalle(order)" class="btn-1 bi bi-clipboard2-plus-fill">Ver
                                 detalle</button>
                         </div>
                     </div>
@@ -32,21 +32,16 @@
 
         <!-- Modal de detalle -->
         <!-- Modal de detalle -->
-<app-detalle-operario
-*ngIf="showDetail"
-[order]="selectedOrder"
-(closeModal)="closeDetail()"
-(openEditModal)="openEditOrder($event)">
-</app-detalle-operario>
+        <app-detalle-operario *ngIf="showDetail" [order]="selectedOrder" (closeModal)="closeDetail()"
+            (openEditModal)="openEditOrder($event)">
+        </app-detalle-operario>
 
         <!-- Modal de edición -->
-        <app-edit-order *ngIf="showEditOrder" [selectedOrder]="selectedOrder"
-            (closeEditOrder)="closeEditOrder()"></app-edit-order>
+        <app-edit-order *ngIf="showEditOrder" [selectedOrder]="selectedOrder" (closeEditOrder)="closeEditOrder()">
+        </app-edit-order>
 
         <!-- Modal de creación -->
-        <app-new-order
-            *ngIf="showCreateOrder"
-            (closeCreateOrder)="closeCreateOrder()">
+        <app-new-order *ngIf="showCreateOrder" (closeCreateOrder)="closeCreateOrder()">
         </app-new-order>
     </section>
 </div>
