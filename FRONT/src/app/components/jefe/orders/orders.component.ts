@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { HomeServiceService } from '../../service/home-service.service';
 import { OrderDetailsComponent } from '../modales/orders/order-details/order-details.component';
 import { AddWarehouseComponent } from "../modales/warehouse/add-warehouse/add-warehouse.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-orders',
@@ -22,6 +23,7 @@ private homeservice: HomeServiceService = inject(HomeServiceService)
  public lugar = localStorage.getItem("lugar")
  public workersList: any[] = [];
  public warehouses:any[] =[]
+ private router: Router = new Router;
 
   ngOnInit(): void {
     this.getEventos()
@@ -93,5 +95,9 @@ CloseDEtails(){
 closeADD(){
   this. modalAdd= false
 }
+
+comeback(){
+  this.router.navigate(['/home']);
+ }
 
 }

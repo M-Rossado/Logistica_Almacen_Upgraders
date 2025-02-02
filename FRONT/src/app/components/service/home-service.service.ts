@@ -39,7 +39,7 @@ getWarehouse(){
  }
 
  addNewWarehouse(newOne:any){
-  return this.http.post('http://localhost:3000/warehouse',newOne)
+  return this.http.post('http://localhost:3500/worker/newwarehouse',newOne)
  }
 
 

@@ -18,7 +18,6 @@ export class ConductorComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
   private Orderservice: OrderService = inject(OrderService)
   public ordersList: any = []
-  public userRole = localStorage.getItem('role')
   public name =  localStorage.getItem('nombre')
   public detalle: boolean = false
   public Showmodal:boolean = false;// paso #2

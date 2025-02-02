@@ -3,7 +3,7 @@ import { HomeServiceService } from '../../service/home-service.service';
 import { AddWorkerComponent } from '../modales/workers/add-worker/add-worker.component';
 
 import { DetailsWorkerComponent } from '../modales/workers/details-worker/details-worker.component';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-workers',
@@ -21,7 +21,9 @@ export class WorkersComponent {
   public addModal: boolean = false;
   public detailsModal:boolean = false;
   public warehouses:any[] =[]
-  public lugar = localStorage.getItem("lugar")
+  private router: Router = new Router;
+
+
   event: any ={}
 
 
@@ -87,5 +89,9 @@ this.selectEvent = event;
    }
    closeDEtails(){
     this.detailsModal = false
+   }
+
+   comeback(){
+    this.router.navigate(['/home']);
    }
 }

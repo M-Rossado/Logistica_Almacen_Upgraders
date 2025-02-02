@@ -21,7 +21,7 @@ export class HomeComponent {
   public ordersList: any = []
  
   public  userRole = localStorage.getItem('role');
-  public name = localStorage.getItem('role')
+  public name = localStorage.getItem('name')
 
   constructor(private router: Router) {}// use el constructor por que no me dejo usar el inject...
 

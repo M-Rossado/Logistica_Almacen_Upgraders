@@ -50,17 +50,19 @@ export class WarehouseComponent {
     })
   }
 
-  opendetails(warehouse: any) {
-    this.modalDetails = true
-    this.selectedEvent = warehouse
+  opendetails() {
+    this.modalAdd = true
+   
   }
 
-  closedetails() {
-    this.modalDetails = false
+  
+
+  closeADD(){
+    this.modalAdd = false
   }
 
- 
-
-
+  comeback(){
+    this.router.navigate(['/home']);
+   }
 
 }
