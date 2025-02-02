@@ -4,6 +4,7 @@ import { LoginComponent } from './auth/components/login/login.component';
 import { authRoleGuard } from './auth/guards/auth.guard';
 
 import { OrdersComponent } from './components/jefe/orders/orders.component';
+import { Error404Component } from './components/error404/error404.component';
 
 export const routes: Routes = [
 
@@ -14,6 +15,8 @@ export const routes: Routes = [
         redirectTo: 'login',
         pathMatch: 'full'
     },
+   
+
     {
         path: '',
 
@@ -24,7 +27,8 @@ export const routes: Routes = [
         canActivate: [authRoleGuard],
         loadChildren: () => import('./components/home.routes').then(m => m.HOME_ROUTES)
     },
-   
+    { path: '**', component: Error404Component }
+
 
 
 
