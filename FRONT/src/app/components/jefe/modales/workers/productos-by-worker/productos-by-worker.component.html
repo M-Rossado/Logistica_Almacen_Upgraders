@@ -1,4 +1,27 @@
 <p>productos-by-worker works!</p>
-@for(event of events; track $index){
-    <P>{{event.status}}</P>
-}
+
+<div class="general">
+<section class="section">
+  <h2>Estos son todos los pedidos:</h2>
+
+      @for(event of events; track $index){
+          
+      <div class="card-content">
+        <div class="campo-list ico-status">
+        </div>
+        <p class="campo-list none-mb">ID: <br><span><strong>{{ event.id_order }}</strong></span></p>
+        <p class="campo-list">Estado: <br><span><strong>{{ event.status }}</strong></span></p>
+        <p class="campo-list">almacen: <br><span><strong>{{ event.warehouse_location }}</strong></span></p>
+
+      </div>
+   
+        
+    }
+</section>      
+ </div>    
+          
+   
+   
+  
+  
+

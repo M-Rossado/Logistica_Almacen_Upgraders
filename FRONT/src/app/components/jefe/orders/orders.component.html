@@ -1,31 +1,44 @@
-
 <div class="general">
-    <section class="section">
-      <p class="saludo">Hola,</p>
-      <h2>Estos son todos los pedidos:</h2>
-        @for(order of ordersList; track $index){
-          <div class="card-content">
-            <div class="campo-list ico-status">
-              <i [class]="'bi ' + getIconClass(order.status)">
-                <!-- <br>{{ order.status }} -->
-              </i> <!-- Icono dinámico -->
-            </div>
-            <!-- <p class="campo-list">Estado<br><span><strong>{{ order.status }}</strong></span></p> -->
-            <p class="campo-list none-mb"><br><span><strong>{{ order.id }}</strong></span></p>
-            <p class="campo-list">Origen<br><span><strong>{{ order.warehouse_location }}</strong></span></p>
+  <section class="section">
+    <p class="saludo">Hola,</p>
+    <h2>Estos son todos los pedidos:</h2>
 
-            <button (click)="openDetails(order)" class="edit-btn">Detalle</button>
-          </div>
-        }
+    @for(ware of warehouses; track $index){
+      <h2>pedidos de: {{ware.location}}</h2>
+    @for(order of ordersList; track $index){
+    @if(order.warehouse_location === ware.location){
 
-    </section>
+    <div class="card-content">
+      <div class="campo-list ico-status">
+        <!-- <i [class]="'bi ' + getIconClass(order.status)">
+      <br>{{ order.status }}
+      </i> Icono dinámico -->
+      </div>
+      <p class="campo-list none-mb">ID: <br><span><strong>{{ order.id_order }}</strong></span></p>
+      <p class="campo-list">Estado: <br><span><strong>{{ order.status }}</strong></span></p>
+      <p class="campo-list">almacen: <br><span><strong>{{ order.warehouse_location }}</strong></span></p>
+
+      <button (click)="openDetails(order)" class="edit-btn">Detalle</button>
+    </div>
+    }
+    }
+
+
+    }
+
+
+
+   
+
+
+  </section>
 </div>
 
 
 @if(this.ShowDetails === true){
-    <app-order-details [selectedEvent]="selectEvent" (closeModal)="CloseDEtails()" ></app-order-details>
+<app-order-details [selectedEvent]="selectEvent" (closeModal)="CloseDEtails()"></app-order-details>
 }
 
 @if(this.modalAdd === true){
-    <app-add-warehouse (closeadd)="closeADD()"></app-add-warehouse>
-    }
+<app-add-warehouse (closeadd)="closeADD()"></app-add-warehouse>
+}

@@ -14,22 +14,25 @@ export class OrdersComponent {
 getIconClass(arg0: any) {
 throw new Error('Method not implemented.');
 }
-private homeservises: HomeServiceService = inject(HomeServiceService)
+private homeservice: HomeServiceService = inject(HomeServiceService)
   public ordersList: any = []
   public ShowDetails:boolean = false
  public selectEvent: any;
  public modalAdd: boolean = false
  public lugar = localStorage.getItem("lugar")
-
-
+ public workersList: any[] = [];
+ public warehouses:any[] =[]
 
   ngOnInit(): void {
     this.getEventos()
-
+   this.getWorkers()
+this.getWarehouses()
    }
 
+
+   
    getEventos(): void {
-     this.homeservises.getOrders().subscribe({
+     this.homeservice.getOrders().subscribe({
        next: (data: any) => {
          this.ordersList= data;
          console.log(data)
@@ -40,6 +43,35 @@ private homeservises: HomeServiceService = inject(HomeServiceService)
      });
 
    }
+
+
+   getWorkers(): void {
+    this.homeservice.getWorkers().subscribe({
+      next: (data: any) => {
+       this.workersList = data 
+      
+      },
+
+      error: (error) => {
+        console.log(error);
+      }
+    });
+   
+  }
+
+
+  getWarehouses(): void {
+   this.homeservice.getWarehouse().subscribe({
+     next: (data: any) => {
+       this.warehouses = data;
+       console.log(data)
+     },
+     error: (error) => {
+       console.log(error);
+     }
+   });
+
+ }
 
 openDetails(event:any){
 this.ShowDetails = true
