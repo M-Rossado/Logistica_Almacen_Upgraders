@@ -35,7 +35,7 @@ private router: Router = new Router;
 this.homeservice.addNewWarehouse(this.newOne).subscribe({
   next: (data:any) =>{
     alert('alacen creado con exito')
-    this.router.navigate(['/orders']);
+    this.router.navigate(['/warehouse']);
   }
 })
   }

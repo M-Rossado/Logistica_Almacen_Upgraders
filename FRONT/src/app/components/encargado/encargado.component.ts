@@ -14,7 +14,7 @@ export class EncargadoComponent implements OnInit {
 getIconClass(arg0: any) {
 throw new Error('Method not implemented.');
 }
-
+public name = localStorage.getItem('name')
   private homeservice: HomeServiceService = inject(HomeServiceService)
   public ordersList: any[] = [];
   public openEditar: boolean = false;

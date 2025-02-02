@@ -26,7 +26,7 @@ export class EditarComponent {
     date_of_departure: null,
     origin: '',
     destination: '',
-    worker_id_worker: '',
+    worker_email: '',
     warehouse_location: '',
     truck_plate: '',
     comment:''
@@ -44,7 +44,7 @@ export class EditarComponent {
   }
 
   getEdit() {
-    this.editOrder.id = this.selectedEvent?.id;
+    this.editOrder.id = this.selectedEvent?.id_order;
     this.editOrder.item_type = this.selectedEvent?.item_type;
     this.editOrder.status = this.selectedEvent?.status;
     this.editOrder.date_of_entry = this.selectedEvent?.date_of_entry;
@@ -52,7 +52,7 @@ export class EditarComponent {
     this.editOrder.origin = this.selectedEvent?.origin;
     this.editOrder.destination = this.selectedEvent?.destination;
     this.editOrder.warehouse_location = this.selectedEvent?.warehouse_location;
-    this.editOrder.worker_id_worker = this.selectedEvent?.worker_id_worker;
+    this.editOrder.worker_email = this.selectedEvent?.worker_email;
     this.editOrder.truck_plate = this.selectedEvent?.truck_plate;
     this.editOrder.comment = this.selectedEvent?.comment;
 
@@ -63,7 +63,7 @@ export class EditarComponent {
 this.homeservice.updateEvent(this.selectedEvent.id_order, this.editOrder).subscribe({
   next:(data: any) =>{
     alert('pedido actualizado correctamente')
-    this.router.navigate(['/home/home'])
+    this.router.navigate(['/home'])
     this.closeEditar()
   },error:(error)=>{
     console.log(error)
