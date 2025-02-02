@@ -18,7 +18,7 @@ export class ConductorComponent {
   private homeservice: HomeServiceService = inject(HomeServiceService)
   private Orderservice: OrderService = inject(OrderService)
   public ordersList: any = []
-  public name =  localStorage.getItem('nombre')
+  public name =  localStorage.getItem('name')
   public detalle: boolean = false
   public Showmodal:boolean = false;// paso #2
   public showDetail: boolean = false;
@@ -60,7 +60,7 @@ getIconClass(status: string): string {
   openEditModal(order: any) {
     this.closeDetail();
     this.selectedOrder = order; // Asigna el pedido seleccionado
-    //this.showDetail = false; // Cierra el modal de detalles
+   
     this.showEditOrder = true; // Abre el modal de edición
   }
 
