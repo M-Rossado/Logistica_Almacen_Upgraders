@@ -1,52 +1,82 @@
-.general{
+.general {
   background-color: #303030;
   color: white;
 }
-.saludo{
+
+.saludo {
   text-align: center;
   font-size: 25px;
   text-transform: uppercase;
   font-weight: 700;
 }
-h2{
+
+h2 {
   text-align: center;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 500;
 }
-.content-alta{
+
+.content-alta {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin: 15px auto;
+  gap: 10px;
 }
 
-.card-content{
+.hidden{
+  display: none;
+}
+
+.card-content {
   background-color: #494949;
   padding: 10px;
   margin: 10px;
   display: flex;
   vertical-align: middle;
-  flex-direction: row;
   align-items: anchor-center;
   justify-content: space-between;
+  flex-direction: column
 }
 
-.campo-list{
+.title {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.card-content-2 button::before {
+  margin-right: 5px;
+}
+
+.card-content-1 {
+  width: 100%;
+  text-align: center;
+}
+
+.card-content-2 {
+  display: flex;
+  gap: 10px;
+}
+
+.campo-list {
   font-size: 14px;
   width: 100px;
 }
-.campo-list span{
+
+.campo-list span {
   font-size: 18px;
 }
+
 .campo-list.ico-status {
   font-size: 35px;
   width: 40px;
 }
-.none-mb{
+
+.none-mb {
   display: none;
 }
 
-.edit-btn{
+.edit-btn {
   background-color: #ee8941;
   color: white;
   font-size: 20px;
@@ -61,26 +91,29 @@ h2{
 }
 
 @media (min-width: 992px) {
-  .card-content{
+  .card-content {
     justify-content: space-between;
     gap: 15px;
   }
-  .none-mb{
+
+  .none-mb {
     display: block;
     width: 60px;
   }
 }
+
 @media (min-width: 1200px) {
-  .card-content{
+  .card-content {
     justify-content: space-around;
   }
 
-  .edit-btn:hover{
+  .edit-btn:hover {
     background-color: #c06627;
     cursor: pointer;
     transform: scale(1.05)
   }
-  .hidden{
+
+  .hidden {
     visibility: hidden;
   }
 }

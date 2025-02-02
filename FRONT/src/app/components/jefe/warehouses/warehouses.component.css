@@ -16,8 +16,9 @@ h2{
 }
 .content-alta{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin: 15px auto;
+  gap: 10px;
 }
 
 .card-content{
@@ -26,9 +27,17 @@ h2{
   margin: 10px;
   display: flex;
   vertical-align: middle;
-  flex-direction: row;
-  align-items: anchor-center;
+  flex-direction: column;
+    align-items: anchor-center;
   justify-content: space-between;
+}
+
+.card-content p{
+  margin: 0;
+}
+
+.location{
+  font-weight: 700;
 }
 
 .campo-list{

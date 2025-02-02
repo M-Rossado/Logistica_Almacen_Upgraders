@@ -1,12 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { HomeServiceService } from '../service/home-service.service';
 import { EditarComponent } from './modal/editar/editar.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-encargado',
   standalone: true,
-  imports: [EditarComponent,CommonModule], // Add necessary Angular modules if needed
+  imports: [EditarComponent,CommonModule, DatePipe], // Add necessary Angular modules if needed
   templateUrl: './encargado.component.html',
   styleUrls: ['./encargado.component.css'] // Fixed typo
 })

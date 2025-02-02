@@ -4,9 +4,7 @@
     </div>
     <section class="section">
         <p class="saludo">Hola, {{ name }}</p>
-        <h2>estos son tus pedidos gestionados</h2>
-
-        <!-- Iteración sobre la lista de pedidos con *ngFor -->
+        <h2>Estos son tus pedidos gestionados</h2>
         <div class="list-element-group">
             <div *ngFor="let order of orderList; trackBy: trackOrderById" class="list-element">
                 <div class="card">

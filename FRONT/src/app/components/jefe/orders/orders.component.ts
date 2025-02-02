@@ -3,18 +3,19 @@ import { HomeServiceService } from '../../service/home-service.service';
 import { OrderDetailsComponent } from '../modales/orders/order-details/order-details.component';
 import { AddWarehouseComponent } from "../modales/warehouse/add-warehouse/add-warehouse.component";
 import { Router } from '@angular/router';
+import { ICON_MAPPER } from '../../../../assets/icon-mapper'; // Importa el mapeo
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [OrderDetailsComponent, AddWarehouseComponent],
+  imports: [OrderDetailsComponent, AddWarehouseComponent, DatePipe],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.css'
 })
 export class OrdersComponent {
-getIconClass(arg0: any) {
-throw new Error('Method not implemented.');
-}
+
 private homeservice: HomeServiceService = inject(HomeServiceService)
   public ordersList: any = []
   public ShowDetails:boolean = false
@@ -31,7 +32,10 @@ private homeservice: HomeServiceService = inject(HomeServiceService)
 this.getWarehouses()
    }
 
-
+  // Función para obtener la clase del ícono dinámicamente
+  getIconClass(status: string): string {
+    return ICON_MAPPER[status] || 'bi-question-circle-fill text-muted'; // Icono por defecto si no coincide
+  }
    
    getEventos(): void {
      this.homeservice.getOrders().subscribe({

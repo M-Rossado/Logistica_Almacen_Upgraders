@@ -2,11 +2,12 @@ import { Component, EventEmitter, inject, Input, Output, } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HomeServiceService } from '../../../service/home-service.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-editar',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, DatePipe],
   templateUrl: './editar.component.html',
   styleUrl: './editar.component.css'
 })

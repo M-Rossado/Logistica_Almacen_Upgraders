@@ -1,12 +1,11 @@
-
-<!-- //ESTILOS MEJORADOS -->
 <div class="general">
   <section class="section">
       <p class="saludo">Hola {{name}}</p>
-      <div>
-        <h2>Pedidos Pendientes de Revisión</h2>
+      <h2>Pedidos Pendientes de Revisión</h2>
+
+      <div class="list-element-group">
         @for(order of ordersList; track $index){
-          @if(order.status === "REVISION"){
+          @if(order.status === "Revisión"){
             <div class="card-content">
               <div class="campo-list ico-status">
                   <!-- <i [class]="'bi ' + getIconClass(order.status)">
@@ -14,14 +13,14 @@
                   </i> Icono dinámico -->
               </div>
               <!-- <p class="campo-list">Estado<br><span><strong>{{ order.status }}</strong></span></p> -->
-              <p class="campo-list none-mb">Id: <br><span><strong>{{ order.id_order }}</strong></span></p>
-              <p class="campo-list">Tipo de paquete: <br><span><strong>{{ order.item_type }}</strong></span></p>
-              <p class="campo-list">F. entrada: <br><span><strong>{{ order.date_of_entry }}</strong></span></p>
-              <p class="campo-list">F. salida: <br><span><strong>{{ order.date_of_departure }}</strong></span></p>
-              <p class="campo-list">Destino: <br><span><strong>{{ order.destination }}</strong></span></p>
+              <p class="campo-list none-mb">Id: {{ order.id_order }}</p>
+              <p class="campo-list">{{ order.item_type }}</p>
+              <p class="campo-list">Fecha entrada: {{ order.date_of_entry | date: 'dd/MM/yy' }}</p>
+              <p class="campo-list">Fecha salida: {{ order.date_of_departure | date: 'dd/MM/yy' }}</p>
+              <p class="campo-list">Destino: {{ order.destination }}</p>
 
 
-                <button (click)="openEdiatar(order)" class="edit-btn">Editar</button>
+                <button (click)="openEdiatar(order)" class="btn-1">Editar</button>
             </div>
           }
         }
@@ -30,24 +29,26 @@
 
       <div>
         <h2>Pedidos Listos para Entregar</h2>
-        @for(order of ordersList; track $index){
-          @if(order.status !== "REVISION"){
-            <div class="card-content">
-              <div class="campo-list ico-status">
-                <!-- <i [class]="'bi ' + getIconClass(order.status)">
-                   <br>{{ order.status }} 
-                </i> Icono dinámico -->
+        <div class="list-element-group">
+          @for(order of ordersList; track $index){
+            @if(order.status !== "Revisión"){
+              <div class="card-content">
+                <div class="campo-list ico-status">
+                  <!-- <i [class]="'bi ' + getIconClass(order.status)">
+                     <br>{{ order.status }} 
+                  </i> Icono dinámico -->
+                </div>
+                <!-- <p class="campo-list">Estado<strong><br>{{ order.status }}</strong></p> -->
+                <p class="campo-list none-mb"><br><span><strong>{{ order.id_order }}</strong></span></p>
+                <p class="campo-list">Tipo de paquete:<br><span><strong>{{ order.item_type }}</strong></span></p>
+                <p class="campo-list">F. entrada:<br><span><strong>{{ order.date_of_entry | date: 'dd/MM/yyyy' }}</strong></span></p>
+                <p class="campo-list">F. salida:<br><span><strong>{{ order.date_of_departure | date: 'dd/MM/yyyy' }}</strong></span></p>
+                <p class="campo-list">Destino:<br><span><strong>{{ order.destination }}</strong></span></p>
+                <button (click)="openEdiatar(order)" class="edit-btn hidden">Editar</button>
               </div>
-              <!-- <p class="campo-list">Estado<strong><br>{{ order.status }}</strong></p> -->
-              <p class="campo-list none-mb"><br><span><strong>{{ order.id_order }}</strong></span></p>
-              <p class="campo-list">Tipo de paquete:<br><span><strong>{{ order.item_type }}</strong></span></p>
-              <p class="campo-list">F. entrada:<br><span><strong>{{ order.date_of_entry | date: 'dd/MM/yyyy' }}</strong></span></p>
-              <p class="campo-list">F. salida:<br><span><strong>{{ order.date_of_departure | date: 'dd/MM/yyyy' }}</strong></span></p>
-              <p class="campo-list">Destino:<br><span><strong>{{ order.destination }}</strong></span></p>
-              <button (click)="openEdiatar(order)" class="edit-btn hidden">Editar</button>
-            </div>
+            }
           }
-        }
+        </div>
       </div>
   </section>
 </div>

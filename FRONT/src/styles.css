@@ -42,6 +42,20 @@ body{
     text-transform: uppercase;
 }
 
+.back {
+    background: #ee8941;
+    height: 50px;
+    width: 50px;
+    border-radius: 9px;
+    border: none;
+    color: white;
+    font-size: 29px;
+  }
+  
+  #create {
+    margin: 0;
+  }
+  
 @media (min-width: 690px) {
 
 }

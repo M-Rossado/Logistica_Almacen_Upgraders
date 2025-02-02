@@ -1,24 +1,27 @@
 <div class="general">
-  <button (click)="comeback()" >volver atras</button>
+  <div class="button">
+    <button (click)="comeback()" class="btn-2">volver atras</button>
+  </div>
   <section class="section">
- 
+    
     <h2>Estos son todos los pedidos:</h2>
 
     @for(ware of warehouses; track $index){
-      <h2>pedidos de: {{ware.location}}</h2>
+      <h3>pedidos de: {{ware.location}}</h3>
     @for(order of ordersList; track $index){
     @if(order.warehouse_location === ware.location){
 
     <div class="card-content">
       <div class="campo-list ico-status">
-        <!-- <i [class]="'bi ' + getIconClass(order.status)">
-      <br>{{ order.status }}
-      </i> Icono dinámico -->
+        <i [class]="'bi ' + getIconClass(order.status)"></i> <!-- Icono dinámico -->
+        <p>{{ order.status }}</p>
       </div>
-      <p class="campo-list none-mb">ID: <br><span><strong>{{ order.id_order }}</strong></span></p>
-      <p class="campo-list">Estado: <br><span><strong>{{ order.status }}</strong></span></p>
-      <p class="campo-list">almacen: <br><span><strong>{{ order.warehouse_location }}</strong></span></p>
-
+      <div class="card-content-element">
+        <p class="campo-list none-mb">ID:{{ order.id_order }}</p>
+        <p class="campo-list">Almacen: {{ order.warehouse_location }}</p>
+        <p class="campo-list">Salida: {{ order.date_of_departure | date: 'dd/MM/yy' }}</p>  
+      </div>
+      
       <button (click)="openDetails(order)" class="btn-1 bi bi-clipboard2-plus-fill">Ver detalle</button>
     </div>
     }

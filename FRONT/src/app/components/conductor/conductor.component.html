@@ -1,7 +1,10 @@
 <div class="general">
   <section class="section">
       <p class="saludo">Hola, {{ name }}</p>
-      <h2>estos son tus pedidos asignados</h2>
+      <h2>Estos son tus pedidos asignados</h2>
+      <div class="list-element-group">
+        
+      </div>
       @for(order of ordersList; track $index){
       <div class="card-content">
         <div class="campo-list ico-status">

@@ -1,23 +1,46 @@
-.general{
+.general {
   background-color: #303030;
   color: white;
 }
-.saludo{
+
+.section{
+  display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+  
+}
+
+.saludo {
   text-align: center;
   font-size: 25px;
   text-transform: uppercase;
   font-weight: 700;
 }
-h2{
+
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+h3 {
   text-align: center;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 500;
 }
-.bi::before{
+
+.bi::before {
   margin-right: 5px;
 }
-.card-content{
+
+.button {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.card-content {
   background-color: #494949;
   padding: 10px;
   margin: 10px;
@@ -26,24 +49,42 @@ h2{
   flex-direction: row;
   align-items: anchor-center;
   justify-content: space-between;
+  width: 95%;
 }
 
-.campo-list{
+.campo-list {
   font-size: 14px;
-  width: 100px;
+
 }
-.campo-list span{
+
+p{
+  margin: 0;
+}
+
+.campo-list span {
   font-size: 18px;
 }
-.campo-list.ico-status {
-  font-size: 35px;
-  width: 40px;
-}
-.none-mb{
+
+.ico-status p{
   display: none;
 }
 
-.edit-btn{
+.campo-list.ico-status {
+  border-right: solid 1px white;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  margin-left: -5px;
+}
+.campo-list .bi{
+  font-size: 30px;
+}
+
+.none-mb {
+  display: none;
+}
+
+.edit-btn {
   background-color: #ee8941;
   color: white;
   border-radius: 20px;
@@ -52,23 +93,106 @@ h2{
   width: fit-content;
 }
 
-@media (min-width: 992px) {
-  .card-content{
-    justify-content: space-around;
-  }
-  .none-mb{
-    display: block;
-    width: 60px;
-  }
-}
-@media (min-width: 1200px) {
-  .card-content{
-    justify-content: space-around;
+@media (min-width: 690px) {
+
+  .card-content {
+    width: 40%;
   }
 
-  .edit-btn:hover{
-    background-color: #c06627;
-    cursor: pointer;
-    transform: scale(1.05)
+  .list-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
+  }
+
+  .list-element {
+    width: 40%;
+  }
+
+  .list-element-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+    padding-bottom: 50px;
+  }
+
+  .card {
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 300px;
+  }
+
+  .card-1 p {
+    display: block;
+  }
+
+  .card-1 {
+    flex-direction: row;
+    align-items: center;
+    border: none;
+    border-bottom: solid 1px white;
+    padding-bottom: 5px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .card-1 .bi {
+    font-size: 20px;
+    margin-right: 5px;
+  }
+
+  .card-2 {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .card-2-icon {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 20px 0 10px;
+    width: 100%;
+  }
+
+  .card-2 .bi {
+    font-size: 15px;
+    display: flex;
+  }
+
+  .card-2-inf {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .card-2-inf>* {
+    padding: 10px 0;
+    border-bottom: solid 1px rgb(94, 94, 94);
+  }
+
+  .card-2 span {
+    font-size: 16px;
+    margin-left: 5px;
+  }
+
+  .card-2-icon button::before {
+    padding-top: 5px;
+    margin-right: 5px;
+  }
+
+  button span {
+    display: block;
+  }
+
+  .direccion {
+    font-size: 15px;
+    min-height: 85px;
+    display: flex;
+    align-items: center;
   }
 }
