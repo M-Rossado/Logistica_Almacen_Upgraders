@@ -17,8 +17,7 @@ export class EditOrderComponent {
   @Input() selectedEvent: any;
   @Input() selectedOrder: any;
   @Output() closeEditOrder = new EventEmitter<void>();
-
-
+  @Output() closeModal = new EventEmitter<void>(); // Evento para cerrar el modal
 
   public editOrder = {
     item_type: '',
@@ -35,6 +34,10 @@ export class EditOrderComponent {
   ngOnInit() {
     console.log('selectedEvent:', this.selectedEvent); // Verifica si selectedEvent tiene un valor
     this.getEdit();
+  }
+
+  Close(){
+    this.closeEditOrder.emit(); // Notifica al padre para cerrar el modal
   }
 
   getEdit() {

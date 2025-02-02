@@ -1,7 +1,8 @@
-<img src="../../../../assets/image/red-truck.jpg" alt="Logo o imagen de encabezado" class="img-login"/>
-<div class="container">
+<div class="container" id="background">
     <form (ngSubmit)="handleLoginForm()" class="form">
-      <h2 class="form-title"><strong>E</strong>CARRIAGE</h2>
+      <div class="logo">
+        <img src="../../../../assets/image/logotipo_etruck_light.png" alt="">
+      </div>
 
       <input
       id="email"
@@ -22,6 +23,6 @@
       required
     />
 
-      <button type="submit" class="form-button">Enviar formulario</button>
+      <button type="submit" class="form-button">Iniciar sesión</button>
     </form>
   </div>

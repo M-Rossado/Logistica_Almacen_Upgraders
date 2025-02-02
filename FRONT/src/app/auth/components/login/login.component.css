@@ -5,13 +5,14 @@
 }
 .container {
   max-width: 1200px;
+  align-items: center;
   margin: 0 auto;
   display: flex;
   padding-top: 3rem;
   justify-content: center;
-  align-items: flex-start;
   height: 100vh;
   background: #303030;
+  background-image: url(../../../../assets/image/TSA6JK2HYBETRIGJYDHXWSENVQ.jpg);
   }
 .form {
   border-radius: 8px;
@@ -20,6 +21,7 @@
     align-items: center;
     flex-direction: column;
     width: 90%;
+    margin-top: -30px;
 }
 
 .form-title {
@@ -46,11 +48,32 @@ label {
   padding: 0.8rem;
   border-radius: 25px;
   font-size: 1rem;
-  background-color: #5b5b5b;
-  color: #ffffff;
+  background-color: transparent;
+  color: white;
+  border: solid 1px #ee8941;
+  margin: 0px auto 20px;
+  max-width: 530px;
 }
+
+.form-input:focus{
+  border: solid 1px white;
+}
+
 .form-input::placeholder {
   color: rgb(155, 155, 155);
+}
+
+.logo{
+  text-align: center;
+}
+
+.logo img{
+  width: 80%;
+  max-width: 450px;
+}
+
+#background{
+  max-width: 100%;
 }
 
 .form-input:focus {
@@ -68,6 +91,7 @@ label {
   font-size: 1rem;
   cursor: pointer;
   width: 70%;
+  max-width: 220px;
 }
 
 .form-button:hover {

@@ -12,3 +12,36 @@ body{
     margin: 0;
     background-color: #303030;
 }
+
+
+.btn-1 {
+    border: solid 1px #ee8941;
+    border-radius: 50px;
+    padding: 5px 18px;
+    transition: 150ms;
+    background-color: transparent;
+    color: white;
+}
+
+.btn-1:hover {
+    padding: 5px 18px;
+    background-color: #ee8941;
+}
+
+.btn-2{
+    background-color: #ee8941;
+    color: white;
+    font-size: 20px;
+    border: none;
+    padding: 5px 50px;
+    font-weight: 600;
+    height: 50px;
+    border-radius: 35px;
+    margin: auto;
+    border: solid 1px #ee8941;
+    text-transform: uppercase;
+}
+
+@media (min-width: 690px) {
+
+}

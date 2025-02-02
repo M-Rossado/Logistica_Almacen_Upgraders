@@ -24,8 +24,8 @@ getOrderByid(email:string){
 // servcios del encargado
 
 getOrdersEncargado() {
-  // return this.http.get('http://localhost:3500/order/searchorderby/location')
-  return this.http.get('http://localhost:3000/order')
+  return this.http.get('http://localhost:3500/order/searchorderby/location')
+  //return this.http.get('http://localhost:3000/order')
  }
 
  updateEvent(id: string, editUpdate: any) {
