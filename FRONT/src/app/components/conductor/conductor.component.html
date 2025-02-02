@@ -14,6 +14,7 @@
         <p class="campo-list">F. salida:<br><span><strong>{{ order.date_of_departure | date: 'dd/MM/yy' }}</strong></span> </p>
         <p class="campo-list">destino:<br><span><strong>{{ order.destination }}</strong></span></p>
         <button (click)="mostrarDetalle(order)" class="edit-btn">Detalle</button>
+        <button (click)="openEditModal(order)" class="edit-btn">editar</button>
       </div>
       }
       @if(this.showDetail === true){

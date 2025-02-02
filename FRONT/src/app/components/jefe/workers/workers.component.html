@@ -15,17 +15,18 @@
           @if(worker.warehouse_location === ware.location ){
             <div class="content">
               <div class="card-content">
-                <p><strong>Nombre</strong>{{ worker.name }}</p>
-                <p><strong>Apellidos</strong>{{ worker.surname }}</p>
+                <p><strong>Nombre</strong>{{ worker.name }} {{ worker.surname }}</p>
                 <p><strong>Puesto</strong>{{ worker.role }}</p>
                 <p><strong>Almacén</strong>{{ worker.warehouse_location }}</p>
   
                 <!-- Acciones del empleado -->
-                 @if(worker.role === "operario"){
+                 @if(worker.role === "operario" ||worker.role ===  "camionero"){
                   <button [routerLink]="['/orderByWorker', worker.email]" class="edit-btn">Sus Pedidos</button>
                  }
                 
-
+                 @if(worker.role !== "operario" && worker.role !==  "camionero"){
+                  <button  class="edit-btn hidden">ocultar</button>
+                 }
                 <button (click)="openDEtails(worker)" class="edit-btn">ver detalles</button>
               </div>
             </div>

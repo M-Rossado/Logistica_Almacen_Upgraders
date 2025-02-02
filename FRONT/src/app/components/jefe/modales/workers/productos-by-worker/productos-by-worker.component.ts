@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterModule, ActivatedRoute} from '@angular/router';
+import { RouterModule, ActivatedRoute, Router} from '@angular/router';
 import { HomeServiceService } from '../../../../service/home-service.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class ProductosByWorkerComponent {
   private activatedRoute = inject(ActivatedRoute);
 events: any ={}
 private email: string =""
-
+private router: Router = new Router;
 
 
 ngOnInit(){
@@ -36,4 +36,9 @@ ngOnInit(){
     })
   })
   }
+
+
+  comeback(){
+    this.router.navigate(['/home']);
+   }
 }
