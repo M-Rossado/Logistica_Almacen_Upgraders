@@ -42,5 +42,8 @@ const selectAllWorkers = async () => {
     return result[0];
 };
 
-
-module.exports = { insertWorker, selectById, selectByEmail, insertWarehouse, selectbyLocation, selectAllWorkers }
+const selectAllPlates = async () => {
+    const result = await pool.query("SELECT * FROM truck");
+    return result[0];
+};
+module.exports = { insertWorker, selectById, selectByEmail, insertWarehouse, selectbyLocation, selectAllWorkers, selectAllPlates }

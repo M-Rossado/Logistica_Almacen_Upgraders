@@ -11,9 +11,9 @@ export class HomeServiceService {
 
  // servicios genrales
  getOrders() {
-  // return this.http.get('http://localhost:3500/order/managerseachorders')
+  return this.http.get('http://localhost:3500/order/managerseachorders')
  
-  return this.http.get('http://localhost:3000/order')
+  // return this.http.get('http://localhost:3000/order')
  
  }
 getOrderByid(email:string){
@@ -24,8 +24,8 @@ getOrderByid(email:string){
 // servcios del encargado
 
 getOrdersEncargado() {
-  return this.http.get('http://localhost:3500/order/searchorderby/location')
-  //return this.http.get('http://localhost:3000/order')
+   return this.http.get('http://localhost:3500/order/searchorderby/location')
+  // return this.http.get('http://localhost:3000/order')
  }
 
  updateEvent(id: string, editUpdate: any) {
@@ -39,12 +39,10 @@ getWarehouse(){
  }
 
  addNewWarehouse(newOne:any){
-  return this.http.post('http://localhost:3000/warehouse',newOne)
+  return this.http.post('http://localhost:3500/worker/newwarehouse',newOne)
  }
 
- deleteWarehouse(id:string){
-  return this.http.delete('http://localhost:3000/warehouse/'+ id)
-  }
+
 
 
  //servicio de trabajadores
@@ -56,5 +54,10 @@ getWarehouse(){
   return this.http.post('http://localhost:3500/worker/newworker', newWorker)
  }
 
+ 
+ //servicio de truck place
+ getTruckPlace() {
+  return this.http.get('http://localhost:3500/worker/alltruckplates')
 
+}
 }

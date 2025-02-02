@@ -48,7 +48,7 @@ export class LoginComponent {
           localStorage.setItem('lugar',data.lugar);
           localStorage.setItem('email', data.email);
           localStorage.setItem('warehouse_location', data.warehouse_location);
-         this.router.navigate(['/home/home'])
+         this.router.navigate(['/home'])
        },
        error: (error) => {
          alert('usuario o conrasena no encontrados ');

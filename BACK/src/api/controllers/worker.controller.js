@@ -1,4 +1,4 @@
-const { insertWorker, selectById, selectByEmail, insertWarehouse, selectbyLocation, selectAllWorkers } = require("../models/worker.model")
+const { insertWorker, selectById, selectByEmail, insertWarehouse, selectbyLocation, selectAllWorkers, selectAllPlates } = require("../models/worker.model")
 const bcrypt = require("bcrypt");
 const { createToken, checkRolJefe } = require("../../utils/jwt");
 
@@ -104,4 +104,26 @@ const getAllWorkers = async (req, res) => {
     }
 };
 
-module.exports = { createNewWorker, login, createNewWarehouse, getAllWorkers }
+const getAllTruckPlates = async (req, res) => {
+
+    try {
+        // Verificación del rol
+        if (!checkRolJefe(req.user.role)) {
+            return res.status(403).json({ error: 'Acceso denegado. Debe ser jefe.' }); // Si el rol no es adecuado
+        }
+
+        const result = await selectAllPlates(req.user);
+
+        if (result.length === 0) {
+            return res.status(404).json({ error: 'Matriculas no encontrados' });
+        }
+
+        return res.json(result)// Devolver las matriculas en formato JSON
+
+    } catch (error) {
+        console.error('Error al buscar matriculas:', error);
+        return res.status(500).json({ error: 'Hubo un error al obtener las matriculas' });
+    }
+};
+
+module.exports = { createNewWorker, login, createNewWarehouse, getAllWorkers, getAllTruckPlates }

@@ -40,22 +40,7 @@ export class WarehouseComponent {
     });
 
   }
-  deleteWarehouse(warehouseId:any){
-    if(confirm("estas seguro que deseas eliminar esta tienda?")){
-      this.homeservice.deleteWarehouse(warehouseId).subscribe({
-        next:() => {
-
-          this.warehouses = this.warehouses.filter((warehouse:any )=> warehouse.id !== warehouseId.id)
-          alert('evento eliminado correctamente')
-        },
-        error: (error) => {
-          console.log(error)
-         }
-
-      })
-
-    }
-  }
+  
 
   getWorkers(){
     this.homeservice.getWorkers().subscribe({
@@ -65,17 +50,19 @@ export class WarehouseComponent {
     })
   }
 
-  opendetails(warehouse: any) {
-    this.modalDetails = true
-    this.selectedEvent = warehouse
+  opendetails() {
+    this.modalAdd = true
+   
   }
 
-  closedetails() {
-    this.modalDetails = false
+  
+
+  closeADD(){
+    this.modalAdd = false
   }
 
- 
-
-
+  comeback(){
+    this.router.navigate(['/home']);
+   }
 
 }

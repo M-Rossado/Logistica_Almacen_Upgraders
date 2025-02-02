@@ -5,27 +5,33 @@
       <h2>Editar Estado del Pedido</h2>
     </div>
     <div class="modal-body">
+
+<h3>Id: {{editOrder.id}}</h3>
+<h3>Fecha de entrada: {{editOrder.date_of_entry}} </h3>
+<h3>fecha de salida: {{editOrder.date_of_departure}}</h3>
+<h3>Destino: {{editOrder.destination}}</h3>
+
+
+
+
         <form action="/submit" (ngSubmit)="handleEdit()">
           <div class="form-group">
             <label for="location">Estado:</label>
             <select [(ngModel)]="editOrder.status" name="location" id="location" required>
                 <option value="" disabled selected>Seleccionar location</option>
-                <option value="EN TRANCITO">aceptado</option>
+                <option value="EN TRANSITO">aceptado</option>
                 <option value="anulado">anulado</option>
+                <option value="rechazado">rechazado</option>
               </select>
           </div>
 
 
-          <div class="form-group">
-            <label for="date_of_departure"><strong>Fecha de salida</strong></label>
-            <input
-              type="date" [(ngModel)]="editOrder.date_of_departure" name="date_of_departure" id="date_of_departure" [min]="minDate"required>
-          </div>
+         
 
           <div class="form-group">
-            <label for="comment"><strong>comment</strong></label>
+            <label for="comment"><strong>Comentario</strong></label>
             <input
-              type="texarea" [(ngModel)]="editOrder.comment" name="comment" id="comment" placeholder="solo si es anulado " >
+              type="texarea" [(ngModel)]="editOrder.comment" name="comment" id="comment" placeholder="Solo si es anulado">
           </div>
 
           <div class="buttons">

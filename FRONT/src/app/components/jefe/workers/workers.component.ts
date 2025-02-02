@@ -3,7 +3,7 @@ import { HomeServiceService } from '../../service/home-service.service';
 import { AddWorkerComponent } from '../modales/workers/add-worker/add-worker.component';
 
 import { DetailsWorkerComponent } from '../modales/workers/details-worker/details-worker.component';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-workers',
@@ -20,22 +20,25 @@ export class WorkersComponent {
   public editModal:boolean = false;
   public addModal: boolean = false;
   public detailsModal:boolean = false;
-  private activatedRoute = inject(ActivatedRoute);
-  public lugar = localStorage.getItem("lugar")
+  public warehouses:any[] =[]
+  private router: Router = new Router;
+
+
   event: any ={}
-private email: string =""
+
 
 
   ngOnInit(): void {
   
     this.getWorkers()
-    
+    this.getWarehouses()
    }
  
    getWorkers(): void {
      this.homeservice.getWorkers().subscribe({
        next: (data: any) => {
         this.workersList = data 
+        console.log(this.workersList)
        
        },
 
@@ -46,14 +49,20 @@ private email: string =""
     
    }
 
-   
 
-    
-   
+   getWarehouses(): void {
+    this.homeservice.getWarehouse().subscribe({
+      next: (data: any) => {
+        this.warehouses = data;
+        console.log(data)
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
 
-
-
-
+  }
+  
    openaddWorker(){
       this.addModal = true;
    
@@ -80,5 +89,9 @@ this.selectEvent = event;
    }
    closeDEtails(){
     this.detailsModal = false
+   }
+
+   comeback(){
+    this.router.navigate(['/home']);
    }
 }

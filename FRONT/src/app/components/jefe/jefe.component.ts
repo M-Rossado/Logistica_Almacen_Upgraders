@@ -13,7 +13,7 @@ import { AddWarehouseComponent } from './modales/warehouse/add-warehouse/add-war
 })
 export class JefeComponent {
 
-
+  public name = localStorage.getItem('name')
 private homeservice: HomeServiceService = inject(HomeServiceService)
 public ordersList: any = []
 public ShowOrders:boolean = false;// paso #2

@@ -5,7 +5,7 @@
         <h2>Detalle del Pedido</h2>
         <button type="button" (click)="Close()" class="close">x</button>
       </div>
-      <div class="elements">    
+      <div class="elements">
         <div class="form-group">
           <p for="item_type">Tipo de artículo: <span>{{ order.item_type }}</span></p>
         </div>
@@ -15,25 +15,25 @@
         </div>
 
         <div class="form-group">
-          <p for="status">Fecha de entrada: <span>{{ order.date_of_entry | date: 'dd/MM/yy' }}</span></p>
+          <p for="status">F. Entrada: <span>{{ order.date_of_entry | date: 'dd/MM/yy' }}</span></p>
         </div>
 
         <div class="form-group">
-          <p for="date_of_departure">Fecha de salida: <span>{{ order.date_of_departure | date: 'dd/MM/yy' }}</span></p>
+          <p for="date_of_departure">F. Salida: <span>{{ order.date_of_departure | date: 'dd/MM/yy' }}</span></p>
         </div>
 
         <div class="form-group">
-          <p for="destination">Destino: <span>{{ order.destination }}</span></p>
+          <p for="destination">Destino:<span>{{ order.destination }}</span></p>
           <p></p>
 
         </div>
 
         <div class="form-group">
-          <p for="warehouse_location">Ubicación del almacén: <span>{{ order.warehouse_location }}</span></p>
+          <p for="warehouse_location">Ubicación Almacén: <span>{{ order.warehouse_location }}</span></p>
         </div>
 
         <div class="form-group">
-          <p for="warehouse_location">Camionero asignado: <span class="email">{{ order.worker_email }}</span></p>
+          <p for="warehouse_location">Camionero Asignado: <span class="email">{{ order.worker_email }}</span></p>
         </div>
 
         <div class="form-group">

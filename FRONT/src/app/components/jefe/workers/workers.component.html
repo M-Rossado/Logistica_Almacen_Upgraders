@@ -2,28 +2,40 @@
 
 
 <div class="general">
+  <button (click)="comeback()" >volver atras</button>
     <section class="section">
-      <p class="saludo">Hola,</p>
-      <h2>Estos son todos los empreados:</h2>
       <div class="content-alta">
         <button (click)="openaddWorker()" class="btn-2">Nuevo Empleado</button>
       </div>
-        @for(worker of workersList; track $index){
-          <div class="content">
-            <div class="card-content">
-              <p><strong>Nombre</strong>{{ worker.name }}</p>
-              <p><strong>Apellidos</strong>{{ worker.surname }}</p>
-              <p><strong>Puesto</strong>{{ worker.role }}</p>
-              <p><strong>Almacén</strong>{{ worker.warehouse_location }}</p>
+      <h2>Estos son todos los empreados:</h2>
 
-              <!-- Acciones del empleado -->
-              <button [routerLink]="['/home/orderByWorker', worker.email]" class="edit-btn">Sus Pedidos</button>
-              <button (click)="openDEtails(worker)" class="edit-btn">ver detalles</button>
+@for(ware of warehouses; track $index){
+  <p> almacen de {{ware.location}}</p>
+        @for(worker of workersList; track $index){
+          @if(worker.warehouse_location === ware.location ){
+            <div class="content">
+              <div class="card-content">
+                <p><strong>Nombre</strong>{{ worker.name }}</p>
+                <p><strong>Apellidos</strong>{{ worker.surname }}</p>
+                <p><strong>Puesto</strong>{{ worker.role }}</p>
+                <p><strong>Almacén</strong>{{ worker.warehouse_location }}</p>
+  
+                <!-- Acciones del empleado -->
+                 @if(worker.role === "operario"){
+                  <button [routerLink]="['/orderByWorker', worker.email]" class="edit-btn">Sus Pedidos</button>
+                 }
+                
+
+                <button (click)="openDEtails(worker)" class="edit-btn">ver detalles</button>
+              </div>
             </div>
-          </div>
+          }
+          
         }
-    </section>
-</div>
+}
+
+     
+    
 
 @if(this.addModal === true){
     <app-add-worker (closeadd)="closeAddworker()"></app-add-worker>

@@ -60,14 +60,27 @@
           </div>
           <div class="form-group">
             <input
-              id="truck_plate"
+              id="password"
               type="text"
-              [(ngModel)]="newWorker.truck_plate"
-              name="truck_plate"
-              placeholder="matricula del camion"
+              [(ngModel)]="newWorker.password"
+              name="password"
+              placeholder="password"
               required
             />
           </div>
+          
+          <div class="form-group">
+            <label for="warehouse_location">matricula :</label>
+            <select  [(ngModel)]="newWorker.truck_plate" name="truck_plate" id="truck_plate" required>
+                <option value="" disabled selected>martricula </option>
+                @for(plate of truckplaces; track $index){
+                  <option value="{{plate.plate}}">{{plate.plate}}</option>
+                }
+                
+                
+              </select>
+          </div>
+
           <div class="form-group">
             <label for="role">status:</label>
             <select [(ngModel)]="newWorker.role" name="role" id="role" required>
@@ -81,11 +94,11 @@
             <label for="warehouse_location">ubicacion :</label>
             <select [(ngModel)]="newWorker.warehouse_location" name="location" id="warehouse_location" required>
                 <option value="" disabled selected>ubicacion </option>
-                <option value="madrid">madid</option>
-                <option value="valencia">valencia</option>
-                <option value="bilbao">bilbao</option>
-                <option value="sevilla">sevilla</option>
-                <option value="malaga">malaga</option>
+                @for(ware of warehouses; track $index){
+                  <option value="{{ware.location}}">{{ware.location}}</option>
+                }
+                
+                
               </select>
           </div>
 

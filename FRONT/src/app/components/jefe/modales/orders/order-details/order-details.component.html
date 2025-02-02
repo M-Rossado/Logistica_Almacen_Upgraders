@@ -8,7 +8,7 @@
       <div class="card-component">
         <p class="campo-list">
           <span><strong>Nº Pedido:</strong></span>
-          <span>{{ selectedEvent?.id_worker }}</span>
+          <span>{{ selectedEvent?.id_order }}</span>
         </p>
         <p class="campo-list">
           <span><strong>Tipo Artículo:</strong></span>
@@ -29,8 +29,8 @@
         </p>
 
         <p class="campo-list">
-          <span><strong>Origen:</strong></span>
-          <span>{{ selectedEvent?.origin }}</span>
+          <span><strong>origen:</strong></span>
+          <span>{{ selectedEvent?.warehouse_location}}</span>
         </p>
 
         <p class="campo-list">
@@ -43,12 +43,8 @@
           <span>{{ selectedEvent?.worker_email }}</span>
         </p>
         <p class="campo-list">
-          <span><strong>Ubicación del Almacén:</strong></span>
+          <span><strong>Ubicación Almacén:</strong></span>
           <span>{{ selectedEvent?.warehouse_location }}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>Matrícula Camión:</strong></span>
-          <span>{{ selectedEvent?.truck_plate }}</span>
         </p>
     </div>
   </div>
