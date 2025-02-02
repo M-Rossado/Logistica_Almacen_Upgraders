@@ -1,52 +1,42 @@
 <div class="modal">
   <div class="modal-content">
-    <button class="close" (click)="closeEditar()">×</button>
-    <div class="modal-head">
-      <h2>Editar Estado del Pedido</h2>
-    </div>
-    <div class="modal-body">
+    <div class="form-container">
+      <div>
+        <h2>Editar Estado del Pedido</h2>
+        <button class="close" (click)="closeEditar()">×</button>
+      </div>
+      <p>Pedido: {{editOrder.id}}</p>
+      <p>Fecha de entrada: {{editOrder.date_of_entry| date: 'dd/MM/yy'}} </p>
+      <p>Fecha de salida: {{editOrder.date_of_departure| date: 'dd/MM/yy'}}</p>
+      <p>Destino: {{editOrder.destination}}</p>
 
-<h3>Id: {{editOrder.id}}</h3>
-<h3>Fecha de entrada: {{editOrder.date_of_entry}} </h3>
-<h3>fecha de salida: {{editOrder.date_of_departure}}</h3>
-<h3>Destino: {{editOrder.destination}}</h3>
-
-
-
-
-        <form action="/submit" (ngSubmit)="handleEdit()">
-          <div class="form-group">
-            <label for="location">Estado:</label>
-            <select [(ngModel)]="editOrder.status" name="location" id="location" required>
-                <option value="" disabled selected>Seleccionar location</option>
-                <option value="EN TRANSITO">aceptado</option>
-                <option value="anulado">anulado</option>
-                <option value="rechazado">rechazado</option>
-              </select>
-          </div>
+      <form action="/submit" (ngSubmit)="handleEdit()">
+        <div class="form-group">
+          <label for="location">Estado:</label>
+          <select [(ngModel)]="editOrder.status" name="location" id="location" required>
+            <option value="" disabled selected>Seleccionar estado</option>
+            <option value="EN TRANSITO">aceptado</option>
+            <option value="anulado">anulado</option>
+            <option value="rechazado">rechazado</option>
+          </select>
+        </div>
 
 
-         
-
-          <div class="form-group">
-            <label for="comment"><strong>Comentario</strong></label>
-            <input
-              type="texarea" [(ngModel)]="editOrder.comment" name="comment" id="comment" placeholder="Solo si es anulado">
-          </div>
-
-          <div class="buttons">
-            <button type="submit" class="edit-btn">Guardar</button>
-            <button type="button" (click)="closeEditar()" class="edit-btn">Cancelar</button>
-          </div>
 
 
-        </form>
+        <div class="form-group">
+          <label for="comment"><strong>Comentario</strong></label>
+          <input type="texarea" [(ngModel)]="editOrder.comment" name="comment" id="comment"
+            placeholder="Solo si es anulado">
+        </div>
+
+        <div class="buttons">
+          <button type="submit" class="btn-1">Guardar</button>
+          <button type="button" (click)="closeEditar()" class="btn-1">Cancelar</button>
+        </div>
+
+
+      </form>
     </div>
   </div>
 </div>
-
-
-
-
-
-

@@ -2,32 +2,35 @@
 
 
 <div class="general">
-  <button (click)="comeback()" >volver atras</button>
     <section class="section">
       <div class="content-alta">
-        <button (click)="openaddWorker()" class="btn-2">Nuevo Empleado</button>
+        <button (click)="comeback()" class="bi-arrow-left-square back"></button>
+        <button (click)="openaddWorker()" class="btn-2" id="create">Nuevo Empleado</button>
       </div>
-      <h2>Estos son todos los empreados:</h2>
+      <!--<h2>Estos son todos los empreados:</h2>-->
 
 @for(ware of warehouses; track $index){
-  <p> almacen de {{ware.location}}</p>
+  <p class="title"> Almacen de {{ware.location}}</p>
         @for(worker of workersList; track $index){
           @if(worker.warehouse_location === ware.location ){
             <div class="content">
               <div class="card-content">
-                <p><strong>Nombre</strong>{{ worker.name }} {{ worker.surname }}</p>
-                <p><strong>Puesto</strong>{{ worker.role }}</p>
-                <p><strong>Almacén</strong>{{ worker.warehouse_location }}</p>
-  
+                <div class="card-content-1">
+                  <p>{{ worker.name }} {{ worker.surname }}</p>
+                <p><strong>Puesto: </strong>{{ worker.role }}</p>
+                <p><strong>Almacén: </strong>{{ worker.warehouse_location }}</p>
+                </div>
+                <div class="card-content-2">
                 <!-- Acciones del empleado -->
-                 @if(worker.role === "operario" ||worker.role ===  "camionero"){
-                  <button [routerLink]="['/orderByWorker', worker.email]" class="edit-btn">Sus Pedidos</button>
+                @if(worker.role === "operario" ||worker.role ===  "camionero"){
+                  <button [routerLink]="['/orderByWorker', worker.email]" class="btn-1 bi bi-box-seam">Ver pedidos</button>
                  }
                 
                  @if(worker.role !== "operario" && worker.role !==  "camionero"){
                   <button  class="edit-btn hidden">ocultar</button>
                  }
-                <button (click)="openDEtails(worker)" class="edit-btn">ver detalles</button>
+                <button (click)="openDEtails(worker)" class="btn-1 bi bi-clipboard2-plus-fill">Ver detalles</button>
+                </div>
               </div>
             </div>
           }

@@ -1,29 +1,29 @@
 
 <div class="modal">
   <div class="modal-content">
-    <button class="close" (click)="Close()">×</button>
-    <div class="modal-head">
-      <h2>Nuevo Almacén</h2>
-    </div>
-    <div class="modal-body">
-        <form action="/submit" (ngSubmit)="handleRegister()">
-          <div class="form-group">
-            <label for="name">Nombre:</label>
-            <input
-              id="name"
-              type="text"
-              [(ngModel)]="newOne.location"
-              name="name"
-              placeholder="Locacion Almacén"
-              required
-            />
-          </div>
-          <div class="buttons">
-            <button type="submit" class="edit-btn">Guardar</button>
-            <button type="button" (click)="Close()" class="edit-btn">Cancelar</button>
-          </div>
-        </form>
+    <div class="form-container">
+      <div>
+        <h2>Nuevo Almacén</h2>
+        <button class="close" (click)="Close()">×</button>
       </div>
+      <form action="/submit" (ngSubmit)="handleRegister()">
+        <div class="form-group">
+          <label for="name">Localización:</label>
+          <input
+            id="name"
+            type="text"
+            [(ngModel)]="newOne.location"
+            name="name"
+            placeholder="Indica la localización"
+            required
+          />
+        </div>
+        <div class="buttons">
+          <button type="submit" class="btn-1">Guardar</button>
+          <button type="button" (click)="Close()" class="btn-1">Cancelar</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 

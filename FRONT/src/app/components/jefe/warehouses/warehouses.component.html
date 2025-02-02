@@ -1,15 +1,18 @@
 <div class="general">
-  <button (click)="comeback()" >volver atras</button>
+  <div class="content-alta">
+    <button (click)="comeback()"  class="bi-arrow-left-square back"></button>
+    <button (click)="opendetails()" class="btn-2" id="create">Nuevo Almacén</button>
+  </div>
     <section class="section">
   
       <h2>Estos son todos los almacenes:</h2>
       <div class="content-alta">
-        <button (click)="opendetails()" class="edit-btn">Nuevo Almacén</button>
       </div>
         @for(warehouse of warehouses; track $index){
         <div class="content">
             <div class="card-content">
-                <p>Localizacion:<strong>{{warehouse.location}}</strong></p>
+                <p>Almacen en:</p>
+                <p class="location">{{warehouse.location}}</p>
             </div>
         </div>
         }

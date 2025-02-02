@@ -1,37 +1,39 @@
 
 <div class="modal">
   <div class="modal-content">
-    <button (click)="CloseDEtails()" class="close">×</button>
-    <div class="modal-head">
-      <h2>Detalles del Empleado</h2>
-    </div>
+    <div class="form-container">
+      <div class="form-group" id="title">
+        <h2>Detalles del Empleado</h2>
+        <button (click)="CloseDEtails()" class="close">×</button>
+      </div>
+      <div class="elements">
+        <div class="form-group">
+          <p>Empleado: {{ selecEvent?.id_worker }}</p>
+        </div>
 
-    <div class="modal-body">
-      <div class="card-component">
-        <p class="campo-list">
-          <span><strong>Nº Empleado:</strong></span>
-          <span>{{ selecEvent?.id_worker }}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>Nombre:</strong></span>
-          <span>{{ selecEvent?.name }}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>Apellidos:</strong></span>
-          <span>{{ selecEvent?.surname }}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>Cargo:</strong></span>
-          <span>{{ selecEvent?.role}}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>direccion:</strong></span>
-          <span>{{ selecEvent?.address}}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>email:</strong></span>
-          <span>{{ selecEvent?.email}}</span>
-        </p>
+        <div class="form-group">
+          <p>Nombre: {{ selecEvent?.name }}</p>
+        </div>
+
+        <div class="form-group">
+          <p>Apellidos: {{ selecEvent?.surname }}</p>
+        </div>
+
+
+      <div class="form-group">
+        <p>Puesto: {{ selecEvent?.role }}</p>
+      </div>
+
+      <div class="form-group">
+        <p>Dirección: {{ selecEvent?.address }}</p>
+      </div>
+
+      <div class="form-group">
+        <p>Dirección: {{ selecEvent?.address }}</p>
+      </div>
+
+      <div class="form-group">
+        <p>Email: {{ selecEvent?.email }}</p>
       </div>
     </div>
   </div>
