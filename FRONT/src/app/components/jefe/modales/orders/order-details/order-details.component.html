@@ -1,51 +1,45 @@
 <div class="modal">
   <div class="modal-content">
-    <button (click)="closeEDetails()" class="close">×</button>
-    <div class="modal-head">
-      <h2>Detalles del Pedido</h2>
+    <div class="form-container">
+      <div class="form-group" id="title">
+        <h2>Detalles del Pedido</h2>
+        <button (click)="closeEDetails()" class="close">X</button>
+      </div>
+      <div class="elements">
+        <div class="form-group">
+          <p>Pedido: <span>{{ selectedEvent?.id_order }}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p>Artículo: <span>{{ selectedEvent?.item_type }}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p>Estado: <span>{{ selectedEvent?.status }}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p>Fecha entrada: <span>{{ selectedEvent?.date_of_entry | date: 'dd/MM/yy' }}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p>Fecha salida: <span>{{ selectedEvent?.date_of_departure | date: 'dd/MM/yy' }}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p>Almacen: <span>{{ selectedEvent?.warehouse_location }}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p>Destino: <span>{{ selectedEvent?.destination }}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p>Conductor: <span>{{ selectedEvent?.worker_email }}</span></p>
+        </div>
+
+      </div>
     </div>
-    <div class="modal-body">
-      <div class="card-component">
-        <p class="campo-list">
-          <span><strong>Nº Pedido:</strong></span>
-          <span>{{ selectedEvent?.id_order }}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>Tipo Artículo:</strong></span>
-          <span>{{ selectedEvent?.item_type }}</span>
-        </p>
-        <p class="campo-list">
-          <!-- TODO: icono? -->
-          <span><strong>Estado:</strong></span>
-          <span>{{ selectedEvent?.status }}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>F. Entrada:</strong></span>
-          <span>{{ selectedEvent?.date_of_entry | date: 'dd/MM/yy' }}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>F. Salida:</strong></span>
-          <span>{{ selectedEvent?.date_of_departure | date: 'dd/MM/yy' }}</span>
-        </p>
-
-        <p class="campo-list">
-          <span><strong>origen:</strong></span>
-          <span>{{ selectedEvent?.warehouse_location}}</span>
-        </p>
-
-        <p class="campo-list">
-          <span><strong>Destino:</strong></span>
-          <span>{{ selectedEvent?.destination }}</span>
-        </p>
-
-        <p class="campo-list">
-          <span><strong>Conductor Asignado:</strong></span>
-          <span>{{ selectedEvent?.worker_email }}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>Ubicación Almacén:</strong></span>
-          <span>{{ selectedEvent?.warehouse_location }}</span>
-        </p>
+    
     </div>
-  </div>
 </div>
