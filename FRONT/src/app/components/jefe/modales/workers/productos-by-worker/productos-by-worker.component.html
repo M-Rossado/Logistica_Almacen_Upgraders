@@ -5,24 +5,25 @@
   </div>
 <section class="section">
   <h2>Estos son todos los pedidos:</h2>
-
-      @for(event of events; track $index){
+<div class="list-element-group">
+  @for(event of events; track $index){
           
-      <div class="card-content">
-        <div class="campo-list ico-status">
-          <i [class]="'bi ' + getIconClass(event.status)"></i> <!-- Icono dinámico -->
-          <p>{{ event.status }}</p>
+    <div class="card-content">
+      <div class="campo-list ico-status">
+        <i [class]="'bi ' + getIconClass(event.status)"></i> <!-- Icono dinámico -->
+        <p>{{ event.status }}</p>
 
-        </div>
-        <div class="card-content-element">
-          <p class="campo-list">Nº de pedido: <span>{{ event.id_order }}</span></p>
-          <p class="campo-list">Salida: <span>{{ event.date_of_departure | date: 'dd/MM/yy'}}</span></p>
-          <p class="campo-list">Almacen: <span>{{ event.warehouse_location }}</span></p>  
-        </div>
       </div>
-   
-        
-    }
+      <div class="card-content-element">
+        <p class="campo-list">Nº de pedido: <span>{{ event.id_order }}</span></p>
+        <p class="campo-list">Salida: <span>{{ event.date_of_departure | date: 'dd/MM/yy'}}</span></p>
+        <p class="campo-list">Almacen: <span>{{ event.warehouse_location }}</span></p>  
+      </div>
+    </div>
+ 
+      
+  }
+</div>
 </section>      
  </div>    
           

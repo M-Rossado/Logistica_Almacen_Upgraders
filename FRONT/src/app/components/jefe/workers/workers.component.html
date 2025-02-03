@@ -10,7 +10,7 @@
       <!--<h2>Estos son todos los empreados:</h2>-->
 
 @for(ware of warehouses; track $index){
-  <p class="title"> Almacen de {{ware.location}}</p>
+  <p class="title"> <span>Almacen de {{ware.location}}</span></p>
         @for(worker of workersList; track $index){
           @if(worker.warehouse_location === ware.location ){
             <div class="content">

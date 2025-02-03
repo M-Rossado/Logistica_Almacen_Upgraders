@@ -25,7 +25,7 @@ export class DetalleOperarioComponent {
 
   ngOnInit() {
     // Recuperar el email del usuario desde el localStorage
-    const email = localStorage.getItem('email'); // Asegúrate de que el email esté guardado en 'userEmail'
+    const email = localStorage.getItem('email');
     
     if (email) {
       this.getPedidos(email);  // Llamas al método con el email recuperado

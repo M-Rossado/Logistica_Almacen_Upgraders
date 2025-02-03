@@ -1,44 +1,46 @@
 <div class="modal">
   <div class="modal-content">
-    <button (click)="Close()"class="close">×</button>
-    <div class="modal-head">
-      <h2>Detalles del Pedido</h2>
-    </div>
-
-    <div class="modal-body">
-      <div class="card-component">
-        <p class="campo-list">
-          <span><strong>Nº Pedido:</strong></span>
-          <span>{{order?.id_order}}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>Tipo:</strong></span>
-          <span>{{ order?.item_type}}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>Estado:</strong></span>
-          <span>{{ order?.status }}</span></p>
-        <p class="campo-list">
-          <span><strong>F. Salida:</strong></span>
-          <span>{{ order?.date_of_departure | date: 'dd/MM/yy' }}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>F. Entrada:</strong></span>
-          <span>{{ order?.date_of_entry | date: 'dd/MM/yy' }}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>Destino:</strong></span>
-          <span>{{ order?.destination }}</span>
-        </p>
-        <p class="campo-list">
-          <span><strong>Almacen:</strong></span>
-          <span>{{ order?.warehouse_location }}</span>
-        </p>
+    <div class="form-container">
+      <div class="form-group" id="title">
+        <h2>Detalles del Pedido</h2>
+        <button (click)="Close()"class="close">×</button>
       </div>
+      <div class="elements">
+        <div class="form-group">
+          <p>Nª pedido: <span>{{order?.id_order}}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p>Pedido: <span>{{order?.item_type}}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p>Estado: <span>{{order?.status}}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p>Fecha de salida: <span>{{order?.date_of_departure | date: 'dd/MM/yy'}}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p>Fecha de entrada: <span>{{order?.date_of_entry | date: 'dd/MM/yy'}}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p>Destino: <span>{{ order?.destination }}</span></p>
+        </div>
+        
+        <div class="form-group">
+          <p>Almacen: <span>{{ order?.warehouse_location }}</span></p>
+        </div>
+
+      </div>
+    </div>
+    <div class="modal-head">
     </div>
     <div class="buttons">
       <!-- <button class="bi bi-arrow-left-square-fill close" (click)="Close()"></button> -->
-      <button class="edit-btn" (click)="editOrder(order)">Editar</button>
+      <button class="btn-1" (click)="editOrder(order)">Editar</button>
     </div>
   </div>
 </div>

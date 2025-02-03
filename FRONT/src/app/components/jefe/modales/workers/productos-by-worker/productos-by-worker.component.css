@@ -24,6 +24,7 @@
     flex-direction: row;
     align-items: anchor-center;
     justify-content: space-between;
+    width: 95%;
   }
   
   .campo-list{
@@ -75,10 +76,23 @@
     padding: 5px 8px;
     width: fit-content;
   }
+
+  .list-element-group{
+    display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+  }
   
   @media (min-width: 992px) {
+
+    .list-element-group{
+          flex-wrap: wrap;
+          justify-content: center;
+    }
     .card-content{
       justify-content: space-around;
+      width: 40%;
+      max-width: 400px;
     }
     .none-mb{
       display: block;

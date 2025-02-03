@@ -71,6 +71,17 @@ p{
   width: 100%;
 }
 
+.comment{
+  background: grey;
+  width: 100%;
+  padding: 10px 10px 20px;
+  border-radius: 5px;
+  border: solid 1px white;
+  text-transform: math-auto;
+  font-weight: 400;
+  font-size: 14px;
+}
+
 .inf {
   width: 90%;
   margin: 60px auto 0;
