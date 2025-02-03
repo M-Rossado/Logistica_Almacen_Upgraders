@@ -9,4 +9,6 @@ export const ICON_MAPPER: { [key: string]: string } = {
   'Preparación': 'bi-battery-charging', // Ícono para "Completado"z
   'Rechazado': ' bi-clipboard-x', // Ícono para "Completado"z
   'Anulado': ' bi-trash3', // Ícono para "Completado"z
+  'Aceptado': 'bi-bookmark-check-fill', // Ícono para "Completado"
+
 };

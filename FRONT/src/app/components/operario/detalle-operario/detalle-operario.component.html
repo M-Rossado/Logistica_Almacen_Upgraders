@@ -33,11 +33,15 @@
         </div>
 
         <div class="form-group">
-          <p for="warehouse_location">Camionero Asignado: <span class="email">{{ order.worker_email }}</span></p>
+          <p for="worker_email">Camionero Asignado: <span class="email">{{ order.worker_email }}</span></p>
         </div>
 
         <div class="form-group">
-          <p for="warehouse_location">Operario: <span class="email">{{ order.email_operator }}</span></p>
+          <p for="email_operator">Operario: <span class="email">{{ order.email_operator }}</span></p>
+        </div>
+
+        <div class="form-group">
+          <p for="comment" class="comment">{{ order.comment }}</p>
         </div>
       </div>
 

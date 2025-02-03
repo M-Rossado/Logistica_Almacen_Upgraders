@@ -30,17 +30,23 @@ h2{
 
 .campo-list{
   font-size: 14px;
-  width: 100px;
+  width: 100%;
 }
 .campo-list span{
   font-size: 18px;
 }
 .campo-list.ico-status {
-  font-size: 35px;
-  width: 40px;
+  border-right: solid 1px white;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  margin-left: -5px;
 }
 .none-mb{
   display: none;
+}
+.element-list{
+  width: 200px;
 }
 
 .edit-btn{
@@ -52,13 +58,27 @@ h2{
   width: fit-content;
 }
 
+.ico-status .bi{
+  font-size: 30px;
+}
+p{
+  margin: 0;
+}
+
 @media (min-width: 992px) {
   .card-content{
     justify-content: space-around;
+    width: 40%;
+    height: 160px;
   }
   .none-mb{
     display: block;
     width: 60px;
+  }
+  .list-element-group{
+    display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
   }
 }
 @media (min-width: 1200px) {

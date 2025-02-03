@@ -4,141 +4,159 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 66%);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  padding-top: 60px;
+  flex-direction: column;
+}
+
+p{
+  margin: 0;
 }
 
 .modal-content {
   display: flex;
   background-color: #494949;
   color: #ffffff;
-  padding: 35px 40px;
-  width: max-content;
   align-items: center;
-}
-.modal-head{
-  margin-top: 10px;
-  text-align: center;
-  color: #ee8941;
+  max-width: 500px;
+  width: 90%;
 }
 
-.modal-body {
-  margin-top: 10px;
+.elements {
+  width: 80%;
+  margin: 20px auto 0;
+}
+
+select{
+  word-wrap: normal;
+  background: none;
+  border: solid 1px white;
+  border-radius: 50px;
+  padding: 10px 40px;
+  color: white;
+}
+
+label{
+  margin-bottom: 10px;
+}
+
+.form-container {
+  width: 100%;
+}
+
+.form-group{
+  display: flex;
+  padding: 10px 0;
+  min-height: 70px;
+  align-items: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  flex-direction: column;
+}
+
+.form-group span{
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.form-group .email{
+  text-transform: lowercase;
+}
+
+.create {
+  background-color: #ee8941;
+  color: white;
+  font-size: 20px;
+  border: none;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 600;
+  height: 70px;
+  border-radius: 35px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.inf {
+  width: 90%;
+  margin: 60px auto 0;
+}
+
+.modal h2 {
+  font-size: 25px;
   text-align: center;
+  color: white;
+  background-color: #ee8941;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: var(--bs-modal-border-radius);
+  border-top-left-radius: var(--bs-modal-border-radius);
+  width: 100%;
 }
 
 .close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
+  color: #ee8941;
   border: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-  cursor: pointer;
+  font-size: 35px;
+  background: white;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  padding: 0px 0px 48px 0px;
+  line-height: 1.3;
+  top: -25px;
+  right: -25px;
   transition: transform 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  position: absolute;
 }
 
 .close:hover {
-  color: #ee8941;
-  transform: scale(1.1);
-}
-
-.card-content{
-  background-color: #494949;
-  color: #ffffff;
-  padding: 20px;
-  position: relative;
-  width: 80%;
-  display: inline-block;
-}
-
-/* Estilos para formularios de modales */
-.form-container {
-  width: 30%;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #494949;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  color: whitesmoke;
-  z-index: 1000;
-}
-
-.form-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.form-group {
-  background-color: #494949;
-  color: #ffffff;
-  margin-bottom: 15px;
-  display:flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.form-group label {
-  display: flex;
-  margin-bottom: 5px;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 80%;
-  padding: 0.8rem;
-  border-radius: 25px;
-  font-size: 1rem;
-  background-color: #5b5b5b;
-  color: #ffffff;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  border-color: #494949;
-}
-
-.form-actions {
-  display: flex;
-  justify-content: space-between;
-}
-
-
-/* Estilos de botones */
-.edit-btn{
-  background-color: #ee8941;
   color: white;
-  border-radius: 20px;
-  font-weight: 800;
-  padding: 5px 8px;
-  width: fit-content;
+  transform: scale(1.1);
+  background-color: #ee8941;
 }
 
-@media (min-width: 992px) {
-  .card-content{
-    justify-content: space-around;
-  }
-}
-@media (min-width: 1200px) {
-  .campo-list span {
-    width: 170px;
-  }
-
-  .edit-btn:hover{
-    background-color: #c06627;
-    cursor: pointer;
-    transform: scale(1.05)
-  }
+.button-group{
+  text-align: center;
+  margin: 20px 0;
 }
 
 
+#title{
+  width: 100%;
+  border: none;
+  padding: 0;
 
+}
+
+.bi {
+  margin-right: 10px;
+  font-size: 30px;
+}
+
+.inf p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+strong {
+  margin-right: 10px;
+}
+
+.inf>* {
+  border-bottom: solid 1px white;
+  padding: 20px 0
+}

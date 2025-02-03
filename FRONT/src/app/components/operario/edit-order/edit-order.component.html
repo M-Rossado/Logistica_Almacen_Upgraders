@@ -9,7 +9,7 @@
 
         <div class="form-group">
           <label for="item_type">Tipo de artículo:</label>
-          <input id="item_type" name="item_type" [(ngModel)]="editOrder.item_type" type="text" readonly />
+          <input id="item_type" name="item_type" [(ngModel)]="editOrder.item_type" type="text" />
         </div>
 
         <div class="form-group">
@@ -46,7 +46,7 @@
 
         <div class="form-group">
           <label for="email_operator">Correo del operario</label>
-          <input id="email_operator" name="email_operator" [(ngModel)]="editOrder.email_operator" type="email"
+          <input id="email_operator" name="email_operator" [(ngModel)]="editOrder.email_operator" type="email" readonly
            />
         </div>
         <div class="button-group">

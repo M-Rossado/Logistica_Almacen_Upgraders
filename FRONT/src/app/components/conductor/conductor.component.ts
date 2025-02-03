@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { HomeServiceService } from '../service/home-service.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ICON_MAPPER } from '../../../assets/icon-mapper'; // Importa el mapeo
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { DetalleConductorComponent } from './detalle-conductor/detalle-conductor.component';
@@ -10,7 +10,7 @@ import { OrderService } from './services/order.service';
 @Component({
   selector: 'app-conductor',
   standalone: true,
-  imports: [DetalleConductorComponent, CommonModule, EditOrderComponent],
+  imports: [DetalleConductorComponent, CommonModule, EditOrderComponent, DatePipe],
   templateUrl: './conductor.component.html',
   styleUrl: './conductor.component.css'
 })

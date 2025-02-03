@@ -43,11 +43,19 @@ export class EditOrderComponent {
   getEdit() {
     if (this.selectedOrder) {
       this.editOrder.item_type = this.selectedOrder.item_type;
-      this.editOrder.status = this.selectedOrder.status;
-      this.editOrder.date_of_entry = this.editOrder.date_of_entry.split('T')[0];
-      this.editOrder.date_of_departure = this.editOrder.date_of_departure.split('T')[0];
+      this.editOrder.status = this.selectedOrder.status = 'Revisión';
+      this.editOrder.date_of_entry = this.selectedOrder.date_of_entry.split('T')[0];
+      this.editOrder.date_of_departure = this.selectedOrder.date_of_departure.split('T')[0];
       this.editOrder.destination = this.selectedOrder.destination;
       this.editOrder.warehouse_location = this.selectedOrder.warehouse_location;
+  
+      // Obtener el email del operador desde localStorage
+      const storedEmail = localStorage.getItem('email');
+      if (storedEmail) {
+        this.editOrder.email_operator = storedEmail;
+      } else {
+        console.warn('No se encontró email_operator en localStorage');
+      }
     } else {
       console.error('No se ha seleccionado ningún pedido para editar.');
     }

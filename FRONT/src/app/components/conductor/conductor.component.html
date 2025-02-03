@@ -3,63 +3,37 @@
       <p class="saludo">Hola, {{ name }}</p>
       <h2>Estos son tus pedidos asignados</h2>
       <div class="list-element-group">
+        @for(order of ordersList; track $index){
+          <div class="card-content">
+            <div class="campo-list ico-status">
+                <i [class]="'bi ' + getIconClass(order.status)">
+                  <!-- <br>{{ order.status }} -->
+                </i> <!-- Icono dinámico -->
+            </div>
+            <div class="element-list">
+              <p class="campo-list">Fecha salida:{{ order.date_of_departure | date: 'dd/MM/yy' }} </p>
+              <p class="campo-list">Destino:{{ order.destination }}</p>
+            </div>
         
-      </div>
-      @for(order of ordersList; track $index){
-        @if(order.status === "EN TRANSITO"){
-          <div class="card-content">
-            <div class="campo-list ico-status">
-                <i [class]="'bi ' + getIconClass(order.status)">
-                  <!-- <br>{{ order.status }} -->
-                </i> <!-- Icono dinámico -->
-            </div>
-    
-            <p class="campo-list none-mb"><span><strong><br>ID:{{ order.id_order }}</strong></span></p>
-            <!-- <p class="campo-list">Estado<strong><br>{{ order.status }}</strong></span></p> -->
-            <p class="campo-list">F. salida:<br><span><strong>{{ order.date_of_departure | date: 'dd/MM/yy' }}</strong></span> </p>
-            <p class="campo-list">destino:<br><span><strong>{{ order.destination }}</strong></span></p>
-            <button (click)="mostrarDetalle(order)" class="edit-btn">Detalle</button>
-          </div>
-        }
-      
-      }
-      </div>
-
-
-<div class="pedidosDone">
-      <h2>estos son tus pedidos ENTREGADOS </h2>
-      @for(order of ordersList; track $index){
-        @if(order.status === "EN TRANSITO"){
-          <div class="card-content">
-            <div class="campo-list ico-status">
-                <i [class]="'bi ' + getIconClass(order.status)">
-                  <!-- <br>{{ order.status }} -->
-                </i> <!-- Icono dinámico -->
-            </div>
-    
-            <p class="campo-list none-mb"><span><strong><br>ID:{{ order.id_order }}</strong></span></p>
-            <!-- <p class="campo-list">Estado<strong><br>{{ order.status }}</strong></span></p> -->
-            <p class="campo-list">F. salida:<br><span><strong>{{ order.date_of_departure | date: 'dd/MM/yy' }}</strong></span> </p>
-            <p class="campo-list">destino:<br><span><strong>{{ order.destination }}</strong></span></p>
-            <button (click)="mostrarDetalle(order)" class="edit-btn">Detalle</button>
+            <button (click)="mostrarDetalle(order)" class="btn-1 bi bi-clipboard2-plus-fill">Ver detalle</button>
           </div>
           }
+          @if(this.showDetail === true){
+            <app-detalle-conductor
+            (closeModal)="closeDetail()"
+            (openEditModal)="openEditModal($event)"
+            *ngIf="selectedOrder"
+            [order]="selectedOrder"
+            ></app-detalle-conductor>
         }
-      
-     </div>
-      @if(this.showDetail === true){
-          <app-detalle-conductor
-          (closeModal)="closeDetail()"
-          (openEditModal)="openEditModal($event)"
-          *ngIf="selectedOrder"
-          [order]="selectedOrder"
-          ></app-detalle-conductor>
-      }
-      @if(this.showEditOrder === true) {
-          <app-edit-order
-              (closeModal)="closeEditOrder()"
-              [order]="selectedOrder">
-          </app-edit-order>
-      }
+        @if(this.showEditOrder === true) {
+            <app-edit-order
+                (closeModal)="closeEditOrder()"
+                [order]="selectedOrder">
+            </app-edit-order>
+        }
+      </div>
+
+
   </section>
 </div>

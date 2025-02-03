@@ -42,6 +42,14 @@ h2 {
 .title {
   text-align: center;
   text-transform: uppercase;
+  margin-top: 50px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.title span{
+  border-bottom: solid 1px #ee8941;
+  padding-bottom: 3px;
 }
 
 .card-content-2 button::before {
